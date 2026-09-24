@@ -541,71 +541,344 @@
                             </div>
                         </div>
 
-                        <style>
-        * { box-sizing: border-box; }
-        body { margin: 0; background: #f3f7fb; color: #17283a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .wrap { max-width: 1180px; margin: 25px auto; padding: 0 14px; }
-        .head { background: linear-gradient(135deg, #123b63, #216c9e); color: #fff; padding: 26px; border-radius: 18px 18px 0 0; }
-        .head h1 { margin: 0 0 7px; font-size: 30px; }
-        .head p { margin: 0; color: #dcebf7; }
-        .box { background: #fff; padding: 24px; border: 1px solid #d8e4ed; border-top: 0; border-radius: 0 0 18px 18px; }
-        section { margin-bottom: 25px; }
-        h2 { font-size: 19px; color: #123b63; border-bottom: 2px solid #e5edf4; padding-bottom: 9px; }
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-        .field { display: flex; flex-direction: column; }
-        .field label { font-size: 12px; font-weight: bold; margin-bottom: 6px; color: #40566b; }
-        .field label span { color: #d11; }
-        input, select { height: 43px; border: 1px solid #c8d6e2; border-radius: 9px; padding: 0 11px; font-size: 14px; background: #fff; color: #17283a; }
-        input:focus, select:focus { outline: none; border-color: #2778ad; box-shadow: 0 0 0 3px #2778ad18; }
-        input:disabled { background: #edf2f6; color: #9aa8b3; cursor: not-allowed; }
-        .budget { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
-        .budget .field { background: #f7fafc; border: 1px solid #e0e8ef; border-radius: 12px; padding: 13px; }
-        .note { font-size: 11px; color: #72859a; line-height: 1.5; margin-top: 8px; }
-        .buttons { display: flex; gap: 9px; margin-top: 15px; }
-        .btn { border: 0; border-radius: 9px; padding: 12px 22px; font-weight: bold; cursor: pointer; font-size: 14px; }
-        .calc { background: #123b63; color: #fff; }
-        .calc:hover { background: #1b538a; }
-        .reset { background: #e8eff5; color: #123b63; }
-        .reset:hover { background: #d3e1ed; }
-        .error { display: none; background: #fff0f0; color: #a71919; border: 1px solid #eab3b3; border-radius: 9px; padding: 11px; margin: 15px 0; font-size: 13px; }
-        .results { display: none; margin-top: 25px; }
-        .results.show { display: block; }
-        .resulthead { background: #123b63; color: #fff; padding: 17px 20px; border-radius: 14px 14px 0 0; }
-        .resulthead h2 { color: #fff; border: 0; margin: 0; padding: 0; }
-        .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px 0; }
-        .card { background: #fff; border: 1px solid #d6e3ed; border-radius: 12px; padding: 14px; box-shadow: 0 4px 15px #123b6310; }
-        .label { font-size: 10px; text-transform: uppercase; color: #718396; font-weight: bold; }
-        .value { font-size: 18px; font-weight: 800; color: #123b63; margin-top: 5px; }
-        .platforms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 15px; }
-        .pcard { background: #fff; border: 1px solid #d6e3ed; border-radius: 13px; padding: 16px; }
-        .pcard h3 { margin: 0 0 12px; color: #123b63; font-size: 16px; }
-        .metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-        .metric { background: #f5f9fc; padding: 9px; border-radius: 8px; }
-        .metric small { display: block; color: #718396; font-size: 9px; text-transform: uppercase; }
-        .metric strong { display: block; color: #173d62; font-size: 13px; margin-top: 3px; }
-        .tablewrap { overflow: auto; margin-top: 14px; border: 1px solid #e1e9ef; border-radius: 12px; }
-        .table { width: 100%; border-collapse: collapse; background: #fff; }
-        .table th { background: #123b63; color: #fff; padding: 11px; font-size: 11px; text-align: center; }
-        .table td { padding: 10px; border-bottom: 1px solid #e1e9ef; font-size: 12px; text-align: center; color: #334e68; }
-        .table tr:last-child td { font-weight: bold; background: #edf5fb; }
-        @media(max-width: 900px) {
-            .grid, .budget { grid-template-columns: repeat(2, 1fr); }
-            .cards { grid-template-columns: repeat(2, 1fr); }
-            .platforms { grid-template-columns: 1fr; }
-        }
-        @media(max-width: 600px) {
-            .wrap { margin: 8px auto; padding: 0 7px; }
-            .head { padding: 20px 16px; }
-            .head h1 { font-size: 22px; }
-            .box { padding: 16px; }
-            .grid, .budget { grid-template-columns: 1fr; }
-            .cards { grid-template-columns: 1fr; }
-            .buttons { flex-direction: column; }
-            .btn { width: 100%; }
-        }
-    </style>
+                       <style>
 
-                        <div class="wrap">
+/* =============================
+   Scoped calculator styles only
+   Nothing here styles the WordPress/theme page outside this calculator.
+   ============================= */
+#adCampaignCalculator,
+#adCampaignCalculator * { box-sizing: border-box; }
+
+#adCampaignCalculator {
+    max-width: 1180px;
+    margin: 25px auto;
+    padding: 0 14px;
+    background: transparent;
+    color: #17283a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.4;
+}
+
+#adCampaignCalculator .wrap {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#adCampaignCalculator .head {
+    background: linear-gradient(135deg, #123b63, #216c9e);
+    color: #fff;
+    padding: 26px;
+    border-radius: 18px 18px 0 0;
+}
+
+#adCampaignCalculator .head h1 {
+    margin: 0 0 7px;
+    padding: 0;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #fff;
+}
+
+#adCampaignCalculator .head p {
+    margin: 0;
+    padding: 0;
+    color: #dcebf7;
+}
+
+#adCampaignCalculator .box {
+    background: #fff;
+    padding: 24px;
+    border: 1px solid #d8e4ed;
+    border-top: 0;
+    border-radius: 0 0 18px 18px;
+}
+
+#adCampaignCalculator section {
+    margin: 0 0 25px;
+    padding: 0;
+}
+
+#adCampaignCalculator h2 {
+    margin: 0 0 18px;
+    padding: 0 0 9px;
+    font-size: 19px;
+    line-height: 1.25;
+    color: #123b63;
+    border-bottom: 2px solid #e5edf4;
+}
+
+#adCampaignCalculator .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+#adCampaignCalculator .field {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#adCampaignCalculator .field label {
+    display: block;
+    margin: 0 0 6px;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #40566b;
+}
+
+#adCampaignCalculator .field label span { color: #d11; }
+
+#adCampaignCalculator input,
+#adCampaignCalculator select {
+    width: 100%;
+    height: 43px;
+    min-height: 43px;
+    margin: 0;
+    border: 1px solid #c8d6e2;
+    border-radius: 9px;
+    padding: 0 11px;
+    font-size: 14px;
+    line-height: 43px;
+    background: #fff;
+    color: #17283a;
+    box-shadow: none;
+}
+
+#adCampaignCalculator input:focus,
+#adCampaignCalculator select:focus {
+    outline: none;
+    border-color: #2778ad;
+    box-shadow: 0 0 0 3px #2778ad18;
+}
+
+#adCampaignCalculator input:disabled,
+#adCampaignCalculator select:disabled {
+    background: #edf2f6;
+    color: #9aa8b3;
+    cursor: not-allowed;
+}
+
+#adCampaignCalculator .budget {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+}
+
+#adCampaignCalculator .budget .field {
+    background: #f7fafc;
+    border: 1px solid #e0e8ef;
+    border-radius: 12px;
+    padding: 13px;
+}
+
+#adCampaignCalculator .note {
+    margin: 8px 0 0;
+    padding: 0;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #72859a;
+}
+
+#adCampaignCalculator .buttons {
+    display: flex;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+#adCampaignCalculator .btn {
+    border: 0;
+    border-radius: 9px;
+    padding: 12px 22px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.2;
+    min-height: 43px;
+}
+
+#adCampaignCalculator .calc { background: #123b63; color: #fff; }
+#adCampaignCalculator .calc:hover { background: #1b538a; }
+#adCampaignCalculator .reset { background: #e8eff5; color: #123b63; }
+#adCampaignCalculator .reset:hover { background: #d3e1ed; }
+
+#adCampaignCalculator .error {
+    display: none;
+    background: #fff0f0;
+    color: #a71919;
+    border: 1px solid #eab3b3;
+    border-radius: 9px;
+    padding: 11px;
+    margin: 15px 0;
+    font-size: 13px;
+}
+
+#adCampaignCalculator .results {
+    display: none;
+    margin-top: 25px;
+    scroll-margin-top: 120px;
+}
+
+#adCampaignCalculator .results.show { display: block; }
+
+#adCampaignCalculator .resulthead {
+    background: #123b63;
+    color: #fff;
+    padding: 17px 20px;
+    border-radius: 14px 14px 0 0;
+}
+
+#adCampaignCalculator .resulthead h2 {
+    color: #fff;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#adCampaignCalculator .cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+}
+
+#adCampaignCalculator .card {
+    background: #fff;
+    border: 1px solid #d6e3ed;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 4px 15px #123b6310;
+}
+
+#adCampaignCalculator .label {
+    font-size: 10px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #718396;
+    font-weight: 700;
+}
+
+#adCampaignCalculator .value {
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 800;
+    color: #123b63;
+    margin-top: 5px;
+}
+
+#adCampaignCalculator .platforms {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 15px;
+}
+
+#adCampaignCalculator .pcard {
+    background: #fff;
+    border: 1px solid #d6e3ed;
+    border-radius: 13px;
+    padding: 16px;
+}
+
+#adCampaignCalculator .pcard h3 {
+    margin: 0 0 12px;
+    padding: 0;
+    color: #123b63;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+#adCampaignCalculator .metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+#adCampaignCalculator .metric {
+    background: #f5f9fc;
+    padding: 9px;
+    border-radius: 8px;
+}
+
+#adCampaignCalculator .metric small {
+    display: block;
+    color: #718396;
+    font-size: 9px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+#adCampaignCalculator .metric strong {
+    display: block;
+    color: #173d62;
+    font-size: 13px;
+    line-height: 1.25;
+    margin-top: 3px;
+}
+
+#adCampaignCalculator .tablewrap {
+    overflow: auto;
+    margin-top: 14px;
+    border: 1px solid #e1e9ef;
+    border-radius: 12px;
+}
+
+#adCampaignCalculator .table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+#adCampaignCalculator .table th {
+    background: #123b63;
+    color: #fff;
+    padding: 11px;
+    font-size: 11px;
+    line-height: 1.3;
+    text-align: center;
+}
+
+#adCampaignCalculator .table td {
+    padding: 10px;
+    border-bottom: 1px solid #e1e9ef;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    color: #334e68;
+}
+
+#adCampaignCalculator .table tr:last-child td {
+    font-weight: 700;
+    background: #edf5fb;
+}
+
+@media(max-width: 900px) {
+    #adCampaignCalculator .grid,
+    #adCampaignCalculator .budget { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #adCampaignCalculator .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #adCampaignCalculator .platforms { grid-template-columns: 1fr; }
+}
+
+@media(max-width: 600px) {
+    #adCampaignCalculator { margin: 8px auto; padding: 0 7px; }
+    #adCampaignCalculator .head { padding: 20px 16px; }
+    #adCampaignCalculator .head h1 { font-size: 22px; }
+    #adCampaignCalculator .box { padding: 16px; }
+    #adCampaignCalculator .grid,
+    #adCampaignCalculator .budget { grid-template-columns: 1fr; }
+    #adCampaignCalculator .cards { grid-template-columns: 1fr; }
+    #adCampaignCalculator .buttons { flex-direction: column; }
+    #adCampaignCalculator .btn { width: 100%; }
+}
+</style>
+
+                        <div id="adCampaignCalculator"><div class="wrap">
         <div class="head">
             <h1>Ad Campaign Calculator</h1>
             <p>Plan and estimate professional Google, Meta, Facebook, and Instagram advertising performance.</p>
@@ -737,8 +1010,8 @@
             <div class="error" id="errorBox"></div>
 
             <div class="buttons">
-                <button class="btn calc" onclick="calculateCampaign()">Calculate Campaign Analytics</button>
-                <button class="btn reset" onclick="resetForm()">Reset Form</button>
+                <button type="button" class="btn calc" onclick="calculateCampaign()">Calculate Campaign Analytics</button>
+                <button type="button" class="btn reset" onclick="resetForm()">Reset Form</button>
             </div>
 
             <!-- SECTION 3: RESULTS -->
@@ -762,11 +1035,11 @@
                         <tbody id="detailedTableBody"></tbody>
                     </table>
                 </div>
-                <p class="note">Disclaimer: Results are estimates based on the selected industry benchmark assumptions. Actual campaign performance can vary by platform, audience, creative, location, bidding, competition, and market conditions.</p>
+                <p class="note">Disclaimer: Estimates are derived from standard digital marketing benchmark metrics and are subject to market conditions.</p>
             </div>
 
         </div>
-    </div>
+    </div></div>
 
     <script>
         const $ = id => document.getElementById(id);
@@ -789,17 +1062,12 @@
             "Instagram": ["Brand Awareness", "Sales", "Engagement", "Profile Visits", "Reels Views"]
         };
 
-        /*
-         * Benchmark model
-         * CTR is the primary traffic benchmark.
-         * CPC and CPM are used as consistency checks / display metrics.
-         */
         const industryBenchmarks = {
-            "real estate": { ctr: 0.025, cpc: 2.50, cpm: 12.00, leadRate: 0.05, salesRate: 0.015, ltv: 8000 },
-            "e-commerce": { ctr: 0.022, cpc: 0.95, cpm: 8.50, leadRate: 0.08, salesRate: 0.035, ltv: 120 },
-            "finance": { ctr: 0.020, cpc: 3.80, cpm: 18.00, leadRate: 0.04, salesRate: 0.02, ltv: 1500 },
-            "education": { ctr: 0.025, cpc: 1.80, cpm: 10.00, leadRate: 0.06, salesRate: 0.025, ltv: 2500 },
-            "default": { ctr: 0.020, cpc: 1.50, cpm: 10.00, leadRate: 0.06, salesRate: 0.025, ltv: 350 }
+            "real estate": { cpc: 2.50, cpm: 12.00, leadRate: 0.05, salesRate: 0.015, ltv: 8000 },
+            "e-commerce": { cpc: 0.95, cpm: 8.50, leadRate: 0.08, salesRate: 0.035, ltv: 120 },
+            "finance": { cpc: 3.80, cpm: 18.00, leadRate: 0.04, salesRate: 0.02, ltv: 1500 },
+            "education": { cpc: 1.80, cpm: 10.00, leadRate: 0.06, salesRate: 0.025, ltv: 2500 },
+            "default": { cpc: 1.50, cpm: 10.00, leadRate: 0.06, salesRate: 0.025, ltv: 350 }
         };
 
         function platformChange() {
@@ -890,7 +1158,7 @@
                 ['totalBudget', 'Total Budget']
             ];
 
-            for (const field of requiredFields) {
+            for (let field of requiredFields) {
                 if (!val(field[0])) {
                     showError(`Please fill in the required field: ${field[1]}`);
                     $(field[0]).focus();
@@ -900,112 +1168,61 @@
 
             const platform = val('platform');
             const total = num('totalBudget');
-            const days = parseInt(val('days'), 10);
-            const currency = val('currency');
-
-            if (!Number.isFinite(days) || days < 1) {
-                showError('Duration must be at least 1 day.');
-                $('days').focus();
-                return;
-            }
-
-            if (!Number.isFinite(total) || total <= 0) {
-                showError('Total Budget must be greater than 0.');
-                $('totalBudget').focus();
-                return;
-            }
-
             const gB = num('googleBudget');
             const fB = num('facebookBudget');
             const iB = num('instagramBudget');
 
-            // Build the actual active channels.
-            // Meta is treated as Facebook + Instagram, while Google and meta
-            // explicitly uses Google + Facebook + Instagram.
-            const activeChannels = [];
+            // Collect active platform budgets
+            let activeBudgets = [];
+            if (! $('googleBudget').disabled && gB > 0) activeBudgets.push({ name: 'Google Ads', budget: gB });
+            if (! $('facebookBudget').disabled && fB > 0) activeBudgets.push({ name: 'Facebook Ads', budget: fB });
+            if (! $('instagramBudget').disabled && iB > 0) activeBudgets.push({ name: 'Instagram Ads', budget: iB });
 
-            if (platform === 'Google') {
-                activeChannels.push({ name: 'Google Ads', budget: gB });
-            } else if (platform === 'Meta') {
-                activeChannels.push({ name: 'Facebook Ads', budget: fB });
-                activeChannels.push({ name: 'Instagram Ads', budget: iB });
-            } else if (platform === 'Google and meta') {
-                activeChannels.push({ name: 'Google Ads', budget: gB });
-                activeChannels.push({ name: 'Facebook Ads', budget: fB });
-                activeChannels.push({ name: 'Instagram Ads', budget: iB });
-            } else if (platform === 'Facebook') {
-                activeChannels.push({ name: 'Facebook Ads', budget: fB });
-            } else if (platform === 'Instagram') {
-                activeChannels.push({ name: 'Instagram Ads', budget: iB });
-            }
-
-            // If no platform budget was entered, allocate the total budget
-            // across the selected channels.
-            const hasEnteredBudget = activeChannels.some(ch => ch.budget > 0);
-
-            if (!hasEnteredBudget) {
-                const share = total / activeChannels.length;
-                activeChannels.forEach(ch => ch.budget = share);
-            } else {
-                // If the user entered any allocation, every active channel
-                // must have a valid allocation and the allocations must equal
-                // the total budget.
-                const incomplete = activeChannels.some(ch => ch.budget < 0);
-                const sumBudgets = activeChannels.reduce((sum, ch) => sum + ch.budget, 0);
-
-                if (incomplete) {
-                    showError('Platform budgets cannot be negative.');
-                    return;
+            // If user left platform budgets empty, distribute total budget evenly among active channels
+            if (activeBudgets.length === 0) {
+                if (platform === 'Google and meta') {
+                    activeBudgets.push({ name: 'Google Ads', budget: total / 2 });
+                    activeBudgets.push({ name: 'Meta Ads', budget: total / 2 });
+                } else if (platform === 'Meta') {
+                    activeBudgets.push({ name: 'Facebook Ads', budget: total / 2 });
+                    activeBudgets.push({ name: 'Instagram Ads', budget: total / 2 });
+                } else {
+                    activeBudgets.push({ name: platform + ' Ads', budget: total });
                 }
-
+            } else {
+                let sumBudgets = activeBudgets.reduce((acc, curr) => acc + curr.budget, 0);
                 if (Math.abs(sumBudgets - total) > 0.01) {
-                    showError(
-                        `Platform budgets sum (${sumBudgets.toFixed(2)}) must equal ` +
-                        `Total Budget (${total.toFixed(2)}).`
-                    );
+                    showError(`Platform budgets sum (${sumBudgets.toFixed(2)}) must equal Total Budget (${total.toFixed(2)}).`);
                     return;
                 }
             }
 
             hideError();
 
+            const days = parseInt(val('days')) || 30;
+            const currency = val('currency');
             const industryInput = val('industry').toLowerCase();
 
-            // Match the closest available industry benchmark.
+            // Match benchmarks
             let bench = industryBenchmarks.default;
-            for (const key in industryBenchmarks) {
+            for (let key in industryBenchmarks) {
                 if (key !== 'default' && industryInput.includes(key)) {
                     bench = industryBenchmarks[key];
                     break;
                 }
             }
 
-            let totalSpend = 0;
-            let totalImpressions = 0;
-            let totalClicks = 0;
-            let totalLeads = 0;
-            let totalConversions = 0;
-            let totalRevenue = 0;
+            let totalSpend = 0, totalImpressions = 0, totalClicks = 0, totalLeads = 0, totalConversions = 0, totalRevenue = 0;
             let platformHtml = '';
 
-            activeChannels.forEach(item => {
+            activeBudgets.forEach(item => {
                 const b = item.budget;
-
-                // Core calculation chain:
-                // Spend -> Impressions -> Clicks -> Leads -> Sales
-                //
-                // CTR is the benchmark driver. We do NOT calculate CTR from
-                // independently estimated CPC and CPM, because that can create
-                // contradictory metrics.
-                const impressions = b > 0 ? (b / bench.cpm) * 1000 : 0;
-                const clicks = impressions * bench.ctr;
+                const clicks = b / bench.cpc;
+                const impressions = b / (bench.cpm / 1000);
+                const ctr = (clicks / impressions) * 100;
                 const leads = clicks * bench.leadRate;
                 const conversions = leads * bench.salesRate;
                 const revenue = conversions * bench.ltv;
-
-                const ctr = impressions > 0 ? (clicks / impressions) * 100 : 0;
-                const cpc = clicks > 0 ? b / clicks : 0;
-                const cpm = impressions > 0 ? (b / impressions) * 1000 : 0;
                 const cpl = leads > 0 ? b / leads : 0;
                 const cpa = conversions > 0 ? b / conversions : 0;
                 const roas = b > 0 ? revenue / b : 0;
@@ -1025,8 +1242,6 @@
                             <div class="metric"><small>Impressions</small><strong>${formatNumber(impressions)}</strong></div>
                             <div class="metric"><small>Clicks</small><strong>${formatNumber(clicks)}</strong></div>
                             <div class="metric"><small>CTR</small><strong>${ctr.toFixed(2)}%</strong></div>
-                            <div class="metric"><small>CPC</small><strong>${formatMoney(cpc, currency)}</strong></div>
-                            <div class="metric"><small>CPM</small><strong>${formatMoney(cpm, currency)}</strong></div>
                             <div class="metric"><small>Leads</small><strong>${formatNumber(leads)}</strong></div>
                             <div class="metric"><small>CPL</small><strong>${formatMoney(cpl, currency)}</strong></div>
                             <div class="metric"><small>Conversions</small><strong>${formatNumber(conversions)}</strong></div>
@@ -1038,38 +1253,15 @@
                 `;
             });
 
-            // Aggregate metrics from totals, never by averaging platform rates.
-            const overallCtr = totalImpressions > 0
-                ? (totalClicks / totalImpressions) * 100
-                : 0;
-
-            const overallCpc = totalClicks > 0
-                ? totalSpend / totalClicks
-                : 0;
-
-            const overallCpm = totalImpressions > 0
-                ? (totalSpend / totalImpressions) * 1000
-                : 0;
-
-            const overallLeadRate = totalClicks > 0
-                ? (totalLeads / totalClicks) * 100
-                : 0;
-
-            const overallSalesRate = totalLeads > 0
-                ? (totalConversions / totalLeads) * 100
-                : 0;
-
-            const overallCpl = totalLeads > 0
-                ? totalSpend / totalLeads
-                : 0;
-
-            const overallCpa = totalConversions > 0
-                ? totalSpend / totalConversions
-                : 0;
-
-            const overallRoas = totalSpend > 0
-                ? totalRevenue / totalSpend
-                : 0;
+            // Aggregate metrics
+            const overallCtr = (totalClicks / totalImpressions) * 100;
+            const overallCpc = totalSpend / totalClicks;
+            const overallCpm = (totalSpend / totalImpressions) * 1000;
+            const overallLeadRate = (totalLeads / totalClicks) * 100;
+            const overallSalesRate = (totalConversions / totalLeads) * 100;
+            const overallCpl = totalLeads > 0 ? totalSpend / totalLeads : 0;
+            const overallCpa = totalConversions > 0 ? totalSpend / totalConversions : 0;
+            const overallRoas = totalSpend > 0 ? totalRevenue / totalSpend : 0;
 
             // Render Summary Cards
             const cardsData = [
@@ -1100,19 +1292,17 @@
             const tableRows = [
                 ["Total Budget", formatMoney(totalSpend, currency), "Total campaign investment allocated"],
                 ["Daily Budget", formatMoney(totalSpend / days, currency), "Total budget ÷ campaign duration days"],
-                ["Total Impressions", formatNumber(totalImpressions), "Total estimated impressions"],
-                ["Total Clicks", formatNumber(totalClicks), "Total impressions × CTR"],
-                ["Click-Through Rate (CTR)", overallCtr.toFixed(2) + "%", "Total clicks ÷ total impressions × 100"],
+                ["Total Impressions", formatNumber(totalImpressions), "Total ad views across platforms"],
+                ["Total Clicks", formatNumber(totalClicks), "Total user engagement clicks"],
+                ["Click-Through Rate (CTR)", overallCtr.toFixed(2) + "%", "Total clicks ÷ impressions × 100"],
                 ["Cost Per Click (CPC)", formatMoney(overallCpc, currency), "Total spend ÷ total clicks"],
-                ["Cost Per Mille (CPM)", formatMoney(overallCpm, currency), "Total spend ÷ total impressions × 1,000"],
-                ["Projected Leads", formatNumber(totalLeads), "Total clicks × estimated lead conversion rate"],
-                ["Lead Conversion Rate", overallLeadRate.toFixed(2) + "%", "Total leads ÷ total clicks × 100"],
-                ["Cost Per Lead (CPL)", formatMoney(overallCpl, currency), "Total spend ÷ total leads"],
-                ["Projected Sales / Conversions", formatNumber(totalConversions), "Total leads × estimated sales/purchase rate"],
-                ["Sales / Purchase Rate", overallSalesRate.toFixed(2) + "%", "Total conversions ÷ total leads × 100"],
+                ["Cost Per Mille (CPM)", formatMoney(overallCpm, currency), "Cost per 1,000 impressions"],
+                ["Projected Leads", formatNumber(totalLeads), "Clicks × estimated lead conversion rate"],
+                ["Cost Per Lead (CPL)", formatMoney(overallCpl, currency), "Total spend ÷ total leads generated"],
+                ["Projected Sales / Conversions", formatNumber(totalConversions), "Leads × conversion rate to sales"],
                 ["Cost Per Acquisition (CPA)", formatMoney(overallCpa, currency), "Total spend ÷ total conversions"],
-                ["Projected Revenue", formatMoney(totalRevenue, currency), "Total conversions × average customer lifetime value"],
-                ["Return on Ad Spend (ROAS)", overallRoas.toFixed(2) + "×", "Total revenue ÷ total ad spend"]
+                ["Projected Revenue", formatMoney(totalRevenue, currency), "Conversions × average customer lifetime value"],
+                ["Return on Ad Spend (ROAS)", overallRoas.toFixed(2) + "×", "Total revenue generated ÷ total ad spend"]
             ];
 
             $('detailedTableBody').innerHTML = tableRows.map(r => `
@@ -1128,8 +1318,8 @@
         }
 
         function resetForm() {
-            document.querySelectorAll('input').forEach(i => i.value = '');
-            document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+            document.querySelectorAll('#adCampaignCalculator input').forEach(i => i.value = '');
+            document.querySelectorAll('#adCampaignCalculator select').forEach(s => s.selectedIndex = 0);
             $('type').innerHTML = '<option value="">Select platform first</option>';
             $('goal').innerHTML = '<option value="">Select goal first</option>';
             $('googleBudget').disabled = false;
