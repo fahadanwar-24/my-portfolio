@@ -291,11 +291,11 @@
         .label { font-size: 11px; color: #62758a; text-transform: uppercase; letter-spacing: 1px; }
         .value { font-size: 27px; font-weight: bold; color: #163b61; margin-top: 7px; }
         .controls { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
-        button { border: 1px solid #b9cddd; background: white; border-radius: 8px; padding: 9px 13px; font-weight: bold; color: #163b61; cursor: pointer; }
+        button { border: 1px solid #b9cddd; background: white; border-radius: 8px; padding: 9px 13px; font-weight: bold; color: #163b61; cursor: pointer; transition: all 0.2s ease; }
         button.active, button:hover { background: #163b61; color: white; }
         .tablewrap { overflow: auto; max-height: 55vh; }
         table { border-collapse: collapse; width: 100%; font-size: 12px; white-space: nowrap; }
-        th { background: #163b61; color: white; padding: 10px; cursor: default; position: sticky; top: 0; }
+        th { background: #163b61; color: white; padding: 10px; position: sticky; top: 0; cursor: default; user-select: none; }
         td { padding: 9px; border-bottom: 1px solid #d7e2eb; text-align: center; }
         tr:hover td { background: #f1f7fc; }
         .note { font-size: 11px; color: #72859a; margin-top: 10px; }
@@ -355,7 +355,22 @@
                     <table id="tbl">
                         <thead>
                             <tr>
-                                <th>Platform</th><th>Campaign</th><th>Ad Group / Ad Set</th><th>Budget</th><th>Spend</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>CPM</th><th>Leads</th><th>CPL</th><th>Conversions</th><th>CPA</th><th>Revenue</th><th>ROAS</th>
+                                <th>Platform</th>
+                                <th>Campaign</th>
+                                <th>Ad Group / Ad Set</th>
+                                <th>Budget</th>
+                                <th>Spend</th>
+                                <th>Impressions</th>
+                                <th>Clicks</th>
+                                <th>CTR</th>
+                                <th>CPC</th>
+                                <th>CPM</th>
+                                <th>Leads</th>
+                                <th>CPL</th>
+                                <th>Conversions</th>
+                                <th>CPA</th>
+                                <th>Revenue</th>
+                                <th>ROAS</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -370,7 +385,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="note">Click column headings to sort. Use the platform buttons to filter.</div>
+                <div class="note">Use the platform buttons above to filter the campaign data.</div>
             </div>
         </section>
 
@@ -406,15 +421,20 @@
 
     <script>
         let n = 0, s = [...document.querySelectorAll('.slide')];
+        
+        // Navigation function for slide deck
         function go(i) {
             n = Math.max(0, Math.min(s.length - 1, i));
             s.forEach((x, j) => x.classList.toggle('active', j === n));
         }
+
+        // Keyboard navigation (Left / Right Arrow keys)
         document.onkeydown = e => {
             if (e.key === 'ArrowRight') go(n + 1);
             if (e.key === 'ArrowLeft') go(n - 1);
         };
         
+        // Platform Filtering Logic (All / Google / Meta)
         let rows = [...document.querySelectorAll('#tbl tbody tr')], platform = 'All';
         function filter() {
             rows.forEach(r => r.style.display = (platform === 'All' || r.dataset.p === platform) ? '' : 'none');
@@ -424,12 +444,6 @@
             b.classList.add('active');
             platform = b.dataset.p;
             filter();
-        });
-        
-        document.querySelectorAll('#tbl th').forEach((h, i) => h.onclick = () => {
-            let tb = document.querySelector('#tbl tbody');
-            [...tb.rows].sort((a, b) => a.cells[i].innerText.localeCompare(b.cells[i].innerText, undefined, { numeric: true }))
-                .forEach(r => tb.appendChild(r));
         });
     </script>
                                     <div class="conts">
