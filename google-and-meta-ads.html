@@ -540,6 +540,606 @@
                                 </div>
                             </div>
                         </div>
+
+                        <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #f3f7fb; color: #17283a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .wrap { max-width: 1180px; margin: 25px auto; padding: 0 14px; }
+        .head { background: linear-gradient(135deg, #123b63, #216c9e); color: #fff; padding: 26px; border-radius: 18px 18px 0 0; }
+        .head h1 { margin: 0 0 7px; font-size: 30px; }
+        .head p { margin: 0; color: #dcebf7; }
+        .box { background: #fff; padding: 24px; border: 1px solid #d8e4ed; border-top: 0; border-radius: 0 0 18px 18px; }
+        section { margin-bottom: 25px; }
+        h2 { font-size: 19px; color: #123b63; border-bottom: 2px solid #e5edf4; padding-bottom: 9px; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+        .field { display: flex; flex-direction: column; }
+        .field label { font-size: 12px; font-weight: bold; margin-bottom: 6px; color: #40566b; }
+        .field label span { color: #d11; }
+        input, select { height: 43px; border: 1px solid #c8d6e2; border-radius: 9px; padding: 0 11px; font-size: 14px; background: #fff; color: #17283a; }
+        input:focus, select:focus { outline: none; border-color: #2778ad; box-shadow: 0 0 0 3px #2778ad18; }
+        input:disabled { background: #edf2f6; color: #9aa8b3; cursor: not-allowed; }
+        .budget { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+        .budget .field { background: #f7fafc; border: 1px solid #e0e8ef; border-radius: 12px; padding: 13px; }
+        .note { font-size: 11px; color: #72859a; line-height: 1.5; margin-top: 8px; }
+        .buttons { display: flex; gap: 9px; margin-top: 15px; }
+        .btn { border: 0; border-radius: 9px; padding: 12px 22px; font-weight: bold; cursor: pointer; font-size: 14px; }
+        .calc { background: #123b63; color: #fff; }
+        .calc:hover { background: #1b538a; }
+        .reset { background: #e8eff5; color: #123b63; }
+        .reset:hover { background: #d3e1ed; }
+        .error { display: none; background: #fff0f0; color: #a71919; border: 1px solid #eab3b3; border-radius: 9px; padding: 11px; margin: 15px 0; font-size: 13px; }
+        .results { display: none; margin-top: 25px; }
+        .results.show { display: block; }
+        .resulthead { background: #123b63; color: #fff; padding: 17px 20px; border-radius: 14px 14px 0 0; }
+        .resulthead h2 { color: #fff; border: 0; margin: 0; padding: 0; }
+        .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px 0; }
+        .card { background: #fff; border: 1px solid #d6e3ed; border-radius: 12px; padding: 14px; box-shadow: 0 4px 15px #123b6310; }
+        .label { font-size: 10px; text-transform: uppercase; color: #718396; font-weight: bold; }
+        .value { font-size: 18px; font-weight: 800; color: #123b63; margin-top: 5px; }
+        .platforms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 15px; }
+        .pcard { background: #fff; border: 1px solid #d6e3ed; border-radius: 13px; padding: 16px; }
+        .pcard h3 { margin: 0 0 12px; color: #123b63; font-size: 16px; }
+        .metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+        .metric { background: #f5f9fc; padding: 9px; border-radius: 8px; }
+        .metric small { display: block; color: #718396; font-size: 9px; text-transform: uppercase; }
+        .metric strong { display: block; color: #173d62; font-size: 13px; margin-top: 3px; }
+        .tablewrap { overflow: auto; margin-top: 14px; border: 1px solid #e1e9ef; border-radius: 12px; }
+        .table { width: 100%; border-collapse: collapse; background: #fff; }
+        .table th { background: #123b63; color: #fff; padding: 11px; font-size: 11px; text-align: center; }
+        .table td { padding: 10px; border-bottom: 1px solid #e1e9ef; font-size: 12px; text-align: center; color: #334e68; }
+        .table tr:last-child td { font-weight: bold; background: #edf5fb; }
+        @media(max-width: 900px) {
+            .grid, .budget { grid-template-columns: repeat(2, 1fr); }
+            .cards { grid-template-columns: repeat(2, 1fr); }
+            .platforms { grid-template-columns: 1fr; }
+        }
+        @media(max-width: 600px) {
+            .wrap { margin: 8px auto; padding: 0 7px; }
+            .head { padding: 20px 16px; }
+            .head h1 { font-size: 22px; }
+            .box { padding: 16px; }
+            .grid, .budget { grid-template-columns: 1fr; }
+            .cards { grid-template-columns: 1fr; }
+            .buttons { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+
+                        <div class="wrap">
+        <div class="head">
+            <h1>Ad Campaign Calculator</h1>
+            <p>Plan and estimate professional Google, Meta, Facebook, and Instagram advertising performance.</p>
+        </div>
+        <div class="box">
+            
+            <!-- SECTION 1: CAMPAIGN INFORMATION -->
+            <section>
+                <h2>1. Campaign Information</h2>
+                <div class="grid">
+                    <div class="field">
+                        <label>Product / Service Name <span>*</span></label>
+                        <input id="product" placeholder="e.g. Luxury Real Estate">
+                    </div>
+                    <div class="field">
+                        <label>Industry / Business Type <span>*</span></label>
+                        <input id="industry" placeholder="e.g. Real Estate, E-commerce">
+                    </div>
+                    <div class="field">
+                        <label>Platform <span>*</span></label>
+                        <select id="platform" onchange="platformChange()">
+                            <option value="">Select platform</option>
+                            <option value="Google">Google</option>
+                            <option value="Meta">Meta</option>
+                            <option value="Google and meta">Google and meta</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Instagram">Instagram</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Ad Campaign Type <span>*</span></label>
+                        <select id="type">
+                            <option value="">Select platform first</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Goal & Objective <span>*</span></label>
+                        <select id="goal">
+                            <option value="">Select goal first</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Budget Level <span>*</span></label>
+                        <select id="level">
+                            <option value="">Select level</option>
+                            <option value="Campaign Level">Campaign Level</option>
+                            <option value="Ad Group / Ad Set Level">Ad Group / Ad Set Level</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Duration (Days) <span>*</span></label>
+                        <input id="days" type="number" min="1" placeholder="30">
+                    </div>
+                    <div class="field">
+                        <label>Targeted Location <span>*</span></label>
+                        <input id="location" placeholder="e.g. Dubai, UAE">
+                    </div>
+                    <div class="field">
+                        <label>Audience Type <span>*</span></label>
+                        <select id="audience">
+                            <option value="">Select audience</option>
+                            <option value="Broad">Broad</option>
+                            <option value="Interest Based">Interest Based</option>
+                            <option value="Lookalike">Lookalike</option>
+                            <option value="Remarketing">Remarketing</option>
+                            <option value="Custom Audience">Custom Audience</option>
+                            <option value="High Intent">High Intent</option>
+                        </select>
+                    </div>
+                    <div class="field" style="grid-column: span 3;">
+                        <label>Placement / Network <span>*</span></label>
+                        <select id="placement">
+                            <option value="">Select placement</option>
+                            <option value="Automatic / Recommended">Automatic / Recommended</option>
+                            <option value="Google Search Network">Google Search Network</option>
+                            <option value="Google Display Network">Google Display Network</option>
+                            <option value="YouTube">YouTube</option>
+                            <option value="Facebook Feed & Stories">Facebook Feed & Stories</option>
+                            <option value="Instagram Feed & Reels">Instagram Feed & Reels</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: BUDGET & CURRENCY -->
+            <section>
+                <h2>2. Budget & Currency Allocation</h2>
+                <div class="grid">
+                    <div class="field">
+                        <label>Currency <span>*</span></label>
+                        <select id="currency">
+                            <option value="">Select currency</option>
+                            <option value="$">USD ($)</option>
+                            <option value="AED">AED (د.إ)</option>
+                            <option value="SAR">Saudi Riyal (SAR)</option>
+                            <option value="EUR">Euro (€)</option>
+                            <option value="GBP">Pound (£)</option>
+                            <option value="CNY">CNY (¥)</option>
+                            <option value="PKR">PKR (₨)</option>
+                            <option value="INR">INR (₹)</option>
+                            <option value="TRY">Turkish Lira (TRY)</option>
+                            <option value="RUB">Russian Ruble (RUB)</option>
+                            <option value="OTHER">Other Currency</option>
+                        </select>
+                    </div>
+                    <div class="field" style="grid-column: span 2;">
+                        <label>Total Budget <span>*</span></label>
+                        <input id="totalBudget" type="number" min="0" step="0.01" placeholder="10000">
+                    </div>
+                </div>
+
+                <div class="budget">
+                    <div class="field">
+                        <label>Google Budget</label>
+                        <input id="googleBudget" type="number" min="0" step="0.01" placeholder="0">
+                    </div>
+                    <div class="field">
+                        <label>Facebook Budget</label>
+                        <input id="facebookBudget" type="number" min="0" step="0.01" placeholder="0">
+                    </div>
+                    <div class="field">
+                        <label>Instagram Budget</label>
+                        <input id="instagramBudget" type="number" min="0" step="0.01" placeholder="0">
+                    </div>
+                </div>
+                <p class="note">Note: Leave platform budgets blank to distribute the Total Budget automatically. If you enter platform budgets, their total must equal the Total Budget.</p>
+            </section>
+
+            <div class="error" id="errorBox"></div>
+
+            <div class="buttons">
+                <button class="btn calc" onclick="calculateCampaign()">Calculate Campaign Analytics</button>
+                <button class="btn reset" onclick="resetForm()">Reset Form</button>
+            </div>
+
+            <!-- SECTION 3: RESULTS -->
+            <div class="results" id="resultsSection">
+                <div class="resulthead">
+                    <h2>Campaign Results & Analytics Dashboard</h2>
+                </div>
+                <div class="cards" id="metricsCards"></div>
+                
+                <div class="platforms" id="platformsBreakdown"></div>
+
+                <div class="tablewrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Metric Name</th>
+                                <th>Calculated Result</th>
+                                <th>Formula / Description</th>
+                            </tr>
+                        </thead>
+                        <tbody id="detailedTableBody"></tbody>
+                    </table>
+                </div>
+                <p class="note">Disclaimer: Results are estimates based on the selected industry benchmark assumptions. Actual campaign performance can vary by platform, audience, creative, location, bidding, competition, and market conditions.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const $ = id => document.getElementById(id);
+        const val = id => $(id).value.trim();
+        const num = id => parseFloat($(id).value) || 0;
+
+        const campaignTypesMap = {
+            "Google": ["Search", "Display", "YouTube Video", "Performance Max", "Shopping"],
+            "Meta": ["Conversions / Sales", "Lead Generation", "Traffic", "Brand Awareness"],
+            "Google and meta": ["Omnichannel Search & Social", "Lead Generation Mix", "E-commerce Catalog Growth"],
+            "Facebook": ["Facebook Feed & Stories", "Lead Generation Ads", "Messenger / WhatsApp Ads"],
+            "Instagram": ["Instagram Reels & Feed", "Story Ads", "Shopping Ads"]
+        };
+
+        const goalsMap = {
+            "Google": ["Leads", "Sales / Purchases", "Website Traffic", "Brand Awareness", "App Promotion"],
+            "Meta": ["Sales", "Leads", "Traffic", "Engagement", "Awareness", "App Installs"],
+            "Google and meta": ["Lead Generation", "E-commerce Sales", "Website Traffic", "Brand Awareness"],
+            "Facebook": ["Lead Generation", "Sales", "Traffic", "Engagement", "Community Growth"],
+            "Instagram": ["Brand Awareness", "Sales", "Engagement", "Profile Visits", "Reels Views"]
+        };
+
+        /*
+         * Benchmark model
+         * CTR is the primary traffic benchmark.
+         * CPC and CPM are used as consistency checks / display metrics.
+         */
+        const industryBenchmarks = {
+            "real estate": { ctr: 0.025, cpc: 2.50, cpm: 12.00, leadRate: 0.05, salesRate: 0.015, ltv: 8000 },
+            "e-commerce": { ctr: 0.022, cpc: 0.95, cpm: 8.50, leadRate: 0.08, salesRate: 0.035, ltv: 120 },
+            "finance": { ctr: 0.020, cpc: 3.80, cpm: 18.00, leadRate: 0.04, salesRate: 0.02, ltv: 1500 },
+            "education": { ctr: 0.025, cpc: 1.80, cpm: 10.00, leadRate: 0.06, salesRate: 0.025, ltv: 2500 },
+            "default": { ctr: 0.020, cpc: 1.50, cpm: 10.00, leadRate: 0.06, salesRate: 0.025, ltv: 350 }
+        };
+
+        function platformChange() {
+            const platform = val('platform');
+            const typeSelect = $('type');
+            const goalSelect = $('goal');
+            
+            typeSelect.innerHTML = '<option value="">Select campaign type</option>';
+            goalSelect.innerHTML = '<option value="">Select goal</option>';
+            
+            if (!platform) {
+                $('googleBudget').disabled = false;
+                $('facebookBudget').disabled = false;
+                $('instagramBudget').disabled = false;
+                return;
+            }
+
+            // Populate Campaign Types
+            const types = campaignTypesMap[platform] || [];
+            types.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t;
+                opt.textContent = t;
+                typeSelect.appendChild(opt);
+            });
+
+            // Populate Goals
+            const goals = goalsMap[platform] || [];
+            goals.forEach(g => {
+                const opt = document.createElement('option');
+                opt.value = g;
+                opt.textContent = g;
+                goalSelect.appendChild(opt);
+            });
+
+            // Enable / disable budgets based on platform selection
+            const gInput = $('googleBudget');
+            const fInput = $('facebookBudget');
+            const iInput = $('instagramBudget');
+
+            const isGoogleActive = (platform === 'Google' || platform === 'Google and meta');
+            const isFbActive = (platform === 'Meta' || platform === 'Google and meta' || platform === 'Facebook');
+            const isIgActive = (platform === 'Meta' || platform === 'Google and meta' || platform === 'Instagram');
+
+            gInput.disabled = !isGoogleActive;
+            fInput.disabled = !isFbActive;
+            iInput.disabled = !isIgActive;
+
+            if (!isGoogleActive) gInput.value = '';
+            if (!isFbActive) fInput.value = '';
+            if (!isIgActive) iInput.value = '';
+        }
+
+        function showError(msg) {
+            const box = $('errorBox');
+            box.textContent = msg;
+            box.style.display = 'block';
+            box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function hideError() {
+            $('errorBox').style.display = 'none';
+        }
+
+        function formatMoney(amount, currency) {
+            const sym = currency === 'OTHER' ? '$' : currency;
+            return `${sym} ${amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        }
+
+        function formatNumber(num) {
+            return num.toLocaleString(undefined, { maximumFractionDigits: 2 });
+        }
+
+        function calculateCampaign() {
+            // Validate required fields
+            const requiredFields = [
+                ['product', 'Product / Service Name'],
+                ['industry', 'Industry / Business Type'],
+                ['platform', 'Platform'],
+                ['type', 'Ad Campaign Type'],
+                ['goal', 'Goal & Objective'],
+                ['level', 'Budget Level'],
+                ['days', 'Duration'],
+                ['location', 'Targeted Location'],
+                ['audience', 'Audience Type'],
+                ['placement', 'Placement / Network'],
+                ['currency', 'Currency'],
+                ['totalBudget', 'Total Budget']
+            ];
+
+            for (const field of requiredFields) {
+                if (!val(field[0])) {
+                    showError(`Please fill in the required field: ${field[1]}`);
+                    $(field[0]).focus();
+                    return;
+                }
+            }
+
+            const platform = val('platform');
+            const total = num('totalBudget');
+            const days = parseInt(val('days'), 10);
+            const currency = val('currency');
+
+            if (!Number.isFinite(days) || days < 1) {
+                showError('Duration must be at least 1 day.');
+                $('days').focus();
+                return;
+            }
+
+            if (!Number.isFinite(total) || total <= 0) {
+                showError('Total Budget must be greater than 0.');
+                $('totalBudget').focus();
+                return;
+            }
+
+            const gB = num('googleBudget');
+            const fB = num('facebookBudget');
+            const iB = num('instagramBudget');
+
+            // Build the actual active channels.
+            // Meta is treated as Facebook + Instagram, while Google and meta
+            // explicitly uses Google + Facebook + Instagram.
+            const activeChannels = [];
+
+            if (platform === 'Google') {
+                activeChannels.push({ name: 'Google Ads', budget: gB });
+            } else if (platform === 'Meta') {
+                activeChannels.push({ name: 'Facebook Ads', budget: fB });
+                activeChannels.push({ name: 'Instagram Ads', budget: iB });
+            } else if (platform === 'Google and meta') {
+                activeChannels.push({ name: 'Google Ads', budget: gB });
+                activeChannels.push({ name: 'Facebook Ads', budget: fB });
+                activeChannels.push({ name: 'Instagram Ads', budget: iB });
+            } else if (platform === 'Facebook') {
+                activeChannels.push({ name: 'Facebook Ads', budget: fB });
+            } else if (platform === 'Instagram') {
+                activeChannels.push({ name: 'Instagram Ads', budget: iB });
+            }
+
+            // If no platform budget was entered, allocate the total budget
+            // across the selected channels.
+            const hasEnteredBudget = activeChannels.some(ch => ch.budget > 0);
+
+            if (!hasEnteredBudget) {
+                const share = total / activeChannels.length;
+                activeChannels.forEach(ch => ch.budget = share);
+            } else {
+                // If the user entered any allocation, every active channel
+                // must have a valid allocation and the allocations must equal
+                // the total budget.
+                const incomplete = activeChannels.some(ch => ch.budget < 0);
+                const sumBudgets = activeChannels.reduce((sum, ch) => sum + ch.budget, 0);
+
+                if (incomplete) {
+                    showError('Platform budgets cannot be negative.');
+                    return;
+                }
+
+                if (Math.abs(sumBudgets - total) > 0.01) {
+                    showError(
+                        `Platform budgets sum (${sumBudgets.toFixed(2)}) must equal ` +
+                        `Total Budget (${total.toFixed(2)}).`
+                    );
+                    return;
+                }
+            }
+
+            hideError();
+
+            const industryInput = val('industry').toLowerCase();
+
+            // Match the closest available industry benchmark.
+            let bench = industryBenchmarks.default;
+            for (const key in industryBenchmarks) {
+                if (key !== 'default' && industryInput.includes(key)) {
+                    bench = industryBenchmarks[key];
+                    break;
+                }
+            }
+
+            let totalSpend = 0;
+            let totalImpressions = 0;
+            let totalClicks = 0;
+            let totalLeads = 0;
+            let totalConversions = 0;
+            let totalRevenue = 0;
+            let platformHtml = '';
+
+            activeChannels.forEach(item => {
+                const b = item.budget;
+
+                // Core calculation chain:
+                // Spend -> Impressions -> Clicks -> Leads -> Sales
+                //
+                // CTR is the benchmark driver. We do NOT calculate CTR from
+                // independently estimated CPC and CPM, because that can create
+                // contradictory metrics.
+                const impressions = b > 0 ? (b / bench.cpm) * 1000 : 0;
+                const clicks = impressions * bench.ctr;
+                const leads = clicks * bench.leadRate;
+                const conversions = leads * bench.salesRate;
+                const revenue = conversions * bench.ltv;
+
+                const ctr = impressions > 0 ? (clicks / impressions) * 100 : 0;
+                const cpc = clicks > 0 ? b / clicks : 0;
+                const cpm = impressions > 0 ? (b / impressions) * 1000 : 0;
+                const cpl = leads > 0 ? b / leads : 0;
+                const cpa = conversions > 0 ? b / conversions : 0;
+                const roas = b > 0 ? revenue / b : 0;
+
+                totalSpend += b;
+                totalImpressions += impressions;
+                totalClicks += clicks;
+                totalLeads += leads;
+                totalConversions += conversions;
+                totalRevenue += revenue;
+
+                platformHtml += `
+                    <div class="pcard">
+                        <h3>${item.name}</h3>
+                        <div class="metrics">
+                            <div class="metric"><small>Spend</small><strong>${formatMoney(b, currency)}</strong></div>
+                            <div class="metric"><small>Impressions</small><strong>${formatNumber(impressions)}</strong></div>
+                            <div class="metric"><small>Clicks</small><strong>${formatNumber(clicks)}</strong></div>
+                            <div class="metric"><small>CTR</small><strong>${ctr.toFixed(2)}%</strong></div>
+                            <div class="metric"><small>CPC</small><strong>${formatMoney(cpc, currency)}</strong></div>
+                            <div class="metric"><small>CPM</small><strong>${formatMoney(cpm, currency)}</strong></div>
+                            <div class="metric"><small>Leads</small><strong>${formatNumber(leads)}</strong></div>
+                            <div class="metric"><small>CPL</small><strong>${formatMoney(cpl, currency)}</strong></div>
+                            <div class="metric"><small>Conversions</small><strong>${formatNumber(conversions)}</strong></div>
+                            <div class="metric"><small>CPA</small><strong>${formatMoney(cpa, currency)}</strong></div>
+                            <div class="metric"><small>Revenue</small><strong>${formatMoney(revenue, currency)}</strong></div>
+                            <div class="metric"><small>ROAS</small><strong>${roas.toFixed(2)}×</strong></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Aggregate metrics from totals, never by averaging platform rates.
+            const overallCtr = totalImpressions > 0
+                ? (totalClicks / totalImpressions) * 100
+                : 0;
+
+            const overallCpc = totalClicks > 0
+                ? totalSpend / totalClicks
+                : 0;
+
+            const overallCpm = totalImpressions > 0
+                ? (totalSpend / totalImpressions) * 1000
+                : 0;
+
+            const overallLeadRate = totalClicks > 0
+                ? (totalLeads / totalClicks) * 100
+                : 0;
+
+            const overallSalesRate = totalLeads > 0
+                ? (totalConversions / totalLeads) * 100
+                : 0;
+
+            const overallCpl = totalLeads > 0
+                ? totalSpend / totalLeads
+                : 0;
+
+            const overallCpa = totalConversions > 0
+                ? totalSpend / totalConversions
+                : 0;
+
+            const overallRoas = totalSpend > 0
+                ? totalRevenue / totalSpend
+                : 0;
+
+            // Render Summary Cards
+            const cardsData = [
+                ["Total Spend", formatMoney(totalSpend, currency)],
+                ["Impressions", formatNumber(totalImpressions)],
+                ["Clicks", formatNumber(totalClicks)],
+                ["CTR", overallCtr.toFixed(2) + "%"],
+                ["CPC", formatMoney(overallCpc, currency)],
+                ["CPM", formatMoney(overallCpm, currency)],
+                ["Leads", formatNumber(totalLeads)],
+                ["CPL", formatMoney(overallCpl, currency)],
+                ["Conversions", formatNumber(totalConversions)],
+                ["CPA", formatMoney(overallCpa, currency)],
+                ["Revenue", formatMoney(totalRevenue, currency)],
+                ["ROAS", overallRoas.toFixed(2) + "×"]
+            ];
+
+            $('metricsCards').innerHTML = cardsData.map(c => `
+                <div class="card">
+                    <div class="label">${c[0]}</div>
+                    <div class="value">${c[1]}</div>
+                </div>
+            `).join('');
+
+            $('platformsBreakdown').innerHTML = platformHtml;
+
+            // Render Detailed Table
+            const tableRows = [
+                ["Total Budget", formatMoney(totalSpend, currency), "Total campaign investment allocated"],
+                ["Daily Budget", formatMoney(totalSpend / days, currency), "Total budget ÷ campaign duration days"],
+                ["Total Impressions", formatNumber(totalImpressions), "Total estimated impressions"],
+                ["Total Clicks", formatNumber(totalClicks), "Total impressions × CTR"],
+                ["Click-Through Rate (CTR)", overallCtr.toFixed(2) + "%", "Total clicks ÷ total impressions × 100"],
+                ["Cost Per Click (CPC)", formatMoney(overallCpc, currency), "Total spend ÷ total clicks"],
+                ["Cost Per Mille (CPM)", formatMoney(overallCpm, currency), "Total spend ÷ total impressions × 1,000"],
+                ["Projected Leads", formatNumber(totalLeads), "Total clicks × estimated lead conversion rate"],
+                ["Lead Conversion Rate", overallLeadRate.toFixed(2) + "%", "Total leads ÷ total clicks × 100"],
+                ["Cost Per Lead (CPL)", formatMoney(overallCpl, currency), "Total spend ÷ total leads"],
+                ["Projected Sales / Conversions", formatNumber(totalConversions), "Total leads × estimated sales/purchase rate"],
+                ["Sales / Purchase Rate", overallSalesRate.toFixed(2) + "%", "Total conversions ÷ total leads × 100"],
+                ["Cost Per Acquisition (CPA)", formatMoney(overallCpa, currency), "Total spend ÷ total conversions"],
+                ["Projected Revenue", formatMoney(totalRevenue, currency), "Total conversions × average customer lifetime value"],
+                ["Return on Ad Spend (ROAS)", overallRoas.toFixed(2) + "×", "Total revenue ÷ total ad spend"]
+            ];
+
+            $('detailedTableBody').innerHTML = tableRows.map(r => `
+                <tr>
+                    <td>${r[0]}</td>
+                    <td>${r[1]}</td>
+                    <td>${r[2]}</td>
+                </tr>
+            `).join('');
+
+            $('resultsSection').classList.add('show');
+            $('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetForm() {
+            document.querySelectorAll('input').forEach(i => i.value = '');
+            document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+            $('type').innerHTML = '<option value="">Select platform first</option>';
+            $('goal').innerHTML = '<option value="">Select goal first</option>';
+            $('googleBudget').disabled = false;
+            $('facebookBudget').disabled = false;
+            $('instagramBudget').disabled = false;
+            $('errorBox').style.display = 'none';
+            $('resultsSection').classList.remove('show');
+        }
+    </script>
+                        
                         <div
                             class="blog-previous_next justify-content-xl-center justify-content-start mt-xl-5 mt-4 pt-xl-3">
                             <button type="button" class="cmn_prev">
