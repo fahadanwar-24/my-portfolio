@@ -275,65 +275,163 @@
                                     data-wow-delay="0.4s">                                  
 
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef4f9;color:#17283a}.deck{height:100vh;position:relative;overflow:hidden}.slide{display:none;height:100%;padding:45px 5vw 85px;background:linear-gradient(135deg,#fff,#edf4fa)}.slide.active{display:block}.conf{position:absolute;right:25px;top:18px;font-size:11px;color:#72859a;letter-spacing:2px}.hero{height:80%;display:flex;flex-direction:column;justify-content:center}.hero h1{font-size:clamp(45px,6vw,85px);line-height:1.03;color:#163b61;margin:0}.hero p{font-size:20px;color:#62758a;max-width:760px}.line{width:90px;height:5px;background:#1e5a8a;margin:25px 0}h2{color:#163b61;font-size:38px;margin:0 0 20px}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.card,.panel{background:#fff;border:1px solid #c9d8e6;border-radius:14px;padding:18px;box-shadow:0 6px 20px #163b6112}.label{font-size:11px;color:#62758a;text-transform:uppercase;letter-spacing:1px}.value{font-size:27px;font-weight:bold;color:#163b61;margin-top:7px}.controls{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}button,input{border:1px solid #b9cddd;background:white;border-radius:8px;padding:9px 13px;font-weight:bold;color:#163b61}button{cursor:pointer}button.active,button:hover{background:#163b61;color:white}.tablewrap{overflow:auto;max-height:55vh}.search{min-width:240px;font-weight:normal}table{border-collapse:collapse;width:100%;font-size:12px;white-space:nowrap}th{background:#163b61;color:white;padding:10px;cursor:default;position:sticky;top:0}td{padding:9px;border-bottom:1px solid #d7e2eb;text-align:center}tr:hover td{background:#f1f7fc}.total td{background:#dcecf9;font-weight:bold}.note{font-size:11px;color:#72859a;margin-top:10px}.nav{position:absolute;bottom:0;left:0;right:0;height:62px;background:white;border-top:1px solid #c9d8e6;display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:nowrap;padding:0 10px}.nav button{min-width:100px}.hint{position:absolute;bottom:75px;left:5vw;font-size:11px;color:#72859a}@media(max-width:850px){
-  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .nav{gap:4px;padding:0 6px;flex-wrap:nowrap}
-  .nav button{min-width:0;flex:1;padding:8px 5px;font-size:12px}
-}
-@media(max-width:430px){
-  .nav{gap:3px;padding:0 4px}
-  .nav button{min-width:0;flex:1;padding:7px 3px;font-size:10px}
-}
-</style>
-<div class="deck"><div class="conf">CONFIDENTIAL • INTERNAL</div>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', Arial, sans-serif; background: #eef4f9; color: #17283a; }
+        .deck { height: 100vh; position: relative; overflow: hidden; }
+        .slide { display: none; height: 100%; padding: 45px 5vw 85px; background: linear-gradient(135deg, #fff, #edf4fa); }
+        .slide.active { display: block; }
+        .conf { position: absolute; right: 25px; top: 18px; font-size: 11px; color: #72859a; letter-spacing: 2px; }
+        .hero { height: 80%; display: flex; flex-direction: column; justify-content: center; }
+        .hero h1 { font-size: clamp(45px, 6vw, 85px); line-height: 1.03; color: #163b61; margin: 0; }
+        .hero p { font-size: 20px; color: #62758a; max-width: 760px; }
+        .line { width: 90px; height: 5px; background: #1e5a8a; margin: 25px 0; }
+        h2 { color: #163b61; font-size: 38px; margin: 0 0 20px; }
+        .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0; }
+        .card, .panel { background: #fff; border: 1px solid #c9d8e6; border-radius: 14px; padding: 18px; box-shadow: 0 6px 20px #163b6112; }
+        .label { font-size: 11px; color: #62758a; text-transform: uppercase; letter-spacing: 1px; }
+        .value { font-size: 27px; font-weight: bold; color: #163b61; margin-top: 7px; }
+        .controls { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+        button { border: 1px solid #b9cddd; background: white; border-radius: 8px; padding: 9px 13px; font-weight: bold; color: #163b61; cursor: pointer; }
+        button.active, button:hover { background: #163b61; color: white; }
+        .tablewrap { overflow: auto; max-height: 55vh; }
+        table { border-collapse: collapse; width: 100%; font-size: 12px; white-space: nowrap; }
+        th { background: #163b61; color: white; padding: 10px; cursor: default; position: sticky; top: 0; }
+        td { padding: 9px; border-bottom: 1px solid #d7e2eb; text-align: center; }
+        tr:hover td { background: #f1f7fc; }
+        .note { font-size: 11px; color: #72859a; margin-top: 10px; }
+        .nav { position: absolute; bottom: 0; left: 0; right: 0; height: 62px; background: white; border-top: 1px solid #c9d8e6; display: flex; justify-content: center; align-items: center; gap: 7px; padding: 0 10px; }
+        .nav button { min-width: 100px; }
+        .hint { position: absolute; bottom: 75px; left: 5vw; font-size: 11px; color: #72859a; }
+        @media(max-width: 850px) {
+            .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .nav { gap: 4px; padding: 0 6px; }
+            .nav button { min-width: 0; flex: 1; padding: 8px 5px; font-size: 12px; }
+        }
+        @media(max-width: 430px) {
+            .nav { gap: 3px; padding: 0 4px; }
+            .nav button { min-width: 0; flex: 1; padding: 7px 3px; font-size: 10px; }
+        }
+    </style>
 
-<section class="slide active"><div class="hero"><h1>Digital Marketing<br>Campaign Performance</h1><div class="line"></div><p>Interactive performance presentation covering campaign spend, reach, clicks, leads, conversions, revenue and ROAS.</p></div></section>
+    <div class="deck">
+        <div class="conf">CONFIDENTIAL • INTERNAL</div>
 
-<section class="slide"><h2>Executive Summary</h2>
-<div class="kpis">
-<div class="card"><div class="label">Total Budget</div><div class="value">AED 20,000</div></div>
-<div class="card"><div class="label">Total Spend</div><div class="value">AED 19,100</div></div>
-<div class="card"><div class="label">Leads</div><div class="value">312</div></div>
-<div class="card"><div class="label">Revenue</div><div class="value">AED 99,200</div></div>
-</div><div class="kpis">
-<div class="card"><div class="label">Impressions</div><div class="value">610,000</div></div>
-<div class="card"><div class="label">Clicks</div><div class="value">15,790</div></div>
-<div class="card"><div class="label">Conversions</div><div class="value">62</div></div>
-<div class="card"><div class="label">ROAS</div><div class="value">5.19×</div></div>
-</div></section>
+        <!-- Slide 1: Cover -->
+        <section class="slide active">
+            <div class="hero">
+                <h1>Digital Marketing<br>Campaign Performance</h1>
+                <div class="line"></div>
+                <p>Interactive performance presentation covering campaign spend, reach, clicks, leads, conversions, revenue and ROAS.</p>
+            </div>
+        </section>
 
-<section class="slide"><h2>Interactive Campaign Detail</h2><div class="controls">
-<button class="filter active" data-p="All">All</button><button class="filter" data-p="Google">Google</button><button class="filter" data-p="Meta">Meta</button><input id="search" class="search" placeholder="Search campaign or ad set…"></div>
-<div class="panel"><div class="tablewrap"><table id="tbl"><thead><tr>
-<div class="panel"><div class="tablewrap"><table id="tbl"><thead><tr>
-<th>Platform</th><th>Campaign</th><th>Ad Group / Ad Set</th><th>Budget</th><th>Spend</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>CPM</th><th>Leads</th><th>CPL</th><th>Conversions</th><th>CPA</th><th>Revenue</th><th>ROAS</th>
-</tr></thead><tbody>
-<tr data-p="Google"><td><b>Google</b></td><td>Search – High Intent</td><td>Interior Design</td><td>4,000</td><td>3,850</td><td>38,000</td><td>2,280</td><td>6.00%</td><td>1.69</td><td>101.32</td><td>58</td><td>66.38</td><td>12</td><td>320.83</td><td>19,200</td><td>4.99×</td></tr>
-<tr data-p="Google"><td><b>Google</b></td><td>Search – Commercial</td><td>Hospitality</td><td>3,000</td><td>2,900</td><td>27,000</td><td>1,485</td><td>5.50%</td><td>1.95</td><td>107.41</td><td>43</td><td>67.44</td><td>9</td><td>322.22</td><td>14,400</td><td>4.97×</td></tr>
-<tr data-p="Google"><td><b>Google</b></td><td>Performance Max</td><td>All Services</td><td>3,000</td><td>2,850</td><td>75,000</td><td>2,250</td><td>3.00%</td><td>1.27</td><td>38.00</td><td>38</td><td>75.00</td><td>7</td><td>407.14</td><td>11,200</td><td>3.93×</td></tr>
-<tr data-p="Google"><td><b>Google</b></td><td>Remarketing</td><td>Website Visitors</td><td>2,000</td><td>1,900</td><td>42,000</td><td>1,680</td><td>4.00%</td><td>1.13</td><td>45.24</td><td>31</td><td>61.29</td><td>8</td><td>237.50</td><td>12,800</td><td>6.74×</td></tr>
-<tr data-p="Meta"><td><b>Meta</b></td><td>Lead Generation</td><td>Cold Audience</td><td>3,000</td><td>2,850</td><td>165,000</td><td>2,970</td><td>1.80%</td><td>0.96</td><td>17.27</td><td>52</td><td>54.81</td><td>8</td><td>356.25</td><td>12,800</td><td>4.49×</td></tr>
-<tr data-p="Meta"><td><b>Meta</b></td><td>Lead Generation</td><td>Lookalike</td><td>2,500</td><td>2,400</td><td>120,000</td><td>2,640</td><td>2.20%</td><td>0.91</td><td>20.00</td><td>51</td><td>47.06</td><td>9</td><td>266.67</td><td>14,400</td><td>6.00×</td></tr>
-<tr data-p="Meta"><td><b>Meta</b></td><td>Conversion</td><td>Retargeting</td><td>1,500</td><td>1,400</td><td>48,000</td><td>1,440</td><td>3.00%</td><td>0.97</td><td>29.17</td><td>27</td><td>51.85</td><td>7</td><td>200.00</td><td>11,200</td><td>8.00×</td></tr>
-<tr data-p="Meta"><td><b>Meta</b></td><td>Video / Engagement</td><td>Interest Audience</td><td>1,000</td><td>950</td><td>95,000</td><td>1,045</td><td>1.10%</td><td>0.91</td><td>10.00</td><td>12</td><td>79.17</td><td>2</td><td>475.00</td><td>3,200</td><td>3.37×</td></tr>
-</tbody></table></div><div class="note">Click column headings to sort. Use the platform buttons or search field to filter.</div></div></section>
+        <!-- Slide 2: Executive Summary -->
+        <section class="slide">
+            <h2>Executive Summary</h2>
+            <div class="kpis">
+                <div class="card"><div class="label">Total Budget</div><div class="value">AED 20,000</div></div>
+                <div class="card"><div class="label">Total Spend</div><div class="value">AED 19,100</div></div>
+                <div class="card"><div class="label">Leads</div><div class="value">312</div></div>
+                <div class="card"><div class="label">Revenue</div><div class="value">AED 99,200</div></div>
+            </div>
+            <div class="kpis">
+                <div class="card"><div class="label">Impressions</div><div class="value">610,000</div></div>
+                <div class="card"><div class="label">Clicks</div><div class="value">15,790</div></div>
+                <div class="card"><div class="label">Conversions</div><div class="value">62</div></div>
+                <div class="card"><div class="label">ROAS</div><div class="value">5.19×</div></div>
+            </div>
+        </section>
 
-<section class="slide"><h2>Platform Summary</h2><div class="kpis">
-<div class="card"><div class="label">Google Spend</div><div class="value">AED 11,500</div></div><div class="card"><div class="label">Google Revenue</div><div class="value">AED 57,600</div></div><div class="card"><div class="label">Google ROAS</div><div class="value">5.01×</div></div><div class="card"><div class="label">Google Leads</div><div class="value">170</div></div>
-</div><div class="kpis">
-<div class="card"><div class="label">Meta Spend</div><div class="value">AED 7,600</div></div><div class="card"><div class="label">Meta Revenue</div><div class="value">AED 41,600</div></div><div class="card"><div class="label">Meta ROAS</div><div class="value">5.47×</div></div><div class="card"><div class="label">Meta Leads</div><div class="value">142</div></div>
-</div><div class="panel"><b>Grand Total</b><p>AED 19,100 spend • 610,000 impressions • 15,790 clicks • 312 leads • 62 purchases/conversions • AED 99,200 revenue • 5.19× ROAS</p></div></section>
+        <!-- Slide 3: Interactive Campaign Detail -->
+        <section class="slide">
+            <h2>Interactive Campaign Detail</h2>
+            <div class="controls">
+                <button class="filter active" data-p="All">All</button>
+                <button class="filter" data-p="Google">Google</button>
+                <button class="filter" data-p="Meta">Meta</button>
+            </div>
+            <div class="panel">
+                <div class="tablewrap">
+                    <table id="tbl">
+                        <thead>
+                            <tr>
+                                <th>Platform</th><th>Campaign</th><th>Ad Group / Ad Set</th><th>Budget</th><th>Spend</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>CPM</th><th>Leads</th><th>CPL</th><th>Conversions</th><th>CPA</th><th>Revenue</th><th>ROAS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-p="Google"><td><b>Google</b></td><td>Search – High Intent</td><td>Interior Design</td><td>4,000</td><td>3,850</td><td>38,000</td><td>2,280</td><td>6.00%</td><td>1.69</td><td>101.32</td><td>58</td><td>66.38</td><td>12</td><td>320.83</td><td>19,200</td><td>4.99×</td></tr>
+                            <tr data-p="Google"><td><b>Google</b></td><td>Search – Commercial</td><td>Hospitality</td><td>3,000</td><td>2,900</td><td>27,000</td><td>1,485</td><td>5.50%</td><td>1.95</td><td>107.41</td><td>43</td><td>67.44</td><td>9</td><td>322.22</td><td>14,400</td><td>4.97×</td></tr>
+                            <tr data-p="Google"><td><b>Google</b></td><td>Performance Max</td><td>All Services</td><td>3,000</td><td>2,850</td><td>75,000</td><td>2,250</td><td>3.00%</td><td>1.27</td><td>38.00</td><td>38</td><td>75.00</td><td>7</td><td>407.14</td><td>11,200</td><td>3.93×</td></tr>
+                            <tr data-p="Google"><td><b>Google</b></td><td>Remarketing</td><td>Website Visitors</td><td>2,000</td><td>1,900</td><td>42,000</td><td>1,680</td><td>4.00%</td><td>1.13</td><td>45.24</td><td>31</td><td>61.29</td><td>8</td><td>237.50</td><td>12,800</td><td>6.74×</td></tr>
+                            <tr data-p="Meta"><td><b>Meta</b></td><td>Lead Generation</td><td>Cold Audience</td><td>3,000</td><td>2,850</td><td>165,000</td><td>2,970</td><td>1.80%</td><td>0.96</td><td>17.27</td><td>52</td><td>54.81</td><td>8</td><td>356.25</td><td>12,800</td><td>4.49×</td></tr>
+                            <tr data-p="Meta"><td><b>Meta</b></td><td>Lead Generation</td><td>Lookalike</td><td>2,500</td><td>2,400</td><td>120,000</td><td>2,640</td><td>2.20%</td><td>0.91</td><td>20.00</td><td>51</td><td>47.06</td><td>9</td><td>266.67</td><td>14,400</td><td>6.00×</td></tr>
+                            <tr data-p="Meta"><td><b>Meta</b></td><td>Conversion</td><td>Retargeting</td><td>1,500</td><td>1,400</td><td>48,000</td><td>1,440</td><td>3.00%</td><td>0.97</td><td>29.17</td><td>27</td><td>51.85</td><td>7</td><td>200.00</td><td>11,200</td><td>8.00×</td></tr>
+                            <tr data-p="Meta"><td><b>Meta</b></td><td>Video / Engagement</td><td>Interest Audience</td><td>1,000</td><td>950</td><td>95,000</td><td>1,045</td><td>1.10%</td><td>0.91</td><td>10.00</td><td>12</td><td>79.17</td><td>2</td><td>475.00</td><td>3,200</td><td>3.37×</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="note">Click column headings to sort. Use the platform buttons to filter.</div>
+            </div>
+        </section>
 
-<div class="hint">Use ← → keys or the navigation buttons</div><div class="nav"><button onclick="go(0)">Cover</button><button onclick="go(1)">Summary</button><button onclick="go(2)">Campaigns</button><button onclick="go(3)">Platforms</button></div>
-</div>
-<script>
-let n=0,s=[...document.querySelectorAll('.slide')];function go(i){n=Math.max(0,Math.min(s.length-1,i));s.forEach((x,j)=>x.classList.toggle('active',j===n))}
-document.onkeydown=e=>{if(e.key==='ArrowRight')go(n+1);if(e.key==='ArrowLeft')go(n-1)};
-let rows=[...document.querySelectorAll('#tbl tbody tr')], platform='All';
-function filter(){let q=document.getElementById('search').value.toLowerCase();rows.forEach(r=>r.style.display=(platform==='All'||r.dataset.p===platform)&&r.innerText.toLowerCase().includes(q)?'':'none')}
-document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');platform=b.dataset.p;filter()});document.getElementById('search').oninput=filter;
-document.querySelectorAll('#tbl th').forEach((h,i)=>h.onclick=()=>{let tb=document.querySelector('#tbl tbody');[...tb.rows].sort((a,b)=>a.cells[i].innerText.localeCompare(b.cells[i].innerText,undefined,{numeric:true})).forEach(r=>tb.appendChild(r))});
-</script>
+        <!-- Slide 4: Platform Summary -->
+        <section class="slide">
+            <h2>Platform Summary</h2>
+            <div class="kpis">
+                <div class="card"><div class="label">Google Spend</div><div class="value">AED 11,500</div></div>
+                <div class="card"><div class="label">Google Revenue</div><div class="value">AED 57,600</div></div>
+                <div class="card"><div class="label">Google ROAS</div><div class="value">5.01×</div></div>
+                <div class="card"><div class="label">Google Leads</div><div class="value">170</div></div>
+            </div>
+            <div class="kpis">
+                <div class="card"><div class="label">Meta Spend</div><div class="value">AED 7,600</div></div>
+                <div class="card"><div class="label">Meta Revenue</div><div class="value">AED 41,600</div></div>
+                <div class="card"><div class="label">Meta ROAS</div><div class="value">5.47×</div></div>
+                <div class="card"><div class="label">Meta Leads</div><div class="value">142</div></div>
+            </div>
+            <div class="panel">
+                <b>Grand Total</b>
+                <p>AED 19,100 spend • 610,000 impressions • 15,790 clicks • 312 leads • 62 purchases/conversions • AED 99,200 revenue • 5.19× ROAS</p>
+            </div>
+        </section>
+
+        <div class="hint">Use ← → keys or the navigation buttons</div>
+        <div class="nav">
+            <button onclick="go(0)">Cover</button>
+            <button onclick="go(1)">Summary</button>
+            <button onclick="go(2)">Campaigns</button>
+            <button onclick="go(3)">Platforms</button>
+        </div>
+    </div>
+
+    <script>
+        let n = 0, s = [...document.querySelectorAll('.slide')];
+        function go(i) {
+            n = Math.max(0, Math.min(s.length - 1, i));
+            s.forEach((x, j) => x.classList.toggle('active', j === n));
+        }
+        document.onkeydown = e => {
+            if (e.key === 'ArrowRight') go(n + 1);
+            if (e.key === 'ArrowLeft') go(n - 1);
+        };
+        
+        let rows = [...document.querySelectorAll('#tbl tbody tr')], platform = 'All';
+        function filter() {
+            rows.forEach(r => r.style.display = (platform === 'All' || r.dataset.p === platform) ? '' : 'none');
+        }
+        document.querySelectorAll('.filter').forEach(b => b.onclick = () => {
+            document.querySelectorAll('.filter').forEach(x => x.classList.remove('active'));
+            b.classList.add('active');
+            platform = b.dataset.p;
+            filter();
+        });
+        
+        document.querySelectorAll('#tbl th').forEach((h, i) => h.onclick = () => {
+            let tb = document.querySelector('#tbl tbody');
+            [...tb.rows].sort((a, b) => a.cells[i].innerText.localeCompare(b.cells[i].innerText, undefined, { numeric: true }))
+                .forEach(r => tb.appendChild(r));
+        });
+    </script>
                                     <div class="conts">
                                         <div class="d-flex mb-2 align-items-center gap-md-4 gap-3">
                                             <p class="fs-six fw-medium">Campaign Duration</p>
