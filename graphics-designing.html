@@ -34,1326 +34,1460 @@
 
      <body>
 <!-- =========================================================
-     GRAPHICS DESIGN — ARIGO CREATIVE EXPERIENCE
+     GRAPHIC DESIGN PAGE
+     WHITE ARIGO CREATIVE VERSION
 ========================================================= -->
 
 <style>
+
 /* =========================================================
-   GRAPHICS DESIGN PAGE
+   GRAPHIC DESIGN PAGE — WHITE CREATIVE SYSTEM
 ========================================================= */
 
-.gd-page {
-    --gd-accent: #d8ff3e;
-    --gd-white: #ffffff;
-    --gd-muted: rgba(255,255,255,.58);
-    --gd-border: rgba(255,255,255,.12);
-    --gd-panel: rgba(255,255,255,.045);
-    background: #050505;
-    color: #fff;
-    overflow: hidden;
-}
-
-/* ---------- FLOATING HEADER ---------- */
-
-.gd-header {
-    position: fixed;
-    top: 22px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1180px, calc(100% - 40px));
-    z-index: 9999;
-    padding: 10px 12px 10px 22px;
-    border: 1px solid rgba(255,255,255,.14);
-    border-radius: 100px;
-    background: rgba(8,8,8,.72);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    box-shadow: 0 20px 70px rgba(0,0,0,.35);
-    transition: .4s ease;
-}
-
-.gd-header.scrolled {
-    top: 10px;
-    background: rgba(8,8,8,.92);
-}
-
-.gd-header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-}
-
-.gd-logo {
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    color: #fff;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.gd-logo span {
-    color: var(--gd-accent);
-}
-
-.gd-nav {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-}
-
-.gd-nav a {
-    position: relative;
-    color: rgba(255,255,255,.72);
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none;
-    transition: .3s ease;
-}
-
-.gd-nav a:hover {
-    color: #fff;
-}
-
-.gd-nav a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 1px;
-    background: var(--gd-accent);
-    left: 0;
-    bottom: -6px;
-    transition: .3s ease;
-}
-
-.gd-nav a:hover::after {
-    width: 100%;
-}
-
-.gd-menu-btn {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,.18);
-    background: #fff;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: .4s ease;
-}
-
-.gd-menu-btn:hover {
-    transform: rotate(90deg);
-    background: var(--gd-accent);
-}
-
-.gd-menu-btn i {
-    font-size: 15px;
-}
-
-@media(max-width: 991px) {
-    .gd-nav {
-        display: none;
-    }
-
-    .gd-header {
-        width: calc(100% - 25px);
-        top: 12px;
-    }
-}
-
-
-/* ---------- HERO ---------- */
-
-.gd-hero {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 160px 0 100px;
-    background:
-        radial-gradient(circle at 78% 35%, rgba(216,255,62,.09), transparent 28%),
-        radial-gradient(circle at 20% 70%, rgba(80,120,255,.08), transparent 25%),
-        #050505;
-}
-
-.gd-grid-bg {
-    position: absolute;
-    inset: 0;
-    opacity: .18;
-    pointer-events: none;
-    background-image:
-        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-    background-size: 70px 70px;
-    mask-image: linear-gradient(to bottom, black, transparent 90%);
-    animation: gdGridMove 18s linear infinite;
-}
-
-@keyframes gdGridMove {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 70px 70px;
-    }
-}
-
-.gd-hero-content {
-    position: relative;
-    z-index: 5;
-}
-
-.gd-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 28px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.55);
-}
-
-.gd-eyebrow span {
-    width: 45px;
-    height: 1px;
-    background: var(--gd-accent);
-}
-
-.gd-hero-title {
-    font-size: clamp(58px, 8vw, 120px);
-    line-height: .87;
-    letter-spacing: -6px;
-    font-weight: 800;
-    margin: 0;
-}
-
-.gd-hero-title .outline {
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(255,255,255,.45);
-}
-
-.gd-hero-title .accent {
-    color: var(--gd-accent);
-}
-
-.gd-hero-copy {
-    max-width: 560px;
-    margin-top: 35px;
-    color: var(--gd-muted);
-    font-size: 17px;
-    line-height: 1.8;
-}
-
-.gd-hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-top: 35px;
-    flex-wrap: wrap;
-}
-
-.gd-outline-btn {
-    border: 1px solid rgba(255,255,255,.25);
-    color: #fff;
-    padding: 15px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: .35s ease;
-}
-
-.gd-outline-btn:hover {
-    background: #fff;
-    color: #000;
-}
-
-
-/* ---------- HERO CREATIVE SCENE ---------- */
-
-.gd-scene {
-    position: relative;
-    height: 600px;
-    perspective: 1300px;
-    transform-style: preserve-3d;
-}
-
-.gd-orbit {
-    position: absolute;
-    border: 1px solid rgba(255,255,255,.13);
-    border-radius: 50%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-}
-
-.gd-orbit.one {
-    width: 520px;
-    height: 520px;
-    animation: orbitSpin 22s linear infinite;
-}
-
-.gd-orbit.two {
-    width: 380px;
-    height: 380px;
-    animation: orbitSpinReverse 16s linear infinite;
-}
-
-.gd-orbit.three {
-    width: 250px;
-    height: 250px;
-    border-color: rgba(216,255,62,.25);
-    animation: orbitSpin 11s linear infinite;
-}
-
-@keyframes orbitSpin {
-    from { transform: translate(-50%,-50%) rotateX(65deg) rotateZ(0deg); }
-    to { transform: translate(-50%,-50%) rotateX(65deg) rotateZ(360deg); }
-}
-
-@keyframes orbitSpinReverse {
-    from { transform: translate(-50%,-50%) rotateY(65deg) rotateZ(360deg); }
-    to { transform: translate(-50%,-50%) rotateY(65deg) rotateZ(0deg); }
-}
-
-.gd-main-card {
-    position: absolute;
-    width: 330px;
-    height: 430px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%) rotateY(-12deg) rotateX(8deg);
-    transform-style: preserve-3d;
-    border: 1px solid rgba(255,255,255,.2);
-    border-radius: 30px;
-    overflow: hidden;
-    background:
-        linear-gradient(135deg, rgba(216,255,62,.95), rgba(130,180,0,.55)),
-        #111;
-    box-shadow:
-        0 60px 120px rgba(0,0,0,.55),
-        0 0 100px rgba(216,255,62,.12);
-    animation: heroFloat 5s ease-in-out infinite;
-}
-
-@keyframes heroFloat {
-    0%,100% {
-        transform: translate(-50%,-50%) rotateY(-12deg) rotateX(8deg) translateY(0);
-    }
-    50% {
-        transform: translate(-50%,-50%) rotateY(8deg) rotateX(-5deg) translateY(-18px);
-    }
-}
-
-.gd-card-noise {
-    position: absolute;
-    inset: 0;
-    opacity: .18;
-    background-image:
-        radial-gradient(circle at 20% 20%, #fff 1px, transparent 1px);
-    background-size: 10px 10px;
-}
-
-.gd-card-top {
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    right: 25px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    font-weight: 800;
-    color: #000;
-    letter-spacing: 2px;
-}
-
-.gd-card-big {
-    position: absolute;
-    left: 25px;
-    bottom: 50px;
-    font-size: 90px;
-    line-height: .8;
-    font-weight: 900;
-    letter-spacing: -8px;
-    color: #000;
-}
-
-.gd-card-circle {
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border: 2px solid #000;
-    border-radius: 50%;
-    right: -40px;
-    top: 120px;
-}
-
-.gd-card-circle::after {
-    content: "";
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: #000;
-    border-radius: 50%;
-    left: 40px;
-    top: 40px;
-}
-
-.gd-floating-label {
-    position: absolute;
-    padding: 12px 17px;
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 12px;
-    background: rgba(12,12,12,.78);
-    backdrop-filter: blur(15px);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    box-shadow: 0 20px 50px rgba(0,0,0,.35);
-}
-
-.gd-floating-label.one {
-    top: 90px;
-    left: 5%;
-    animation: floatA 5s ease-in-out infinite;
-}
-
-.gd-floating-label.two {
-    right: 2%;
-    top: 170px;
-    animation: floatB 6s ease-in-out infinite;
-}
-
-.gd-floating-label.three {
-    bottom: 100px;
-    left: 8%;
-    animation: floatA 7s ease-in-out infinite reverse;
-}
-
-@keyframes floatA {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-18px); }
-}
-
-@keyframes floatB {
-    0%,100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(20px) rotate(4deg); }
-}
-
-@media(max-width: 991px) {
-    .gd-scene {
-        height: 500px;
-        margin-top: 50px;
-    }
-
-    .gd-main-card {
-        width: 270px;
-        height: 350px;
-    }
-
-    .gd-orbit.one {
-        width: 400px;
-        height: 400px;
-    }
-
-    .gd-orbit.two {
-        width: 300px;
-        height: 300px;
-    }
-}
-
-
-/* ---------- MARQUEE ---------- */
-
-.gd-marquee {
-    position: relative;
-    overflow: hidden;
-    border-top: 1px solid var(--gd-border);
-    border-bottom: 1px solid var(--gd-border);
-    padding: 24px 0;
-    background: #080808;
-}
-
-.gd-marquee-track {
-    display: flex;
-    width: max-content;
-    animation: gdMarquee 25s linear infinite;
-}
-
-.gd-marquee-item {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    padding-right: 35px;
-    font-size: clamp(30px,4vw,60px);
-    font-weight: 800;
-    letter-spacing: -2px;
-    white-space: nowrap;
-}
-
-.gd-marquee-item i {
-    font-size: 15px;
-    color: var(--gd-accent);
-}
-
-@keyframes gdMarquee {
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-
-/* ---------- INTRO ---------- */
-
-.gd-intro {
-    padding: 150px 0;
-    position: relative;
-}
-
-.gd-section-number {
-    color: rgba(255,255,255,.4);
-    font-size: 12px;
-    letter-spacing: 3px;
-    font-weight: 700;
-    margin-bottom: 25px;
-}
-
-.gd-section-title {
-    font-size: clamp(45px,6vw,82px);
-    line-height: .95;
-    letter-spacing: -4px;
-    font-weight: 800;
-    margin-bottom: 30px;
-}
-
-.gd-section-title span {
-    color: var(--gd-accent);
-}
-
-.gd-large-copy {
-    color: var(--gd-muted);
-    font-size: 19px;
-    line-height: 1.8;
-    max-width: 750px;
-}
-
-
-/* ---------- INTERACTIVE DESIGN ELEMENTS ---------- */
-
-.gd-elements {
-    padding: 80px 0 150px;
-}
-
-.gd-element-card {
-    position: relative;
-    min-height: 300px;
-    padding: 35px;
-    margin-bottom: 25px;
-    border: 1px solid var(--gd-border);
-    border-radius: 25px;
-    background: var(--gd-panel);
-    overflow: hidden;
-    transition: .5s ease;
-    transform-style: preserve-3d;
-}
-
-.gd-element-card:hover {
-    border-color: rgba(216,255,62,.45);
-    background: rgba(255,255,255,.065);
-    transform: translateY(-8px);
-}
-
-.gd-element-number {
-    font-size: 11px;
-    color: rgba(255,255,255,.4);
-    letter-spacing: 2px;
-}
-
-.gd-element-title {
-    position: absolute;
-    left: 35px;
-    bottom: 30px;
-    font-size: 38px;
-    font-weight: 800;
-    letter-spacing: -2px;
-}
-
-.gd-element-visual {
-    position: absolute;
-    right: 30px;
-    top: 30px;
-    width: 130px;
-    height: 130px;
-}
-
-.gd-type-visual {
-    font-size: 110px;
-    line-height: 1;
-    font-weight: 900;
-    color: var(--gd-accent);
-    animation: typePulse 3s ease-in-out infinite;
-}
-
-@keyframes typePulse {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.12) rotate(-4deg); }
-}
-
-.gd-color-visual {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.gd-color-visual span {
-    width: 55px;
-    height: 55px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,.15);
-}
-
-.gd-color-visual span:nth-child(1) { background:#d8ff3e; }
-.gd-color-visual span:nth-child(2) { background:#fff; }
-.gd-color-visual span:nth-child(3) { background:#111; }
-.gd-color-visual span:nth-child(4) { background:#777; }
-
-.gd-grid-visual {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 5px;
-}
-
-.gd-grid-visual span {
-    height: 40px;
-    border: 1px solid rgba(255,255,255,.3);
-}
-
-.gd-shape-visual {
-    width: 120px;
-    height: 120px;
-    border: 2px solid var(--gd-accent);
-    border-radius: 50%;
-    animation: shapeSpin 7s linear infinite;
-}
-
-.gd-shape-visual::after {
+.gfx-page{
+    --gfx-black:#111111;
+    --gfx-dark:#1c1c1c;
+    --gfx-gray:#777;
+    --gfx-light:#f5f5f3;
+    --gfx-border:#deded9;
+    --gfx-accent:#c8f52b;
+
+    background:#fff;
+    color:var(--gfx-black);
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   CREATIVE HEADER
+========================================================= */
+
+.gfx-header{
+    position:relative;
+    z-index:50;
+    padding:25px 0;
+    background:#fff;
+    border-bottom:1px solid #e8e8e5;
+}
+
+.gfx-header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.gfx-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:#111;
+}
+
+.gfx-brand-mark{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#111;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+    font-weight:800;
+}
+
+.gfx-brand-text{
+    font-size:18px;
+    line-height:1;
+    font-weight:800;
+    letter-spacing:-.5px;
+}
+
+.gfx-brand-text small{
+    display:block;
+    font-size:8px;
+    letter-spacing:2px;
+    color:#888;
+    margin-top:5px;
+}
+
+.gfx-header-nav{
+    display:flex;
+    align-items:center;
+    gap:35px;
+}
+
+.gfx-header-nav a{
+    position:relative;
+    color:#222;
+    text-decoration:none;
+    font-size:11px;
+    text-transform:uppercase;
+    font-weight:700;
+    letter-spacing:1.5px;
+}
+
+.gfx-header-nav a:after{
     content:"";
     position:absolute;
-    width:60px;
-    height:60px;
-    background:var(--gd-accent);
-    border-radius:50%;
-    left:30px;
-    top:30px;
+    width:0;
+    height:1px;
+    background:#111;
+    left:0;
+    bottom:-7px;
+    transition:.3s;
 }
 
-@keyframes shapeSpin {
-    to { transform:rotate(360deg); }
+.gfx-header-nav a:hover:after{
+    width:100%;
 }
 
-.gd-motion-visual {
-    width: 130px;
-    height: 100px;
-    position: relative;
+.gfx-header-contact{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:#fff;
+    background:#111;
+    padding:13px 18px;
+    border-radius:50px;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.35s;
 }
 
-.gd-motion-visual span {
-    position:absolute;
-    width:70px;
-    height:70px;
-    border:1px solid #fff;
-    border-radius:50%;
-    left:20px;
-    top:10px;
-    animation: motionPulse 2s infinite;
+.gfx-header-contact:hover{
+    color:#111;
+    background:var(--gfx-accent);
+    transform:translateY(-2px);
 }
 
-.gd-motion-visual span:nth-child(2) {
-    animation-delay:.5s;
+@media(max-width:991px){
+
+    .gfx-header-nav{
+        display:none;
+    }
+
 }
 
-.gd-motion-visual span:nth-child(3) {
-    animation-delay:1s;
-}
 
-@keyframes motionPulse {
-    0% { transform:scale(.5); opacity:0; }
-    50% { opacity:1; }
-    100% { transform:scale(1.5); opacity:0; }
-}
+/* =========================================================
+   HERO
+========================================================= */
 
-.gd-3d-visual {
-    width:100px;
-    height:100px;
+.gfx-hero{
     position:relative;
-    transform-style:preserve-3d;
-    animation:cubeRotate 8s linear infinite;
-    margin:15px;
+    padding:100px 0 130px;
+    background:#fff;
+    overflow:hidden;
 }
 
-.gd-cube-face {
+.gfx-hero-grid{
     position:absolute;
-    width:100px;
-    height:100px;
-    border:2px solid var(--gd-accent);
-    background:rgba(216,255,62,.08);
+    inset:0;
+    pointer-events:none;
+    opacity:.55;
+
+    background-image:
+        linear-gradient(#eeeeea 1px,transparent 1px),
+        linear-gradient(90deg,#eeeeea 1px,transparent 1px);
+
+    background-size:70px 70px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+    );
 }
 
-.gd-cube-front { transform:translateZ(50px); }
-.gd-cube-back { transform:rotateY(180deg) translateZ(50px); }
-.gd-cube-right { transform:rotateY(90deg) translateZ(50px); }
-.gd-cube-left { transform:rotateY(-90deg) translateZ(50px); }
-.gd-cube-top { transform:rotateX(90deg) translateZ(50px); }
-.gd-cube-bottom { transform:rotateX(-90deg) translateZ(50px); }
+.gfx-hero-small{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-weight:700;
+    color:#777;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
 
-@keyframes cubeRotate {
-    from { transform:rotateX(0) rotateY(0); }
-    to { transform:rotateX(360deg) rotateY(360deg); }
+.gfx-hero-small span{
+    display:inline-block;
+    width:40px;
+    height:1px;
+    background:#111;
+}
+
+.gfx-hero-title{
+    position:relative;
+    z-index:2;
+    font-size:clamp(60px,9vw,135px);
+    line-height:.82;
+    letter-spacing:-8px;
+    font-weight:900;
+    margin:30px 0 35px;
+}
+
+.gfx-hero-title .stroke{
+    color:transparent;
+    -webkit-text-stroke:1.5px #111;
+}
+
+.gfx-hero-title .lime{
+    position:relative;
+}
+
+.gfx-hero-title .lime:after{
+    content:"";
+    position:absolute;
+    left:3px;
+    right:0;
+    bottom:-5px;
+    height:12px;
+    background:var(--gfx-accent);
+    z-index:-1;
+}
+
+.gfx-hero-description{
+    max-width:540px;
+    font-size:17px;
+    line-height:1.8;
+    color:#777;
+}
+
+.gfx-hero-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.gfx-black-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:16px 25px;
+    background:#111;
+    color:#fff;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.35s;
+}
+
+.gfx-black-btn:hover{
+    color:#111;
+    background:var(--gfx-accent);
+    transform:translateY(-3px);
+}
+
+.gfx-white-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:15px 24px;
+    border:1px solid #ccc;
+    border-radius:50px;
+    color:#111;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.35s;
+}
+
+.gfx-white-btn:hover{
+    border-color:#111;
 }
 
 
-/* ---------- TOOLS ---------- */
+/* =========================================================
+   HERO VISUAL
+========================================================= */
 
-.gd-tools {
-    padding: 150px 0;
-    background: #090909;
+.gfx-hero-visual{
+    height:600px;
+    position:relative;
+    perspective:1200px;
 }
 
-.gd-tools-box {
-    position: relative;
-    min-height: 550px;
-    border: 1px solid var(--gd-border);
-    border-radius: 35px;
-    overflow: hidden;
+.gfx-hero-image{
+    position:absolute;
+    width:390px;
+    height:500px;
+    left:50%;
+    top:50%;
+    transform:
+        translate(-50%,-50%)
+        rotate(5deg);
+
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:
+        20px 30px 70px rgba(0,0,0,.18);
+
+    z-index:3;
+
+    transition:
+        transform .15s ease-out;
+}
+
+.gfx-hero-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.gfx-hero-image:after{
+    content:"";
+    position:absolute;
+    inset:0;
     background:
-        radial-gradient(circle at center, rgba(216,255,62,.08), transparent 35%),
-        #070707;
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.18),
+            transparent 35%
+        );
+    pointer-events:none;
 }
 
-.gd-tool-orbit {
-    position: absolute;
-    width: 420px;
-    height: 420px;
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 50%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-}
-
-.gd-tool-center {
+.gfx-floating-card{
     position:absolute;
+    padding:15px 18px;
+    background:#fff;
+    border:1px solid #ddd;
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
+    z-index:6;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.gfx-floating-card.a{
+    left:2%;
+    top:100px;
+    transform:rotate(-8deg);
+}
+
+.gfx-floating-card.b{
+    right:2%;
+    top:180px;
+    transform:rotate(7deg);
+}
+
+.gfx-floating-card.c{
+    left:10%;
+    bottom:80px;
+    transform:rotate(5deg);
+}
+
+.gfx-floating-circle{
+    position:absolute;
+    width:270px;
+    height:270px;
+    border:1px solid #bbb;
+    border-radius:50%;
+    right:0;
+    top:40px;
+    animation:gfxRotate 15s linear infinite;
+}
+
+.gfx-floating-circle:before{
+    content:"";
+    position:absolute;
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    background:var(--gfx-accent);
+    top:25px;
+    left:50%;
+}
+
+.gfx-floating-circle.two{
+    width:430px;
+    height:430px;
+    right:-80px;
+    top:100px;
+    border-style:dashed;
+    animation:gfxRotateReverse 25s linear infinite;
+}
+
+@keyframes gfxRotate{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes gfxRotateReverse{
+    to{
+        transform:rotate(-360deg);
+    }
+}
+
+@media(max-width:991px){
+
+    .gfx-hero{
+        padding-top:70px;
+    }
+
+    .gfx-hero-title{
+        font-size:65px;
+        letter-spacing:-4px;
+    }
+
+    .gfx-hero-visual{
+        height:500px;
+        margin-top:50px;
+    }
+
+    .gfx-hero-image{
+        width:300px;
+        height:400px;
+    }
+
+}
+
+
+/* =========================================================
+   SCROLLING WORD STRIP
+========================================================= */
+
+.gfx-word-strip{
+    overflow:hidden;
+    background:#111;
+    color:#fff;
+    padding:25px 0;
+    white-space:nowrap;
+}
+
+.gfx-word-track{
+    display:flex;
+    width:max-content;
+    animation:gfxMarquee 25s linear infinite;
+}
+
+.gfx-word{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    padding-right:30px;
+    font-size:45px;
+    font-weight:900;
+    letter-spacing:-2px;
+}
+
+.gfx-word i{
+    color:var(--gfx-accent);
+    font-size:15px;
+}
+
+@keyframes gfxMarquee{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.gfx-intro{
+    padding:150px 0;
+}
+
+.gfx-label{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#888;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.gfx-label span{
+    width:35px;
+    height:1px;
+    background:#111;
+}
+
+.gfx-big-title{
+    font-size:clamp(45px,6vw,85px);
+    line-height:.95;
+    letter-spacing:-4px;
+    font-weight:900;
+    margin:30px 0;
+}
+
+.gfx-big-title span{
+    color:#999;
+}
+
+.gfx-intro-text{
+    max-width:700px;
+    color:#777;
+    font-size:18px;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   INTERACTIVE IMAGE GALLERY
+========================================================= */
+
+.gfx-gallery{
+    padding:50px 0 150px;
+}
+
+.gfx-gallery-header{
+    margin-bottom:60px;
+}
+
+.gfx-gallery-card{
+    position:relative;
+    height:550px;
+    border-radius:18px;
+    overflow:hidden;
+    margin-bottom:30px;
+    cursor:pointer;
+    background:#eee;
+}
+
+.gfx-gallery-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:
+        transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.gfx-gallery-card:hover img{
+    transform:scale(1.08);
+}
+
+.gfx-gallery-card:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.7),
+            transparent 55%
+        );
+}
+
+.gfx-gallery-info{
+    position:absolute;
+    left:30px;
+    right:30px;
+    bottom:28px;
+    z-index:2;
+    color:#fff;
+}
+
+.gfx-gallery-info small{
+    font-size:9px;
+    letter-spacing:2px;
+    font-weight:700;
+}
+
+.gfx-gallery-info h3{
+    font-size:32px;
+    margin:8px 0;
+    font-weight:800;
+}
+
+.gfx-gallery-info p{
+    margin:0;
+    opacity:.7;
+    font-size:13px;
+}
+
+.gfx-gallery-number{
+    position:absolute;
+    top:25px;
+    left:25px;
+    z-index:2;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#fff;
+    color:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    font-weight:800;
+}
+
+
+/* Different image heights */
+
+.gfx-gallery-card.small{
+    height:400px;
+}
+
+.gfx-gallery-card.tall{
+    height:650px;
+}
+
+
+/* =========================================================
+   DESIGN ELEMENT INTERACTION
+========================================================= */
+
+.gfx-elements{
+    padding:150px 0;
+    background:#f5f5f3;
+}
+
+.gfx-element-stage{
+    position:relative;
+    min-height:560px;
+    margin-top:70px;
+    background:#fff;
+    border-radius:25px;
+    overflow:hidden;
+    border:1px solid #ddd;
+}
+
+.gfx-element-center{
+    position:absolute;
+    width:260px;
+    height:260px;
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
-    width:180px;
-    height:180px;
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    background:var(--gd-accent);
-    color:#000;
-    font-size:25px;
-    line-height:1;
+    background:#111;
+    color:#fff;
+    z-index:3;
+    font-size:32px;
+    line-height:.9;
     font-weight:900;
-    letter-spacing:-1px;
-    box-shadow:0 0 100px rgba(216,255,62,.15);
+    letter-spacing:-2px;
+    transition:.5s;
 }
 
-.gd-tool {
+.gfx-element-center small{
+    display:block;
+    margin-top:10px;
+    color:var(--gfx-accent);
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+.gfx-element-orbit{
     position:absolute;
-    padding:15px 22px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:430px;
+    height:430px;
+    border:1px dashed #ccc;
+    border-radius:50%;
+    animation:gfxOrbit 18s linear infinite;
+}
+
+@keyframes gfxOrbit{
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+    }
+}
+
+.gfx-element-button{
+    position:absolute;
+    border:1px solid #ccc;
+    background:#fff;
+    padding:13px 20px;
     border-radius:50px;
-    border:1px solid rgba(255,255,255,.18);
-    background:rgba(12,12,12,.8);
-    backdrop-filter:blur(10px);
-    font-size:12px;
+    font-size:10px;
     font-weight:800;
     letter-spacing:1px;
-    transition:.4s ease;
     cursor:pointer;
+    transition:.3s;
+    z-index:5;
 }
 
-.gd-tool:hover {
-    background:#fff;
-    color:#000;
-    transform:scale(1.12);
+.gfx-element-button:hover,
+.gfx-element-button.active{
+    background:#111;
+    color:#fff;
+    border-color:#111;
+    transform:scale(1.08);
 }
 
-.gd-tool.t1 { left:8%; top:18%; }
-.gd-tool.t2 { right:8%; top:22%; }
-.gd-tool.t3 { left:15%; bottom:20%; }
-.gd-tool.t4 { right:15%; bottom:18%; }
-.gd-tool.t5 { left:50%; top:5%; transform:translateX(-50%); }
-.gd-tool.t6 { left:50%; bottom:5%; transform:translateX(-50%); }
+.gfx-element-button.type{
+    left:8%;
+    top:20%;
+}
 
-.gd-tools-description {
-    padding:35px;
+.gfx-element-button.color{
+    right:8%;
+    top:20%;
+}
+
+.gfx-element-button.grid{
+    left:8%;
+    bottom:20%;
+}
+
+.gfx-element-button.motion{
+    right:8%;
+    bottom:20%;
+}
+
+.gfx-element-button.image{
+    left:50%;
+    top:7%;
+    transform:translateX(-50%);
+}
+
+.gfx-element-button.three{
+    left:50%;
+    bottom:7%;
+    transform:translateX(-50%);
+}
+
+.gfx-element-info{
     position:absolute;
-    left:0;
-    bottom:0;
-    width:100%;
-    background:linear-gradient(transparent,rgba(0,0,0,.95));
-}
-
-.gd-tools-description p {
-    max-width:550px;
-    color:var(--gd-muted);
-    margin:0;
+    bottom:25px;
+    left:30px;
+    color:#888;
+    font-size:11px;
 }
 
 
-/* ---------- SERVICES ---------- */
+/* =========================================================
+   TOOLS
+========================================================= */
 
-.gd-services {
-    padding: 150px 0;
+.gfx-tools{
+    padding:150px 0;
 }
 
-.gd-service-row {
+.gfx-tool-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:60px;
+}
+
+.gfx-tool{
     position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:30px;
-    padding:35px 0;
-    border-top:1px solid var(--gd-border);
-    transition:.4s ease;
+    min-height:180px;
+    padding:25px;
+    border:1px solid #ddd;
+    border-radius:18px;
+    background:#fff;
+    overflow:hidden;
+    transition:.4s;
 }
 
-.gd-service-row:last-child {
-    border-bottom:1px solid var(--gd-border);
+.gfx-tool:hover{
+    transform:translateY(-8px);
+    border-color:#111;
+    box-shadow:0 25px 60px rgba(0,0,0,.08);
 }
 
-.gd-service-row:hover {
-    padding-left:20px;
-}
-
-.gd-service-number {
-    color:rgba(255,255,255,.35);
-    font-size:12px;
-}
-
-.gd-service-name {
-    flex:1;
-    font-size:clamp(28px,4vw,55px);
+.gfx-tool-number{
+    font-size:10px;
+    color:#999;
     font-weight:800;
-    letter-spacing:-2px;
-    transition:.4s ease;
 }
 
-.gd-service-row:hover .gd-service-name {
-    color:var(--gd-accent);
+.gfx-tool-name{
+    position:absolute;
+    left:25px;
+    bottom:25px;
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:-1px;
 }
 
-.gd-service-arrow {
-    width:50px;
-    height:50px;
-    border:1px solid rgba(255,255,255,.2);
+.gfx-tool-circle{
+    position:absolute;
+    right:-30px;
+    top:-30px;
+    width:100px;
+    height:100px;
     border-radius:50%;
+    background:#f2f2ef;
+    transition:.4s;
+}
+
+.gfx-tool:hover .gfx-tool-circle{
+    background:var(--gfx-accent);
+    transform:scale(1.4);
+}
+
+
+/* =========================================================
+   3D SHOWCASE
+========================================================= */
+
+.gfx-3d{
+    padding:150px 0;
+    background:#111;
+    color:#fff;
+}
+
+.gfx-3d-stage{
+    position:relative;
+    min-height:600px;
+    margin-top:70px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:30px;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.04) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.04) 1px,
+            transparent 1px
+        );
+
+    background-size:50px 50px;
+
+    perspective:1000px;
+}
+
+.gfx-cube{
+    position:absolute;
+    width:220px;
+    height:220px;
+    left:50%;
+    top:50%;
+    transform:
+        translate(-50%,-50%)
+        rotateX(-20deg)
+        rotateY(30deg);
+
+    transform-style:preserve-3d;
+
+    animation:
+        gfxCube 12s linear infinite;
+}
+
+.gfx-face{
+    position:absolute;
+    width:220px;
+    height:220px;
     display:flex;
     align-items:center;
     justify-content:center;
-    transition:.4s ease;
+    border:1px solid rgba(255,255,255,.5);
+    background:rgba(255,255,255,.03);
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:2px;
+    backdrop-filter:blur(4px);
 }
 
-.gd-service-row:hover .gd-service-arrow {
-    background:var(--gd-accent);
-    color:#000;
+.gfx-front{
+    transform:translateZ(110px);
+}
+
+.gfx-back{
+    transform:rotateY(180deg) translateZ(110px);
+}
+
+.gfx-right{
+    transform:rotateY(90deg) translateZ(110px);
+}
+
+.gfx-left{
+    transform:rotateY(-90deg) translateZ(110px);
+}
+
+.gfx-top{
+    transform:rotateX(90deg) translateZ(110px);
+}
+
+.gfx-bottom{
+    transform:rotateX(-90deg) translateZ(110px);
+}
+
+@keyframes gfxCube{
+
+    from{
+        transform:
+            translate(-50%,-50%)
+            rotateX(0)
+            rotateY(0)
+            rotateZ(0);
+    }
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotateX(360deg)
+            rotateY(360deg)
+            rotateZ(180deg);
+    }
+
+}
+
+.gfx-3d-label{
+    position:absolute;
+    padding:14px 18px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:10px;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.gfx-3d-label.a{
+    left:8%;
+    top:20%;
+}
+
+.gfx-3d-label.b{
+    right:8%;
+    top:30%;
+}
+
+.gfx-3d-label.c{
+    left:15%;
+    bottom:20%;
+}
+
+.gfx-3d-label.d{
+    right:12%;
+    bottom:18%;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.gfx-services{
+    padding:150px 0;
+}
+
+.gfx-service{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    padding:35px 0;
+    border-top:1px solid #ddd;
+    transition:.4s;
+}
+
+.gfx-service:last-child{
+    border-bottom:1px solid #ddd;
+}
+
+.gfx-service-number{
+    color:#aaa;
+    font-size:11px;
+    width:45px;
+}
+
+.gfx-service-name{
+    flex:1;
+    font-size:clamp(27px,4vw,52px);
+    font-weight:900;
+    letter-spacing:-2px;
+}
+
+.gfx-service-arrow{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:1px solid #ccc;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.4s;
+}
+
+.gfx-service:hover{
+    padding-left:20px;
+}
+
+.gfx-service:hover .gfx-service-name{
+    color:#777;
+}
+
+.gfx-service:hover .gfx-service-arrow{
+    background:#111;
+    color:#fff;
     transform:rotate(-45deg);
 }
 
 
-/* ---------- 3D LAB ---------- */
+/* =========================================================
+   PROCESS
+========================================================= */
 
-.gd-lab {
+.gfx-process{
     padding:150px 0;
-    background:#090909;
+    background:#f5f5f3;
 }
 
-.gd-lab-stage {
-    min-height:600px;
+.gfx-process-card{
     position:relative;
-    border-radius:35px;
+    min-height:300px;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:20px;
+    padding:30px;
     overflow:hidden;
-    border:1px solid var(--gd-border);
-    background:
-        radial-gradient(circle at 50% 50%, rgba(216,255,62,.11), transparent 28%),
-        #050505;
+    transition:.5s;
 }
 
-.gd-big-cube {
-    position:absolute;
-    width:220px;
-    height:220px;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    transform-style:preserve-3d;
-    animation:bigCube 15s linear infinite;
+.gfx-process-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 30px 70px rgba(0,0,0,.08);
 }
 
-.gd-big-face {
-    position:absolute;
-    width:220px;
-    height:220px;
-    border:1px solid rgba(216,255,62,.5);
-    background:rgba(216,255,62,.045);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:25px;
-    font-weight:900;
-    letter-spacing:2px;
-    color:#fff;
-}
-
-.gd-big-front { transform:translateZ(110px); }
-.gd-big-back { transform:rotateY(180deg) translateZ(110px); }
-.gd-big-right { transform:rotateY(90deg) translateZ(110px); }
-.gd-big-left { transform:rotateY(-90deg) translateZ(110px); }
-.gd-big-top { transform:rotateX(90deg) translateZ(110px); }
-.gd-big-bottom { transform:rotateX(-90deg) translateZ(110px); }
-
-@keyframes bigCube {
-    from { transform:translate(-50%,-50%) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-    to { transform:translate(-50%,-50%) rotateX(360deg) rotateY(360deg) rotateZ(180deg); }
-}
-
-.gd-lab-tag {
-    position:absolute;
-    padding:15px 20px;
-    border-radius:14px;
-    background:rgba(10,10,10,.8);
-    border:1px solid rgba(255,255,255,.15);
-    backdrop-filter:blur(15px);
+.gfx-process-number{
     font-size:11px;
     font-weight:800;
-    letter-spacing:1px;
+    color:#999;
 }
 
-.gd-lab-tag.a { left:8%; top:20%; }
-.gd-lab-tag.b { right:8%; top:30%; }
-.gd-lab-tag.c { left:15%; bottom:20%; }
-.gd-lab-tag.d { right:12%; bottom:18%; }
-
-
-/* ---------- PROCESS ---------- */
-
-.gd-process {
-    padding:150px 0;
-}
-
-.gd-process-card {
-    position:relative;
-    padding:35px;
-    min-height:270px;
-    border:1px solid var(--gd-border);
-    border-radius:25px;
-    background:rgba(255,255,255,.025);
-    transition:.5s ease;
-    overflow:hidden;
-}
-
-.gd-process-card:hover {
-    transform:translateY(-10px);
-    border-color:rgba(216,255,62,.4);
-}
-
-.gd-process-card::before {
-    content:"";
-    position:absolute;
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    right:-70px;
-    top:-70px;
-    background:rgba(216,255,62,.08);
-    transition:.5s ease;
-}
-
-.gd-process-card:hover::before {
-    transform:scale(2);
-}
-
-.gd-process-num {
-    font-size:13px;
-    color:var(--gd-accent);
-    font-weight:800;
-}
-
-.gd-process-title {
-    margin-top:80px;
+.gfx-process-title{
+    margin-top:90px;
     font-size:30px;
-    font-weight:800;
-    letter-spacing:-1px;
+    font-weight:900;
 }
 
-.gd-process-card p {
-    color:var(--gd-muted);
+.gfx-process-text{
+    color:#888;
     line-height:1.7;
+    font-size:13px;
 }
 
-
-/* ---------- CTA ---------- */
-
-.gd-cta {
-    position:relative;
-    padding:180px 0;
-    overflow:hidden;
-    text-align:center;
-    background:
-        radial-gradient(circle at center, rgba(216,255,62,.14), transparent 35%),
-        #050505;
-}
-
-.gd-cta-ring {
+.gfx-process-circle{
     position:absolute;
-    width:600px;
-    height:600px;
-    border:1px solid rgba(255,255,255,.08);
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    right:-30px;
+    top:-30px;
+    background:#f0f0ec;
+    transition:.5s;
+}
+
+.gfx-process-card:hover .gfx-process-circle{
+    background:var(--gfx-accent);
+    transform:scale(1.7);
+}
+
+
+/* =========================================================
+   COUNTER
+========================================================= */
+
+.gfx-stats{
+    padding:110px 0;
+    background:#fff;
+}
+
+.gfx-stat{
+    text-align:center;
+    padding:30px;
+}
+
+.gfx-stat-number{
+    font-size:70px;
+    line-height:1;
+    font-weight:900;
+    letter-spacing:-4px;
+}
+
+.gfx-stat-label{
+    margin-top:15px;
+    color:#888;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.gfx-final{
+    padding:180px 0;
+    text-align:center;
+    background:#f5f5f3;
+    position:relative;
+    overflow:hidden;
+}
+
+.gfx-final-circle{
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px solid #ddd;
     border-radius:50%;
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
-    animation:ctaRing 12s linear infinite;
 }
 
-@keyframes ctaRing {
-    from { transform:translate(-50%,-50%) rotate(0deg) scale(1); }
-    50% { transform:translate(-50%,-50%) rotate(180deg) scale(1.1); }
-    to { transform:translate(-50%,-50%) rotate(360deg) scale(1); }
-}
-
-.gd-cta-title {
+.gfx-final-title{
     position:relative;
     z-index:2;
     font-size:clamp(50px,8vw,110px);
     line-height:.9;
-    font-weight:900;
     letter-spacing:-6px;
+    font-weight:900;
 }
 
-.gd-cta-title span {
-    color:var(--gd-accent);
+.gfx-final-title span{
+    color:#999;
 }
 
-.gd-cta-text {
+.gfx-final p{
     position:relative;
     z-index:2;
-    max-width:600px;
+    max-width:550px;
     margin:30px auto;
-    color:var(--gd-muted);
+    color:#777;
     line-height:1.8;
 }
 
-.gd-cta-btn {
-    position:relative;
-    z-index:2;
-    display:inline-flex;
-    align-items:center;
-    gap:12px;
-    padding:18px 30px;
-    border-radius:50px;
-    background:var(--gd-accent);
-    color:#000;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    text-decoration:none;
-    transition:.4s ease;
-}
 
-.gd-cta-btn:hover {
-    color:#000;
-    transform:scale(1.06);
-    box-shadow:0 20px 70px rgba(216,255,62,.15);
-}
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
-
-/* ---------- REVEAL ---------- */
-
-.gd-reveal {
+.gfx-reveal{
     opacity:0;
     transform:translateY(45px);
-    transition:opacity .9s ease, transform .9s ease;
+    transition:
+        opacity .9s ease,
+        transform .9s cubic-bezier(.2,.7,.2,1);
 }
 
-.gd-reveal.active {
+.gfx-reveal.active{
     opacity:1;
     transform:translateY(0);
 }
 
 
-/* ---------- MOBILE ---------- */
+/* =========================================================
+   MOBILE
+========================================================= */
 
-@media(max-width:767px) {
+@media(max-width:991px){
 
-    .gd-hero {
-        padding-top:140px;
+    .gfx-tool-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .gd-hero-title {
-        font-size:56px;
-        letter-spacing:-3px;
+}
+
+@media(max-width:575px){
+
+    .gfx-hero-title{
+        font-size:55px;
     }
 
-    .gd-scene {
-        height:420px;
+    .gfx-tool-grid{
+        grid-template-columns:1fr;
     }
 
-    .gd-orbit.one {
-        width:330px;
-        height:330px;
+    .gfx-element-stage{
+        min-height:600px;
     }
 
-    .gd-orbit.two {
-        width:250px;
-        height:250px;
-    }
-
-    .gd-main-card {
-        width:220px;
-        height:300px;
-    }
-
-    .gd-card-big {
-        font-size:65px;
-    }
-
-    .gd-floating-label {
-        font-size:9px;
-        padding:9px 12px;
-    }
-
-    .gd-tools-box {
-        min-height:500px;
-    }
-
-    .gd-tool-orbit {
+    .gfx-element-orbit{
         width:280px;
         height:280px;
     }
 
-    .gd-tool-center {
-        width:130px;
-        height:130px;
-        font-size:18px;
+    .gfx-element-center{
+        width:170px;
+        height:170px;
+        font-size:23px;
     }
 
-    .gd-tool {
-        font-size:9px;
+    .gfx-element-button{
+        font-size:8px;
         padding:10px 13px;
     }
 
-    .gd-service-name {
-        font-size:27px;
-    }
-
-    .gd-big-cube {
+    .gfx-cube,
+    .gfx-face{
         width:160px;
         height:160px;
     }
 
-    .gd-big-face {
-        width:160px;
-        height:160px;
-        font-size:18px;
+    .gfx-front{
+        transform:translateZ(80px);
     }
 
-    .gd-big-front { transform:translateZ(80px); }
-    .gd-big-back { transform:rotateY(180deg) translateZ(80px); }
-    .gd-big-right { transform:rotateY(90deg) translateZ(80px); }
-    .gd-big-left { transform:rotateY(-90deg) translateZ(80px); }
-    .gd-big-top { transform:rotateX(90deg) translateZ(80px); }
-    .gd-big-bottom { transform:rotateX(-90deg) translateZ(80px); }
-
-    .gd-cta-title {
-        letter-spacing:-3px;
+    .gfx-back{
+        transform:rotateY(180deg) translateZ(80px);
     }
+
+    .gfx-right{
+        transform:rotateY(90deg) translateZ(80px);
+    }
+
+    .gfx-left{
+        transform:rotateY(-90deg) translateZ(80px);
+    }
+
+    .gfx-top{
+        transform:rotateX(90deg) translateZ(80px);
+    }
+
+    .gfx-bottom{
+        transform:rotateX(-90deg) translateZ(80px);
+    }
+
 }
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    .gfx-word-track,
+    .gfx-floating-circle,
+    .gfx-cube,
+    .gfx-element-orbit{
+        animation:none;
+    }
+
+}
+
 </style>
 
 
-<div class="gd-page">
+<!-- =========================================================
+     PAGE START
+========================================================= -->
 
-    <!-- =========================================
-         FLOATING CREATIVE HEADER
-    ========================================== -->
+<div class="gfx-page">
 
-    <header class="gd-header" id="gdHeader">
-        <div class="gd-header-inner">
 
-            <a href="index.html" class="gd-logo">
-                VECTOR<span>BS</span>
-            </a>
+    <!-- =====================================================
+         CREATIVE HEADER
+    ====================================================== -->
 
-            <nav class="gd-nav">
-                <a href="#gd-about">About</a>
-                <a href="#gd-elements">Elements</a>
-                <a href="#gd-tools">Tools</a>
-                <a href="#gd-services">Services</a>
-                <a href="#gd-process">Process</a>
-            </nav>
+    <header class="gfx-header">
 
-            <a href="contact.html" class="gd-menu-btn">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
+        <div class="container">
+
+            <div class="gfx-header-inner">
+
+                <a href="index.html" class="gfx-brand">
+
+                    <div class="gfx-brand-mark">
+                        V
+                    </div>
+
+                    <div class="gfx-brand-text">
+
+                        VectorBS
+
+                        <small>
+                            GRAPHIC DESIGN STUDIO
+                        </small>
+
+                    </div>
+
+                </a>
+
+
+                <nav class="gfx-header-nav">
+
+                    <a href="#gfx-work">
+                        Work
+                    </a>
+
+                    <a href="#gfx-elements">
+                        Elements
+                    </a>
+
+                    <a href="#gfx-tools">
+                        Tools
+                    </a>
+
+                    <a href="#gfx-services">
+                        Services
+                    </a>
+
+                    <a href="#gfx-process">
+                        Process
+                    </a>
+
+                </nav>
+
+
+                <a href="contact.html"
+                   class="gfx-header-contact">
+
+                    START A PROJECT
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+            </div>
 
         </div>
+
     </header>
 
 
-    <!-- =========================================
+
+    <!-- =====================================================
          HERO
-    ========================================== -->
+    ====================================================== -->
 
-    <section class="gd-hero">
+    <section class="gfx-hero">
 
-        <div class="gd-grid-bg"></div>
+        <div class="gfx-hero-grid"></div>
 
         <div class="container">
+
             <div class="row align-items-center">
 
+
                 <div class="col-lg-6">
 
-                    <div class="gd-hero-content">
+                    <div class="gfx-hero-small wow fadeInUp">
 
-                        <div class="gd-eyebrow wow fadeInUp">
-                            <span></span>
-                            Graphic Design Studio
-                        </div>
+                        <span></span>
 
-                        <h1 class="gd-hero-title wow fadeInUp"
-                            data-wow-delay=".1s">
+                        Graphic Design & Visual Experiences
 
-                            WE MAKE<br>
+                    </div>
 
-                            <span class="outline">IDEAS</span><br>
 
-                            <span class="accent">LOOK</span><br>
+                    <h1 class="gfx-hero-title wow fadeInUp"
+                        data-wow-delay=".1s">
 
-                            IMPOSSIBLE.
+                        DESIGN<br>
 
-                        </h1>
+                        <span class="stroke">
+                            THAT
+                        </span><br>
 
-                        <p class="gd-hero-copy wow fadeInUp"
-                           data-wow-delay=".2s">
+                        <span class="lime">
+                            MOVES
+                        </span><br>
 
-                            Visual identities, campaign creatives, social media
-                            graphics, motion, 3D and digital experiences designed
-                            to make your brand impossible to ignore.
+                        BRANDS.
 
-                        </p>
+                    </h1>
 
-                        <div class="gd-hero-actions wow fadeInUp"
-                             data-wow-delay=".3s">
 
-                            <a href="contact.html"
-                               class="common_btn">
-                                START A PROJECT
-                                <i class="fa-solid fa-arrow-up-right"></i>
-                            </a>
+                    <p class="gfx-hero-description wow fadeInUp"
+                       data-wow-delay=".2s">
 
-                            <a href="#gd-services"
-                               class="gd-outline-btn">
-                                EXPLORE SERVICES
-                            </a>
+                        We turn ideas into visual experiences —
+                        from brand identities and social creatives
+                        to advertising graphics, motion and 3D.
 
-                        </div>
+                    </p>
+
+
+                    <div class="gfx-hero-buttons wow fadeInUp"
+                         data-wow-delay=".3s">
+
+                        <a href="contact.html"
+                           class="gfx-black-btn">
+
+                            START A PROJECT
+
+                            <i class="fa-solid fa-arrow-up-right"></i>
+
+                        </a>
+
+
+                        <a href="#gfx-work"
+                           class="gfx-white-btn">
+
+                            EXPLORE OUR WORK
+
+                        </a>
 
                     </div>
 
                 </div>
 
 
-                <!-- INTERACTIVE 3D VISUAL -->
+
+                <!-- HERO IMAGE -->
 
                 <div class="col-lg-6">
 
-                    <div class="gd-scene">
-
-                        <div class="gd-orbit one"></div>
-                        <div class="gd-orbit two"></div>
-                        <div class="gd-orbit three"></div>
+                    <div class="gfx-hero-visual">
 
 
-                        <div class="gd-floating-label one">
-                            BRAND IDENTITY
-                        </div>
+                        <div class="gfx-floating-circle"></div>
 
-                        <div class="gd-floating-label two">
-                            MOTION + 3D
-                        </div>
-
-                        <div class="gd-floating-label three">
-                            DIGITAL CAMPAIGNS
-                        </div>
+                        <div class="gfx-floating-circle two"></div>
 
 
-                        <div class="gd-main-card gd-tilt">
+                        <!-- CHANGE THIS IMAGE LATER -->
 
-                            <div class="gd-card-noise"></div>
+                        <div class="gfx-hero-image"
+                             id="gfxHeroImage">
 
-                            <div class="gd-card-top">
-                                <span>VECTORBS</span>
-                                <span>001 / 024</span>
-                            </div>
-
-                            <div class="gd-card-circle"></div>
-
-                            <div class="gd-card-big">
-                                GD.
-                            </div>
+                            <img
+                                src="assets/img/graphics/graphic-hero.webp"
+                                alt="Graphic design creative showcase">
 
                         </div>
+
+
+                        <div class="gfx-floating-card a">
+                            TYPOGRAPHY
+                        </div>
+
+                        <div class="gfx-floating-card b">
+                            MOTION / 3D
+                        </div>
+
+                        <div class="gfx-floating-card c">
+                            BRAND SYSTEM
+                        </div>
+
 
                     </div>
 
                 </div>
 
-            </div>
-        </div>
-
-    </section>
-
-
-    <!-- =========================================
-         MARQUEE
-    ========================================== -->
-
-    <section class="gd-marquee">
-
-        <div class="gd-marquee-track">
-
-            <div class="gd-marquee-item">
-                BRAND <i class="fa-solid fa-star"></i>
-                SOCIAL <i class="fa-solid fa-star"></i>
-                ADS <i class="fa-solid fa-star"></i>
-                MOTION <i class="fa-solid fa-star"></i>
-                3D <i class="fa-solid fa-star"></i>
-                IDENTITY <i class="fa-solid fa-star"></i>
-            </div>
-
-            <div class="gd-marquee-item">
-                BRAND <i class="fa-solid fa-star"></i>
-                SOCIAL <i class="fa-solid fa-star"></i>
-                ADS <i class="fa-solid fa-star"></i>
-                MOTION <i class="fa-solid fa-star"></i>
-                3D <i class="fa-solid fa-star"></i>
-                IDENTITY <i class="fa-solid fa-star"></i>
             </div>
 
         </div>
@@ -1361,34 +1495,119 @@
     </section>
 
 
-    <!-- =========================================
-         ABOUT
-    ========================================== -->
 
-    <section class="gd-intro" id="gd-about">
+    <!-- =====================================================
+         MOVING WORDS
+    ====================================================== -->
+
+    <section class="gfx-word-strip">
+
+        <div class="gfx-word-track">
+
+            <div class="gfx-word">
+
+                BRAND
+
+                <i class="fa-solid fa-circle"></i>
+
+                SOCIAL
+
+                <i class="fa-solid fa-circle"></i>
+
+                CAMPAIGNS
+
+                <i class="fa-solid fa-circle"></i>
+
+                MOTION
+
+                <i class="fa-solid fa-circle"></i>
+
+                3D
+
+                <i class="fa-solid fa-circle"></i>
+
+                DIGITAL
+
+                <i class="fa-solid fa-circle"></i>
+
+            </div>
+
+
+            <div class="gfx-word">
+
+                BRAND
+
+                <i class="fa-solid fa-circle"></i>
+
+                SOCIAL
+
+                <i class="fa-solid fa-circle"></i>
+
+                CAMPAIGNS
+
+                <i class="fa-solid fa-circle"></i>
+
+                MOTION
+
+                <i class="fa-solid fa-circle"></i>
+
+                3D
+
+                <i class="fa-solid fa-circle"></i>
+
+                DIGITAL
+
+                <i class="fa-solid fa-circle"></i>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         INTRO
+    ====================================================== -->
+
+    <section class="gfx-intro">
 
         <div class="container">
 
-            <div class="gd-reveal">
+            <div class="gfx-reveal">
 
-                <div class="gd-section-number">
-                    {01} — THE IDEA
+                <div class="gfx-label">
+
+                    <span></span>
+
+                    01 — The Creative Idea
+
                 </div>
 
-                <h2 class="gd-section-title">
-                    DESIGN IS NOT<br>
-                    <span>DECORATION.</span>
+
+                <h2 class="gfx-big-title">
+
+                    YOUR BRAND HAS A STORY.<br>
+
+                    <span>WE GIVE IT A VISUAL LANGUAGE.</span>
+
                 </h2>
 
-                <p class="gd-large-copy">
-                    It is how people recognize your brand, understand your
-                    message and remember your business.
+
+                <p class="gfx-intro-text">
+
+                    Great graphic design is more than making something
+                    look attractive. It creates recognition, communicates
+                    an idea quickly and gives every touchpoint of your
+                    business a consistent visual identity.
 
                     <br><br>
 
-                    We combine strategy, visual systems, typography, imagery,
-                    motion and technology to create graphics that are not only
-                    beautiful — but built for marketing.
+                    From a single social media creative to a complete
+                    campaign system, we design visuals that are built
+                    to work across digital marketing.
+
                 </p>
 
             </div>
@@ -1398,46 +1617,72 @@
     </section>
 
 
-    <!-- =========================================
-         DESIGN ELEMENTS
-    ========================================== -->
 
-    <section class="gd-elements" id="gd-elements">
+    <!-- =====================================================
+         IMAGE GALLERY
+    ====================================================== -->
+
+    <section class="gfx-gallery" id="gfx-work">
 
         <div class="container">
 
-            <div class="gd-reveal">
 
-                <div class="gd-section-number">
-                    {02} — DESIGN ELEMENTS
+            <div class="gfx-gallery-header gfx-reveal">
+
+                <div class="gfx-label">
+
+                    <span></span>
+
+                    02 — Creative Showcase
+
                 </div>
 
-                <h2 class="gd-section-title">
-                    EVERY PIXEL<br>
-                    HAS A <span>PURPOSE.</span>
+
+                <h2 class="gfx-big-title">
+
+                    VISUALS THAT<br>
+
+                    <span>GET ATTENTION.</span>
+
                 </h2>
 
             </div>
 
 
-            <div class="row mt-5">
+            <div class="row">
 
-                <!-- TYPE -->
 
-                <div class="col-lg-4 col-md-6">
+                <!-- IMAGE 01 -->
 
-                    <div class="gd-element-card gd-tilt gd-reveal">
+                <div class="col-lg-7">
 
-                        <div class="gd-element-number">
-                            01 / TYPE
-                        </div>
+                    <div class="gfx-gallery-card tall gfx-reveal">
 
-                        <div class="gd-element-visual gd-type-visual">
-                            Aa
-                        </div>
+                        <span class="gfx-gallery-number">
+                            01
+                        </span>
 
-                        <div class="gd-element-title">
-                            Typography
+
+                        <!-- REPLACE IMAGE WITH YOUR OWN -->
+
+                        <img
+                            src="assets/img/graphics/graphic-01.webp"
+                            alt="Brand identity design">
+
+                        <div class="gfx-gallery-info">
+
+                            <small>
+                                BRAND IDENTITY
+                            </small>
+
+                            <h3>
+                                Visual Identity
+                            </h3>
+
+                            <p>
+                                Logo systems / typography / color / brand language
+                            </p>
+
                         </div>
 
                     </div>
@@ -1445,25 +1690,98 @@
                 </div>
 
 
-                <!-- COLOR -->
 
-                <div class="col-lg-4 col-md-6">
+                <!-- IMAGE 02 -->
 
-                    <div class="gd-element-card gd-tilt gd-reveal">
+                <div class="col-lg-5">
 
-                        <div class="gd-element-number">
-                            02 / COLOR
+                    <div class="gfx-gallery-card small gfx-reveal">
+
+                        <span class="gfx-gallery-number">
+                            02
+                        </span>
+
+
+                        <!-- REPLACE IMAGE -->
+
+                        <img
+                            src="assets/img/graphics/graphic-02.webp"
+                            alt="Social media graphic design">
+
+                        <div class="gfx-gallery-info">
+
+                            <small>
+                                SOCIAL MEDIA
+                            </small>
+
+                            <h3>
+                                Content Creatives
+                            </h3>
+
                         </div>
 
-                        <div class="gd-element-visual gd-color-visual">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                    </div>
+
+
+                    <div class="gfx-gallery-card small gfx-reveal">
+
+                        <span class="gfx-gallery-number">
+                            03
+                        </span>
+
+
+                        <!-- REPLACE IMAGE -->
+
+                        <img
+                            src="assets/img/graphics/graphic-03.webp"
+                            alt="Advertising campaign creative">
+
+                        <div class="gfx-gallery-info">
+
+                            <small>
+                                ADVERTISING
+                            </small>
+
+                            <h3>
+                                Campaign Visuals
+                            </h3>
+
                         </div>
 
-                        <div class="gd-element-title">
-                            Color
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+
+                <!-- IMAGE 04 -->
+
+                <div class="col-lg-5">
+
+                    <div class="gfx-gallery-card small gfx-reveal">
+
+                        <span class="gfx-gallery-number">
+                            04
+                        </span>
+
+                        <img
+                            src="assets/img/graphics/graphic-04.webp"
+                            alt="Motion graphic design">
+
+                        <div class="gfx-gallery-info">
+
+                            <small>
+                                MOTION
+                            </small>
+
+                            <h3>
+                                Animated Visuals
+                            </h3>
+
                         </div>
 
                     </div>
@@ -1471,109 +1789,34 @@
                 </div>
 
 
-                <!-- GRID -->
+                <!-- IMAGE 05 -->
 
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-7">
 
-                    <div class="gd-element-card gd-tilt gd-reveal">
+                    <div class="gfx-gallery-card tall gfx-reveal">
 
-                        <div class="gd-element-number">
-                            03 / GRID
-                        </div>
+                        <span class="gfx-gallery-number">
+                            05
+                        </span>
 
-                        <div class="gd-element-visual gd-grid-visual">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                        <img
+                            src="assets/img/graphics/graphic-05.webp"
+                            alt="Creative campaign design">
 
-                        <div class="gd-element-title">
-                            Layout
-                        </div>
+                        <div class="gfx-gallery-info">
 
-                    </div>
+                            <small>
+                                CAMPAIGN DESIGN
+                            </small>
 
-                </div>
+                            <h3>
+                                Creative Direction
+                            </h3>
 
+                            <p>
+                                Concept / art direction / digital execution
+                            </p>
 
-                <!-- FORM -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="gd-element-card gd-tilt gd-reveal">
-
-                        <div class="gd-element-number">
-                            04 / FORM
-                        </div>
-
-                        <div class="gd-element-visual gd-shape-visual"></div>
-
-                        <div class="gd-element-title">
-                            Shapes
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- MOTION -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="gd-element-card gd-tilt gd-reveal">
-
-                        <div class="gd-element-number">
-                            05 / MOTION
-                        </div>
-
-                        <div class="gd-element-visual gd-motion-visual">
-
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
-                        </div>
-
-                        <div class="gd-element-title">
-                            Motion
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- 3D -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="gd-element-card gd-tilt gd-reveal">
-
-                        <div class="gd-element-number">
-                            06 / DIMENSION
-                        </div>
-
-                        <div class="gd-element-visual">
-
-                            <div class="gd-3d-visual">
-
-                                <div class="gd-cube-face gd-cube-front"></div>
-                                <div class="gd-cube-face gd-cube-back"></div>
-                                <div class="gd-cube-face gd-cube-right"></div>
-                                <div class="gd-cube-face gd-cube-left"></div>
-                                <div class="gd-cube-face gd-cube-top"></div>
-                                <div class="gd-cube-face gd-cube-bottom"></div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="gd-element-title">
-                            3D
                         </div>
 
                     </div>
@@ -1587,70 +1830,132 @@
     </section>
 
 
-    <!-- =========================================
-         CREATIVE TOOLS
-    ========================================== -->
 
-    <section class="gd-tools" id="gd-tools">
+    <!-- =====================================================
+         INTERACTIVE DESIGN ELEMENTS
+    ====================================================== -->
+
+    <section class="gfx-elements" id="gfx-elements">
 
         <div class="container">
 
-            <div class="gd-reveal">
 
-                <div class="gd-section-number">
-                    {03} — CREATIVE TOOLKIT
+            <div class="gfx-reveal">
+
+                <div class="gfx-label">
+
+                    <span></span>
+
+                    03 — Design Elements
+
                 </div>
 
-                <h2 class="gd-section-title">
-                    BUILT WITH<br>
-                    <span>POWERFUL TOOLS.</span>
+
+                <h2 class="gfx-big-title">
+
+                    PLAY WITH<br>
+
+                    <span>THE ELEMENTS.</span>
+
                 </h2>
 
             </div>
 
 
-            <div class="gd-tools-box mt-5">
+            <div class="gfx-element-stage gfx-reveal">
 
-                <div class="gd-tool-orbit"></div>
 
-                <div class="gd-tool-center">
-                    CREATIVE<br>
-                    LAB
+                <div class="gfx-element-orbit"></div>
+
+
+                <div class="gfx-element-center"
+                     id="gfxElementCenter">
+
+                    <div>
+
+                        VISUAL<br>
+                        SYSTEM
+
+                        <small>
+                            EXPLORE
+
+                        </small>
+
+                    </div>
+
                 </div>
 
 
-                <div class="gd-tool t1">
-                    ADOBE PHOTOSHOP
-                </div>
+                <button
+                    type="button"
+                    class="gfx-element-button type active"
+                    data-title="TYPOGRAPHY"
+                    data-description="Type creates personality, hierarchy and recognition.">
 
-                <div class="gd-tool t2">
-                    ILLUSTRATOR
-                </div>
+                    TYPOGRAPHY
 
-                <div class="gd-tool t3">
-                    FIGMA
-                </div>
-
-                <div class="gd-tool t4">
-                    AFTER EFFECTS
-                </div>
-
-                <div class="gd-tool t5">
-                    BLENDER
-                </div>
-
-                <div class="gd-tool t6">
-                    CANVA
-                </div>
+                </button>
 
 
-                <div class="gd-tools-description">
+                <button
+                    type="button"
+                    class="gfx-element-button color"
+                    data-title="COLOR"
+                    data-description="Color creates emotion and makes visual systems memorable.">
 
-                    <p>
-                        Our creative workflow can combine professional design,
-                        motion, UI and 3D tools to build visual systems for
-                        brands, campaigns, social media and advertising.
-                    </p>
+                    COLOR
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="gfx-element-button grid"
+                    data-title="COMPOSITION"
+                    data-description="Composition controls attention and creates visual balance.">
+
+                    COMPOSITION
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="gfx-element-button motion"
+                    data-title="MOTION"
+                    data-description="Movement transforms static graphics into experiences.">
+
+                    MOTION
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="gfx-element-button image"
+                    data-title="IMAGERY"
+                    data-description="Photography and imagery create emotion and context.">
+
+                    IMAGERY
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="gfx-element-button three"
+                    data-title="3D"
+                    data-description="Depth, form and dimensional visuals create a stronger digital presence.">
+
+                    3D
+
+                </button>
+
+
+                <div class="gfx-element-info"
+                     id="gfxElementInfo">
+
+                    Typography creates personality, hierarchy and recognition.
 
                 </div>
 
@@ -1661,23 +1966,285 @@
     </section>
 
 
-    <!-- =========================================
+
+    <!-- =====================================================
+         TOOLS
+    ====================================================== -->
+
+    <section class="gfx-tools" id="gfx-tools">
+
+        <div class="container">
+
+
+            <div class="gfx-reveal">
+
+                <div class="gfx-label">
+
+                    <span></span>
+
+                    04 — Creative Toolkit
+
+                </div>
+
+
+                <h2 class="gfx-big-title">
+
+                    TOOLS THAT<br>
+
+                    <span>TURN IDEAS INTO VISUALS.</span>
+
+                </h2>
+
+            </div>
+
+
+            <div class="gfx-tool-grid">
+
+
+                <div class="gfx-tool gfx-reveal">
+
+                    <div class="gfx-tool-number">
+                        01
+                    </div>
+
+                    <div class="gfx-tool-circle"></div>
+
+                    <div class="gfx-tool-name">
+                        Photoshop
+                    </div>
+
+                </div>
+
+
+                <div class="gfx-tool gfx-reveal">
+
+                    <div class="gfx-tool-number">
+                        02
+                    </div>
+
+                    <div class="gfx-tool-circle"></div>
+
+                    <div class="gfx-tool-name">
+                        Illustrator
+                    </div>
+
+                </div>
+
+
+                <div class="gfx-tool gfx-reveal">
+
+                    <div class="gfx-tool-number">
+                        03
+                    </div>
+
+                    <div class="gfx-tool-circle"></div>
+
+                    <div class="gfx-tool-name">
+                        InDesign
+                    </div>
+
+                </div>
+
+
+                <div class="gfx-tool gfx-reveal">
+
+                    <div class="gfx-tool-number">
+                        04
+                    </div>
+
+                    <div class="gfx-tool-circle"></div>
+
+                    <div class="gfx-tool-name">
+                        Figma
+                    </div>
+
+                </div>
+
+
+                <div class="gfx-tool gfx-reveal">
+
+                    <div class="gfx-tool-number">
+                        05
+                    </div>
+
+                    <div class="gfx-tool-circle"></div>
+
+                    <div class="gfx-tool-name">
+                        After Effects
+                    </div>
+
+                </div>
+
+
+                <div class="gfx-tool gfx-reveal">
+
+                    <div class="gfx-tool-number">
+                        06
+                    </div>
+
+                    <div class="gfx-tool-circle"></div>
+
+                    <div class="gfx-tool-name">
+                        Premiere Pro
+                    </div>
+
+                </div>
+
+
+                <div class="gfx-tool gfx-reveal">
+
+                    <div class="gfx-tool-number">
+                        07
+                    </div>
+
+                    <div class="gfx-tool-circle"></div>
+
+                    <div class="gfx-tool-name">
+                        Blender
+                    </div>
+
+                </div>
+
+
+                <div class="gfx-tool gfx-reveal">
+
+                    <div class="gfx-tool-number">
+                        08
+                    </div>
+
+                    <div class="gfx-tool-circle"></div>
+
+                    <div class="gfx-tool-name">
+                        Canva
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         3D SECTION
+    ====================================================== -->
+
+    <section class="gfx-3d">
+
+        <div class="container">
+
+
+            <div class="gfx-reveal">
+
+                <div class="gfx-label"
+                     style="color:#aaa;">
+
+                    <span style="background:#fff;"></span>
+
+                    05 — Motion & 3D
+
+                </div>
+
+
+                <h2 class="gfx-big-title"
+                    style="color:#fff;">
+
+                    STATIC IS ONLY<br>
+
+                    <span style="color:#777;">
+                        THE BEGINNING.
+                    </span>
+
+                </h2>
+
+            </div>
+
+
+            <div class="gfx-3d-stage gfx-reveal">
+
+
+                <div class="gfx-3d-label a">
+                    DEPTH
+                </div>
+
+                <div class="gfx-3d-label b">
+                    MOTION
+                </div>
+
+                <div class="gfx-3d-label c">
+                    FORM
+                </div>
+
+                <div class="gfx-3d-label d">
+                    DIMENSION
+                </div>
+
+
+                <div class="gfx-cube">
+
+                    <div class="gfx-face gfx-front">
+                        BRAND
+                    </div>
+
+                    <div class="gfx-face gfx-back">
+                        TYPE
+                    </div>
+
+                    <div class="gfx-face gfx-right">
+                        3D
+                    </div>
+
+                    <div class="gfx-face gfx-left">
+                        MOTION
+                    </div>
+
+                    <div class="gfx-face gfx-top">
+                        IDEA
+                    </div>
+
+                    <div class="gfx-face gfx-bottom">
+                        FORM
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
          SERVICES
-    ========================================== -->
+    ====================================================== -->
 
-    <section class="gd-services" id="gd-services">
+    <section class="gfx-services" id="gfx-services">
 
         <div class="container">
 
-            <div class="gd-reveal">
 
-                <div class="gd-section-number">
-                    {04} — WHAT WE CREATE
+            <div class="gfx-reveal">
+
+                <div class="gfx-label">
+
+                    <span></span>
+
+                    06 — What We Create
+
                 </div>
 
-                <h2 class="gd-section-title">
-                    VISUALS FOR<br>
-                    <span>EVERY TOUCHPOINT.</span>
+
+                <h2 class="gfx-big-title">
+
+                    ONE CREATIVE<br>
+
+                    <span>LANGUAGE. EVERY TOUCHPOINT.</span>
+
                 </h2>
 
             </div>
@@ -1685,18 +2252,19 @@
 
             <div class="mt-5">
 
-                <a href="contact.html"
-                   class="gd-service-row gd-reveal">
 
-                    <div class="gd-service-number">
+                <a href="contact.html"
+                   class="gfx-service gfx-reveal">
+
+                    <div class="gfx-service-number">
                         01
                     </div>
 
-                    <div class="gd-service-name">
-                        Brand Identity & Logo Systems
+                    <div class="gfx-service-name">
+                        Brand Identity & Logo Design
                     </div>
 
-                    <div class="gd-service-arrow">
+                    <div class="gfx-service-arrow">
                         <i class="fa-solid fa-arrow-up-right"></i>
                     </div>
 
@@ -1704,17 +2272,17 @@
 
 
                 <a href="contact.html"
-                   class="gd-service-row gd-reveal">
+                   class="gfx-service gfx-reveal">
 
-                    <div class="gd-service-number">
+                    <div class="gfx-service-number">
                         02
                     </div>
 
-                    <div class="gd-service-name">
+                    <div class="gfx-service-name">
                         Social Media Creatives
                     </div>
 
-                    <div class="gd-service-arrow">
+                    <div class="gfx-service-arrow">
                         <i class="fa-solid fa-arrow-up-right"></i>
                     </div>
 
@@ -1722,17 +2290,17 @@
 
 
                 <a href="contact.html"
-                   class="gd-service-row gd-reveal">
+                   class="gfx-service gfx-reveal">
 
-                    <div class="gd-service-number">
+                    <div class="gfx-service-number">
                         03
                     </div>
 
-                    <div class="gd-service-name">
-                        Advertising & Campaign Graphics
+                    <div class="gfx-service-name">
+                        Advertising & Campaign Design
                     </div>
 
-                    <div class="gd-service-arrow">
+                    <div class="gfx-service-arrow">
                         <i class="fa-solid fa-arrow-up-right"></i>
                     </div>
 
@@ -1740,17 +2308,17 @@
 
 
                 <a href="contact.html"
-                   class="gd-service-row gd-reveal">
+                   class="gfx-service gfx-reveal">
 
-                    <div class="gd-service-number">
+                    <div class="gfx-service-number">
                         04
                     </div>
 
-                    <div class="gd-service-name">
+                    <div class="gfx-service-name">
                         Motion Graphics & Animation
                     </div>
 
-                    <div class="gd-service-arrow">
+                    <div class="gfx-service-arrow">
                         <i class="fa-solid fa-arrow-up-right"></i>
                     </div>
 
@@ -1758,17 +2326,17 @@
 
 
                 <a href="contact.html"
-                   class="gd-service-row gd-reveal">
+                   class="gfx-service gfx-reveal">
 
-                    <div class="gd-service-number">
+                    <div class="gfx-service-number">
                         05
                     </div>
 
-                    <div class="gd-service-name">
-                        3D Visuals & Product Concepts
+                    <div class="gfx-service-name">
+                        3D & Product Visualisation
                     </div>
 
-                    <div class="gd-service-arrow">
+                    <div class="gfx-service-arrow">
                         <i class="fa-solid fa-arrow-up-right"></i>
                     </div>
 
@@ -1776,17 +2344,17 @@
 
 
                 <a href="contact.html"
-                   class="gd-service-row gd-reveal">
+                   class="gfx-service gfx-reveal">
 
-                    <div class="gd-service-number">
+                    <div class="gfx-service-number">
                         06
                     </div>
 
-                    <div class="gd-service-name">
-                        Presentation & Corporate Design
+                    <div class="gfx-service-name">
+                        Corporate & Presentation Design
                     </div>
 
-                    <div class="gd-service-arrow">
+                    <div class="gfx-service-arrow">
                         <i class="fa-solid fa-arrow-up-right"></i>
                     </div>
 
@@ -1799,99 +2367,33 @@
     </section>
 
 
-    <!-- =========================================
-         3D CREATIVE LAB
-    ========================================== -->
 
-    <section class="gd-lab">
-
-        <div class="container">
-
-            <div class="gd-reveal">
-
-                <div class="gd-section-number">
-                    {05} — 3D CREATIVE LAB
-                </div>
-
-                <h2 class="gd-section-title">
-                    FROM FLAT PIXELS<br>
-                    TO <span>DIMENSION.</span>
-                </h2>
-
-            </div>
-
-
-            <div class="gd-lab-stage mt-5">
-
-                <div class="gd-lab-tag a">
-                    VISUAL SYSTEM
-                </div>
-
-                <div class="gd-lab-tag b">
-                    MOTION
-                </div>
-
-                <div class="gd-lab-tag c">
-                    FORM
-                </div>
-
-                <div class="gd-lab-tag d">
-                    DEPTH
-                </div>
-
-
-                <div class="gd-big-cube">
-
-                    <div class="gd-big-face gd-big-front">
-                        FORM
-                    </div>
-
-                    <div class="gd-big-face gd-big-back">
-                        TYPE
-                    </div>
-
-                    <div class="gd-big-face gd-big-right">
-                        3D
-                    </div>
-
-                    <div class="gd-big-face gd-big-left">
-                        MOTION
-                    </div>
-
-                    <div class="gd-big-face gd-big-top">
-                        BRAND
-                    </div>
-
-                    <div class="gd-big-face gd-big-bottom">
-                        IDEA
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================
+    <!-- =====================================================
          PROCESS
-    ========================================== -->
+    ====================================================== -->
 
-    <section class="gd-process" id="gd-process">
+    <section class="gfx-process" id="gfx-process">
 
         <div class="container">
 
-            <div class="gd-reveal">
 
-                <div class="gd-section-number">
-                    {06} — CREATIVE PROCESS
+            <div class="gfx-reveal">
+
+                <div class="gfx-label">
+
+                    <span></span>
+
+                    07 — Our Process
+
                 </div>
 
-                <h2 class="gd-section-title">
-                    FROM IDEA<br>
-                    TO <span>IMPACT.</span>
+
+                <h2 class="gfx-big-title">
+
+                    FROM CONCEPT<br>
+
+                    <span>TO CREATIVE IMPACT.</span>
+
                 </h2>
 
             </div>
@@ -1899,21 +2401,24 @@
 
             <div class="row mt-5">
 
+
                 <div class="col-lg-4 col-md-6 mb-4">
 
-                    <div class="gd-process-card gd-tilt gd-reveal">
+                    <div class="gfx-process-card gfx-reveal">
 
-                        <div class="gd-process-num">
-                            01
+                        <div class="gfx-process-circle"></div>
+
+                        <div class="gfx-process-number">
+                            01 — DISCOVER
                         </div>
 
-                        <div class="gd-process-title">
-                            Discover
+                        <div class="gfx-process-title">
+                            Understand
                         </div>
 
-                        <p>
-                            Understand the brand, audience, campaign and
-                            objective before the first pixel is created.
+                        <p class="gfx-process-text">
+                            Brand, audience, campaign goals and the
+                            message behind the creative.
                         </p>
 
                     </div>
@@ -1923,19 +2428,21 @@
 
                 <div class="col-lg-4 col-md-6 mb-4">
 
-                    <div class="gd-process-card gd-tilt gd-reveal">
+                    <div class="gfx-process-card gfx-reveal">
 
-                        <div class="gd-process-num">
-                            02
+                        <div class="gfx-process-circle"></div>
+
+                        <div class="gfx-process-number">
+                            02 — DIRECTION
                         </div>
 
-                        <div class="gd-process-title">
-                            Direction
+                        <div class="gfx-process-title">
+                            Explore
                         </div>
 
-                        <p>
-                            Build the visual direction through references,
-                            mood, typography, color and composition.
+                        <p class="gfx-process-text">
+                            Moodboards, typography, colors, references
+                            and visual direction.
                         </p>
 
                     </div>
@@ -1945,19 +2452,21 @@
 
                 <div class="col-lg-4 col-md-6 mb-4">
 
-                    <div class="gd-process-card gd-tilt gd-reveal">
+                    <div class="gfx-process-card gfx-reveal">
 
-                        <div class="gd-process-num">
-                            03
+                        <div class="gfx-process-circle"></div>
+
+                        <div class="gfx-process-number">
+                            03 — DESIGN
                         </div>
 
-                        <div class="gd-process-title">
-                            Design
+                        <div class="gfx-process-title">
+                            Create
                         </div>
 
-                        <p>
-                            Turn the creative direction into polished
-                            campaign-ready visual assets.
+                        <p class="gfx-process-text">
+                            Transform the idea into polished visual
+                            compositions and campaign assets.
                         </p>
 
                     </div>
@@ -1967,19 +2476,21 @@
 
                 <div class="col-lg-4 col-md-6 mb-4">
 
-                    <div class="gd-process-card gd-tilt gd-reveal">
+                    <div class="gfx-process-card gfx-reveal">
 
-                        <div class="gd-process-num">
-                            04
+                        <div class="gfx-process-circle"></div>
+
+                        <div class="gfx-process-number">
+                            04 — MOTION
                         </div>
 
-                        <div class="gd-process-title">
-                            Motion
+                        <div class="gfx-process-title">
+                            Animate
                         </div>
 
-                        <p>
-                            Add movement, transitions and visual effects when
-                            the idea needs more than a static frame.
+                        <p class="gfx-process-text">
+                            Add movement, transitions, effects and
+                            dimensional visual experiences.
                         </p>
 
                     </div>
@@ -1989,19 +2500,21 @@
 
                 <div class="col-lg-4 col-md-6 mb-4">
 
-                    <div class="gd-process-card gd-tilt gd-reveal">
+                    <div class="gfx-process-card gfx-reveal">
 
-                        <div class="gd-process-num">
-                            05
+                        <div class="gfx-process-circle"></div>
+
+                        <div class="gfx-process-number">
+                            05 — DELIVERY
                         </div>
 
-                        <div class="gd-process-title">
-                            Deliver
+                        <div class="gfx-process-title">
+                            Launch
                         </div>
 
-                        <p>
-                            Prepare the final creative system for social,
-                            advertising, presentations and digital campaigns.
+                        <p class="gfx-process-text">
+                            Prepare the creative for social, advertising,
+                            presentations and digital platforms.
                         </p>
 
                     </div>
@@ -2011,19 +2524,21 @@
 
                 <div class="col-lg-4 col-md-6 mb-4">
 
-                    <div class="gd-process-card gd-tilt gd-reveal">
+                    <div class="gfx-process-card gfx-reveal">
 
-                        <div class="gd-process-num">
-                            06
+                        <div class="gfx-process-circle"></div>
+
+                        <div class="gfx-process-number">
+                            06 — SCALE
                         </div>
 
-                        <div class="gd-process-title">
-                            Scale
+                        <div class="gfx-process-title">
+                            Evolve
                         </div>
 
-                        <p>
-                            Extend the visual language across future campaigns
-                            while keeping the brand consistent.
+                        <p class="gfx-process-text">
+                            Extend the creative system into future
+                            campaigns while keeping the brand consistent.
                         </p>
 
                     </div>
@@ -2037,36 +2552,142 @@
     </section>
 
 
-    <!-- =========================================
-         CTA
-    ========================================== -->
 
-    <section class="gd-cta">
+    <!-- =====================================================
+         STATS
+    ====================================================== -->
 
-        <div class="gd-cta-ring"></div>
+    <section class="gfx-stats">
 
         <div class="container">
 
-            <div class="gd-reveal">
+            <div class="row">
 
-                <div class="gd-section-number">
-                    {07} — LET'S CREATE
+
+                <div class="col-lg-3 col-6">
+
+                    <div class="gfx-stat gfx-reveal">
+
+                        <div class="gfx-stat-number">
+                            01
+                        </div>
+
+                        <div class="gfx-stat-label">
+                            CREATIVE DIRECTION
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <h2 class="gd-cta-title">
-                    YOUR NEXT<br>
-                    <span>BIG IDEA.</span>
+
+                <div class="col-lg-3 col-6">
+
+                    <div class="gfx-stat gfx-reveal">
+
+                        <div class="gfx-stat-number">
+                            02
+                        </div>
+
+                        <div class="gfx-stat-label">
+                            VISUAL SYSTEMS
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-3 col-6">
+
+                    <div class="gfx-stat gfx-reveal">
+
+                        <div class="gfx-stat-number">
+                            03
+                        </div>
+
+                        <div class="gfx-stat-label">
+                            MOTION & 3D
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-3 col-6">
+
+                    <div class="gfx-stat gfx-reveal">
+
+                        <div class="gfx-stat-number">
+                            04
+                        </div>
+
+                        <div class="gfx-stat-label">
+                            DIGITAL CAMPAIGNS
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FINAL CTA
+    ====================================================== -->
+
+    <section class="gfx-final">
+
+        <div class="gfx-final-circle"></div>
+
+        <div class="container">
+
+            <div class="gfx-reveal">
+
+                <div class="gfx-label"
+                     style="justify-content:center;">
+
+                    <span></span>
+
+                    Let's Create Something
+
+                    <span></span>
+
+                </div>
+
+
+                <h2 class="gfx-final-title">
+
+                    YOUR IDEA.<br>
+
+                    <span>OUR CANVAS.</span>
+
                 </h2>
 
-                <p class="gd-cta-text">
-                    Your campaign deserves more than a template.
-                    Let's build visuals that people notice, remember
-                    and connect with.
+
+                <p>
+
+                    Your next campaign deserves more than a template.
+                    Let's create a visual experience that makes people
+                    stop, look and remember your brand.
+
                 </p>
 
-                <a href="contact.html" class="gd-cta-btn">
+
+                <a href="contact.html"
+                   class="gfx-black-btn">
+
                     START A PROJECT
+
                     <i class="fa-solid fa-arrow-up-right"></i>
+
                 </a>
 
             </div>
@@ -2075,214 +2696,331 @@
 
     </section>
 
+
 </div>
 
 
+
 <!-- =========================================================
-     INTERACTIONS
+     INTERACTIVE JAVASCRIPT
 ========================================================= -->
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function(){
 
-    /* -----------------------------------------
-       FLOATING HEADER
-    ----------------------------------------- */
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
 
-    const header = document.getElementById("gdHeader");
+    const reveals =
+        document.querySelectorAll(".gfx-reveal");
 
-    window.addEventListener("scroll", function () {
+    const revealObserver =
+        new IntersectionObserver(function(entries){
 
-        if (window.scrollY > 60) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
-        }
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("active");
+
+                    revealObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        },{
+            threshold:.12
+        });
+
+
+    reveals.forEach(function(item){
+
+        revealObserver.observe(item);
 
     });
 
 
-    /* -----------------------------------------
-       REVEAL ON SCROLL
-    ----------------------------------------- */
 
-    const revealItems = document.querySelectorAll(".gd-reveal");
+    /* =====================================================
+       HERO 3D MOUSE MOVEMENT
+    ===================================================== */
 
-    const revealObserver = new IntersectionObserver(function(entries) {
+    const hero =
+        document.querySelector(".gfx-hero-visual");
 
-        entries.forEach(function(entry) {
+    const heroImage =
+        document.getElementById("gfxHeroImage");
 
-            if (entry.isIntersecting) {
 
-                entry.target.classList.add("active");
+    if(hero && heroImage){
 
-                revealObserver.unobserve(entry.target);
+        hero.addEventListener("mousemove",function(e){
 
-            }
+            const rect =
+                hero.getBoundingClientRect();
+
+            const x =
+                (e.clientX - rect.left) / rect.width - .5;
+
+            const y =
+                (e.clientY - rect.top) / rect.height - .5;
+
+
+            heroImage.style.transform =
+                "translate(-50%,-50%) " +
+                "rotateY(" + (x * 15) + "deg) " +
+                "rotateX(" + (y * -12) + "deg) " +
+                "rotate(5deg)";
 
         });
 
-    }, {
-        threshold: .12
+
+        hero.addEventListener("mouseleave",function(){
+
+            heroImage.style.transform =
+                "translate(-50%,-50%) rotate(5deg)";
+
+        });
+
+    }
+
+
+
+    /* =====================================================
+       DESIGN ELEMENT SELECTOR
+    ===================================================== */
+
+    const elementButtons =
+        document.querySelectorAll(".gfx-element-button");
+
+    const elementCenter =
+        document.getElementById("gfxElementCenter");
+
+    const elementInfo =
+        document.getElementById("gfxElementInfo");
+
+
+    elementButtons.forEach(function(button){
+
+        button.addEventListener("click",function(){
+
+            elementButtons.forEach(function(item){
+
+                item.classList.remove("active");
+
+            });
+
+
+            button.classList.add("active");
+
+
+            const title =
+                button.getAttribute("data-title");
+
+            const description =
+                button.getAttribute("data-description");
+
+
+            elementCenter.innerHTML =
+
+                "<div>" +
+                title +
+                "<small>EXPLORE</small>" +
+                "</div>";
+
+
+            elementInfo.textContent =
+                description;
+
+
+            /* small interactive pulse */
+
+            elementCenter.style.transform =
+                "translate(-50%,-50%) scale(1.08)";
+
+
+            setTimeout(function(){
+
+                elementCenter.style.transform =
+                    "translate(-50%,-50%) scale(1)";
+
+            },300);
+
+        });
+
     });
 
-    revealItems.forEach(function(item) {
-        revealObserver.observe(item);
+
+
+    /* =====================================================
+       3D TILT FOR CARDS
+    ===================================================== */
+
+    const tiltCards =
+        document.querySelectorAll(
+            ".gfx-gallery-card, .gfx-process-card, .gfx-tool"
+        );
+
+
+    tiltCards.forEach(function(card){
+
+        card.addEventListener("mousemove",function(e){
+
+            if(window.innerWidth < 992) return;
+
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                (e.clientX - rect.left) /
+                rect.width - .5;
+
+            const y =
+                (e.clientY - rect.top) /
+                rect.height - .5;
+
+
+            card.style.transform =
+                "perspective(900px) " +
+                "rotateY(" + (x * 5) + "deg) " +
+                "rotateX(" + (y * -5) + "deg) " +
+                "translateY(-5px)";
+
+        });
+
+
+        card.addEventListener("mouseleave",function(){
+
+            card.style.transform = "";
+
+        });
+
     });
 
 
-    /* -----------------------------------------
-       VANILLA TILT
-    ----------------------------------------- */
 
-    if (typeof VanillaTilt !== "undefined") {
+    /* =====================================================
+       IMAGE MAGNETIC EFFECT
+    ===================================================== */
 
-        VanillaTilt.init(
-            document.querySelectorAll(".gd-tilt"),
-            {
-                max: 12,
-                speed: 500,
-                glare: true,
-                "max-glare": .15,
-                scale: 1.02
+    const galleryImages =
+        document.querySelectorAll(".gfx-gallery-card img");
+
+
+    galleryImages.forEach(function(image){
+
+        image.parentElement.addEventListener(
+            "mousemove",
+            function(e){
+
+                if(window.innerWidth < 992) return;
+
+
+                const rect =
+                    this.getBoundingClientRect();
+
+                const x =
+                    (e.clientX - rect.left) /
+                    rect.width - .5;
+
+                const y =
+                    (e.clientY - rect.top) /
+                    rect.height - .5;
+
+
+                image.style.transform =
+                    "scale(1.08) " +
+                    "translate(" +
+                    (x * 12) +
+                    "px," +
+                    (y * 12) +
+                    "px)";
+
             }
         );
 
-    }
 
+        image.parentElement.addEventListener(
+            "mouseleave",
+            function(){
 
-    /* -----------------------------------------
-       HERO MOUSE PARALLAX
-    ----------------------------------------- */
-
-    const heroScene = document.querySelector(".gd-scene");
-
-    if (heroScene) {
-
-        heroScene.addEventListener("mousemove", function(e) {
-
-            const rect = heroScene.getBoundingClientRect();
-
-            const x = (e.clientX - rect.left) / rect.width - .5;
-            const y = (e.clientY - rect.top) / rect.height - .5;
-
-            const card = heroScene.querySelector(".gd-main-card");
-
-            if (card) {
-
-                card.style.animationPlayState = "paused";
-
-                card.style.transform =
-                    "translate(-50%,-50%) " +
-                    "rotateY(" + (x * 25) + "deg) " +
-                    "rotateX(" + (y * -20) + "deg)";
+                image.style.transform =
+                    "scale(1)";
 
             }
+        );
+
+    });
+
+
+
+    /* =====================================================
+       SERVICE MOUSE GLOW
+    ===================================================== */
+
+    const services =
+        document.querySelectorAll(".gfx-service");
+
+
+    services.forEach(function(service){
+
+        service.addEventListener("mousemove",function(e){
+
+            const rect =
+                service.getBoundingClientRect();
+
+            const x =
+                e.clientX - rect.left;
+
+
+            service.style.background =
+                "radial-gradient(" +
+                "circle at " +
+                x +
+                "px 50%, " +
+                "rgba(200,245,43,.10), " +
+                "transparent 250px)";
 
         });
 
 
-        heroScene.addEventListener("mouseleave", function() {
+        service.addEventListener("mouseleave",function(){
 
-            const card = heroScene.querySelector(".gd-main-card");
-
-            if (card) {
-
-                card.style.animationPlayState = "running";
-
-            }
-
-        });
-
-    }
-
-
-    /* -----------------------------------------
-       TOOL INTERACTION
-    ----------------------------------------- */
-
-    const tools = document.querySelectorAll(".gd-tool");
-    const center = document.querySelector(".gd-tool-center");
-
-    tools.forEach(function(tool) {
-
-        tool.addEventListener("mouseenter", function() {
-
-            if (!center) return;
-
-            const original = center.innerHTML;
-
-            center.dataset.original = original;
-
-            center.innerHTML = tool.innerText
-                .replace(" ", "<br>");
-
-        });
-
-        tool.addEventListener("mouseleave", function() {
-
-            if (!center) return;
-
-            center.innerHTML =
-                center.dataset.original || "CREATIVE<br>LAB";
+            service.style.background = "";
 
         });
 
     });
 
 
-    /* -----------------------------------------
-       SERVICE ROW MOUSE EFFECT
-    ----------------------------------------- */
 
-    const serviceRows =
-        document.querySelectorAll(".gd-service-row");
+    /* =====================================================
+       SMOOTH ANCHOR
+    ===================================================== */
 
-    serviceRows.forEach(function(row) {
+    document.querySelectorAll(
+        '.gfx-page a[href^="#"]'
+    ).forEach(function(anchor){
 
-        row.addEventListener("mousemove", function(e) {
+        anchor.addEventListener("click",function(e){
 
-            const rect = row.getBoundingClientRect();
-
-            const x = e.clientX - rect.left;
-
-            row.style.background =
-                "radial-gradient(circle at " +
-                x + "px 50%, rgba(216,255,62,.06), transparent 300px)";
-
-        });
-
-        row.addEventListener("mouseleave", function() {
-
-            row.style.background = "";
-
-        });
-
-    });
-
-
-    /* -----------------------------------------
-       SMOOTH ANCHOR SCROLL
-    ----------------------------------------- */
-
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-
-        anchor.addEventListener("click", function(e) {
-
-            const targetId =
+            const id =
                 this.getAttribute("href");
 
             const target =
-                document.querySelector(targetId);
+                document.querySelector(id);
 
-            if (!target) return;
+            if(!target) return;
 
             e.preventDefault();
 
             target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
+                behavior:"smooth",
+                block:"start"
             });
 
         });
