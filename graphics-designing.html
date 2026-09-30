@@ -101,6 +101,7 @@ body::before{
   background:linear-gradient(120deg,#7c5cff,#22d3ee 55%,#c6ff4d);
   box-shadow:0 0 14px rgba(124,92,255,.8);
   transition:width .1s linear;
+  pointer-events:none;
 }
 
 /* ---------- Cursor glow ---------- */
@@ -568,6 +569,24 @@ body::before{
 @media(prefers-reduced-motion:reduce){
   .arigo-page *{animation:none!important;transition-duration:.01ms!important}
 }
+
+/* ==========================================================
+   ✅ FIX: keep the template header above the graphic-design
+   wrapper in BOTH states (absolute at the top, fixed when
+   sticky). Without this, an invisible strip of the hero
+   covers the menu when the page is scrolled back to top.
+   ========================================================== */
+#header-sticky,
+.header-section,
+.header-style1{
+  z-index: 1000 !important;
+}
+
+/* Make sure our decorative layers can never intercept clicks */
+#glow,
+#progress{
+  pointer-events: none !important;
+}
 </style>
 </head>
 <body>
@@ -1028,8 +1047,6 @@ body::before{
 
 <!-- ==========================================================
      TEMPLATE JS  —  loaded ONCE, in the correct order.
-     (Previous version loaded jQuery / meanmenu / main.js twice,
-     which broke MeanMenu → header dropdowns stopped opening.)
      ========================================================== -->
 <script src="assets/js/jquery-3.7.1.min.js"></script>
 <script src="assets/js/viewport.jquery.js"></script>
