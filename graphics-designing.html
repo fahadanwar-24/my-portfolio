@@ -7,29 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="authorName">
     <meta name="description" content="Arigo - Creative Agency & Portfolio HTML Template">
-    <!-- ======== Page title ============ -->
     <title>Graphics Designing Services | Expert Graphical Designer</title>
 
-    <!--<< Favcion >>-->
     <link rel="shortcut icon" href="assets/img/logo/favs.png">
-    <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!--<< All Min Css >>-->
     <link rel="stylesheet" href="assets/css/all.min.css">
-    <!--<< Animate.css >>-->
     <link rel="stylesheet" href="assets/css/animate.css">
-    <!--<< Magnific Popup.css >>-->
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <!--<< MeanMenu.css >>-->
     <link rel="stylesheet" href="assets/css/meanmenu.css">
-    <!--<< Swiper Bundle.css >>-->
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-    <!--<< Nice Select.css >>-->
     <link rel="stylesheet" href="assets/css/nice-select.css">
-    <!--<< Main.css >>-->
     <link rel="stylesheet" href="assets/css/main.css">
 
-    <!--<< Google Fonts (used by the graphic-design sections) >>-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -37,12 +26,11 @@
 <style>
 /* ==========================================================
    ARIGO — GRAPHIC DESIGNING PAGE
-   All custom rules are namespaced under `.arigo-page`
-   so they NEVER leak into the Arigo template (bootstrap /
-   main.css) — and the template styles never leak into here.
+   Scoped under `.arigo-page` so it never leaks into the
+   Arigo template header / real footer.
    ========================================================== */
 
-/* ---------- Page-level dark theme (applies to header too) ---------- */
+/* ---------- Page-level dark theme ---------- */
 html{scroll-behavior:smooth}
 body{
   background:#07070b;
@@ -88,7 +76,7 @@ body::before{
   margin:0;padding:0;list-style:none;
 }
 .arigo-page h1,.arigo-page h2,.arigo-page h3,
-.arigo-page h4,.arigo-page .agd-logo{
+.arigo-page h4{
   font-family:'Space Grotesk',sans-serif;
   letter-spacing:-.02em;line-height:1.1;color:var(--agd-txt);
 }
@@ -99,12 +87,7 @@ body::before{
 .arigo-page .wrap{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
 .arigo-page .sec{padding:110px 0}
 
-/* ---------- Optional: force the template logo to white on dark bg ---------- */
-/* Uncomment if your assets/img/logo/logo.png is a dark logo
-.header-section .header-logo img{filter:brightness(0) invert(1);}
-*/
-
-/* ---------- Sticky-header enhancement (adds .scrolled via JS) ---------- */
+/* ---------- Sticky header enhancement (only when scrolled) ---------- */
 #header-sticky.scrolled{
   background:rgba(7,7,11,.75);
   -webkit-backdrop-filter:blur(16px);
@@ -545,53 +528,6 @@ body::before{
 .arigo-page .cta .btn-row{justify-content:center;position:relative}
 
 /* ==========================================================
-   FOOTER (inside .arigo-page)
-   ========================================================== */
-.arigo-page footer{
-  border-top:1px solid var(--agd-line);padding:64px 0 34px;margin-top:100px;
-  position:relative;z-index:2;
-}
-.arigo-page .f-grid{
-  display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;
-}
-.arigo-page .f-grid p{
-  font-size:14px;color:var(--agd-muted);max-width:280px;margin-top:16px;
-}
-.arigo-page .agd-logo{
-  font-size:23px;font-weight:700;letter-spacing:-.04em;
-  display:inline-flex;align-items:center;gap:2px;
-}
-.arigo-page .agd-logo i{
-  width:9px;height:9px;border-radius:50%;background:var(--agd-lime);
-  display:inline-block;margin-left:4px;animation:agd-pulse 2s infinite;
-}
-.arigo-page .f-col h5{
-  font-size:13px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--agd-txt);margin-bottom:18px;font-weight:600;
-  font-family:'Space Grotesk';
-}
-.arigo-page .f-col a{
-  display:block;font-size:14px;color:var(--agd-muted);margin-bottom:11px;
-  transition:.3s var(--agd-ease);width:fit-content;
-}
-.arigo-page .f-col a:hover{color:var(--agd-c);transform:translateX(5px)}
-.arigo-page .f-bottom{
-  border-top:1px solid var(--agd-line);padding-top:26px;
-  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  font-size:13.5px;color:var(--agd-muted);
-}
-.arigo-page .socials{display:flex;gap:10px}
-.arigo-page .socials a{
-  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
-  border:1px solid var(--agd-line);transition:.35s var(--agd-ease);
-  font-size:12px;font-weight:600;
-}
-.arigo-page .socials a:hover{
-  background:var(--agd-grad);color:#08080e;transform:translateY(-4px);
-  border-color:transparent;
-}
-
-/* ==========================================================
    REVEAL
    ========================================================== */
 .arigo-page .reveal{
@@ -619,7 +555,6 @@ body::before{
   .arigo-page .hero-grid{grid-template-columns:1fr;gap:60px}
   .arigo-page .visual{height:420px;max-width:460px}
   .arigo-page .tools-wrap{grid-template-columns:1fr;gap:44px}
-  .arigo-page .f-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:760px){
   .arigo-page .sec{padding:80px 0}
@@ -628,7 +563,6 @@ body::before{
   .arigo-page .chip.curve{display:none}
   .arigo-page .chip.palette{right:0}
   .arigo-page .chip.type{right:0}
-  .arigo-page .f-grid{grid-template-columns:1fr}
   .arigo-page .cta{padding:56px 24px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -641,7 +575,7 @@ body::before{
 <div id="progress"></div>
 <div id="glow"></div>
 
-<!-- ================= HEADER (Arigo template — unchanged) ================= -->
+<!-- ================= HEADER (Arigo template) ================= -->
 <header id="header-sticky" class="header-section header-style1">
     <div class="container">
         <div class="mega-menu-wrapper">
@@ -1016,306 +950,232 @@ body::before{
     </div>
   </section>
 
-  <!-- ---------- FOOTER ---------- -->
-  <footer>
-    <div class="wrap">
-      <div class="f-grid">
-        <div>
-          <a href="#home" class="agd-logo">Arigo<i></i></a>
-          <p>A graphic design studio crafting bold identities, motion and digital experiences for ambitious brands.</p>
-        </div>
-        <div class="f-col">
-          <h5>Services</h5>
-          <a href="#services">Brand Identity</a>
-          <a href="#services">Logo Design</a>
-          <a href="#services">Motion Graphics</a>
-          <a href="#services">Packaging</a>
-        </div>
-        <div class="f-col">
-          <h5>Studio</h5>
-          <a href="#work">Our Work</a>
-          <a href="#process">Process</a>
-          <a href="#tools">Tools</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="f-col">
-          <h5>Follow</h5>
-          <div class="socials">
-            <a href="#">Be</a><a href="#">Dr</a><a href="#">In</a><a href="#">X</a>
-          </div>
-        </div>
-      </div>
-      <div class="f-bottom">
-        <span>© 2025 Arigo Studio. All rights reserved.</span>
-        <span>Designed &amp; built with obsessive attention to detail.</span>
-      </div>
-    </div>
-  </footer>
-
 </div><!-- /.arigo-page -->
 
+<!-- ================= YOUR ORIGINAL FOOTER (kept) ================= -->
+<footer class="footer-section footer-section-main fix">
+    <div class="container">
+        <div class="row g-lg-0 g-4 justify-content-between">
+            <div class="col-lg-7">
+                <div class="left-side-footer">
+                    <div class="left-area">
+                        <div class="serial text-nowrap wow fadeInLeft" data-wow-delay="0.3s">Footer {011} -</div>
+                        <h2 class="visible-from-bottom">CreativeFlow Studio</h2>
+                    </div>
+                </div>
+                <div class="location-area-wrap">
+                    <div class="location-area-item">
+                        <div class="text-location">Location</div>
+                        <div class="text-name visible-from-bottom">
+                            123 Creative St, Design <br> City, USA
+                        </div>
+                    </div>
+                    <div class="location-area-item">
+                        <div class="text-location">CONTACT US</div>
+                        <div class="text-name">
+                            +1 234 567 890 <br> info@arigoagency.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="right-side-footer">
+                    <h3 class="wow fadeInUp" data-wow-delay="0.3s">Quick Links</h3>
+                    <ul class="r-link wow fadeInUp" data-wow-delay="0.4s">
+                        <li><a href="blog.html">News &amp; Articles</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="project.html">Recent Work</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                    <a href="index.html" class="footer-logo-big wow fadeInUp" data-wow-delay="0.5s">
+                        <img src="assets/img/logo/logo-big.png" alt="img">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom py-4">
+        <div class="container">
+            <div class="justify-content-md-between justify-content-center d-flex flex-md-nowrap flex-wrap gap-3">
+                <p class="text-white opacity-75 wow fadeInLeft body-font" data-wow-delay=".3s">
+                    &copy; 2026 <a href="index.html" class="text-p1">Arigo.</a> All Rights Reserved.
+                </p>
+                <div class="footer-bottom-link">
+                    <a href="contact.html">Terms &amp; Conditions</a>
+                    <a href="contact.html">//</a>
+                    <a href="contact.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Search -->
+<div class="search-wrap">
+    <div class="search-inner">
+        <i class="fas fa-times search-close" id="search-close"></i>
+        <div class="search-cell">
+            <form method="get">
+                <div class="search-field-holder">
+                    <input type="search" class="main-search-input" placeholder="Search...">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Search -->
+
 <!-- ==========================================================
-     TEMPLATE JS  (adjust filenames to match your /assets/js/)
+     TEMPLATE JS  —  loaded ONCE, in the correct order.
+     (Previous version loaded jQuery / meanmenu / main.js twice,
+     which broke MeanMenu → header dropdowns stopped opening.)
      ========================================================== -->
 <script src="assets/js/jquery-3.7.1.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.meanmenu.min.js"></script>
+<script src="assets/js/viewport.jquery.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="assets/js/jquery.waypoints.js"></script>
+<script src="assets/js/jquery.counterup.min.js"></script>
 <script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/jquery.meanmenu.min.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/lenis.min.js"></script>
+<script src="assets/js/scrollSmoother.js"></script>
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script src="assets/js/spilitext-gsap.js"></script>
+<script src="assets/js/vanilla-tilt.min.js"></script>
 <script src="assets/js/main.js"></script>
 
+<!-- ==========================================================
+     ARIGO GRAPHIC DESIGN — page interactions
+     (Vanilla JS, no jQuery dependency — safe to run last.)
+     ========================================================== -->
 <script>
-/* ==========================================================
-   ARIGO GRAPHIC DESIGN — page interactions
-   ========================================================== */
-
 /* ---------- Scroll progress + header state ---------- */
-const progress = document.getElementById('progress');
-const header   = document.getElementById('header-sticky');
-
-function onScroll(){
-  const h = document.documentElement;
-  const max = h.scrollHeight - h.clientHeight;
-  progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
-  if(header) header.classList.toggle('scrolled', h.scrollTop > 30);
-}
-window.addEventListener('scroll', onScroll, {passive:true});
-onScroll();
+(function(){
+  const progress = document.getElementById('progress');
+  const header   = document.getElementById('header-sticky');
+  function onScroll(){
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    if(progress) progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    if(header) header.classList.toggle('scrolled', h.scrollTop > 30);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
 
 /* ---------- Cursor glow ---------- */
-const glow = document.getElementById('glow');
-let gx = 0, gy = 0, cx = 0, cy = 0;
-window.addEventListener('mousemove', e => {
-  gx = e.clientX; gy = e.clientY;
-  glow.style.opacity = '1';
-});
-window.addEventListener('mouseleave', () => glow.style.opacity = '0');
-(function loop(){
-  cx += (gx - cx) * 0.09;
-  cy += (gy - cy) * 0.09;
-  glow.style.left = cx + 'px';
-  glow.style.top  = cy + 'px';
-  requestAnimationFrame(loop);
+(function(){
+  const glow = document.getElementById('glow');
+  if(!glow) return;
+  let gx = 0, gy = 0, cx = 0, cy = 0;
+  window.addEventListener('mousemove', e => {
+    gx = e.clientX; gy = e.clientY;
+    glow.style.opacity = '1';
+  });
+  window.addEventListener('mouseleave', () => glow.style.opacity = '0');
+  (function loop(){
+    cx += (gx - cx) * 0.09;
+    cy += (gy - cy) * 0.09;
+    glow.style.left = cx + 'px';
+    glow.style.top  = cy + 'px';
+    requestAnimationFrame(loop);
+  })();
 })();
 
 /* ---------- Reveal on scroll ---------- */
-const revealIO = new IntersectionObserver((entries) => {
-  entries.forEach(en => {
-    if(!en.isIntersecting) return;
-    en.target.classList.add('in');
-    revealIO.unobserve(en.target);
-
-    // animate any skill bars inside
-    en.target.querySelectorAll('.bar span').forEach(b => {
-      setTimeout(() => b.style.width = b.dataset.w + '%', 200);
+(function(){
+  const revealIO = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if(!en.isIntersecting) return;
+      en.target.classList.add('in');
+      revealIO.unobserve(en.target);
+      en.target.querySelectorAll('.bar span').forEach(b => {
+        setTimeout(() => b.style.width = b.dataset.w + '%', 200);
+      });
     });
-  });
-}, {threshold: 0.14, rootMargin: '0px 0px -60px 0px'});
+  }, {threshold: 0.14, rootMargin: '0px 0px -60px 0px'});
 
-document.querySelectorAll('.arigo-page .reveal').forEach(el => revealIO.observe(el));
+  document.querySelectorAll('.arigo-page .reveal').forEach(el => revealIO.observe(el));
+})();
 
 /* ---------- Counters ---------- */
-const counters = document.querySelectorAll('.arigo-page [data-count]');
-const countIO = new IntersectionObserver((entries) => {
-  entries.forEach(en => {
-    if(!en.isIntersecting) return;
-    const el = en.target;
-    const target = +el.dataset.count;
-    const suffix = el.dataset.suffix || '';
-    const dur = 1700;
-    const start = performance.now();
-
-    function tick(now){
-      const p = Math.min((now - start) / dur, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased) + suffix;
-      if(p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-    countIO.unobserve(el);
-  });
-}, {threshold: 0.6});
-counters.forEach(c => countIO.observe(c));
+(function(){
+  const counters = document.querySelectorAll('.arigo-page [data-count]');
+  const countIO = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if(!en.isIntersecting) return;
+      const el = en.target;
+      const target = +el.dataset.count;
+      const suffix = el.dataset.suffix || '';
+      const dur = 1700;
+      const start = performance.now();
+      function tick(now){
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if(p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      countIO.unobserve(el);
+    });
+  }, {threshold: 0.6});
+  counters.forEach(c => countIO.observe(c));
+})();
 
 /* ---------- Service card spotlight ---------- */
-document.querySelectorAll('.arigo-page .svc').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+(function(){
+  document.querySelectorAll('.arigo-page .svc').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
   });
-});
+})();
 
 /* ---------- Hero card 3D tilt ---------- */
-const tilt = document.getElementById('tiltCard');
-if(tilt && window.matchMedia('(hover:hover)').matches){
+(function(){
+  const tilt = document.getElementById('tiltCard');
+  if(!tilt || !window.matchMedia('(hover:hover)').matches) return;
   const parent = tilt.parentElement;
   parent.addEventListener('mousemove', e => {
     const r = parent.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width  - 0.5;
     const y = (e.clientY - r.top)  / r.height - 0.5;
-    tilt.style.transform =
-      `rotateY(${x * 14}deg) rotateX(${-y * 14}deg) translateZ(20px)`;
+    tilt.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 14}deg) translateZ(20px)`;
   });
   parent.addEventListener('mouseleave', () => {
     tilt.style.transform = 'rotateY(0) rotateX(0) translateZ(0)';
   });
-}
+})();
 
 /* ---------- Portfolio filter ---------- */
-const filterBtns = document.querySelectorAll('.arigo-page .filters button');
-const items = document.querySelectorAll('.arigo-page .p-item');
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    const f = btn.dataset.filter;
-    items.forEach(item => {
-      const show = (f === 'all' || item.dataset.cat === f);
-      item.classList.toggle('gone', !show);
-      if(show){
-        item.classList.remove('pop');
-        void item.offsetWidth;   // restart animation
-        item.classList.add('pop');
-      }
+(function(){
+  const filterBtns = document.querySelectorAll('.arigo-page .filters button');
+  const items = document.querySelectorAll('.arigo-page .p-item');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      items.forEach(item => {
+        const show = (f === 'all' || item.dataset.cat === f);
+        item.classList.toggle('gone', !show);
+        if(show){
+          item.classList.remove('pop');
+          void item.offsetWidth;
+          item.classList.add('pop');
+        }
+      });
     });
   });
-});
+})();
 </script>
-    <!--<< Footer Section Start >>-->
-    <footer class="footer-section footer-section-main fix">
-        <div class="container">
-            <div class="row g-lg-0 g-4 justify-content-between">
-                <div class="col-lg-7">
-                    <div class="left-side-footer">
-                        <div class="left-area">
-                            <div class="serial text-nowrap wow fadeInLeft" data-wow-delay="0.3s">Footer {011} -</div>
-                            <h2 class="visible-from-bottom">CreativeFlow Studio</h2>
-                        </div>
-                    </div>
-                    <div class="location-area-wrap">
-                        <div class="location-area-item">
-                            <div class="text-location">Location</div>
-                            <div class="text-name visible-from-bottom">
-                                123 Creative St, Design <br> City, USA
-                            </div>
-                        </div>
-                        <div class="location-area-item">
-                            <div class="text-location">CONTACT US</div>
-                            <div class="text-name">
-                                +1 234 567 890 <br> info@arigoagency.com
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="right-side-footer">
-                        <h3 class="wow fadeInUp" data-wow-delay="0.3s">Quick Links</h3>
-                        <ul class="r-link wow fadeInUp" data-wow-delay="0.4s">
-                            <li>
-                                <a href="blog.html">
-                                    News & Articles
-                                </a>
-                            </li>
-                            <li>
-                                <a href="service.html">
-                                    Services
-                                </a>
-                            </li>
-                            <li>
-                                <a href="contact.html">
-                                    Contact Us
-                                </a>
-                            </li>
-                            <li>
-                                <a href="project.html">
-                                    Recent Work
-                                </a>
-                            </li>
-                            <li>
-                                <a href="about.html">
-                                    About Us
-                                </a>
-                            </li>
-                        </ul>
-                        <a href="index.html" class="footer-logo-big wow fadeInUp" data-wow-delay="0.5s">
-                            <img src="assets/img/logo/logo-big.png" alt="img">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom py-4">
-            <div class="container">
-                <div class="justify-content-md-between justify-content-center d-flex flex-md-nowrap flex-wrap gap-3">
-                    <p class="text-white opacity-75 wow fadeInLeft body-font" data-wow-delay=".3s">
-                        &copy; 2026 <a href="index.html" class="text-p1">Arigo.</a> All Rights Reserved.
-                    </p>
-                    <div class="footer-bottom-link">
-                        <a href="contact.html">
-                            Terms & Conditions
-                        </a>
-                        <a href="contact.html">
-                            //
-                        </a>
-                        <a href="contact.html">
-                            Privacy Policy
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <!-- Search  -->
-    <div class="search-wrap">
-        <div class="search-inner">
-            <i class="fas fa-times search-close" id="search-close"></i>
-            <div class="search-cell">
-                <form method="get">
-                    <div class="search-field-holder">
-                        <input type="search" class="main-search-input" placeholder="Search...">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Search  -->
-
-    <!--<< All JS Plugins >>-->
-    <script src="assets/js/jquery-3.7.1.min.js"></script>
-    <!--<< Viewport Js >>-->
-    <script src="assets/js/viewport.jquery.js"></script>
-    <!--<< Bootstrap Js >>-->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!--<< Nice Select Js >>-->
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    <!--<< Waypoints Js >>-->
-    <script src="assets/js/jquery.waypoints.js"></script>
-    <!--<< Counterup Js >>-->
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <!--<< Swiper Slider Js >>-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <!--<< MeanMenu Js >>-->
-    <script src="assets/js/jquery.meanmenu.min.js"></script>
-    <!--<< Magnific Popup Js >>-->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <!--<< Wow Animation Js >>-->
-    <script src="assets/js/wow.min.js"></script>
-    <!--<< Gsap Js >>-->
-    <script src="assets/js/gsap.min.js"></script>
-    <!--<< Lenis Js >>-->
-    <script src="assets/js/lenis.min.js"></script>
-    <!--<< ScrollSmoother Js >>-->
-    <script src="assets/js/scrollSmoother.js"></script>
-    <!--<< ScrollTrigger Js >>-->
-    <script src="assets/js/ScrollTrigger.min.js"></script>
-    <!--<< Spalit Text Js >>-->
-    <script src="assets/js/spilitext-gsap.js"></script>
-    <!--<< Valina Tilt Js >>-->
-    <script src="assets/js/vanilla-tilt.min.js"></script>
-    <!--<< Main.js >>-->
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
