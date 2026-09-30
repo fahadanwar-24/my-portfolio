@@ -30,6 +30,77 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Keep header background black -->
+    <style>
+        /* ========== Header: permanent black background ========== */
+        .header-section,
+        .header-section.header-style1,
+        .header-section.header-style1.header-sticky,
+        #header-sticky,
+        #header-sticky.sticky,
+        #header-sticky.is-sticky,
+        #header-sticky.header-sticky,
+        .header-section .mega-menu-wrapper,
+        .header-section .header-main {
+            background-color: #000 !important;
+        }
+
+        /* Kill any white flash / box-shadow tint from the theme */
+        #header-sticky.sticky,
+        #header-sticky.is-sticky {
+            box-shadow: 0 5px 25px rgba(0, 0, 0, .35) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        /* ========== Nav links readable on black ========== */
+        .header-section .main-menu ul li > a {
+            color: #fff !important;
+        }
+
+        .header-section .main-menu ul li > a:hover,
+        .header-section .main-menu ul li.active > a {
+            color: var(--theme-color, #ff5c00) !important;
+        }
+
+        /* Dropdown / submenu */
+        .header-section .main-menu ul li .submenu {
+            background-color: #000 !important;
+            border: 1px solid rgba(255, 255, 255, .12);
+        }
+
+        .header-section .main-menu ul li .submenu li a {
+            color: #fff !important;
+        }
+
+        .header-section .main-menu ul li .submenu li a:hover {
+            color: var(--theme-color, #ff5c00) !important;
+            background-color: rgba(255, 255, 255, .06);
+        }
+
+        /* Search icon + hamburger */
+        .header-section .search-icon,
+        .header-section .search-icon i {
+            color: #fff !important;
+        }
+
+        .header-section .header__hamburger img {
+            filter: brightness(0) invert(1);   /* make bars icon white */
+        }
+
+        /* Mobile meanmenu bar */
+        .mean-bar,
+        .mean-bar2,
+        .mean-nav,
+        .mean-nav2 {
+            background-color: #000 !important;
+        }
+
+        .mean-bar a,
+        .mean-nav2 ul li a {
+            color: #fff !important;
+        }
+    </style>
 </head>
 
 <body>
