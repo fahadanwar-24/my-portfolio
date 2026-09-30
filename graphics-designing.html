@@ -28,30 +28,26 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <!--<< Google Fonts (used by the graphic-design sections) >>-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
-/* ============ BASE ============ */
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#07070b;
-  --bg2:#0d0d16;
-  --card:#12121d;
-  --line:rgba(255,255,255,.09);
-  --txt:#eceaf5;
-  --muted:#9693ad;
-  --v:#7c5cff;
-  --c:#22d3ee;
-  --p:#ff4d8d;
-  --lime:#c6ff4d;
-  --grad:linear-gradient(120deg,#7c5cff 0%,#22d3ee 55%,#c6ff4d 100%);
-  --ease:cubic-bezier(.2,.7,.3,1);
-}
+/* ==========================================================
+   ARIGO — GRAPHIC DESIGNING PAGE
+   All custom rules are namespaced under `.arigo-page`
+   so they NEVER leak into the Arigo template (bootstrap /
+   main.css) — and the template styles never leak into here.
+   ========================================================== */
+
+/* ---------- Page-level dark theme (applies to header too) ---------- */
 html{scroll-behavior:smooth}
 body{
-  font-family:'Inter',system-ui,-apple-system,sans-serif;
-  background:var(--bg);
-  color:var(--txt);
+  background:#07070b;
+  color:#eceaf5;
   overflow-x:hidden;
-  line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
 body::before{
@@ -61,404 +57,582 @@ body::before{
     radial-gradient(700px 500px at 92% 8%, rgba(34,211,238,.14), transparent 60%),
     radial-gradient(900px 700px at 50% 110%, rgba(255,77,141,.10), transparent 65%);
 }
-h1,h2,h3,h4,.logo,.num{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;line-height:1.1}
-img{display:block;max-width:100%}
-a{text-decoration:none;color:inherit}
-::selection{background:var(--v);color:#fff}
-
-/* scrollbar */
 ::-webkit-scrollbar{width:10px}
 ::-webkit-scrollbar-track{background:#0a0a12}
 ::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#22d3ee);border-radius:10px}
 
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
-section{position:relative;z-index:2}
+/* ---------- Scoped design tokens ---------- */
+.arigo-page{
+  --agd-line:rgba(255,255,255,.09);
+  --agd-txt:#eceaf5;
+  --agd-muted:#9693ad;
+  --agd-v:#7c5cff;
+  --agd-c:#22d3ee;
+  --agd-p:#ff4d8d;
+  --agd-lime:#c6ff4d;
+  --agd-grad:linear-gradient(120deg,#7c5cff 0%,#22d3ee 55%,#c6ff4d 100%);
+  --agd-ease:cubic-bezier(.2,.7,.3,1);
+  position:relative;
+  z-index:2;
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  color:var(--agd-txt);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+.arigo-page *,
+.arigo-page *::before,
+.arigo-page *::after{box-sizing:border-box}
 
-/* ============ SCROLL PROGRESS ============ */
+.arigo-page h1,.arigo-page h2,.arigo-page h3,
+.arigo-page h4,.arigo-page h5,.arigo-page p,.arigo-page ul{
+  margin:0;padding:0;list-style:none;
+}
+.arigo-page h1,.arigo-page h2,.arigo-page h3,
+.arigo-page h4,.arigo-page .agd-logo{
+  font-family:'Space Grotesk',sans-serif;
+  letter-spacing:-.02em;line-height:1.1;color:var(--agd-txt);
+}
+.arigo-page img{display:block;max-width:100%}
+.arigo-page a{text-decoration:none;color:inherit}
+.arigo-page ::selection{background:var(--agd-v);color:#fff}
+
+.arigo-page .wrap{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+.arigo-page .sec{padding:110px 0}
+
+/* ---------- Optional: force the template logo to white on dark bg ---------- */
+/* Uncomment if your assets/img/logo/logo.png is a dark logo
+.header-section .header-logo img{filter:brightness(0) invert(1);}
+*/
+
+/* ---------- Sticky-header enhancement (adds .scrolled via JS) ---------- */
+#header-sticky.scrolled{
+  background:rgba(7,7,11,.75);
+  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+
+/* ---------- Scroll progress ---------- */
 #progress{
-  position:fixed;top:0;left:0;height:3px;width:0%;z-index:999;
-  background:var(--grad);
+  position:fixed;top:0;left:0;height:3px;width:0%;z-index:9999;
+  background:linear-gradient(120deg,#7c5cff,#22d3ee 55%,#c6ff4d);
   box-shadow:0 0 14px rgba(124,92,255,.8);
   transition:width .1s linear;
 }
 
-/* ============ HEADER ============ */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:900;
-  transition:background .45s var(--ease), border-color .45s, backdrop-filter .45s;
-  border-bottom:1px solid transparent;
+/* ---------- Cursor glow ---------- */
+#glow{
+  position:fixed;width:520px;height:520px;border-radius:50%;
+  pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(124,92,255,.16),transparent 65%);
+  transform:translate(-50%,-50%);
+  transition:opacity .4s;opacity:0;
 }
-header.scrolled{
-  background:rgba(7,7,11,.75);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border-bottom-color:var(--line);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
-.logo{font-size:23px;font-weight:700;letter-spacing:-.04em;display:flex;align-items:center;gap:2px}
-.logo span{color:var(--c)}
-.logo i{
-  width:9px;height:9px;border-radius:50%;background:var(--lime);
-  display:inline-block;margin-left:4px;animation:pulse 2s infinite;
-}
-@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
-.menu{display:flex;gap:34px;align-items:center}
-.menu a{
-  font-size:14.5px;font-weight:500;color:var(--muted);position:relative;
-  transition:color .3s var(--ease);
-}
-.menu a::after{
-  content:'';position:absolute;left:0;bottom:-6px;height:2px;width:0;
-  background:var(--grad);border-radius:2px;transition:width .35s var(--ease);
-}
-.menu a:hover{color:var(--txt)}
-.menu a:hover::after{width:100%}
-.nav-cta{
-  padding:11px 22px;border-radius:100px;font-size:14px;font-weight:600;
-  background:var(--grad);color:#08080e;
-  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
-  box-shadow:0 0 0 rgba(124,92,255,0);
-}
-.nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 32px -8px rgba(124,92,255,.85)}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
-.burger i{width:24px;height:2px;background:var(--txt);border-radius:2px;transition:.3s}
 
-/* ============ HERO ============ */
-.hero{min-height:100vh;display:flex;align-items:center;padding:150px 0 90px}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;width:100%}
-.eyebrow{
+/* ==========================================================
+   HERO
+   ========================================================== */
+.arigo-page .hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:170px 0 90px;
+}
+.arigo-page .hero-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:64px;
+  align-items:center;width:100%;
+}
+.arigo-page .eyebrow{
   display:inline-flex;align-items:center;gap:10px;
   padding:8px 16px;border-radius:100px;
-  border:1px solid var(--line);background:rgba(255,255,255,.04);
+  border:1px solid var(--agd-line);background:rgba(255,255,255,.04);
   font-size:12.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:26px;
+  color:var(--agd-muted);margin-bottom:26px;
 }
-.eyebrow b{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime);animation:pulse 1.8s infinite}
-h1{font-size:clamp(2.5rem,5.4vw,4.4rem);font-weight:700;margin-bottom:22px}
-.grad-text{
-  background:var(--grad);-webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-size:200% auto;animation:shift 5s linear infinite;
+.arigo-page .eyebrow b{
+  width:7px;height:7px;border-radius:50%;background:var(--agd-lime);
+  box-shadow:0 0 10px var(--agd-lime);animation:agd-pulse 1.8s infinite;
 }
-@keyframes shift{to{background-position:200% center}}
-.hero p.lead{font-size:17px;color:var(--muted);max-width:520px;margin-bottom:36px}
-.btn-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.btn{
+.arigo-page h1{font-size:clamp(2.5rem,5.4vw,4.4rem);font-weight:700;margin-bottom:22px}
+.arigo-page .grad-text{
+  background:var(--agd-grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  background-size:200% auto;animation:agd-shift 5s linear infinite;
+}
+.arigo-page .hero p.lead{
+  font-size:17px;color:var(--agd-muted);max-width:520px;margin-bottom:36px;
+}
+.arigo-page .btn-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.arigo-page .btn{
   padding:15px 30px;border-radius:100px;font-weight:600;font-size:15px;
+  font-family:'Inter',sans-serif;
   display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;
-  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .35s;
-  position:relative;overflow:hidden;
+  transition:transform .35s var(--agd-ease), box-shadow .35s var(--agd-ease), background .35s, color .35s;
+  position:relative;overflow:hidden;line-height:1;
 }
-.btn.primary{background:var(--grad);color:#08080e}
-.btn.primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px -12px rgba(124,92,255,.9)}
-.btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
-.btn.ghost:hover{border-color:var(--c);color:var(--c);transform:translateY(-3px);box-shadow:0 14px 34px -16px rgba(34,211,238,.9)}
-.btn svg{transition:transform .35s var(--ease)}
-.btn:hover svg{transform:translateX(4px)}
+.arigo-page .btn.primary{background:var(--agd-grad);color:#08080e}
+.arigo-page .btn.primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 40px -12px rgba(124,92,255,.9);
+  color:#08080e;
+}
+.arigo-page .btn.ghost{
+  background:transparent;color:var(--agd-txt);
+  border:1px solid var(--agd-line);
+}
+.arigo-page .btn.ghost:hover{
+  border-color:var(--agd-c);color:var(--agd-c);
+  transform:translateY(-3px);
+  box-shadow:0 14px 34px -16px rgba(34,211,238,.9);
+}
+.arigo-page .btn svg{transition:transform .35s var(--agd-ease)}
+.arigo-page .btn:hover svg{transform:translateX(4px)}
 
-.hero-mini{display:flex;gap:38px;margin-top:52px;flex-wrap:wrap}
-.hero-mini div b{display:block;font-family:'Space Grotesk';font-size:26px;font-weight:700}
-.hero-mini div span{font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+.arigo-page .hero-mini{display:flex;gap:38px;margin-top:52px;flex-wrap:wrap}
+.arigo-page .hero-mini div b{
+  display:block;font-family:'Space Grotesk';font-size:26px;font-weight:700;
+}
+.arigo-page .hero-mini div span{
+  font-size:12.5px;color:var(--agd-muted);letter-spacing:.04em;
+}
 
 /* hero visual */
-.visual{position:relative;height:540px;perspective:1200px}
-.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;z-index:0}
-.blob.b1{width:300px;height:300px;background:var(--v);top:-20px;right:20px;animation:float1 9s ease-in-out infinite}
-.blob.b2{width:240px;height:240px;background:var(--c);bottom:0;left:-30px;animation:float2 11s ease-in-out infinite}
-@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,40px)}}
-@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(35px,-30px)}}
-
-.vcard{
+.arigo-page .visual{position:relative;height:540px;perspective:1200px}
+.arigo-page .blob{
+  position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;z-index:0;
+}
+.arigo-page .blob.b1{
+  width:300px;height:300px;background:var(--agd-v);top:-20px;right:20px;
+  animation:agd-float1 9s ease-in-out infinite;
+}
+.arigo-page .blob.b2{
+  width:240px;height:240px;background:var(--agd-c);bottom:0;left:-30px;
+  animation:agd-float2 11s ease-in-out infinite;
+}
+.arigo-page .vcard{
   position:absolute;border-radius:24px;overflow:hidden;
-  border:1px solid var(--line);
+  border:1px solid var(--agd-line);
   background:linear-gradient(150deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
-  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
   box-shadow:0 40px 80px -30px rgba(0,0,0,.9);
-  transition:transform .5s var(--ease);
+  transition:transform .5s var(--agd-ease);
 }
-.vcard.main{
+.arigo-page .vcard.main{
   width:74%;height:76%;top:8%;left:4%;z-index:3;
-  animation:floaty 6s ease-in-out infinite;
+  animation:agd-floaty 6s ease-in-out infinite;
 }
-.vcard.main img{width:100%;height:100%;object-fit:cover;background:linear-gradient(140deg,#7c5cff,#22d3ee)}
-.vcard.main::after{
+.arigo-page .vcard.main img{
+  width:100%;height:100%;object-fit:cover;
+  background:linear-gradient(140deg,#7c5cff,#22d3ee);
+}
+.arigo-page .vcard.main::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(180deg,transparent 40%,rgba(7,7,11,.85));
 }
-.vcard .cap{
-  position:absolute;left:20px;bottom:18px;z-index:2;
+.arigo-page .vcard .cap{position:absolute;left:20px;bottom:18px;z-index:2}
+.arigo-page .vcard .cap b{font-family:'Space Grotesk';font-size:16px;display:block}
+.arigo-page .vcard .cap span{
+  font-size:12px;color:var(--agd-c);letter-spacing:.1em;text-transform:uppercase;
 }
-.vcard .cap b{font-family:'Space Grotesk';font-size:16px;display:block}
-.vcard .cap span{font-size:12px;color:var(--c);letter-spacing:.1em;text-transform:uppercase}
 
-.chip{
+.arigo-page .chip{
   position:absolute;z-index:4;border-radius:16px;padding:14px 18px;
-  background:rgba(14,14,24,.9);border:1px solid var(--line);
-  backdrop-filter:blur(12px);
+  background:rgba(14,14,24,.9);border:1px solid var(--agd-line);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
   box-shadow:0 20px 50px -20px rgba(0,0,0,.9);
-  animation:floaty 5s ease-in-out infinite;
+  animation:agd-floaty 5s ease-in-out infinite;
 }
-.chip.palette{top:2%;right:-2%;animation-delay:.6s}
-.chip.type{bottom:14%;right:-4%;animation-delay:1.2s;padding:12px 20px}
-.chip.type b{font-family:'Space Grotesk';font-size:26px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.chip.curve{top:44%;left:-8%;animation-delay:1.8s;padding:12px}
-.dots{display:flex;gap:7px;margin-bottom:8px}
-.dots i{width:18px;height:18px;border-radius:50%;display:block;transition:transform .3s var(--ease)}
-.chip:hover .dots i{transform:scale(1.25)}
-.dots i:nth-child(1){background:#7c5cff}
-.dots i:nth-child(2){background:#22d3ee}
-.dots i:nth-child(3){background:#c6ff4d}
-.dots i:nth-child(4){background:#ff4d8d}
-.chip small{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
-
-/* cursor glow */
-#glow{
-  position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1;
-  background:radial-gradient(circle,rgba(124,92,255,.16),transparent 65%);
-  transform:translate(-50%,-50%);transition:opacity .4s;opacity:0;
+.arigo-page .chip.palette{top:2%;right:-2%;animation-delay:.6s}
+.arigo-page .chip.type{bottom:14%;right:-4%;animation-delay:1.2s;padding:12px 20px}
+.arigo-page .chip.type b{
+  font-family:'Space Grotesk';font-size:26px;
+  background:var(--agd-grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.arigo-page .chip.curve{top:44%;left:-8%;animation-delay:1.8s;padding:12px}
+.arigo-page .dots{display:flex;gap:7px;margin-bottom:8px}
+.arigo-page .dots i{
+  width:18px;height:18px;border-radius:50%;display:block;
+  transition:transform .3s var(--agd-ease);
+}
+.arigo-page .chip:hover .dots i{transform:scale(1.25)}
+.arigo-page .dots i:nth-child(1){background:#7c5cff}
+.arigo-page .dots i:nth-child(2){background:#22d3ee}
+.arigo-page .dots i:nth-child(3){background:#c6ff4d}
+.arigo-page .dots i:nth-child(4){background:#ff4d8d}
+.arigo-page .chip small{
+  font-size:11px;color:var(--agd-muted);letter-spacing:.1em;text-transform:uppercase;
 }
 
-/* ============ MARQUEE ============ */
-.marquee{
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+/* ==========================================================
+   MARQUEE
+   ========================================================== */
+.arigo-page .marquee{
+  border-top:1px solid var(--agd-line);border-bottom:1px solid var(--agd-line);
   padding:26px 0;background:rgba(255,255,255,.018);overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
 }
-.mq-track{display:flex;gap:52px;width:max-content;animation:scrollX 30s linear infinite}
-.marquee:hover .mq-track{animation-play-state:paused}
-.mq-track span{
-  font-family:'Space Grotesk';font-size:20px;font-weight:600;color:var(--muted);
+.arigo-page .mq-track{
+  display:flex;gap:52px;width:max-content;
+  animation:agd-scrollX 30s linear infinite;
+}
+.arigo-page .marquee:hover .mq-track{animation-play-state:paused}
+.arigo-page .mq-track span{
+  font-family:'Space Grotesk';font-size:20px;font-weight:600;color:var(--agd-muted);
   display:flex;align-items:center;gap:52px;white-space:nowrap;
   transition:color .3s;
 }
-.mq-track span:hover{color:var(--lime)}
-.mq-track span::after{content:'✦';color:var(--v);font-size:14px}
-@keyframes scrollX{to{transform:translateX(-50%)}}
+.arigo-page .mq-track span:hover{color:var(--agd-lime)}
+.arigo-page .mq-track span::after{content:'✦';color:var(--agd-v);font-size:14px}
 
-/* ============ SECTION HEADS ============ */
-.sec{padding:110px 0}
-.sec-head{max-width:640px;margin-bottom:60px}
-.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
-.tag{
+/* ==========================================================
+   SECTION HEADS
+   ========================================================== */
+.arigo-page .sec-head{max-width:640px;margin-bottom:60px}
+.arigo-page .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.arigo-page .tag{
   font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--c);margin-bottom:16px;display:block;
+  color:var(--agd-c);margin-bottom:16px;display:block;
 }
-.sec-head h2{font-size:clamp(2rem,3.6vw,3rem);font-weight:700;margin-bottom:18px}
-.sec-head p{color:var(--muted);font-size:16px}
+.arigo-page .sec-head h2{
+  font-size:clamp(2rem,3.6vw,3rem);font-weight:700;margin-bottom:18px;
+}
+.arigo-page .sec-head p{color:var(--agd-muted);font-size:16px}
 
-/* ============ SERVICES ============ */
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px}
-.svc{
+/* ==========================================================
+   SERVICES
+   ========================================================== */
+.arigo-page .svc-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px;
+}
+.arigo-page .svc{
   position:relative;padding:32px 30px 34px;border-radius:22px;overflow:hidden;
   background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.012));
-  border:1px solid var(--line);
-  transition:transform .5s var(--ease), border-color .5s, box-shadow .5s;
+  border:1px solid var(--agd-line);
+  transition:transform .5s var(--agd-ease), border-color .5s, box-shadow .5s;
 }
-.svc::before{
+.arigo-page .svc::before{
   content:'';position:absolute;inset:0;opacity:0;transition:opacity .45s;
   background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(124,92,255,.20), transparent 62%);
 }
-.svc::after{
+.arigo-page .svc::after{
   content:'';position:absolute;left:30px;right:30px;bottom:0;height:2px;
-  background:var(--grad);transform:scaleX(0);transform-origin:left;
-  transition:transform .55s var(--ease);
+  background:var(--agd-grad);transform:scaleX(0);transform-origin:left;
+  transition:transform .55s var(--agd-ease);
 }
-.svc:hover{transform:translateY(-9px);border-color:rgba(124,92,255,.45);box-shadow:0 30px 70px -30px rgba(124,92,255,.75)}
-.svc:hover::before{opacity:1}
-.svc:hover::after{transform:scaleX(1)}
-.svc .ico{
+.arigo-page .svc:hover{
+  transform:translateY(-9px);border-color:rgba(124,92,255,.45);
+  box-shadow:0 30px 70px -30px rgba(124,92,255,.75);
+}
+.arigo-page .svc:hover::before{opacity:1}
+.arigo-page .svc:hover::after{transform:scaleX(1)}
+.arigo-page .svc .ico{
   width:58px;height:58px;border-radius:16px;display:grid;place-items:center;
   background:linear-gradient(150deg,rgba(124,92,255,.22),rgba(34,211,238,.12));
   border:1px solid rgba(124,92,255,.3);margin-bottom:24px;
-  transition:transform .5s var(--ease), background .5s;
+  transition:transform .5s var(--agd-ease), background .5s;
 }
-.svc:hover .ico{transform:translateY(-4px) rotate(-8deg) scale(1.06);background:linear-gradient(150deg,rgba(124,92,255,.42),rgba(34,211,238,.25))}
-.svc .ico svg{width:26px;height:26px;stroke:var(--c);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
-.svc:hover .ico svg{stroke:var(--lime)}
-.svc h3{font-size:19.5px;font-weight:600;margin-bottom:11px}
-.svc p{font-size:14.6px;color:var(--muted);margin-bottom:20px}
-.svc .more{
-  font-size:13.5px;font-weight:600;color:var(--c);display:inline-flex;align-items:center;gap:7px;
-  opacity:0;transform:translateY(8px);transition:.45s var(--ease);
+.arigo-page .svc:hover .ico{
+  transform:translateY(-4px) rotate(-8deg) scale(1.06);
+  background:linear-gradient(150deg,rgba(124,92,255,.42),rgba(34,211,238,.25));
 }
-.svc:hover .more{opacity:1;transform:translateY(0)}
-.svc .num{
+.arigo-page .svc .ico svg{
+  width:26px;height:26px;stroke:var(--agd-c);fill:none;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s;
+}
+.arigo-page .svc:hover .ico svg{stroke:var(--agd-lime)}
+.arigo-page .svc h3{font-size:19.5px;font-weight:600;margin-bottom:11px}
+.arigo-page .svc p{font-size:14.6px;color:var(--agd-muted);margin-bottom:20px}
+.arigo-page .svc .more{
+  font-size:13.5px;font-weight:600;color:var(--agd-c);
+  display:inline-flex;align-items:center;gap:7px;
+  opacity:0;transform:translateY(8px);transition:.45s var(--agd-ease);
+}
+.arigo-page .svc:hover .more{opacity:1;transform:translateY(0)}
+.arigo-page .svc .num{
   position:absolute;top:26px;right:28px;font-size:13px;font-weight:700;
-  color:rgba(255,255,255,.16);letter-spacing:.06em;transition:color .4s;
+  font-family:'Space Grotesk';color:rgba(255,255,255,.16);
+  letter-spacing:.06em;transition:color .4s;
 }
-.svc:hover .num{color:var(--v)}
+.arigo-page .svc:hover .num{color:var(--agd-v)}
 
-/* ============ TOOLS ============ */
-.tools-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.tool-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.tile{
+/* ==========================================================
+   TOOLS
+   ========================================================== */
+.arigo-page .tools-wrap{
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+}
+.arigo-page .tool-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.arigo-page .tile{
   aspect-ratio:1/1;border-radius:20px;display:grid;place-items:center;gap:8px;
-  border:1px solid var(--line);position:relative;overflow:hidden;cursor:pointer;
+  border:1px solid var(--agd-line);position:relative;overflow:hidden;cursor:pointer;
   background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
-  transition:transform .45s var(--ease), border-color .45s, box-shadow .45s;
+  transition:transform .45s var(--agd-ease), border-color .45s, box-shadow .45s;
 }
-.tile span{
+.arigo-page .tile span{
   font-family:'Space Grotesk';font-size:24px;font-weight:700;
-  transition:transform .45s var(--ease);
+  transition:transform .45s var(--agd-ease);
 }
-.tile small{font-size:10.5px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;transition:color .4s}
-.tile::before{
+.arigo-page .tile small{
+  font-size:10.5px;color:var(--agd-muted);letter-spacing:.08em;
+  text-transform:uppercase;transition:color .4s;
+}
+.arigo-page .tile::before{
   content:'';position:absolute;inset:0;opacity:0;transition:opacity .45s;
   background:linear-gradient(150deg,rgba(124,92,255,.28),rgba(34,211,238,.18));
 }
-.tile:hover{transform:translateY(-7px) scale(1.03);border-color:rgba(34,211,238,.5);box-shadow:0 24px 50px -22px rgba(34,211,238,.8)}
-.tile:hover::before{opacity:1}
-.tile:hover span{transform:scale(1.14) translateY(-3px);position:relative}
-.tile:hover small{color:var(--txt);position:relative}
-.t1 span{color:#31a8ff}.t2 span{color:#ff9a00}.t3 span{color:#9999ff}
-.t4 span{color:#a259ff}.t5 span{color:#ea7600}.t6 span{color:#ff6b00}
+.arigo-page .tile:hover{
+  transform:translateY(-7px) scale(1.03);
+  border-color:rgba(34,211,238,.5);
+  box-shadow:0 24px 50px -22px rgba(34,211,238,.8);
+}
+.arigo-page .tile:hover::before{opacity:1}
+.arigo-page .tile:hover span{transform:scale(1.14) translateY(-3px);position:relative}
+.arigo-page .tile:hover small{color:var(--agd-txt);position:relative}
+.arigo-page .tile.t1 span{color:#31a8ff}
+.arigo-page .tile.t2 span{color:#ff9a00}
+.arigo-page .tile.t3 span{color:#9999ff}
+.arigo-page .tile.t4 span{color:#a259ff}
+.arigo-page .tile.t5 span{color:#ea7600}
+.arigo-page .tile.t6 span{color:#ff6b00}
 
-.bars{display:flex;flex-direction:column;gap:24px;margin-top:34px}
-.bar-row .top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:9px}
-.bar-row .top b{font-weight:600}
-.bar-row .top i{font-style:normal;color:var(--c);font-weight:600}
-.bar{height:7px;border-radius:100px;background:rgba(255,255,255,.07);overflow:hidden}
-.bar span{
+.arigo-page .bars{display:flex;flex-direction:column;gap:24px;margin-top:34px}
+.arigo-page .bar-row .top{
+  display:flex;justify-content:space-between;font-size:14px;margin-bottom:9px;
+}
+.arigo-page .bar-row .top b{font-weight:600}
+.arigo-page .bar-row .top i{font-style:normal;color:var(--agd-c);font-weight:600}
+.arigo-page .bar{
+  height:7px;border-radius:100px;background:rgba(255,255,255,.07);overflow:hidden;
+}
+.arigo-page .bar span{
   display:block;height:100%;width:0;border-radius:100px;
-  background:var(--grad);transition:width 1.4s var(--ease);
+  background:var(--agd-grad);transition:width 1.4s var(--agd-ease);
   box-shadow:0 0 12px rgba(124,92,255,.75);
 }
 
-/* ============ WORK / PORTFOLIO ============ */
-.filters{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:44px}
-.filters button{
-  padding:10px 22px;border-radius:100px;font-size:13.5px;font-weight:600;cursor:pointer;
-  background:transparent;color:var(--muted);border:1px solid var(--line);
-  transition:.35s var(--ease);font-family:inherit;
+/* ==========================================================
+   WORK / PORTFOLIO
+   ========================================================== */
+.arigo-page .filters{
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:44px;
 }
-.filters button:hover{color:var(--txt);border-color:rgba(255,255,255,.28);transform:translateY(-2px)}
-.filters button.active{background:var(--grad);color:#08080e;border-color:transparent;box-shadow:0 12px 30px -12px rgba(124,92,255,.9)}
-.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.p-item{
+.arigo-page .filters button{
+  padding:10px 22px;border-radius:100px;font-size:13.5px;font-weight:600;
+  cursor:pointer;background:transparent;color:var(--agd-muted);
+  border:1px solid var(--agd-line);font-family:inherit;
+  transition:.35s var(--agd-ease);
+}
+.arigo-page .filters button:hover{
+  color:var(--agd-txt);border-color:rgba(255,255,255,.28);transform:translateY(-2px);
+}
+.arigo-page .filters button.active{
+  background:var(--agd-grad);color:#08080e;border-color:transparent;
+  box-shadow:0 12px 30px -12px rgba(124,92,255,.9);
+}
+.arigo-page .work-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;
+}
+.arigo-page .p-item{
   position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;
-  border:1px solid var(--line);cursor:pointer;
+  border:1px solid var(--agd-line);cursor:pointer;
   background:linear-gradient(140deg,#7c5cff,#22d3ee);
-  transition:transform .5s var(--ease), box-shadow .5s, opacity .35s;
+  transition:transform .5s var(--agd-ease), box-shadow .5s, opacity .35s;
 }
-.p-item.gone{display:none}
-.p-item.pop{animation:popIn .45s var(--ease)}
-@keyframes popIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
-.p-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease), filter .6s}
-.p-item:hover img{transform:scale(1.1)}
-.p-item .ov{
-  position:absolute;inset:0;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;
+.arigo-page .p-item.gone{display:none}
+.arigo-page .p-item.pop{animation:agd-popIn .45s var(--agd-ease)}
+.arigo-page .p-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .8s var(--agd-ease), filter .6s;
+}
+.arigo-page .p-item:hover img{transform:scale(1.1)}
+.arigo-page .p-item .ov{
+  position:absolute;inset:0;padding:26px;
+  display:flex;flex-direction:column;justify-content:flex-end;
   background:linear-gradient(180deg,transparent 30%,rgba(7,7,11,.94));
   opacity:0;transform:translateY(16px);
-  transition:opacity .45s var(--ease), transform .45s var(--ease);
+  transition:opacity .45s var(--agd-ease), transform .45s var(--agd-ease);
 }
-.p-item:hover .ov{opacity:1;transform:translateY(0)}
-.p-item:hover{transform:translateY(-6px);box-shadow:0 34px 70px -30px rgba(124,92,255,.85)}
-.ov em{font-style:normal;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:8px}
-.ov h3{font-size:20px;font-weight:600;margin-bottom:10px}
-.ov .go{
+.arigo-page .p-item:hover .ov{opacity:1;transform:translateY(0)}
+.arigo-page .p-item:hover{
+  transform:translateY(-6px);
+  box-shadow:0 34px 70px -30px rgba(124,92,255,.85);
+}
+.arigo-page .ov em{
+  font-style:normal;font-size:11.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--agd-lime);margin-bottom:8px;
+}
+.arigo-page .ov h3{font-size:20px;font-weight:600;margin-bottom:10px}
+.arigo-page .ov .go{
   width:40px;height:40px;border-radius:50%;display:grid;place-items:center;
-  background:var(--grad);color:#08080e;margin-top:6px;
-  transition:transform .4s var(--ease);
+  background:var(--agd-grad);color:#08080e;margin-top:6px;
+  transition:transform .4s var(--agd-ease);
 }
-.p-item:hover .ov .go{transform:rotate(-45deg)}
+.arigo-page .p-item:hover .ov .go{transform:rotate(-45deg)}
 
-/* ============ STATS ============ */
-.stats{
+/* ==========================================================
+   STATS
+   ========================================================== */
+.arigo-page .stats{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;
-  padding:52px 30px;border-radius:28px;border:1px solid var(--line);
+  padding:52px 30px;border-radius:28px;border:1px solid var(--agd-line);
   background:linear-gradient(150deg,rgba(255,255,255,.055),rgba(255,255,255,.012));
   position:relative;overflow:hidden;
 }
-.stats::before{
+.arigo-page .stats::before{
   content:'';position:absolute;top:-50%;left:-20%;width:60%;height:200%;
   background:radial-gradient(circle,rgba(124,92,255,.18),transparent 65%);
-  animation:float1 12s ease-in-out infinite;
+  animation:agd-float1 12s ease-in-out infinite;
 }
-.stat{text-align:center;position:relative}
-.stat b{
-  font-family:'Space Grotesk';font-size:clamp(2.2rem,4vw,3.1rem);font-weight:700;display:block;
-  background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+.arigo-page .stat{text-align:center;position:relative}
+.arigo-page .stat b{
+  font-family:'Space Grotesk';font-size:clamp(2.2rem,4vw,3.1rem);
+  font-weight:700;display:block;
+  background:var(--agd-grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
 }
-.stat span{font-size:13.5px;color:var(--muted);letter-spacing:.05em}
+.arigo-page .stat span{font-size:13.5px;color:var(--agd-muted);letter-spacing:.05em}
 
-/* ============ PROCESS ============ */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;position:relative}
-.step{
-  padding:30px 26px;border-radius:20px;border:1px solid var(--line);
-  background:rgba(255,255,255,.028);position:relative;overflow:hidden;
-  transition:transform .45s var(--ease), border-color .45s, background .45s;
+/* ==========================================================
+   PROCESS
+   ========================================================== */
+.arigo-page .steps{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;position:relative;
 }
-.step:hover{transform:translateY(-8px);border-color:rgba(34,211,238,.45);background:rgba(34,211,238,.05)}
-.step b.n{
-  font-family:'Space Grotesk';font-size:44px;font-weight:700;display:block;margin-bottom:12px;
+.arigo-page .step{
+  padding:30px 26px;border-radius:20px;border:1px solid var(--agd-line);
+  background:rgba(255,255,255,.028);position:relative;overflow:hidden;
+  transition:transform .45s var(--agd-ease), border-color .45s, background .45s;
+}
+.arigo-page .step:hover{
+  transform:translateY(-8px);border-color:rgba(34,211,238,.45);
+  background:rgba(34,211,238,.05);
+}
+.arigo-page .step b.n{
+  font-family:'Space Grotesk';font-size:44px;font-weight:700;
+  display:block;margin-bottom:12px;
   color:transparent;-webkit-text-stroke:1.4px rgba(255,255,255,.24);
   transition:-webkit-text-stroke .4s, color .4s;
 }
-.step:hover b.n{-webkit-text-stroke:1.4px var(--c)}
-.step h4{font-size:17px;font-weight:600;margin-bottom:9px}
-.step p{font-size:14px;color:var(--muted)}
+.arigo-page .step:hover b.n{-webkit-text-stroke:1.4px var(--agd-c)}
+.arigo-page .step h4{font-size:17px;font-weight:600;margin-bottom:9px}
+.arigo-page .step p{font-size:14px;color:var(--agd-muted)}
 
-/* ============ CTA ============ */
-.cta{
-  position:relative;border-radius:32px;padding:76px 40px;text-align:center;overflow:hidden;
-  border:1px solid rgba(124,92,255,.35);
+/* ==========================================================
+   CTA
+   ========================================================== */
+.arigo-page .cta{
+  position:relative;border-radius:32px;padding:76px 40px;text-align:center;
+  overflow:hidden;border:1px solid rgba(124,92,255,.35);
   background:linear-gradient(140deg,rgba(124,92,255,.20),rgba(34,211,238,.10) 55%,rgba(198,255,77,.10));
 }
-.cta::before{
+.arigo-page .cta::before{
   content:'';position:absolute;width:600px;height:600px;border-radius:50%;
   background:radial-gradient(circle,rgba(124,92,255,.35),transparent 62%);
-  top:-320px;left:50%;transform:translateX(-50%);animation:float1 10s ease-in-out infinite;
+  top:-320px;left:50%;transform:translateX(-50%);
+  animation:agd-float1 10s ease-in-out infinite;
 }
-.cta h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;margin-bottom:18px;position:relative}
-.cta p{color:var(--muted);max-width:520px;margin:0 auto 34px;position:relative}
-.cta .btn-row{justify-content:center;position:relative}
+.arigo-page .cta h2{
+  font-size:clamp(2rem,4vw,3.2rem);font-weight:700;margin-bottom:18px;
+  position:relative;
+}
+.arigo-page .cta p{
+  color:var(--agd-muted);max-width:520px;margin:0 auto 34px;position:relative;
+}
+.arigo-page .cta .btn-row{justify-content:center;position:relative}
 
-/* ============ FOOTER ============ */
-footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:100px;position:relative;z-index:2}
-.f-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
-.f-grid p{font-size:14px;color:var(--muted);max-width:280px;margin-top:16px}
-.f-col h5{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--txt);margin-bottom:18px;font-weight:600}
-.f-col a{display:block;font-size:14px;color:var(--muted);margin-bottom:11px;transition:.3s var(--ease);width:fit-content}
-.f-col a:hover{color:var(--c);transform:translateX(5px)}
-.f-bottom{
-  border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;
-  gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);
+/* ==========================================================
+   FOOTER (inside .arigo-page)
+   ========================================================== */
+.arigo-page footer{
+  border-top:1px solid var(--agd-line);padding:64px 0 34px;margin-top:100px;
+  position:relative;z-index:2;
 }
-.socials{display:flex;gap:10px}
-.socials a{
+.arigo-page .f-grid{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;
+}
+.arigo-page .f-grid p{
+  font-size:14px;color:var(--agd-muted);max-width:280px;margin-top:16px;
+}
+.arigo-page .agd-logo{
+  font-size:23px;font-weight:700;letter-spacing:-.04em;
+  display:inline-flex;align-items:center;gap:2px;
+}
+.arigo-page .agd-logo i{
+  width:9px;height:9px;border-radius:50%;background:var(--agd-lime);
+  display:inline-block;margin-left:4px;animation:agd-pulse 2s infinite;
+}
+.arigo-page .f-col h5{
+  font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--agd-txt);margin-bottom:18px;font-weight:600;
+  font-family:'Space Grotesk';
+}
+.arigo-page .f-col a{
+  display:block;font-size:14px;color:var(--agd-muted);margin-bottom:11px;
+  transition:.3s var(--agd-ease);width:fit-content;
+}
+.arigo-page .f-col a:hover{color:var(--agd-c);transform:translateX(5px)}
+.arigo-page .f-bottom{
+  border-top:1px solid var(--agd-line);padding-top:26px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:13.5px;color:var(--agd-muted);
+}
+.arigo-page .socials{display:flex;gap:10px}
+.arigo-page .socials a{
   width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
-  border:1px solid var(--line);transition:.35s var(--ease);font-size:12px;font-weight:600;
+  border:1px solid var(--agd-line);transition:.35s var(--agd-ease);
+  font-size:12px;font-weight:600;
 }
-.socials a:hover{background:var(--grad);color:#08080e;transform:translateY(-4px);border-color:transparent}
+.arigo-page .socials a:hover{
+  background:var(--agd-grad);color:#08080e;transform:translateY(-4px);
+  border-color:transparent;
+}
 
-/* ============ REVEAL ============ */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease), transform .8s var(--ease);transition-delay:var(--d,0s)}
-.reveal.in{opacity:1;transform:none}
+/* ==========================================================
+   REVEAL
+   ========================================================== */
+.arigo-page .reveal{
+  opacity:0;transform:translateY(30px);
+  transition:opacity .8s var(--agd-ease), transform .8s var(--agd-ease);
+  transition-delay:var(--d,0s);
+}
+.arigo-page .reveal.in{opacity:1;transform:none}
 
-/* ============ RESPONSIVE ============ */
+/* ==========================================================
+   KEYFRAMES
+   ========================================================== */
+@keyframes agd-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+@keyframes agd-shift{to{background-position:200% center}}
+@keyframes agd-float1{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,40px)}}
+@keyframes agd-float2{0%,100%{transform:translate(0,0)}50%{transform:translate(35px,-30px)}}
+@keyframes agd-floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes agd-scrollX{to{transform:translateX(-50%)}}
+@keyframes agd-popIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
 @media(max-width:980px){
-  .hero-grid{grid-template-columns:1fr;gap:60px}
-  .visual{height:420px;max-width:460px}
-  .tools-wrap{grid-template-columns:1fr;gap:44px}
-  .f-grid{grid-template-columns:1fr 1fr}
+  .arigo-page .hero-grid{grid-template-columns:1fr;gap:60px}
+  .arigo-page .visual{height:420px;max-width:460px}
+  .arigo-page .tools-wrap{grid-template-columns:1fr;gap:44px}
+  .arigo-page .f-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:760px){
-  .menu{display:none}
-  .nav-cta{display:none}
-  .burger{display:flex}
-  .sec{padding:80px 0}
-  .hero{padding:130px 0 70px}
-  .hero-mini{gap:26px}
-  .chip.curve{display:none}
-  .chip.palette{right:0}
-  .chip.type{right:0}
-  .f-grid{grid-template-columns:1fr}
-  .cta{padding:56px 24px}
+  .arigo-page .sec{padding:80px 0}
+  .arigo-page .hero{padding:150px 0 70px}
+  .arigo-page .hero-mini{gap:26px}
+  .arigo-page .chip.curve{display:none}
+  .arigo-page .chip.palette{right:0}
+  .arigo-page .chip.type{right:0}
+  .arigo-page .f-grid{grid-template-columns:1fr}
+  .arigo-page .cta{padding:56px 24px}
 }
 @media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition-duration:.01ms!important}
+  .arigo-page *{animation:none!important;transition-duration:.01ms!important}
 }
 </style>
 </head>
@@ -467,443 +641,447 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:100px;pos
 <div id="progress"></div>
 <div id="glow"></div>
 
-<!-- ================= HEADER ================= -->
- <!-- Header Section Start -->
-    <header id="header-sticky" class="header-section header-style1">
-        <div class="container">
-            <div class="mega-menu-wrapper">
-                <div class="header-main">
-                    <a href="index.html" class="header-logo">
-                        <img src="assets/img/logo/logo.png" alt="logo-img">
-                    </a>
-                    <div class="mean__menu-wrapper">
-                        <div class="main-menu">
-                            <nav id="mobile-menu">
-                                <ul>
-                                        <li>
-                                            <a href="index.html">
-                                                Home
-                                            </a>
-                                        </li>   
-                                       
-                                        <li>
-                                            <a href="about.html">About Us</a>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="javascript:void(0)">
-                                                Services
-                                                <i class="fas fa-angle-down"></i>
-                                            </a>
-                                            <ul class="submenu">
-                                                <li><a href="website-design-and-development.html">Web Design & Development</a></li>
-                                                <li><a href="google-and-meta-ads.html">Google and Meta Ads</a></li>
-                                                <li><a href="ad-cost-calculator.html">Ad Cost Calculator</a></li>
-                                                <li><a href="social-media-management.html">Social Media Management</a></li> 
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="team.html">Team</a>
-                                        </li>
-                                        <li>
-                                            <a href="testimonial.html">Testimonial</a>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="blog.html">
-                                                Blog
-                                                <i class="fas fa-angle-down"></i>
-                                            </a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="contact.html">Contact Us</a>
-                                        </li>
+<!-- ================= HEADER (Arigo template — unchanged) ================= -->
+<header id="header-sticky" class="header-section header-style1">
+    <div class="container">
+        <div class="mega-menu-wrapper">
+            <div class="header-main">
+                <a href="index.html" class="header-logo">
+                    <img src="assets/img/logo/logo.png" alt="logo-img">
+                </a>
+                <div class="mean__menu-wrapper">
+                    <div class="main-menu">
+                        <nav id="mobile-menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li class="has-dropdown">
+                                    <a href="javascript:void(0)">
+                                        Services
+                                        <i class="fas fa-angle-down"></i>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li><a href="website-design-and-development.html">Web Design &amp; Development</a></li>
+                                        <li><a href="google-and-meta-ads.html">Google and Meta Ads</a></li>
+                                        <li><a href="ad-cost-calculator.html">Ad Cost Calculator</a></li>
+                                        <li><a href="social-media-management.html">Social Media Management</a></li>
                                     </ul>
-                            </nav>
-                        </div>
+                                </li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="testimonial.html">Testimonial</a></li>
+                                <li class="has-dropdown">
+                                    <a href="blog.html">
+                                        Blog
+                                        <i class="fas fa-angle-down"></i>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="blog-details.html">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </nav>
                     </div>
-                    <div class="header-right d-flex justify-content-end align-items-center">
-                        <a href="javascript:void(0)" class="search-trigger d-center rounded-circle search-icon">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <button type="button" class="common_btn d-sm-flex d-none text-nowrap">
-                            download cv
-                            <span class="icon_wrapper">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </button>
-                        <div class="header__hamburger d-xl-none d-block my-auto">
-                            <div class="sidebar__toggle">
-                                <img src="assets/img/icon/bars.png" alt="icon" class="">
-                            </div>
+                </div>
+                <div class="header-right d-flex justify-content-end align-items-center">
+                    <a href="javascript:void(0)" class="search-trigger d-center rounded-circle search-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <button type="button" class="common_btn d-sm-flex d-none text-nowrap">
+                        download cv
+                        <span class="icon_wrapper">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </button>
+                    <div class="header__hamburger d-xl-none d-block my-auto">
+                        <div class="sidebar__toggle">
+                            <img src="assets/img/icon/bars.png" alt="icon" class="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-<!-- ================= HERO ================= -->
-<section class="hero" id="home">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <div class="eyebrow reveal"><b></b> Graphic Design Studio · Est. 2016</div>
-      <h1 class="reveal" style="--d:.08s">
-        We design visuals<br>that make brands <span class="grad-text">unforgettable</span>.
-      </h1>
-      <p class="lead reveal" style="--d:.16s">
-        From logo systems and brand identities to motion graphics, packaging and
-        scroll-stopping social creatives — Arigo turns raw ideas into pixel-perfect design.
-      </p>
-      <div class="btn-row reveal" style="--d:.24s">
-        <a href="#work" class="btn primary">
-          View Our Work
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="#services" class="btn ghost">Explore Services</a>
+<!-- ================= ARIGO GRAPHIC DESIGN PAGE ================= -->
+<div class="arigo-page">
+
+  <!-- ---------- HERO ---------- -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow reveal"><b></b> Graphic Design Studio · Est. 2016</div>
+        <h1 class="reveal" style="--d:.08s">
+          We design visuals<br>that make brands <span class="grad-text">unforgettable</span>.
+        </h1>
+        <p class="lead reveal" style="--d:.16s">
+          From logo systems and brand identities to motion graphics, packaging and
+          scroll-stopping social creatives — Arigo turns raw ideas into pixel-perfect design.
+        </p>
+        <div class="btn-row reveal" style="--d:.24s">
+          <a href="#work" class="btn primary">
+            View Our Work
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#services" class="btn ghost">Explore Services</a>
+        </div>
+        <div class="hero-mini reveal" style="--d:.32s">
+          <div><b>480+</b><span>Projects Delivered</span></div>
+          <div><b>9 yrs</b><span>Design Experience</span></div>
+          <div><b>4.9★</b><span>Client Rating</span></div>
+        </div>
       </div>
-      <div class="hero-mini reveal" style="--d:.32s">
-        <div><b>480+</b><span>Projects Delivered</span></div>
-        <div><b>9 yrs</b><span>Design Experience</span></div>
-        <div><b>4.9★</b><span>Client Rating</span></div>
+
+      <div class="visual reveal" style="--d:.2s">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+
+        <div class="vcard main" id="tiltCard">
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=900&q=70" alt="Designer working on brand visuals">
+          <div class="cap"><span>Featured Project</span><b>Nova — Brand Identity</b></div>
+        </div>
+
+        <div class="chip palette">
+          <div class="dots"><i></i><i></i><i></i><i></i></div>
+          <small>Palette</small>
+        </div>
+
+        <div class="chip type"><b>Aa</b></div>
+
+        <div class="chip curve">
+          <svg width="70" height="52" viewBox="0 0 70 52" fill="none">
+            <path d="M4 46 C 22 4, 48 4, 66 46" stroke="#c6ff4d" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="4" cy="46" r="3.5" fill="#7c5cff"/>
+            <circle cx="66" cy="46" r="3.5" fill="#22d3ee"/>
+          </svg>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="visual reveal" style="--d:.2s">
-      <div class="blob b1"></div>
-      <div class="blob b2"></div>
-
-      <div class="vcard main" id="tiltCard">
-        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=900&q=70" alt="Designer working on brand visuals">
-        <div class="cap"><span>Featured Project</span><b>Nova — Brand Identity</b></div>
-      </div>
-
-      <div class="chip palette">
-        <div class="dots"><i></i><i></i><i></i><i></i></div>
-        <small>Palette</small>
-      </div>
-
-      <div class="chip type"><b>Aa</b></div>
-
-      <div class="chip curve">
-        <svg width="70" height="52" viewBox="0 0 70 52" fill="none">
-          <path d="M4 46 C 22 4, 48 4, 66 46" stroke="#c6ff4d" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="4" cy="46" r="3.5" fill="#7c5cff"/>
-          <circle cx="66" cy="46" r="3.5" fill="#22d3ee"/>
-        </svg>
-      </div>
+  <!-- ---------- MARQUEE ---------- -->
+  <div class="marquee">
+    <div class="mq-track">
+      <span>Brand Identity</span><span>Logo Design</span><span>Motion Graphics</span>
+      <span>UI / UX Design</span><span>Packaging</span><span>Illustration</span>
+      <span>Social Media Kits</span><span>Print Design</span>
+      <span>Brand Identity</span><span>Logo Design</span><span>Motion Graphics</span>
+      <span>UI / UX Design</span><span>Packaging</span><span>Illustration</span>
+      <span>Social Media Kits</span><span>Print Design</span>
     </div>
   </div>
-</section>
 
-<!-- ================= MARQUEE ================= -->
-<div class="marquee">
-  <div class="mq-track">
-    <span>Brand Identity</span><span>Logo Design</span><span>Motion Graphics</span>
-    <span>UI / UX Design</span><span>Packaging</span><span>Illustration</span>
-    <span>Social Media Kits</span><span>Print Design</span>
-    <span>Brand Identity</span><span>Logo Design</span><span>Motion Graphics</span>
-    <span>UI / UX Design</span><span>Packaging</span><span>Illustration</span>
-    <span>Social Media Kits</span><span>Print Design</span>
-  </div>
-</div>
+  <!-- ---------- SERVICES ---------- -->
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="tag">What We Do</span>
+        <h2>Design services built for impact</h2>
+        <p>Every pixel has a purpose. We blend strategy, craft and technology to build visuals that convert attention into loyalty.</p>
+      </div>
 
-<!-- ================= SERVICES ================= -->
-<section class="sec" id="services">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="tag">What We Do</span>
-      <h2>Design services built for impact</h2>
-      <p>Every pixel has a purpose. We blend strategy, craft and technology to build visuals that convert attention into loyalty.</p>
+      <div class="svc-grid">
+
+        <article class="svc reveal" style="--d:.05s">
+          <span class="num">01</span>
+          <div class="ico">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 3-6 3-3 6-3-6-6-3 6-3 3-6z"/></svg>
+          </div>
+          <h3>Brand Identity</h3>
+          <p>Complete visual systems — logo, color, typography, tone and brand guidelines that scale across every touchpoint.</p>
+          <span class="more">Learn more →</span>
+        </article>
+
+        <article class="svc reveal" style="--d:.12s">
+          <span class="num">02</span>
+          <div class="ico">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+          </div>
+          <h3>Logo Design</h3>
+          <p>Distinctive marks crafted with grid-perfect geometry — delivered in every format you'll ever need.</p>
+          <span class="more">Learn more →</span>
+        </article>
+
+        <article class="svc reveal" style="--d:.19s">
+          <span class="num">03</span>
+          <div class="ico">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          </div>
+          <h3>Social Media Graphics</h3>
+          <p>Scroll-stopping templates, carousels, ad creatives and story kits engineered for engagement.</p>
+          <span class="more">Learn more →</span>
+        </article>
+
+        <article class="svc reveal" style="--d:.05s">
+          <span class="num">04</span>
+          <div class="ico">
+            <svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
+          </div>
+          <h3>Packaging &amp; Print</h3>
+          <p>Dielines, labels, brochures and stationery — print-ready files with flawless color precision.</p>
+          <span class="more">Learn more →</span>
+        </article>
+
+        <article class="svc reveal" style="--d:.12s">
+          <span class="num">05</span>
+          <div class="ico">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5v-7z"/></svg>
+          </div>
+          <h3>Motion Graphics</h3>
+          <p>Animated logos, explainer reels, kinetic typography and 3D loops that bring your brand to life.</p>
+          <span class="more">Learn more →</span>
+        </article>
+
+        <article class="svc reveal" style="--d:.19s">
+          <span class="num">06</span>
+          <div class="ico">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3>UI &amp; Web Graphics</h3>
+          <p>Landing pages, dashboards, icons and illustration systems designed for clarity and conversion.</p>
+          <span class="more">Learn more →</span>
+        </article>
+
+      </div>
     </div>
+  </section>
 
-    <div class="svc-grid">
+  <!-- ---------- TOOLS ---------- -->
+  <section class="sec" id="tools">
+    <div class="wrap tools-wrap">
 
-      <article class="svc reveal" style="--d:.05s">
-        <span class="num">01</span>
-        <div class="ico">
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 3-6 3-3 6-3-6-6-3 6-3 3-6z"/></svg>
+      <div class="reveal">
+        <span class="tag">Our Toolkit</span>
+        <h2 style="font-size:clamp(1.9rem,3.4vw,2.8rem);margin-bottom:18px">Software we master<br>every single day</h2>
+        <p style="color:#9693ad;font-size:16px">
+          Industry-standard tools, deeply learned. We pick the right instrument for every
+          creative problem — and push it further than the defaults.
+        </p>
+
+        <div class="bars">
+          <div class="bar-row">
+            <div class="top"><b>Adobe Photoshop</b><i>98%</i></div>
+            <div class="bar"><span data-w="98"></span></div>
+          </div>
+          <div class="bar-row">
+            <div class="top"><b>Adobe Illustrator</b><i>96%</i></div>
+            <div class="bar"><span data-w="96"></span></div>
+          </div>
+          <div class="bar-row">
+            <div class="top"><b>Figma</b><i>94%</i></div>
+            <div class="bar"><span data-w="94"></span></div>
+          </div>
+          <div class="bar-row">
+            <div class="top"><b>After Effects &amp; Blender</b><i>88%</i></div>
+            <div class="bar"><span data-w="88"></span></div>
+          </div>
         </div>
-        <h3>Brand Identity</h3>
-        <p>Complete visual systems — logo, color, typography, tone and brand guidelines that scale across every touchpoint.</p>
-        <span class="more">Learn more →</span>
-      </article>
+      </div>
 
-      <article class="svc reveal" style="--d:.12s">
-        <span class="num">02</span>
-        <div class="ico">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
-        </div>
-        <h3>Logo Design</h3>
-        <p>Distinctive marks crafted with grid-perfect geometry — delivered in every format you'll ever need.</p>
-        <span class="more">Learn more →</span>
-      </article>
-
-      <article class="svc reveal" style="--d:.19s">
-        <span class="num">03</span>
-        <div class="ico">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-        </div>
-        <h3>Social Media Graphics</h3>
-        <p>Scroll-stopping templates, carousels, ad creatives and story kits engineered for engagement.</p>
-        <span class="more">Learn more →</span>
-      </article>
-
-      <article class="svc reveal" style="--d:.05s">
-        <span class="num">04</span>
-        <div class="ico">
-          <svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
-        </div>
-        <h3>Packaging &amp; Print</h3>
-        <p>Dielines, labels, brochures and stationery — print-ready files with flawless color precision.</p>
-        <span class="more">Learn more →</span>
-      </article>
-
-      <article class="svc reveal" style="--d:.12s">
-        <span class="num">05</span>
-        <div class="ico">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5v-7z"/></svg>
-        </div>
-        <h3>Motion Graphics</h3>
-        <p>Animated logos, explainer reels, kinetic typography and 3D loops that bring your brand to life.</p>
-        <span class="more">Learn more →</span>
-      </article>
-
-      <article class="svc reveal" style="--d:.19s">
-        <span class="num">06</span>
-        <div class="ico">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
-        </div>
-        <h3>UI &amp; Web Graphics</h3>
-        <p>Landing pages, dashboards, icons and illustration systems designed for clarity and conversion.</p>
-        <span class="more">Learn more →</span>
-      </article>
+      <div class="tool-tiles reveal" style="--d:.15s">
+        <div class="tile t1"><span>Ps</span><small>Photoshop</small></div>
+        <div class="tile t2"><span>Ai</span><small>Illustrator</small></div>
+        <div class="tile t3"><span>Ae</span><small>After Effects</small></div>
+        <div class="tile t4"><span>Fi</span><small>Figma</small></div>
+        <div class="tile t5"><span>C4</span><small>Cinema 4D</small></div>
+        <div class="tile t6"><span>Bl</span><small>Blender</small></div>
+      </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= TOOLS ================= -->
-<section class="sec" id="tools">
-  <div class="wrap tools-wrap">
+  <!-- ---------- WORK ---------- -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="tag">Selected Work</span>
+        <h2>Projects we're proud of</h2>
+        <p>A glimpse into the brands, campaigns and visual systems we've shaped.</p>
+      </div>
 
-    <div class="reveal">
-      <span class="tag">Our Toolkit</span>
-      <h2 style="font-size:clamp(1.9rem,3.4vw,2.8rem);margin-bottom:18px">Software we master<br>every single day</h2>
-      <p style="color:var(--muted);font-size:16px">
-        Industry-standard tools, deeply learned. We pick the right instrument for every
-        creative problem — and push it further than the defaults.
-      </p>
+      <div class="filters reveal">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="brand">Branding</button>
+        <button data-filter="social">Social</button>
+        <button data-filter="motion">Motion</button>
+        <button data-filter="print">Print</button>
+      </div>
 
-      <div class="bars">
-        <div class="bar-row">
-          <div class="top"><b>Adobe Photoshop</b><i>98%</i></div>
-          <div class="bar"><span data-w="98"></span></div>
-        </div>
-        <div class="bar-row">
-          <div class="top"><b>Adobe Illustrator</b><i>96%</i></div>
-          <div class="bar"><span data-w="96"></span></div>
-        </div>
-        <div class="bar-row">
-          <div class="top"><b>Figma</b><i>94%</i></div>
-          <div class="bar"><span data-w="94"></span></div>
-        </div>
-        <div class="bar-row">
-          <div class="top"><b>After Effects &amp; Blender</b><i>88%</i></div>
-          <div class="bar"><span data-w="88"></span></div>
+      <div class="work-grid" id="workGrid">
+
+        <article class="p-item reveal" data-cat="brand">
+          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=65" alt="Branding project">
+          <div class="ov">
+            <em>Branding</em>
+            <h3>Nova Coffee — Identity</h3>
+            <div class="go">↗</div>
+          </div>
+        </article>
+
+        <article class="p-item reveal" data-cat="social" style="--d:.08s">
+          <img src="https://images.unsplash.com/photo-1613909207039-6b173b755cc1?auto=format&fit=crop&w=800&q=65" alt="Social media graphics">
+          <div class="ov">
+            <em>Social Media</em>
+            <h3>Pulse — Campaign Kit</h3>
+            <div class="go">↗</div>
+          </div>
+        </article>
+
+        <article class="p-item reveal" data-cat="motion" style="--d:.16s">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=65" alt="3D motion graphics">
+          <div class="ov">
+            <em>Motion</em>
+            <h3>Orbit — 3D Loop Series</h3>
+            <div class="go">↗</div>
+          </div>
+        </article>
+
+        <article class="p-item reveal" data-cat="print">
+          <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=800&q=65" alt="Print design">
+          <div class="ov">
+            <em>Print</em>
+            <h3>Forma — Editorial Layout</h3>
+            <div class="go">↗</div>
+          </div>
+        </article>
+
+        <article class="p-item reveal" data-cat="brand" style="--d:.08s">
+          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=800&q=65" alt="Abstract brand visuals">
+          <div class="ov">
+            <em>Branding</em>
+            <h3>Lumen — Visual System</h3>
+            <div class="go">↗</div>
+          </div>
+        </article>
+
+        <article class="p-item reveal" data-cat="social" style="--d:.16s">
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=65" alt="Digital creative">
+          <div class="ov">
+            <em>Social Media</em>
+            <h3>Retro — Ad Creatives</h3>
+            <div class="go">↗</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- STATS ---------- -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="stats reveal">
+        <div class="stat"><b data-count="480" data-suffix="+">0</b><span>Projects Completed</span></div>
+        <div class="stat"><b data-count="215" data-suffix="+">0</b><span>Happy Clients</span></div>
+        <div class="stat"><b data-count="38" data-suffix="">0</b><span>Design Awards</span></div>
+        <div class="stat"><b data-count="12" data-suffix="">0</b><span>Countries Served</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- PROCESS ---------- -->
+  <section class="sec" id="process" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="tag">How We Work</span>
+        <h2>A process without surprises</h2>
+        <p>Clear stages, honest timelines, and you in the loop at every step.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal"><b class="n">01</b><h4>Discover</h4><p>We dig into your brand, audience and competitors to define the creative direction.</p></div>
+        <div class="step reveal" style="--d:.08s"><b class="n">02</b><h4>Concept</h4><p>Moodboards, sketches and direction routes — we explore before we commit.</p></div>
+        <div class="step reveal" style="--d:.16s"><b class="n">03</b><h4>Design</h4><p>Pixel-perfect execution across every asset, iterated with your feedback.</p></div>
+        <div class="step reveal" style="--d:.24s"><b class="n">04</b><h4>Deliver</h4><p>Organized source files, all formats, plus guidelines so your team can run with it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- CTA ---------- -->
+  <section class="sec" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta reveal">
+        <h2>Got a brand that deserves<br><span class="grad-text">better design?</span></h2>
+        <p>Tell us about your project. We'll get back within 24 hours with a plan and a quote.</p>
+        <div class="btn-row">
+          <a href="#" class="btn primary">
+            Start a Project
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#" class="btn ghost">hello@arigo.studio</a>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="tool-tiles reveal" style="--d:.15s">
-      <div class="tile t1"><span>Ps</span><small>Photoshop</small></div>
-      <div class="tile t2"><span>Ai</span><small>Illustrator</small></div>
-      <div class="tile t3"><span>Ae</span><small>After Effects</small></div>
-      <div class="tile t4"><span>Fi</span><small>Figma</small></div>
-      <div class="tile t5"><span>C4</span><small>Cinema 4D</small></div>
-      <div class="tile t6"><span>Bl</span><small>Blender</small></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= WORK ================= -->
-<section class="sec" id="work">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="tag">Selected Work</span>
-      <h2>Projects we're proud of</h2>
-      <p>A glimpse into the brands, campaigns and visual systems we've shaped.</p>
-    </div>
-
-    <div class="filters reveal">
-      <button class="active" data-filter="all">All</button>
-      <button data-filter="brand">Branding</button>
-      <button data-filter="social">Social</button>
-      <button data-filter="motion">Motion</button>
-      <button data-filter="print">Print</button>
-    </div>
-
-    <div class="work-grid" id="workGrid">
-
-      <article class="p-item reveal" data-cat="brand">
-        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=65" alt="Branding project">
-        <div class="ov">
-          <em>Branding</em>
-          <h3>Nova Coffee — Identity</h3>
-          <div class="go">↗</div>
+  <!-- ---------- FOOTER ---------- -->
+  <footer>
+    <div class="wrap">
+      <div class="f-grid">
+        <div>
+          <a href="#home" class="agd-logo">Arigo<i></i></a>
+          <p>A graphic design studio crafting bold identities, motion and digital experiences for ambitious brands.</p>
         </div>
-      </article>
-
-      <article class="p-item reveal" data-cat="social" style="--d:.08s">
-        <img src="https://images.unsplash.com/photo-1613909207039-6b173b755cc1?auto=format&fit=crop&w=800&q=65" alt="Social media graphics">
-        <div class="ov">
-          <em>Social Media</em>
-          <h3>Pulse — Campaign Kit</h3>
-          <div class="go">↗</div>
+        <div class="f-col">
+          <h5>Services</h5>
+          <a href="#services">Brand Identity</a>
+          <a href="#services">Logo Design</a>
+          <a href="#services">Motion Graphics</a>
+          <a href="#services">Packaging</a>
         </div>
-      </article>
-
-      <article class="p-item reveal" data-cat="motion" style="--d:.16s">
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=65" alt="3D motion graphics">
-        <div class="ov">
-          <em>Motion</em>
-          <h3>Orbit — 3D Loop Series</h3>
-          <div class="go">↗</div>
+        <div class="f-col">
+          <h5>Studio</h5>
+          <a href="#work">Our Work</a>
+          <a href="#process">Process</a>
+          <a href="#tools">Tools</a>
+          <a href="#contact">Contact</a>
         </div>
-      </article>
-
-      <article class="p-item reveal" data-cat="print">
-        <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=800&q=65" alt="Print design">
-        <div class="ov">
-          <em>Print</em>
-          <h3>Forma — Editorial Layout</h3>
-          <div class="go">↗</div>
-        </div>
-      </article>
-
-      <article class="p-item reveal" data-cat="brand" style="--d:.08s">
-        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=800&q=65" alt="Abstract brand visuals">
-        <div class="ov">
-          <em>Branding</em>
-          <h3>Lumen — Visual System</h3>
-          <div class="go">↗</div>
-        </div>
-      </article>
-
-      <article class="p-item reveal" data-cat="social" style="--d:.16s">
-        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=65" alt="Digital creative">
-        <div class="ov">
-          <em>Social Media</em>
-          <h3>Retro — Ad Creatives</h3>
-          <div class="go">↗</div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= STATS ================= -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="stats reveal">
-      <div class="stat"><b data-count="480" data-suffix="+">0</b><span>Projects Completed</span></div>
-      <div class="stat"><b data-count="215" data-suffix="+">0</b><span>Happy Clients</span></div>
-      <div class="stat"><b data-count="38" data-suffix="">0</b><span>Design Awards</span></div>
-      <div class="stat"><b data-count="12" data-suffix="">0</b><span>Countries Served</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PROCESS ================= -->
-<section class="sec" id="process" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="tag">How We Work</span>
-      <h2>A process without surprises</h2>
-      <p>Clear stages, honest timelines, and you in the loop at every step.</p>
-    </div>
-
-    <div class="steps">
-      <div class="step reveal"><b class="n">01</b><h4>Discover</h4><p>We dig into your brand, audience and competitors to define the creative direction.</p></div>
-      <div class="step reveal" style="--d:.08s"><b class="n">02</b><h4>Concept</h4><p>Moodboards, sketches and direction routes — we explore before we commit.</p></div>
-      <div class="step reveal" style="--d:.16s"><b class="n">03</b><h4>Design</h4><p>Pixel-perfect execution across every asset, iterated with your feedback.</p></div>
-      <div class="step reveal" style="--d:.24s"><b class="n">04</b><h4>Deliver</h4><p>Organized source files, all formats, plus guidelines so your team can run with it.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CTA ================= -->
-<section class="sec" id="contact" style="padding-top:0">
-  <div class="wrap">
-    <div class="cta reveal">
-      <h2>Got a brand that deserves<br><span class="grad-text">better design?</span></h2>
-      <p>Tell us about your project. We'll get back within 24 hours with a plan and a quote.</p>
-      <div class="btn-row">
-        <a href="#" class="btn primary">
-          Start a Project
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="#" class="btn ghost">hello@arigo.studio</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-  <div class="wrap">
-    <div class="f-grid">
-      <div>
-        <a href="#home" class="logo">Arigo<i></i></a>
-        <p>A graphic design studio crafting bold identities, motion and digital experiences for ambitious brands.</p>
-      </div>
-      <div class="f-col">
-        <h5>Services</h5>
-        <a href="#services">Brand Identity</a>
-        <a href="#services">Logo Design</a>
-        <a href="#services">Motion Graphics</a>
-        <a href="#services">Packaging</a>
-      </div>
-      <div class="f-col">
-        <h5>Studio</h5>
-        <a href="#work">Our Work</a>
-        <a href="#process">Process</a>
-        <a href="#tools">Tools</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="f-col">
-        <h5>Follow</h5>
-        <div class="socials">
-          <a href="#">Be</a><a href="#">Dr</a><a href="#">In</a><a href="#">X</a>
+        <div class="f-col">
+          <h5>Follow</h5>
+          <div class="socials">
+            <a href="#">Be</a><a href="#">Dr</a><a href="#">In</a><a href="#">X</a>
+          </div>
         </div>
       </div>
+      <div class="f-bottom">
+        <span>© 2025 Arigo Studio. All rights reserved.</span>
+        <span>Designed &amp; built with obsessive attention to detail.</span>
+      </div>
     </div>
-    <div class="f-bottom">
-      <span>© 2025 Arigo Studio. All rights reserved.</span>
-      <span>Designed &amp; built with obsessive attention to detail.</span>
-    </div>
-  </div>
-</footer>
+  </footer>
+
+</div><!-- /.arigo-page -->
+
+<!-- ==========================================================
+     TEMPLATE JS  (adjust filenames to match your /assets/js/)
+     ========================================================== -->
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.meanmenu.min.js"></script>
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
 
 <script>
-/* ============ SCROLL PROGRESS + HEADER ============ */
+/* ==========================================================
+   ARIGO GRAPHIC DESIGN — page interactions
+   ========================================================== */
+
+/* ---------- Scroll progress + header state ---------- */
 const progress = document.getElementById('progress');
-const header   = document.getElementById('header');
+const header   = document.getElementById('header-sticky');
 
 function onScroll(){
   const h = document.documentElement;
-  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-  progress.style.width = p + '%';
-  header.classList.toggle('scrolled', h.scrollTop > 30);
+  const max = h.scrollHeight - h.clientHeight;
+  progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  if(header) header.classList.toggle('scrolled', h.scrollTop > 30);
 }
 window.addEventListener('scroll', onScroll, {passive:true});
 onScroll();
 
-/* ============ CURSOR GLOW ============ */
+/* ---------- Cursor glow ---------- */
 const glow = document.getElementById('glow');
 let gx = 0, gy = 0, cx = 0, cy = 0;
 window.addEventListener('mousemove', e => {
@@ -919,25 +1097,24 @@ window.addEventListener('mouseleave', () => glow.style.opacity = '0');
   requestAnimationFrame(loop);
 })();
 
-/* ============ REVEAL ON SCROLL ============ */
+/* ---------- Reveal on scroll ---------- */
 const revealIO = new IntersectionObserver((entries) => {
   entries.forEach(en => {
-    if(en.isIntersecting){
-      en.target.classList.add('in');
-      revealIO.unobserve(en.target);
+    if(!en.isIntersecting) return;
+    en.target.classList.add('in');
+    revealIO.unobserve(en.target);
 
-      // animate bars inside
-      en.target.querySelectorAll('.bar span').forEach(b => {
-        setTimeout(() => b.style.width = b.dataset.w + '%', 200);
-      });
-    }
+    // animate any skill bars inside
+    en.target.querySelectorAll('.bar span').forEach(b => {
+      setTimeout(() => b.style.width = b.dataset.w + '%', 200);
+    });
   });
 }, {threshold: 0.14, rootMargin: '0px 0px -60px 0px'});
 
-document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+document.querySelectorAll('.arigo-page .reveal').forEach(el => revealIO.observe(el));
 
-/* ============ COUNTERS ============ */
-const counters = document.querySelectorAll('[data-count]');
+/* ---------- Counters ---------- */
+const counters = document.querySelectorAll('.arigo-page [data-count]');
 const countIO = new IntersectionObserver((entries) => {
   entries.forEach(en => {
     if(!en.isIntersecting) return;
@@ -959,8 +1136,8 @@ const countIO = new IntersectionObserver((entries) => {
 }, {threshold: 0.6});
 counters.forEach(c => countIO.observe(c));
 
-/* ============ SERVICE CARD SPOTLIGHT ============ */
-document.querySelectorAll('.svc').forEach(card => {
+/* ---------- Service card spotlight ---------- */
+document.querySelectorAll('.arigo-page .svc').forEach(card => {
   card.addEventListener('mousemove', e => {
     const r = card.getBoundingClientRect();
     card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
@@ -968,7 +1145,7 @@ document.querySelectorAll('.svc').forEach(card => {
   });
 });
 
-/* ============ HERO CARD 3D TILT ============ */
+/* ---------- Hero card 3D tilt ---------- */
 const tilt = document.getElementById('tiltCard');
 if(tilt && window.matchMedia('(hover:hover)').matches){
   const parent = tilt.parentElement;
@@ -984,9 +1161,9 @@ if(tilt && window.matchMedia('(hover:hover)').matches){
   });
 }
 
-/* ============ PORTFOLIO FILTER ============ */
-const filterBtns = document.querySelectorAll('.filters button');
-const items = document.querySelectorAll('.p-item');
+/* ---------- Portfolio filter ---------- */
+const filterBtns = document.querySelectorAll('.arigo-page .filters button');
+const items = document.querySelectorAll('.arigo-page .p-item');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -1004,16 +1181,6 @@ filterBtns.forEach(btn => {
       }
     });
   });
-});
-
-/* ============ MOBILE MENU (simple toggle) ============ */
-const burger = document.querySelector('.burger');
-const menu = document.querySelector('.menu');
-burger.addEventListener('click', () => {
-  const open = menu.style.display === 'flex';
-  menu.style.display = open ? 'none' : 'flex';
-  menu.style.cssText += open ? '' :
-    'position:fixed;top:76px;left:0;right:0;flex-direction:column;gap:22px;padding:32px 24px;background:rgba(9,9,16,.97);border-bottom:1px solid rgba(255,255,255,.09);backdrop-filter:blur(16px);';
 });
 </script>
 </body>
