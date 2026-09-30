@@ -1,773 +1,937 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Graphic Design Studio · Interactive Showcase</title>
-  <!-- Font Awesome for icons (simulated with fonts, but we'll use emoji / CSS) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      background-color: #ffffff;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #1e1e1e;
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
-    :root {
-      --maroon: #800020;
-      --maroon-light: #a52a4a;
-      --blue: #1e3a8a;
-      --blue-light: #2563eb;
-      --gray-100: #f5f5f5;
-      --gray-200: #e5e5e5;
-      --gray-600: #6b7280;
-      --gray-800: #2d2d2d;
-      --shadow-sm: 0 4px 12px rgba(0,0,0,0.04);
-      --shadow-md: 0 12px 30px rgba(0,0,0,0.06);
-      --crystal: rgba(255,255,255,0.5);
-    }
-    /* main layout */
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
-    /* crystal effects */
-    .crystal-card {
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.8);
-      border-radius: 32px;
-      box-shadow: 0 8px 32px rgba(128,0,32,0.08), 0 4px 16px rgba(30,58,138,0.06);
-      transition: transform 0.25s ease, box-shadow 0.3s ease;
-    }
-    .crystal-card:hover {
-      box-shadow: 0 20px 40px rgba(128,0,32,0.12), 0 8px 24px rgba(30,58,138,0.1);
-      transform: translateY(-4px);
-    }
-    /* headline */
-    .hero-headline {
-      font-size: clamp(2.2rem, 8vw, 4.8rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 2;
-    }
-    .maroon-text { color: var(--maroon); }
-    .blue-text { color: var(--blue); }
-    .gradient-text {
-      background: linear-gradient(135deg, var(--maroon) 0%, var(--blue) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    /* falling graphics designer letters */
-    .falling-letters {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.1em 0.3em;
-      margin: 1rem 0 2rem;
-      perspective: 800px;
-    }
-    .letter {
-      display: inline-block;
-      font-size: clamp(2rem, 10vw, 4.5rem);
-      font-weight: 800;
-      color: var(--maroon);
-      text-shadow: 0 6px 18px rgba(128,0,32,0.15);
-      animation: fallTurn 3s infinite alternate ease-in-out;
-      transform-origin: center;
-      cursor: default;
-      transition: color 0.3s;
-    }
-    .letter:nth-child(odd) { color: var(--blue); }
-    .letter:hover {
-      animation-play-state: paused;
-      color: #b8860b;
-      transform: scale(1.2) rotate(0deg);
-      transition: 0.2s;
-    }
-    @keyframes fallTurn {
-      0% { transform: rotate(0deg) translateY(0px) scale(1); }
-      50% { transform: rotate(8deg) translateY(-6px) scale(1.05); }
-      100% { transform: rotate(-5deg) translateY(4px) scale(1); }
-    }
-    /* draggable tool logos */
-    .tool-draggable {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      background: white;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-      font-weight: 700;
-      font-size: 0.8rem;
-      color: #222;
-      cursor: grab;
-      user-select: none;
-      transition: box-shadow 0.2s, transform 0.2s;
-      border: 1px solid rgba(0,0,0,0.03);
-      text-align: center;
-      padding: 4px;
-      line-height: 1.2;
-    }
-    .tool-draggable:active { cursor: grabbing; }
-    .tool-draggable:hover {
-      box-shadow: 0 20px 30px rgba(128,0,32,0.15);
-      transform: scale(1.08);
-    }
-    .tools-drag-area {
-      position: relative;
-      min-height: 110px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px 10px;
-      background: rgba(245,245,245,0.5);
-      border-radius: 80px;
-      margin: 2rem 0;
-      border: 1px dashed rgba(128,0,32,0.2);
-    }
-    /* interactive shirt / dress color changer */
-    .shirt-demo {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: center;
-      justify-content: center;
-    }
-    .shirt-preview {
-      position: relative;
-      width: 240px;
-      height: 240px;
-      border-radius: 24px;
-      background: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: background 0.3s;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30,35 L45,20 L55,20 L70,35 L70,75 L30,75 Z" fill="%23cccccc" stroke="%23999" stroke-width="1"/><circle cx="50" cy="45" r="8" fill="%23aaaaaa"/></svg>');
-      background-size: cover;
-      background-blend-mode: overlay;
-    }
-    .shirt-svg {
-      width: 180px;
-      height: 180px;
-      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.1));
-    }
-    .color-btns {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 1rem 0;
-    }
-    .color-dot {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 3px solid white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .color-dot:hover { transform: scale(1.15); }
-    .color-dot.active { border-color: var(--maroon); box-shadow: 0 0 0 3px rgba(128,0,32,0.3); }
-    /* timeline / software mockups */
-    .software-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2.5rem 0;
-    }
-    .sw-card {
-      background: white;
-      border-radius: 24px;
-      padding: 1.2rem;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(128,0,32,0.08);
-      transition: all 0.25s;
-      cursor: default;
-    }
-    .sw-card:hover {
-      border-color: var(--blue-light);
-      box-shadow: 0 16px 30px rgba(30,58,138,0.12);
-      transform: translateY(-3px);
-    }
-    .timeline-bar {
-      height: 6px;
-      background: var(--gray-200);
-      border-radius: 8px;
-      margin: 12px 0;
-      overflow: hidden;
-    }
-    .timeline-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, var(--maroon), var(--blue));
-      border-radius: 8px;
-      animation: fillAnim 4s infinite alternate ease-in-out;
-    }
-    @keyframes fillAnim {
-      0% { width: 15%; }
-      50% { width: 85%; }
-      100% { width: 40%; }
-    }
-    /* shapes morph */
-    .shape-morph-demo {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: center;
-      margin: 2rem 0;
-    }
-    .shape-box {
-      width: 70px;
-      height: 70px;
-      background: var(--blue);
-      border-radius: 8px;
-      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-    }
-    .shape-box:hover {
-      background: var(--maroon);
-      border-radius: 50%;
-      transform: rotate(45deg) scale(1.1);
-    }
-    .shape-box:nth-child(2):hover { border-radius: 0; transform: rotate(0deg) scale(1.2); background: #2d2d2d; }
-    .shape-box:nth-child(3):hover { border-radius: 20px; transform: rotate(90deg) scale(1.2); background: var(--maroon-light); }
-    .shape-box:nth-child(4):hover { border-radius: 0; transform: rotate(45deg) scale(1.2); background: #1e3a8a; }
-    /* face retouch mock */
-    .retouch-demo {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      background: var(--gray-100);
-      border-radius: 28px;
-      padding: 1.5rem;
-    }
-    .face-preview {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: #d9b8a6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      transition: 0.3s;
-      box-shadow: 0 0 0 4px white, 0 8px 16px rgba(0,0,0,0.1);
-    }
-    .blur-toggle {
-      background: var(--blue);
-      color: white;
-      border: none;
-      padding: 10px 22px;
-      border-radius: 40px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .blur-toggle:hover {
-      background: var(--maroon);
-      transform: scale(1.02);
-    }
-    /* tags / description */
-    .tag-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 2rem 0;
-    }
-    .tag {
-      background: white;
-      border: 1px solid rgba(128,0,32,0.2);
-      padding: 8px 18px;
-      border-radius: 40px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--gray-800);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-      transition: 0.15s;
-    }
-    .tag:hover {
-      background: var(--maroon);
-      color: white;
-      border-color: var(--maroon);
-      transform: translateY(-2px);
-    }
-    /* grid for portfolio */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-    .portfolio-item {
-      background: white;
-      border-radius: 24px;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid #eee;
-      transition: all 0.3s;
-      cursor: default;
-      background: linear-gradient(145deg, #ffffff, #fafafa);
-    }
-    .portfolio-item:hover {
-      border-color: var(--blue-light);
-      box-shadow: 0 20px 30px rgba(30,58,138,0.1);
-      background: white;
-    }
-    .portfolio-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .portfolio-item h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-    .portfolio-item p {
-      font-size: 0.75rem;
-      color: var(--gray-600);
-    }
-    /* mock canva interface / photoshop dashboard */
-    .mock-interface {
-      background: #1e1e1e;
-      border-radius: 18px;
-      padding: 1rem;
-      color: #e0e0e0;
-      font-family: 'Inter', monospace;
-      box-shadow: var(--shadow-md);
-      border: 1px solid #333;
-    }
-    .mock-toolbar {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    .mock-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #555;
-    }
-    .mock-canvas {
-      background: #2d2d2d;
-      border-radius: 10px;
-      height: 140px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #888;
-      font-size: 0.8rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .mock-canvas::after {
-      content: "✎ Canva · Photoshop · Illustrator";
-      font-size: 0.7rem;
-      color: #666;
-      position: absolute;
-      bottom: 10px;
-      right: 15px;
-    }
-    /* footer / misc */
-    .btn-primary {
-      background: var(--maroon);
-      color: white;
-      border: none;
-      padding: 14px 36px;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      box-shadow: 0 10px 20px rgba(128,0,32,0.2);
-    }
-    .btn-primary:hover {
-      background: var(--blue);
-      box-shadow: 0 16px 28px rgba(30,58,138,0.3);
-      transform: translateY(-2px);
-    }
-    /* responsive */
-    @media (max-width: 700px) {
-      .container { padding: 1rem; }
-      .tools-drag-area { gap: 10px; }
-      .tool-draggable { width: 48px; height: 48px; font-size: 0.7rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arigo — Graphic Design Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ BASE ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#07070b;
+  --bg2:#0d0d16;
+  --card:#12121d;
+  --line:rgba(255,255,255,.09);
+  --txt:#eceaf5;
+  --muted:#9693ad;
+  --v:#7c5cff;
+  --c:#22d3ee;
+  --p:#ff4d8d;
+  --lime:#c6ff4d;
+  --grad:linear-gradient(120deg,#7c5cff 0%,#22d3ee 55%,#c6ff4d 100%);
+  --ease:cubic-bezier(.2,.7,.3,1);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--txt);
+  overflow-x:hidden;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(700px 500px at 12% -5%, rgba(124,92,255,.20), transparent 60%),
+    radial-gradient(700px 500px at 92% 8%, rgba(34,211,238,.14), transparent 60%),
+    radial-gradient(900px 700px at 50% 110%, rgba(255,77,141,.10), transparent 65%);
+}
+h1,h2,h3,h4,.logo,.num{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;line-height:1.1}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--v);color:#fff}
+
+/* scrollbar */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#0a0a12}
+::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#22d3ee);border-radius:10px}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+section{position:relative;z-index:2}
+
+/* ============ SCROLL PROGRESS ============ */
+#progress{
+  position:fixed;top:0;left:0;height:3px;width:0%;z-index:999;
+  background:var(--grad);
+  box-shadow:0 0 14px rgba(124,92,255,.8);
+  transition:width .1s linear;
+}
+
+/* ============ HEADER ============ */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  transition:background .45s var(--ease), border-color .45s, backdrop-filter .45s;
+  border-bottom:1px solid transparent;
+}
+header.scrolled{
+  background:rgba(7,7,11,.75);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom-color:var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-size:23px;font-weight:700;letter-spacing:-.04em;display:flex;align-items:center;gap:2px}
+.logo span{color:var(--c)}
+.logo i{
+  width:9px;height:9px;border-radius:50%;background:var(--lime);
+  display:inline-block;margin-left:4px;animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+.menu{display:flex;gap:34px;align-items:center}
+.menu a{
+  font-size:14.5px;font-weight:500;color:var(--muted);position:relative;
+  transition:color .3s var(--ease);
+}
+.menu a::after{
+  content:'';position:absolute;left:0;bottom:-6px;height:2px;width:0;
+  background:var(--grad);border-radius:2px;transition:width .35s var(--ease);
+}
+.menu a:hover{color:var(--txt)}
+.menu a:hover::after{width:100%}
+.nav-cta{
+  padding:11px 22px;border-radius:100px;font-size:14px;font-weight:600;
+  background:var(--grad);color:#08080e;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+  box-shadow:0 0 0 rgba(124,92,255,0);
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 32px -8px rgba(124,92,255,.85)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger i{width:24px;height:2px;background:var(--txt);border-radius:2px;transition:.3s}
+
+/* ============ HERO ============ */
+.hero{min-height:100vh;display:flex;align-items:center;padding:150px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;width:100%}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 16px;border-radius:100px;
+  border:1px solid var(--line);background:rgba(255,255,255,.04);
+  font-size:12.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:26px;
+}
+.eyebrow b{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime);animation:pulse 1.8s infinite}
+h1{font-size:clamp(2.5rem,5.4vw,4.4rem);font-weight:700;margin-bottom:22px}
+.grad-text{
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:200% auto;animation:shift 5s linear infinite;
+}
+@keyframes shift{to{background-position:200% center}}
+.hero p.lead{font-size:17px;color:var(--muted);max-width:520px;margin-bottom:36px}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{
+  padding:15px 30px;border-radius:100px;font-weight:600;font-size:15px;
+  display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .35s;
+  position:relative;overflow:hidden;
+}
+.btn.primary{background:var(--grad);color:#08080e}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px -12px rgba(124,92,255,.9)}
+.btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--c);color:var(--c);transform:translateY(-3px);box-shadow:0 14px 34px -16px rgba(34,211,238,.9)}
+.btn svg{transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+
+.hero-mini{display:flex;gap:38px;margin-top:52px;flex-wrap:wrap}
+.hero-mini div b{display:block;font-family:'Space Grotesk';font-size:26px;font-weight:700}
+.hero-mini div span{font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+
+/* hero visual */
+.visual{position:relative;height:540px;perspective:1200px}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;z-index:0}
+.blob.b1{width:300px;height:300px;background:var(--v);top:-20px;right:20px;animation:float1 9s ease-in-out infinite}
+.blob.b2{width:240px;height:240px;background:var(--c);bottom:0;left:-30px;animation:float2 11s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,40px)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(35px,-30px)}}
+
+.vcard{
+  position:absolute;border-radius:24px;overflow:hidden;
+  border:1px solid var(--line);
+  background:linear-gradient(150deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  backdrop-filter:blur(10px);
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.9);
+  transition:transform .5s var(--ease);
+}
+.vcard.main{
+  width:74%;height:76%;top:8%;left:4%;z-index:3;
+  animation:floaty 6s ease-in-out infinite;
+}
+.vcard.main img{width:100%;height:100%;object-fit:cover;background:linear-gradient(140deg,#7c5cff,#22d3ee)}
+.vcard.main::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(7,7,11,.85));
+}
+.vcard .cap{
+  position:absolute;left:20px;bottom:18px;z-index:2;
+}
+.vcard .cap b{font-family:'Space Grotesk';font-size:16px;display:block}
+.vcard .cap span{font-size:12px;color:var(--c);letter-spacing:.1em;text-transform:uppercase}
+
+.chip{
+  position:absolute;z-index:4;border-radius:16px;padding:14px 18px;
+  background:rgba(14,14,24,.9);border:1px solid var(--line);
+  backdrop-filter:blur(12px);
+  box-shadow:0 20px 50px -20px rgba(0,0,0,.9);
+  animation:floaty 5s ease-in-out infinite;
+}
+.chip.palette{top:2%;right:-2%;animation-delay:.6s}
+.chip.type{bottom:14%;right:-4%;animation-delay:1.2s;padding:12px 20px}
+.chip.type b{font-family:'Space Grotesk';font-size:26px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.chip.curve{top:44%;left:-8%;animation-delay:1.8s;padding:12px}
+.dots{display:flex;gap:7px;margin-bottom:8px}
+.dots i{width:18px;height:18px;border-radius:50%;display:block;transition:transform .3s var(--ease)}
+.chip:hover .dots i{transform:scale(1.25)}
+.dots i:nth-child(1){background:#7c5cff}
+.dots i:nth-child(2){background:#22d3ee}
+.dots i:nth-child(3){background:#c6ff4d}
+.dots i:nth-child(4){background:#ff4d8d}
+.chip small{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+
+/* cursor glow */
+#glow{
+  position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(124,92,255,.16),transparent 65%);
+  transform:translate(-50%,-50%);transition:opacity .4s;opacity:0;
+}
+
+/* ============ MARQUEE ============ */
+.marquee{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:26px 0;background:rgba(255,255,255,.018);overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+}
+.mq-track{display:flex;gap:52px;width:max-content;animation:scrollX 30s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+.mq-track span{
+  font-family:'Space Grotesk';font-size:20px;font-weight:600;color:var(--muted);
+  display:flex;align-items:center;gap:52px;white-space:nowrap;
+  transition:color .3s;
+}
+.mq-track span:hover{color:var(--lime)}
+.mq-track span::after{content:'✦';color:var(--v);font-size:14px}
+@keyframes scrollX{to{transform:translateX(-50%)}}
+
+/* ============ SECTION HEADS ============ */
+.sec{padding:110px 0}
+.sec-head{max-width:640px;margin-bottom:60px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.tag{
+  font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--c);margin-bottom:16px;display:block;
+}
+.sec-head h2{font-size:clamp(2rem,3.6vw,3rem);font-weight:700;margin-bottom:18px}
+.sec-head p{color:var(--muted);font-size:16px}
+
+/* ============ SERVICES ============ */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px}
+.svc{
+  position:relative;padding:32px 30px 34px;border-radius:22px;overflow:hidden;
+  background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.012));
+  border:1px solid var(--line);
+  transition:transform .5s var(--ease), border-color .5s, box-shadow .5s;
+}
+.svc::before{
+  content:'';position:absolute;inset:0;opacity:0;transition:opacity .45s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(124,92,255,.20), transparent 62%);
+}
+.svc::after{
+  content:'';position:absolute;left:30px;right:30px;bottom:0;height:2px;
+  background:var(--grad);transform:scaleX(0);transform-origin:left;
+  transition:transform .55s var(--ease);
+}
+.svc:hover{transform:translateY(-9px);border-color:rgba(124,92,255,.45);box-shadow:0 30px 70px -30px rgba(124,92,255,.75)}
+.svc:hover::before{opacity:1}
+.svc:hover::after{transform:scaleX(1)}
+.svc .ico{
+  width:58px;height:58px;border-radius:16px;display:grid;place-items:center;
+  background:linear-gradient(150deg,rgba(124,92,255,.22),rgba(34,211,238,.12));
+  border:1px solid rgba(124,92,255,.3);margin-bottom:24px;
+  transition:transform .5s var(--ease), background .5s;
+}
+.svc:hover .ico{transform:translateY(-4px) rotate(-8deg) scale(1.06);background:linear-gradient(150deg,rgba(124,92,255,.42),rgba(34,211,238,.25))}
+.svc .ico svg{width:26px;height:26px;stroke:var(--c);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
+.svc:hover .ico svg{stroke:var(--lime)}
+.svc h3{font-size:19.5px;font-weight:600;margin-bottom:11px}
+.svc p{font-size:14.6px;color:var(--muted);margin-bottom:20px}
+.svc .more{
+  font-size:13.5px;font-weight:600;color:var(--c);display:inline-flex;align-items:center;gap:7px;
+  opacity:0;transform:translateY(8px);transition:.45s var(--ease);
+}
+.svc:hover .more{opacity:1;transform:translateY(0)}
+.svc .num{
+  position:absolute;top:26px;right:28px;font-size:13px;font-weight:700;
+  color:rgba(255,255,255,.16);letter-spacing:.06em;transition:color .4s;
+}
+.svc:hover .num{color:var(--v)}
+
+/* ============ TOOLS ============ */
+.tools-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.tool-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tile{
+  aspect-ratio:1/1;border-radius:20px;display:grid;place-items:center;gap:8px;
+  border:1px solid var(--line);position:relative;overflow:hidden;cursor:pointer;
+  background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
+  transition:transform .45s var(--ease), border-color .45s, box-shadow .45s;
+}
+.tile span{
+  font-family:'Space Grotesk';font-size:24px;font-weight:700;
+  transition:transform .45s var(--ease);
+}
+.tile small{font-size:10.5px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;transition:color .4s}
+.tile::before{
+  content:'';position:absolute;inset:0;opacity:0;transition:opacity .45s;
+  background:linear-gradient(150deg,rgba(124,92,255,.28),rgba(34,211,238,.18));
+}
+.tile:hover{transform:translateY(-7px) scale(1.03);border-color:rgba(34,211,238,.5);box-shadow:0 24px 50px -22px rgba(34,211,238,.8)}
+.tile:hover::before{opacity:1}
+.tile:hover span{transform:scale(1.14) translateY(-3px);position:relative}
+.tile:hover small{color:var(--txt);position:relative}
+.t1 span{color:#31a8ff}.t2 span{color:#ff9a00}.t3 span{color:#9999ff}
+.t4 span{color:#a259ff}.t5 span{color:#ea7600}.t6 span{color:#ff6b00}
+
+.bars{display:flex;flex-direction:column;gap:24px;margin-top:34px}
+.bar-row .top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:9px}
+.bar-row .top b{font-weight:600}
+.bar-row .top i{font-style:normal;color:var(--c);font-weight:600}
+.bar{height:7px;border-radius:100px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar span{
+  display:block;height:100%;width:0;border-radius:100px;
+  background:var(--grad);transition:width 1.4s var(--ease);
+  box-shadow:0 0 12px rgba(124,92,255,.75);
+}
+
+/* ============ WORK / PORTFOLIO ============ */
+.filters{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:44px}
+.filters button{
+  padding:10px 22px;border-radius:100px;font-size:13.5px;font-weight:600;cursor:pointer;
+  background:transparent;color:var(--muted);border:1px solid var(--line);
+  transition:.35s var(--ease);font-family:inherit;
+}
+.filters button:hover{color:var(--txt);border-color:rgba(255,255,255,.28);transform:translateY(-2px)}
+.filters button.active{background:var(--grad);color:#08080e;border-color:transparent;box-shadow:0 12px 30px -12px rgba(124,92,255,.9)}
+.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.p-item{
+  position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;
+  border:1px solid var(--line);cursor:pointer;
+  background:linear-gradient(140deg,#7c5cff,#22d3ee);
+  transition:transform .5s var(--ease), box-shadow .5s, opacity .35s;
+}
+.p-item.gone{display:none}
+.p-item.pop{animation:popIn .45s var(--ease)}
+@keyframes popIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+.p-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease), filter .6s}
+.p-item:hover img{transform:scale(1.1)}
+.p-item .ov{
+  position:absolute;inset:0;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;
+  background:linear-gradient(180deg,transparent 30%,rgba(7,7,11,.94));
+  opacity:0;transform:translateY(16px);
+  transition:opacity .45s var(--ease), transform .45s var(--ease);
+}
+.p-item:hover .ov{opacity:1;transform:translateY(0)}
+.p-item:hover{transform:translateY(-6px);box-shadow:0 34px 70px -30px rgba(124,92,255,.85)}
+.ov em{font-style:normal;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:8px}
+.ov h3{font-size:20px;font-weight:600;margin-bottom:10px}
+.ov .go{
+  width:40px;height:40px;border-radius:50%;display:grid;place-items:center;
+  background:var(--grad);color:#08080e;margin-top:6px;
+  transition:transform .4s var(--ease);
+}
+.p-item:hover .ov .go{transform:rotate(-45deg)}
+
+/* ============ STATS ============ */
+.stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;
+  padding:52px 30px;border-radius:28px;border:1px solid var(--line);
+  background:linear-gradient(150deg,rgba(255,255,255,.055),rgba(255,255,255,.012));
+  position:relative;overflow:hidden;
+}
+.stats::before{
+  content:'';position:absolute;top:-50%;left:-20%;width:60%;height:200%;
+  background:radial-gradient(circle,rgba(124,92,255,.18),transparent 65%);
+  animation:float1 12s ease-in-out infinite;
+}
+.stat{text-align:center;position:relative}
+.stat b{
+  font-family:'Space Grotesk';font-size:clamp(2.2rem,4vw,3.1rem);font-weight:700;display:block;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.stat span{font-size:13.5px;color:var(--muted);letter-spacing:.05em}
+
+/* ============ PROCESS ============ */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;position:relative}
+.step{
+  padding:30px 26px;border-radius:20px;border:1px solid var(--line);
+  background:rgba(255,255,255,.028);position:relative;overflow:hidden;
+  transition:transform .45s var(--ease), border-color .45s, background .45s;
+}
+.step:hover{transform:translateY(-8px);border-color:rgba(34,211,238,.45);background:rgba(34,211,238,.05)}
+.step b.n{
+  font-family:'Space Grotesk';font-size:44px;font-weight:700;display:block;margin-bottom:12px;
+  color:transparent;-webkit-text-stroke:1.4px rgba(255,255,255,.24);
+  transition:-webkit-text-stroke .4s, color .4s;
+}
+.step:hover b.n{-webkit-text-stroke:1.4px var(--c)}
+.step h4{font-size:17px;font-weight:600;margin-bottom:9px}
+.step p{font-size:14px;color:var(--muted)}
+
+/* ============ CTA ============ */
+.cta{
+  position:relative;border-radius:32px;padding:76px 40px;text-align:center;overflow:hidden;
+  border:1px solid rgba(124,92,255,.35);
+  background:linear-gradient(140deg,rgba(124,92,255,.20),rgba(34,211,238,.10) 55%,rgba(198,255,77,.10));
+}
+.cta::before{
+  content:'';position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(124,92,255,.35),transparent 62%);
+  top:-320px;left:50%;transform:translateX(-50%);animation:float1 10s ease-in-out infinite;
+}
+.cta h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;margin-bottom:18px;position:relative}
+.cta p{color:var(--muted);max-width:520px;margin:0 auto 34px;position:relative}
+.cta .btn-row{justify-content:center;position:relative}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:100px;position:relative;z-index:2}
+.f-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.f-grid p{font-size:14px;color:var(--muted);max-width:280px;margin-top:16px}
+.f-col h5{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--txt);margin-bottom:18px;font-weight:600}
+.f-col a{display:block;font-size:14px;color:var(--muted);margin-bottom:11px;transition:.3s var(--ease);width:fit-content}
+.f-col a:hover{color:var(--c);transform:translateX(5px)}
+.f-bottom{
+  border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);
+}
+.socials{display:flex;gap:10px}
+.socials a{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--line);transition:.35s var(--ease);font-size:12px;font-weight:600;
+}
+.socials a:hover{background:var(--grad);color:#08080e;transform:translateY(-4px);border-color:transparent}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease), transform .8s var(--ease);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:60px}
+  .visual{height:420px;max-width:460px}
+  .tools-wrap{grid-template-columns:1fr;gap:44px}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .menu{display:none}
+  .nav-cta{display:none}
+  .burger{display:flex}
+  .sec{padding:80px 0}
+  .hero{padding:130px 0 70px}
+  .hero-mini{gap:26px}
+  .chip.curve{display:none}
+  .chip.palette{right:0}
+  .chip.type{right:0}
+  .f-grid{grid-template-columns:1fr}
+  .cta{padding:56px 24px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <!-- HERO with falling letters and draggable tools -->
-    <section>
-      <div class="falling-letters" id="fallingLetters">
-        <!-- will be generated by JS -->
-      </div>
-      <div style="text-align: center; margin-bottom: 2rem;">
-        <p style="font-size: 1.2rem; color: var(--gray-600); max-width: 700px; margin: 0 auto;">
-          Interactive design playground — drag tools, edit colours, watch timelines.
-        </p>
-      </div>
-    </section>
 
-    <!-- DRAGGABLE TOOL LOGOS -->
-    <div class="tools-drag-area" id="toolsContainer">
-      <!-- draggable items injected by JS -->
+<div id="progress"></div>
+<div id="glow"></div>
+
+<!-- ================= HEADER ================= -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#home" class="logo">Arigo<i></i></a>
+    <nav class="menu">
+      <a href="#services">Services</a>
+      <a href="#tools">Tools</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Start a Project</a>
+    <div class="burger"><i></i><i></i><i></i></div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow reveal"><b></b> Graphic Design Studio · Est. 2016</div>
+      <h1 class="reveal" style="--d:.08s">
+        We design visuals<br>that make brands <span class="grad-text">unforgettable</span>.
+      </h1>
+      <p class="lead reveal" style="--d:.16s">
+        From logo systems and brand identities to motion graphics, packaging and
+        scroll-stopping social creatives — Arigo turns raw ideas into pixel-perfect design.
+      </p>
+      <div class="btn-row reveal" style="--d:.24s">
+        <a href="#work" class="btn primary">
+          View Our Work
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#services" class="btn ghost">Explore Services</a>
+      </div>
+      <div class="hero-mini reveal" style="--d:.32s">
+        <div><b>480+</b><span>Projects Delivered</span></div>
+        <div><b>9 yrs</b><span>Design Experience</span></div>
+        <div><b>4.9★</b><span>Client Rating</span></div>
+      </div>
     </div>
 
-    <!-- INTERACTIVE SHIRT / FASHION COLOUR CHANGE -->
-    <section class="crystal-card" style="padding: 2rem 1.5rem; margin: 3rem 0;">
-      <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;" class="gradient-text">Real‑time fashion recolour</h2>
-      <p style="color: var(--gray-600); margin-bottom: 1.8rem;">Click a swatch — the shirt changes instantly. Try it!</p>
-      <div class="shirt-demo">
-        <div class="shirt-preview" id="shirtPreview">
-          <svg class="shirt-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path id="shirtPath" d="M60,50 L80,30 L120,30 L140,50 L140,150 L60,150 Z" fill="#800020" stroke="#333" stroke-width="2"/>
-            <circle cx="100" cy="90" r="12" fill="#ffffff" opacity="0.3"/>
-          </svg>
-        </div>
-        <div>
-          <div class="color-btns">
-            <div class="color-dot" style="background:#800020;" data-color="#800020" title="Maroon"></div>
-            <div class="color-dot" style="background:#1e3a8a;" data-color="#1e3a8a" title="Blue"></div>
-            <div class="color-dot" style="background:#2d2d2d;" data-color="#2d2d2d" title="Black"></div>
-            <div class="color-dot" style="background:#ffffff; border:1px solid #ccc;" data-color="#f0f0f0" title="White"></div>
-            <div class="color-dot" style="background:#6b7280;" data-color="#6b7280" title="Gray"></div>
-          </div>
-          <p style="font-size: 0.9rem; color: var(--gray-600);"><span style="font-weight:600;">Pro tip:</span> Click any dot to change the shirt colour.</p>
-        </div>
+    <div class="visual reveal" style="--d:.2s">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+
+      <div class="vcard main" id="tiltCard">
+        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=900&q=70" alt="Designer working on brand visuals">
+        <div class="cap"><span>Featured Project</span><b>Nova — Brand Identity</b></div>
       </div>
-    </section>
 
-    <!-- PHOTOSHOP / FACE RETOUCH MOCK (INTERACTIVE) -->
-    <section class="crystal-card" style="padding: 2rem 1.5rem; margin: 3rem 0;">
-      <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;" class="maroon-text">Face retouch & blemish removal</h2>
-      <div class="retouch-demo">
-        <div class="face-preview" id="facePreview">
-          👩
-        </div>
-        <div>
-          <button class="blur-toggle" id="retouchBtn">✨ Remove blemishes</button>
-          <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.8rem;">Toggle to see the retouch effect — just like Photoshop.</p>
-        </div>
+      <div class="chip palette">
+        <div class="dots"><i></i><i></i><i></i><i></i></div>
+        <small>Palette</small>
       </div>
-    </section>
 
-    <!-- SOFTWARE MOCKUPS (timelines, canva, figma etc) -->
-    <section>
-      <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem;" class="gradient-text">Design tools · live timelines</h2>
-      <div class="software-grid">
-        <div class="sw-card">
-          <div style="font-weight: 700; color: var(--maroon);">After Effects</div>
-          <div class="timeline-bar"><div class="timeline-fill" style="width:70%;"></div></div>
-          <p style="font-size:0.8rem; color: var(--gray-600);">Motion graphics & VFX</p>
-        </div>
-        <div class="sw-card">
-          <div style="font-weight: 700; color: var(--blue);">Premiere Pro</div>
-          <div class="timeline-bar"><div class="timeline-fill" style="width:45%;"></div></div>
-          <p style="font-size:0.8rem; color: var(--gray-600);">Video editing timeline</p>
-        </div>
-        <div class="sw-card">
-          <div style="font-weight: 700; color: #ff4d4d;">CapCut</div>
-          <div class="timeline-bar"><div class="timeline-fill" style="width:80%;"></div></div>
-          <p style="font-size:0.8rem; color: var(--gray-600);">Mobile timeline creation</p>
-        </div>
-        <div class="sw-card">
-          <div style="font-weight: 700; color: #1e3a8a;">Figma</div>
-          <div class="timeline-bar"><div class="timeline-fill" style="width:60%;"></div></div>
-          <p style="font-size:0.8rem; color: var(--gray-600);">UI/UX web design</p>
-        </div>
-        <div class="sw-card">
-          <div style="font-weight: 700; color: #0a66c2;">Lightroom</div>
-          <div class="timeline-bar"><div class="timeline-fill" style="width:35%;"></div></div>
-          <p style="font-size:0.8rem; color: var(--gray-600);">Color grading</p>
-        </div>
-        <div class="sw-card">
-          <div style="font-weight: 700; color: #e34f26;">Blender</div>
-          <div class="timeline-bar"><div class="timeline-fill" style="width:55%;"></div></div>
-          <p style="font-size:0.8rem; color: var(--gray-600);">3D design</p>
-        </div>
+      <div class="chip type"><b>Aa</b></div>
+
+      <div class="chip curve">
+        <svg width="70" height="52" viewBox="0 0 70 52" fill="none">
+          <path d="M4 46 C 22 4, 48 4, 66 46" stroke="#c6ff4d" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="4" cy="46" r="3.5" fill="#7c5cff"/>
+          <circle cx="66" cy="46" r="3.5" fill="#22d3ee"/>
+        </svg>
       </div>
-    </section>
-
-    <!-- SHAPES MORPH + VECTOR DEMO -->
-    <section style="margin: 3rem 0;">
-      <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;" class="blue-text">Shape morphing · Illustrator vectors</h2>
-      <div class="shape-morph-demo">
-        <div class="shape-box" style="background: var(--maroon); border-radius: 8px;"></div>
-        <div class="shape-box" style="background: var(--blue); border-radius: 8px;"></div>
-        <div class="shape-box" style="background: #2d2d2d; border-radius: 8px;"></div>
-        <div class="shape-box" style="background: #800020; border-radius: 8px;"></div>
-      </div>
-      <p style="text-align: center; color: var(--gray-600); font-size: 0.9rem;">Hover shapes → they morph into circles, triangles, rectangles. Pure CSS & JS ready.</p>
-    </section>
-
-    <!-- PORTFOLIO / SERVICES GRID -->
-    <section>
-      <h2 style="font-size: 2rem; font-weight: 700; margin: 2rem 0 1.5rem;" class="gradient-text">Everything we design</h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-item"><div class="portfolio-icon">📱</div><h4>Social Media Posts</h4><p>Ad copy · carousels</p></div>
-        <div class="portfolio-item"><div class="portfolio-icon">🎨</div><h4>Logo Design</h4><p>Brand marks</p></div>
-        <div class="portfolio-item"><div class="portfolio-icon">🎬</div><h4>Animation</h4><p>Motion graphics</p></div>
-        <div class="portfolio-item"><div class="portfolio-icon">🧊</div><h4>3D Designs</h4><p>Blender / Adobe AI</p></div>
-        <div class="portfolio-item"><div class="portfolio-icon">🤖</div><h4>AI Designs</h4><p>Firefly, ChatGPT</p></div>
-        <div class="portfolio-item"><div class="portfolio-icon">🖥️</div><h4>Figma UI/UX</h4><p>Web & app</p></div>
-        <div class="portfolio-item"><div class="portfolio-icon">📦</div><h4>Product Design</h4><p>Packaging & more</p></div>
-        <div class="portfolio-item"><div class="portfolio-icon">🏷️</div><h4>Branding</h4><p>Identity systems</p></div>
-        <div class="portfolio-item"><div class="portfolio-icon">📊</div><h4>Presentations</h4><p>PowerPoint · mood boards</p></div>
-        <div class="portfolio-item"><div class="portfolio-icon">📄</div><h4>Flyers & Brochures</h4><p>Print & digital</p></div>
-        <div class="portfolio-item"><div class="portfolio-icon">🪧</div><h4>Billboards</h4><p>Catalogue · business cards</p></div>
-        <div class="portfolio-item"><div class="portfolio-icon">✨</div><h4>+ more</h4><p>Custom creative</p></div>
-      </div>
-    </section>
-
-    <!-- MOCK INTERFACE: CANVA + PHOTOSHOP DASHBOARD -->
-    <section style="margin: 3rem 0;">
-      <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;" class="maroon-text">Live design creation · interface preview</h2>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-        <div class="mock-interface">
-          <div class="mock-toolbar">
-            <span class="mock-dot" style="background:#ff5f56;"></span>
-            <span class="mock-dot" style="background:#ffbd2e;"></span>
-            <span class="mock-dot" style="background:#27c93f;"></span>
-          </div>
-          <div class="mock-canvas">
-            <span>🎨 Canva — logo design in progress</span>
-          </div>
-          <div style="display: flex; gap: 12px; margin-top: 12px; font-size: 0.7rem; color: #aaa;">
-            <span>🖌️ Brush</span><span>🅰️ Text</span><span>🖼️ Templates</span>
-          </div>
-        </div>
-        <div class="mock-interface">
-          <div class="mock-toolbar">
-            <span class="mock-dot" style="background:#ff5f56;"></span>
-            <span class="mock-dot" style="background:#ffbd2e;"></span>
-            <span class="mock-dot" style="background:#27c93f;"></span>
-          </div>
-          <div class="mock-canvas">
-            <span>🖌️ Photoshop — retouch & zoom</span>
-          </div>
-          <div style="display: flex; gap: 12px; margin-top: 12px; font-size: 0.7rem; color: #aaa;">
-            <span>🔍 Zoom in/out</span><span>🧴 Clone stamp</span><span>✨ Healing</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAG CLOUD / ALL SERVICES -->
-    <div class="tag-cloud">
-      <span class="tag">Motion graphics</span>
-      <span class="tag">3D design</span>
-      <span class="tag">Adobe Firefly</span>
-      <span class="tag">Google Flow</span>
-      <span class="tag">ChatGPT</span>
-      <span class="tag">Patterns</span>
-      <span class="tag">Vector art</span>
-      <span class="tag">Mood boards</span>
-      <span class="tag">Catalogue</span>
-      <span class="tag">Business card</span>
-      <span class="tag">InDesign</span>
-      <span class="tag">Lightroom</span>
-      <span class="tag">CapCut</span>
-    </div>
-
-    <!-- CTA -->
-    <div style="text-align: center; margin: 4rem 0 2rem;">
-      <button class="btn-primary">Start your project →</button>
-      <p style="margin-top: 1rem; color: var(--gray-600); font-size: 0.9rem;">Interactive demo · hover, drag, click</p>
     </div>
   </div>
+</section>
 
-  <script>
-    (function() {
-      // 1. FALLING LETTERS "Graphics Designer"
-      const phrase = "Graphics Designer";
-      const lettersContainer = document.getElementById('fallingLetters');
-      if (lettersContainer) {
-        lettersContainer.innerHTML = '';
-        phrase.split('').forEach((char, idx) => {
-          if (char === ' ') {
-            const space = document.createElement('span');
-            space.innerHTML = '&nbsp;';
-            space.style.display = 'inline-block';
-            space.style.width = '0.5em';
-            lettersContainer.appendChild(space);
-          } else {
-            const span = document.createElement('span');
-            span.className = 'letter';
-            span.textContent = char;
-            span.style.animationDelay = (idx * 0.08) + 's';
-            span.style.animationDuration = (2.2 + Math.random() * 1.5) + 's';
-            lettersContainer.appendChild(span);
-          }
-        });
-      }
+<!-- ================= MARQUEE ================= -->
+<div class="marquee">
+  <div class="mq-track">
+    <span>Brand Identity</span><span>Logo Design</span><span>Motion Graphics</span>
+    <span>UI / UX Design</span><span>Packaging</span><span>Illustration</span>
+    <span>Social Media Kits</span><span>Print Design</span>
+    <span>Brand Identity</span><span>Logo Design</span><span>Motion Graphics</span>
+    <span>UI / UX Design</span><span>Packaging</span><span>Illustration</span>
+    <span>Social Media Kits</span><span>Print Design</span>
+  </div>
+</div>
 
-      // 2. DRAGGABLE TOOL LOGOS (mouse drag)
-      const tools = [
-        { name: 'Canva', short: 'C' },
-        { name: 'Photoshop', short: 'Ps' },
-        { name: 'Premiere', short: 'Pr' },
-        { name: 'After Effects', short: 'Ae' },
-        { name: 'CapCut', short: 'Cc' },
-        { name: 'Illustrator', short: 'Ai' },
-        { name: 'InDesign', short: 'Id' },
-        { name: 'Lightroom', short: 'Lr' },
-        { name: 'Google Flow', short: 'GF' },
-        { name: 'ChatGPT', short: 'GPT' }
-      ];
-      const toolsContainer = document.getElementById('toolsContainer');
-      if (toolsContainer) {
-        toolsContainer.innerHTML = '';
-        tools.forEach(t => {
-          const div = document.createElement('div');
-          div.className = 'tool-draggable';
-          div.textContent = t.short;
-          div.title = t.name;
-          div.style.backgroundColor = '#ffffff';
-          div.style.color = '#1e1e1e';
-          div.draggable = false; // we'll implement custom drag
-          // custom mouse drag
-          let offsetX, offsetY, isDragging = false;
-          div.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            const rect = div.getBoundingClientRect();
-            offsetX = e.clientX - rect.left;
-            offsetY = e.clientY - rect.top;
-            div.style.position = 'fixed';
-            div.style.zIndex = '1000';
-            div.style.cursor = 'grabbing';
-            div.style.left = (e.clientX - offsetX) + 'px';
-            div.style.top = (e.clientY - offsetY) + 'px';
-            div.style.width = rect.width + 'px';
-            div.style.height = rect.height + 'px';
-            document.body.appendChild(div); // move to body for free drag
-            e.preventDefault();
-          });
-          document.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            div.style.left = (e.clientX - offsetX) + 'px';
-            div.style.top = (e.clientY - offsetY) + 'px';
-          });
-          document.addEventListener('mouseup', () => {
-            if (isDragging) {
-              isDragging = false;
-              div.style.cursor = 'grab';
-              div.style.position = '';
-              div.style.zIndex = '';
-              div.style.left = '';
-              div.style.top = '';
-              div.style.width = '';
-              div.style.height = '';
-              // re-append to container if desired, but for simplicity keep in body
-              // optional: move back to container? we'll let it be free
-            }
-          });
-          div.addEventListener('mouseup', (e) => e.stopPropagation());
-          // prevent text selection
-          div.style.userSelect = 'none';
-          toolsContainer.appendChild(div);
-        });
-      }
+<!-- ================= SERVICES ================= -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag">What We Do</span>
+      <h2>Design services built for impact</h2>
+      <p>Every pixel has a purpose. We blend strategy, craft and technology to build visuals that convert attention into loyalty.</p>
+    </div>
 
-      // 3. SHIRT COLOUR CHANGER
-      const shirtPath = document.getElementById('shirtPath');
-      const colorDots = document.querySelectorAll('.color-dot');
-      if (shirtPath) {
-        colorDots.forEach(dot => {
-          dot.addEventListener('click', function() {
-            const color = this.dataset.color;
-            if (color) {
-              shirtPath.setAttribute('fill', color);
-              // active state
-              colorDots.forEach(d => d.classList.remove('active'));
-              this.classList.add('active');
-            }
-          });
-        });
-        // set maroon active initially
-        document.querySelector('.color-dot[data-color="#800020"]')?.classList.add('active');
-      }
+    <div class="svc-grid">
 
-      // 4. FACE RETOUCH TOGGLE
-      const retouchBtn = document.getElementById('retouchBtn');
-      const facePreview = document.getElementById('facePreview');
-      if (retouchBtn && facePreview) {
-        let retouched = false;
-        retouchBtn.addEventListener('click', () => {
-          retouched = !retouched;
-          if (retouched) {
-            facePreview.style.background = '#f5e6d3';
-            facePreview.style.boxShadow = '0 0 0 4px white, 0 0 20px rgba(128,0,32,0.3)';
-            facePreview.innerHTML = '✨👩✨'; // sparkle
-            retouchBtn.textContent = '↺ Undo retouch';
-          } else {
-            facePreview.style.background = '#d9b8a6';
-            facePreview.style.boxShadow = '0 0 0 4px white, 0 8px 16px rgba(0,0,0,0.1)';
-            facePreview.innerHTML = '👩';
-            retouchBtn.textContent = '✨ Remove blemishes';
-          }
-        });
-      }
+      <article class="svc reveal" style="--d:.05s">
+        <span class="num">01</span>
+        <div class="ico">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 3-6 3-3 6-3-6-6-3 6-3 3-6z"/></svg>
+        </div>
+        <h3>Brand Identity</h3>
+        <p>Complete visual systems — logo, color, typography, tone and brand guidelines that scale across every touchpoint.</p>
+        <span class="more">Learn more →</span>
+      </article>
 
-      // 5. SHAPES ALREADY HAVE HOVER – enhance with click cycle?
-      const shapeBoxes = document.querySelectorAll('.shape-box');
-      shapeBoxes.forEach((box, i) => {
-        box.addEventListener('click', () => {
-          // extra interactive: temporarily change border-radius and background
-          const randColor = ['#800020', '#1e3a8a', '#2d2d2d', '#6b7280', '#a52a4a'][Math.floor(Math.random()*5)];
-          box.style.background = randColor;
-          box.style.transform = 'rotate(180deg) scale(1.2)';
-          setTimeout(() => {
-            box.style.transform = '';
-            box.style.background = i % 2 === 0 ? 'var(--maroon)' : 'var(--blue)';
-            // Reset to default colors per index
-            if (i === 0) box.style.background = 'var(--maroon)';
-            else if (i === 1) box.style.background = 'var(--blue)';
-            else if (i === 2) box.style.background = '#2d2d2d';
-            else if (i === 3) box.style.background = '#800020';
-          }, 400);
-        });
+      <article class="svc reveal" style="--d:.12s">
+        <span class="num">02</span>
+        <div class="ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+        </div>
+        <h3>Logo Design</h3>
+        <p>Distinctive marks crafted with grid-perfect geometry — delivered in every format you'll ever need.</p>
+        <span class="more">Learn more →</span>
+      </article>
+
+      <article class="svc reveal" style="--d:.19s">
+        <span class="num">03</span>
+        <div class="ico">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        </div>
+        <h3>Social Media Graphics</h3>
+        <p>Scroll-stopping templates, carousels, ad creatives and story kits engineered for engagement.</p>
+        <span class="more">Learn more →</span>
+      </article>
+
+      <article class="svc reveal" style="--d:.05s">
+        <span class="num">04</span>
+        <div class="ico">
+          <svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
+        </div>
+        <h3>Packaging &amp; Print</h3>
+        <p>Dielines, labels, brochures and stationery — print-ready files with flawless color precision.</p>
+        <span class="more">Learn more →</span>
+      </article>
+
+      <article class="svc reveal" style="--d:.12s">
+        <span class="num">05</span>
+        <div class="ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5v-7z"/></svg>
+        </div>
+        <h3>Motion Graphics</h3>
+        <p>Animated logos, explainer reels, kinetic typography and 3D loops that bring your brand to life.</p>
+        <span class="more">Learn more →</span>
+      </article>
+
+      <article class="svc reveal" style="--d:.19s">
+        <span class="num">06</span>
+        <div class="ico">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>UI &amp; Web Graphics</h3>
+        <p>Landing pages, dashboards, icons and illustration systems designed for clarity and conversion.</p>
+        <span class="more">Learn more →</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOOLS ================= -->
+<section class="sec" id="tools">
+  <div class="wrap tools-wrap">
+
+    <div class="reveal">
+      <span class="tag">Our Toolkit</span>
+      <h2 style="font-size:clamp(1.9rem,3.4vw,2.8rem);margin-bottom:18px">Software we master<br>every single day</h2>
+      <p style="color:var(--muted);font-size:16px">
+        Industry-standard tools, deeply learned. We pick the right instrument for every
+        creative problem — and push it further than the defaults.
+      </p>
+
+      <div class="bars">
+        <div class="bar-row">
+          <div class="top"><b>Adobe Photoshop</b><i>98%</i></div>
+          <div class="bar"><span data-w="98"></span></div>
+        </div>
+        <div class="bar-row">
+          <div class="top"><b>Adobe Illustrator</b><i>96%</i></div>
+          <div class="bar"><span data-w="96"></span></div>
+        </div>
+        <div class="bar-row">
+          <div class="top"><b>Figma</b><i>94%</i></div>
+          <div class="bar"><span data-w="94"></span></div>
+        </div>
+        <div class="bar-row">
+          <div class="top"><b>After Effects &amp; Blender</b><i>88%</i></div>
+          <div class="bar"><span data-w="88"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-tiles reveal" style="--d:.15s">
+      <div class="tile t1"><span>Ps</span><small>Photoshop</small></div>
+      <div class="tile t2"><span>Ai</span><small>Illustrator</small></div>
+      <div class="tile t3"><span>Ae</span><small>After Effects</small></div>
+      <div class="tile t4"><span>Fi</span><small>Figma</small></div>
+      <div class="tile t5"><span>C4</span><small>Cinema 4D</small></div>
+      <div class="tile t6"><span>Bl</span><small>Blender</small></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag">Selected Work</span>
+      <h2>Projects we're proud of</h2>
+      <p>A glimpse into the brands, campaigns and visual systems we've shaped.</p>
+    </div>
+
+    <div class="filters reveal">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="brand">Branding</button>
+      <button data-filter="social">Social</button>
+      <button data-filter="motion">Motion</button>
+      <button data-filter="print">Print</button>
+    </div>
+
+    <div class="work-grid" id="workGrid">
+
+      <article class="p-item reveal" data-cat="brand">
+        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=65" alt="Branding project">
+        <div class="ov">
+          <em>Branding</em>
+          <h3>Nova Coffee — Identity</h3>
+          <div class="go">↗</div>
+        </div>
+      </article>
+
+      <article class="p-item reveal" data-cat="social" style="--d:.08s">
+        <img src="https://images.unsplash.com/photo-1613909207039-6b173b755cc1?auto=format&fit=crop&w=800&q=65" alt="Social media graphics">
+        <div class="ov">
+          <em>Social Media</em>
+          <h3>Pulse — Campaign Kit</h3>
+          <div class="go">↗</div>
+        </div>
+      </article>
+
+      <article class="p-item reveal" data-cat="motion" style="--d:.16s">
+        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=65" alt="3D motion graphics">
+        <div class="ov">
+          <em>Motion</em>
+          <h3>Orbit — 3D Loop Series</h3>
+          <div class="go">↗</div>
+        </div>
+      </article>
+
+      <article class="p-item reveal" data-cat="print">
+        <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=800&q=65" alt="Print design">
+        <div class="ov">
+          <em>Print</em>
+          <h3>Forma — Editorial Layout</h3>
+          <div class="go">↗</div>
+        </div>
+      </article>
+
+      <article class="p-item reveal" data-cat="brand" style="--d:.08s">
+        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=800&q=65" alt="Abstract brand visuals">
+        <div class="ov">
+          <em>Branding</em>
+          <h3>Lumen — Visual System</h3>
+          <div class="go">↗</div>
+        </div>
+      </article>
+
+      <article class="p-item reveal" data-cat="social" style="--d:.16s">
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=65" alt="Digital creative">
+        <div class="ov">
+          <em>Social Media</em>
+          <h3>Retro — Ad Creatives</h3>
+          <div class="go">↗</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><b data-count="480" data-suffix="+">0</b><span>Projects Completed</span></div>
+      <div class="stat"><b data-count="215" data-suffix="+">0</b><span>Happy Clients</span></div>
+      <div class="stat"><b data-count="38" data-suffix="">0</b><span>Design Awards</span></div>
+      <div class="stat"><b data-count="12" data-suffix="">0</b><span>Countries Served</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="sec" id="process" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag">How We Work</span>
+      <h2>A process without surprises</h2>
+      <p>Clear stages, honest timelines, and you in the loop at every step.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal"><b class="n">01</b><h4>Discover</h4><p>We dig into your brand, audience and competitors to define the creative direction.</p></div>
+      <div class="step reveal" style="--d:.08s"><b class="n">02</b><h4>Concept</h4><p>Moodboards, sketches and direction routes — we explore before we commit.</p></div>
+      <div class="step reveal" style="--d:.16s"><b class="n">03</b><h4>Design</h4><p>Pixel-perfect execution across every asset, iterated with your feedback.</p></div>
+      <div class="step reveal" style="--d:.24s"><b class="n">04</b><h4>Deliver</h4><p>Organized source files, all formats, plus guidelines so your team can run with it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="sec" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>Got a brand that deserves<br><span class="grad-text">better design?</span></h2>
+      <p>Tell us about your project. We'll get back within 24 hours with a plan and a quote.</p>
+      <div class="btn-row">
+        <a href="#" class="btn primary">
+          Start a Project
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#" class="btn ghost">hello@arigo.studio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a href="#home" class="logo">Arigo<i></i></a>
+        <p>A graphic design studio crafting bold identities, motion and digital experiences for ambitious brands.</p>
+      </div>
+      <div class="f-col">
+        <h5>Services</h5>
+        <a href="#services">Brand Identity</a>
+        <a href="#services">Logo Design</a>
+        <a href="#services">Motion Graphics</a>
+        <a href="#services">Packaging</a>
+      </div>
+      <div class="f-col">
+        <h5>Studio</h5>
+        <a href="#work">Our Work</a>
+        <a href="#process">Process</a>
+        <a href="#tools">Tools</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="f-col">
+        <h5>Follow</h5>
+        <div class="socials">
+          <a href="#">Be</a><a href="#">Dr</a><a href="#">In</a><a href="#">X</a>
+        </div>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2025 Arigo Studio. All rights reserved.</span>
+      <span>Designed &amp; built with obsessive attention to detail.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ SCROLL PROGRESS + HEADER ============ */
+const progress = document.getElementById('progress');
+const header   = document.getElementById('header');
+
+function onScroll(){
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  progress.style.width = p + '%';
+  header.classList.toggle('scrolled', h.scrollTop > 30);
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+/* ============ CURSOR GLOW ============ */
+const glow = document.getElementById('glow');
+let gx = 0, gy = 0, cx = 0, cy = 0;
+window.addEventListener('mousemove', e => {
+  gx = e.clientX; gy = e.clientY;
+  glow.style.opacity = '1';
+});
+window.addEventListener('mouseleave', () => glow.style.opacity = '0');
+(function loop(){
+  cx += (gx - cx) * 0.09;
+  cy += (gy - cy) * 0.09;
+  glow.style.left = cx + 'px';
+  glow.style.top  = cy + 'px';
+  requestAnimationFrame(loop);
+})();
+
+/* ============ REVEAL ON SCROLL ============ */
+const revealIO = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if(en.isIntersecting){
+      en.target.classList.add('in');
+      revealIO.unobserve(en.target);
+
+      // animate bars inside
+      en.target.querySelectorAll('.bar span').forEach(b => {
+        setTimeout(() => b.style.width = b.dataset.w + '%', 200);
       });
-
-      // 6. Additional tool drag area reset (if needed)
-      // no-op
-
-    })();
-  </script>
-  <!-- ensure all content is visible and no overflow issues -->
-  <style>
-    /* fix for draggable tools that go to body */
-    body { min-height: 100vh; }
-    .tool-draggable {
-      transition: box-shadow 0.2s, transform 0.1s;
     }
-    .tool-draggable:active {
-      cursor: grabbing;
+  });
+}, {threshold: 0.14, rootMargin: '0px 0px -60px 0px'});
+
+document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+
+/* ============ COUNTERS ============ */
+const counters = document.querySelectorAll('[data-count]');
+const countIO = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if(!en.isIntersecting) return;
+    const el = en.target;
+    const target = +el.dataset.count;
+    const suffix = el.dataset.suffix || '';
+    const dur = 1700;
+    const start = performance.now();
+
+    function tick(now){
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if(p < 1) requestAnimationFrame(tick);
     }
-  </style>
+    requestAnimationFrame(tick);
+    countIO.unobserve(el);
+  });
+}, {threshold: 0.6});
+counters.forEach(c => countIO.observe(c));
+
+/* ============ SERVICE CARD SPOTLIGHT ============ */
+document.querySelectorAll('.svc').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+});
+
+/* ============ HERO CARD 3D TILT ============ */
+const tilt = document.getElementById('tiltCard');
+if(tilt && window.matchMedia('(hover:hover)').matches){
+  const parent = tilt.parentElement;
+  parent.addEventListener('mousemove', e => {
+    const r = parent.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - 0.5;
+    const y = (e.clientY - r.top)  / r.height - 0.5;
+    tilt.style.transform =
+      `rotateY(${x * 14}deg) rotateX(${-y * 14}deg) translateZ(20px)`;
+  });
+  parent.addEventListener('mouseleave', () => {
+    tilt.style.transform = 'rotateY(0) rotateX(0) translateZ(0)';
+  });
+}
+
+/* ============ PORTFOLIO FILTER ============ */
+const filterBtns = document.querySelectorAll('.filters button');
+const items = document.querySelectorAll('.p-item');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const f = btn.dataset.filter;
+    items.forEach(item => {
+      const show = (f === 'all' || item.dataset.cat === f);
+      item.classList.toggle('gone', !show);
+      if(show){
+        item.classList.remove('pop');
+        void item.offsetWidth;   // restart animation
+        item.classList.add('pop');
+      }
+    });
+  });
+});
+
+/* ============ MOBILE MENU (simple toggle) ============ */
+const burger = document.querySelector('.burger');
+const menu = document.querySelector('.menu');
+burger.addEventListener('click', () => {
+  const open = menu.style.display === 'flex';
+  menu.style.display = open ? 'none' : 'flex';
+  menu.style.cssText += open ? '' :
+    'position:fixed;top:76px;left:0;right:0;flex-direction:column;gap:22px;padding:32px 24px;background:rgba(9,9,16,.97);border-bottom:1px solid rgba(255,255,255,.09);backdrop-filter:blur(16px);';
+});
+</script>
 </body>
 </html>
