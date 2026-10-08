@@ -1,29 +1,30 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-    <!-- =========================================================
-         META TAGS
-    ========================================================== -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="author" content="Vector Business Solutions">
     <meta name="description"
-        content="SEO Services by Vector Business Solutions. Build search visibility, improve Google rankings, capture local searches, and optimize your business for SEO, AEO, GEO and AI search platforms.">
-
+        content="SEO Services by Vector Business Solutions — grow organic visibility, rankings, qualified traffic and leads with SEO, AEO, GEO and AI search optimization.">
     <meta name="keywords"
-        content="SEO Services Dubai, SEO Agency Dubai, Search Engine Optimization, Local SEO Dubai, Google Maps SEO, AEO, GEO, AI SEO, SEO Services UAE, Google Ranking, SEO Marketing">
+        content="SEO Services Dubai, SEO Company Dubai, Search Engine Optimization UAE, Local SEO Dubai, Google Maps SEO, AEO, GEO, AI SEO, SEO Marketing UAE">
 
-    <title>SEO Services to Get Top Rank in Google | Search Engine Optimization</title>
+    <title>SEO Services | Vector Business Solutions</title>
 
     <link rel="shortcut icon" href="assets/img/logo/favs.png">
 
-    <!-- =========================================================
-         ARIGO CSS
-    ========================================================== -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Arigo CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/animate.css">
@@ -33,24 +34,12 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/main.css">
 
-    <!-- =========================================================
-         GOOGLE FONTS
-    ========================================================== -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet">
-
-
-    <!-- =========================================================
-         SEO PAGE CUSTOM CSS
-    ========================================================== -->
     <style>
 
-        /* =====================================================
+        /* =========================================================
            GLOBAL SEO PAGE
-        ===================================================== */
+        ========================================================= */
 
         html {
             scroll-behavior: smooth;
@@ -58,7 +47,7 @@
 
         body {
             background: #ffffff !important;
-            color: #111827;
+            color: #111827 !important;
             font-family: 'Inter', sans-serif;
         }
 
@@ -67,18 +56,6 @@
             color: #111827;
             overflow: hidden;
         }
-
-        .vbs-seo-page *,
-        .vbs-seo-page *::before,
-        .vbs-seo-page *::after {
-            box-sizing: border-box;
-        }
-
-
-        /* =====================================================
-           IMPORTANT:
-           FORCE HEADINGS DARK ON WHITE BACKGROUND
-        ===================================================== */
 
         .vbs-seo-page h1,
         .vbs-seo-page h2,
@@ -89,1605 +66,1121 @@
             color: #111827 !important;
         }
 
-        .vbs-seo-page .text-white {
-            color: #111827 !important;
-        }
-
-        .search-intent-heading,
-        .search-terms-heading,
-        .competitor-heading {
-            color: #111827 !important;
-        }
-
-
-        /* =====================================================
-           COMMON
-        ===================================================== */
-
-        .vbs-section {
-            padding: 110px 0;
-            position: relative;
+        .vbs-seo-page p {
+            color: #64748b;
         }
 
         .vbs-container {
             max-width: 1240px;
             margin: 0 auto;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        .vbs-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
-            border: 1px solid #dbe3ef;
-            border-radius: 100px;
-            color: #2563eb;
-            background: #f8fbff;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .vbs-label i {
-            font-size: 10px;
-        }
-
-        .vbs-section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(38px, 5vw, 68px);
-            line-height: 1.03;
-            letter-spacing: -2px;
-            margin: 20px 0;
-            font-weight: 700;
-        }
-
-        .vbs-section-description {
-            max-width: 720px;
-            color: #64748b !important;
-            font-size: 17px;
-            line-height: 1.8;
-        }
-
-        .vbs-blue {
-            color: #2563eb !important;
-        }
-
-        .vbs-gradient-text {
-            background: linear-gradient(90deg, #2563eb, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            padding-left: 25px;
+            padding-right: 25px;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            HERO
-        ===================================================== */
+        ========================================================= */
 
         .vbs-seo-hero {
             position: relative;
-            padding: 125px 0 90px;
+            padding: 110px 0 100px;
             background:
-                radial-gradient(circle at 85% 20%, rgba(37,99,235,.10), transparent 30%),
-                radial-gradient(circle at 10% 70%, rgba(124,58,237,.07), transparent 30%),
+                radial-gradient(circle at 80% 20%, rgba(79, 70, 229, .10), transparent 30%),
+                radial-gradient(circle at 10% 80%, rgba(37, 99, 235, .08), transparent 32%),
                 #ffffff;
         }
 
-        .vbs-hero-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(48px, 6vw, 82px);
-    line-height: 1.02;
-    letter-spacing: -3.5px;
-    font-weight: 700;
-    margin: 22px 0 25px;
-    color: #111827 !important;
-}
+        .vbs-hero-content {
+            position: relative;
+            z-index: 3;
+        }
 
-.vbs-hero-title .vbs-gradient-text {
-    display: inline;
-    background: linear-gradient(
-        90deg,
-        #2563eb 0%,
-        #4f46e5 50%,
-        #7c3aed 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
+        .vbs-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 15px;
+            border-radius: 50px;
+            background: #eff6ff;
+            color: #2563eb !important;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .vbs-eyebrow span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #2563eb;
+            display: inline-block;
+        }
+
+
+        /* =========================================================
+           HERO TITLE — HARD RESET AGAINST ARIGO
+        ========================================================= */
+
+        .vbs-seo-page .vbs-hero-title,
+        .vbs-seo-page h1.vbs-hero-title {
+            display: block !important;
+            width: 100% !important;
+
+            margin: 20px 0 28px !important;
+            padding: 0 !important;
+
+            font-family: 'Space Grotesk', sans-serif !important;
+            font-size: clamp(48px, 6.2vw, 82px) !important;
+            line-height: .98 !important;
+            letter-spacing: -3px !important;
+            font-weight: 700 !important;
+
+            color: #111827 !important;
+
+            text-transform: none !important;
+            text-align: left !important;
+
+            white-space: normal !important;
+        }
+
+        .vbs-seo-page .vbs-hero-title .hero-line {
+            display: block !important;
+
+            height: auto !important;
+            min-height: 0 !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            font-family: inherit !important;
+            font-size: inherit !important;
+            line-height: .98 !important;
+            letter-spacing: inherit !important;
+            font-weight: 700 !important;
+
+            text-transform: none !important;
+        }
+
+        .vbs-seo-page .vbs-hero-title .vbs-gradient-text {
+            display: block !important;
+
+            background: linear-gradient(
+                90deg,
+                #2563eb 0%,
+                #4f46e5 50%,
+                #7c3aed 100%
+            ) !important;
+
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+
+            color: transparent !important;
+        }
+
+        .vbs-seo-page .vbs-hero-title::before,
+        .vbs-seo-page .vbs-hero-title::after,
+        .vbs-seo-page .hero-line::before,
+        .vbs-seo-page .hero-line::after {
+            display: none !important;
+            content: none !important;
+        }
+
 
         .vbs-hero-description {
-            max-width: 700px;
+            max-width: 650px;
             font-size: 18px;
             line-height: 1.8;
-            color: #64748b !important;
+            margin-bottom: 32px;
         }
 
         .vbs-hero-buttons {
             display: flex;
-            gap: 14px;
             flex-wrap: wrap;
-            margin-top: 35px;
+            gap: 14px;
         }
 
-        .vbs-btn {
+        .vbs-primary-btn,
+        .vbs-secondary-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 15px 23px;
+            justify-content: center;
+            gap: 10px;
+            min-height: 54px;
+            padding: 0 25px;
             border-radius: 8px;
             text-decoration: none !important;
             font-weight: 700;
             transition: .3s ease;
         }
 
-        .vbs-btn-primary {
-            background: #111827;
-            color: #fff !important;
+        .vbs-primary-btn {
+            color: #ffffff !important;
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, .20);
         }
 
-        .vbs-btn-primary:hover {
-            background: #2563eb;
-            color: #fff !important;
+        .vbs-primary-btn:hover {
             transform: translateY(-3px);
+            color: #ffffff !important;
         }
 
-        .vbs-btn-outline {
-            border: 1px solid #dbe3ef;
+        .vbs-secondary-btn {
             color: #111827 !important;
-            background: #fff;
+            background: #ffffff;
+            border: 1px solid #dbe3ef;
         }
 
-        .vbs-btn-outline:hover {
+        .vbs-secondary-btn:hover {
+            transform: translateY(-3px);
             border-color: #2563eb;
             color: #2563eb !important;
         }
 
 
-        /* =====================================================
-           HERO SEARCH PANEL
-        ===================================================== */
+        /* =========================================================
+           HERO VISUAL
+        ========================================================= */
 
-        .vbs-search-dashboard {
-            background: #0f172a;
+        .vbs-hero-visual {
+            position: relative;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vbs-search-window {
+            position: relative;
+            width: 100%;
+            max-width: 510px;
             border-radius: 22px;
-            padding: 18px;
-            box-shadow: 0 30px 70px rgba(15,23,42,.18);
+            background: #ffffff;
+            border: 1px solid #e5eaf2;
+            box-shadow: 0 30px 80px rgba(15, 23, 42, .12);
+            overflow: hidden;
             transform: rotate(1deg);
         }
 
-        .vbs-browser-top {
+        .vbs-window-top {
             display: flex;
             align-items: center;
             gap: 7px;
-            padding: 5px 5px 15px;
+            padding: 15px 18px;
+            border-bottom: 1px solid #edf0f5;
         }
 
-        .vbs-dot {
+        .vbs-window-dot {
             width: 9px;
             height: 9px;
             border-radius: 50%;
-            background: #64748b;
+            background: #cbd5e1;
         }
 
         .vbs-search-bar {
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 13px 16px;
+            margin: 22px;
+            padding: 14px 17px;
+            border: 1px solid #dbe3ef;
+            border-radius: 9px;
             color: #475569;
+            font-size: 14px;
+        }
+
+        .vbs-search-result {
+            padding: 0 22px 22px;
+        }
+
+        .vbs-search-result small {
+            color: #64748b;
+        }
+
+        .vbs-search-result h4 {
+            margin: 6px 0;
+            font-size: 19px;
+            color: #1d4ed8 !important;
+        }
+
+        .vbs-search-result p {
             font-size: 13px;
+            line-height: 1.6;
             margin-bottom: 15px;
         }
 
-        .vbs-google-results {
-            background: #fff;
-            border-radius: 14px;
-            padding: 20px;
-        }
-
-        .vbs-result-url {
-            color: #16a34a;
-            font-size: 12px;
-            margin-bottom: 5px;
-        }
-
-        .vbs-result-title {
-            color: #1d4ed8 !important;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 7px;
-        }
-
-        .vbs-result-description {
-            color: #64748b !important;
-            font-size: 12px;
-            line-height: 1.6;
-        }
-
-        .vbs-ranking {
+        .vbs-rank-badge {
             display: inline-flex;
-            margin-top: 12px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            background: #dcfce7;
-            color: #15803d;
-            font-size: 11px;
-            font-weight: 700;
+            padding: 7px 11px;
+            border-radius: 7px;
+            background: #ecfdf5;
+            color: #059669;
+            font-size: 12px;
+            font-weight: 800;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            TRUST STRIP
-        ===================================================== */
+        ========================================================= */
 
         .vbs-trust-strip {
-            border-top: 1px solid #e5e7eb;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 25px 0;
-            background: #fafafa;
-        }
-
-        .vbs-trust-items {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-            flex-wrap: wrap;
+            border-top: 1px solid #edf0f5;
+            border-bottom: 1px solid #edf0f5;
+            padding: 22px 0;
+            background: #fafbfc;
         }
 
         .vbs-trust-item {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .vbs-trust-item strong {
+            display: block;
+            color: #111827;
+            font-size: 24px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .vbs-trust-item span {
             color: #64748b;
             font-size: 13px;
-            font-weight: 700;
         }
 
 
-        /* =====================================================
-           SEARCH INTENT
-        ===================================================== */
+        /* =========================================================
+           COMMON SECTION
+        ========================================================= */
 
-        .vbs-intent-section {
+        .vbs-section {
+            padding: 100px 0;
+        }
+
+        .vbs-section-light {
             background: #ffffff;
         }
 
+        .vbs-section-soft {
+            background: #f8fafc;
+        }
+
+        .vbs-section-dark {
+            background: #08111f;
+            color: #ffffff;
+        }
+
+        .vbs-section-dark h2,
+        .vbs-section-dark h3,
+        .vbs-section-dark h4 {
+            color: #ffffff !important;
+        }
+
+        .vbs-section-dark p {
+            color: #aebbd0;
+        }
+
+        .vbs-section-tag {
+            display: inline-block;
+            margin-bottom: 14px;
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .vbs-section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(36px, 4vw, 58px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .vbs-section-intro {
+            max-width: 720px;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           INTENT CARDS
+        ========================================================= */
+
         .vbs-intent-card {
             height: 100%;
-            border: 1px solid #e5e7eb;
-            border-radius: 18px;
             padding: 30px;
-            background: #fff;
+            border: 1px solid #e5eaf2;
+            border-radius: 18px;
+            background: #ffffff;
             transition: .3s ease;
         }
 
         .vbs-intent-card:hover {
             transform: translateY(-7px);
-            box-shadow: 0 20px 45px rgba(15,23,42,.08);
-            border-color: #bfdbfe;
+            border-color: #c7d2fe;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, .08);
         }
 
         .vbs-intent-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            background: #eff6ff;
+            color: #2563eb;
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+
+        .vbs-intent-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .vbs-intent-card p {
+            line-height: 1.7;
+            margin: 0;
+        }
+
+
+        /* =========================================================
+           KEYWORD TABLE
+        ========================================================= */
+
+        .vbs-keyword-table {
+            overflow: hidden;
+            border: 1px solid #e5eaf2;
+            border-radius: 18px;
+            background: #ffffff;
+            box-shadow: 0 15px 45px rgba(15, 23, 42, .05);
+        }
+
+        .vbs-keyword-row {
+            display: grid;
+            grid-template-columns: 1.5fr .8fr .8fr .8fr;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .vbs-keyword-row:last-child {
+            border-bottom: 0;
+        }
+
+        .vbs-keyword-row > div {
+            padding: 18px 20px;
+        }
+
+        .vbs-keyword-head {
+            background: #f8fafc;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .vbs-keyword-name {
+            font-weight: 700;
+            color: #1d4ed8;
+        }
+
+        .vbs-rank-pill {
+            display: inline-flex;
+            padding: 5px 9px;
+            border-radius: 20px;
+            background: #ecfdf5;
+            color: #047857;
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+
+        /* =========================================================
+           COMPETITOR CARDS
+        ========================================================= */
+
+        .vbs-competitor-card {
+            height: 100%;
+            padding: 28px;
+            background: #ffffff;
+            border: 1px solid #e5eaf2;
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(15, 23, 42, .05);
+        }
+
+        .vbs-competitor-card h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .vbs-competitor-keyword {
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .vbs-competitor-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .vbs-competitor-bar span {
+            display: block;
+            height: 100%;
+            width: 82%;
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            border-radius: 20px;
+        }
+
+
+        /* =========================================================
+           DASHBOARD
+        ========================================================= */
+
+        .vbs-dashboard {
+            border-radius: 22px;
+            background: #0b172a;
+            border: 1px solid #1e293b;
+            padding: 25px;
+            box-shadow: 0 30px 70px rgba(2, 6, 23, .20);
+        }
+
+        .vbs-dashboard-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .vbs-dashboard-top h3 {
+            color: #ffffff !important;
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .vbs-period {
+            padding: 7px 12px;
+            border-radius: 7px;
+            background: #16243a;
+            color: #b9c7da;
+            font-size: 12px;
+        }
+
+        .vbs-metric-card {
+            padding: 22px;
+            border-radius: 14px;
+            background: #101f35;
+            border: 1px solid #1d304b;
+        }
+
+        .vbs-metric-card span {
+            display: block;
+            color: #94a3b8;
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .vbs-metric-card strong {
+            color: #ffffff;
+            font-size: 28px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .vbs-growth {
+            color: #34d399 !important;
+            font-size: 12px !important;
+            margin-top: 5px;
+        }
+
+        .vbs-chart {
+            position: relative;
+            height: 230px;
+            margin-top: 25px;
+            border-radius: 13px;
+            background:
+                linear-gradient(rgba(148,163,184,.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148,163,184,.07) 1px, transparent 1px);
+            background-size: 50px 50px;
+            overflow: hidden;
+        }
+
+        .vbs-chart svg {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /* =========================================================
+           SEARCH CONSOLE + ANALYTICS
+        ========================================================= */
+
+        .vbs-tool-window {
+            height: 100%;
+            background: #ffffff;
+            border: 1px solid #e5eaf2;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 15px 40px rgba(15,23,42,.06);
+        }
+
+        .vbs-tool-window h3 {
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+
+        .vbs-tool-stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 13px 0;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .vbs-tool-stat:last-child {
+            border-bottom: 0;
+        }
+
+        .vbs-tool-stat span {
+            color: #64748b;
+        }
+
+        .vbs-tool-stat strong {
+            color: #111827;
+        }
+
+
+        /* =========================================================
+           LOCAL SEO
+        ========================================================= */
+
+        .vbs-map-card {
+            position: relative;
+            min-height: 420px;
+            overflow: hidden;
+            border-radius: 22px;
+            background:
+                linear-gradient(120deg, #e9f0e7 0 20%, transparent 20% 40%, #eef1e6 40% 60%, transparent 60% 75%, #e7eee8 75%),
+                #f3f5f0;
+            border: 1px solid #dbe4dc;
+        }
+
+        .vbs-road {
+            position: absolute;
+            height: 38px;
+            width: 120%;
+            left: -10%;
+            background: #ffffff;
+            transform: rotate(-17deg);
+            top: 46%;
+            box-shadow: 0 1px 4px rgba(0,0,0,.08);
+        }
+
+        .vbs-road.two {
+            transform: rotate(30deg);
+            top: 20%;
+        }
+
+        .vbs-map-pin {
+            position: absolute;
             width: 54px;
             height: 54px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 14px;
-            background: #eff6ff;
-            color: #2563eb;
-            font-size: 20px;
-            margin-bottom: 22px;
-        }
-
-        .vbs-intent-card h3 {
-            font-size: 21px;
-            margin-bottom: 12px;
-        }
-
-        .vbs-intent-card p {
-            color: #64748b !important;
-            line-height: 1.7;
-            font-size: 14px;
-        }
-
-
-        /* =====================================================
-           DASHBOARD
-        ===================================================== */
-
-        .vbs-dashboard-section {
-            background: #f8fafc;
-        }
-
-        .vbs-dashboard {
-            margin-top: 55px;
-            border: 1px solid #e2e8f0;
-            border-radius: 22px;
-            background: #ffffff;
-            box-shadow: 0 25px 70px rgba(15,23,42,.08);
-            overflow: hidden;
-        }
-
-        .vbs-dashboard-header {
-            padding: 22px 25px;
-            border-bottom: 1px solid #e5e7eb;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .vbs-dashboard-title {
-            font-size: 17px;
-            font-weight: 700;
-        }
-
-        .vbs-dashboard-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            color: #16a34a;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .vbs-live-dot {
-            width: 7px;
-            height: 7px;
-            background: #22c55e;
-            border-radius: 50%;
-        }
-
-        .vbs-demo-note {
-            font-size: 11px;
-            color: #94a3b8 !important;
-            margin-top: 5px;
-        }
-
-        .vbs-dashboard-body {
-            padding: 25px;
-        }
-
-        .vbs-stat {
-            padding: 20px;
-            border: 1px solid #e5e7eb;
-            border-radius: 14px;
-            background: #fff;
-            height: 100%;
-        }
-
-        .vbs-stat-label {
-            color: #64748b;
-            font-size: 12px;
-            margin-bottom: 9px;
-        }
-
-        .vbs-stat-value {
-            font-size: 27px;
-            font-weight: 800;
-            color: #111827;
-        }
-
-        .vbs-stat-growth {
-            margin-top: 7px;
-            color: #16a34a;
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-
-        /* =====================================================
-           CHART
-        ===================================================== */
-
-        .vbs-chart-box {
-            margin-top: 20px;
-            border: 1px solid #e5e7eb;
-            border-radius: 16px;
-            padding: 20px;
-            background: #fff;
-        }
-
-        .vbs-chart {
-            height: 220px;
-            display: flex;
-            align-items: flex-end;
-            gap: 10px;
-            padding-top: 25px;
-        }
-
-        .vbs-chart-bar {
-            flex: 1;
-            border-radius: 5px 5px 0 0;
-            background: linear-gradient(to top, #2563eb, #93c5fd);
-            min-height: 25px;
-        }
-
-        .vbs-chart-bar:nth-child(1) { height: 35%; }
-        .vbs-chart-bar:nth-child(2) { height: 43%; }
-        .vbs-chart-bar:nth-child(3) { height: 40%; }
-        .vbs-chart-bar:nth-child(4) { height: 57%; }
-        .vbs-chart-bar:nth-child(5) { height: 52%; }
-        .vbs-chart-bar:nth-child(6) { height: 68%; }
-        .vbs-chart-bar:nth-child(7) { height: 77%; }
-        .vbs-chart-bar:nth-child(8) { height: 86%; }
-        .vbs-chart-bar:nth-child(9) { height: 92%; }
-        .vbs-chart-bar:nth-child(10) { height: 100%; }
-
-
-        /* =====================================================
-           GOOGLE SEARCH CONSOLE
-        ===================================================== */
-
-        .vbs-tool-card {
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            background: #fff;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(15,23,42,.05);
-        }
-
-        .vbs-tool-header {
-            padding: 20px 24px;
-            border-bottom: 1px solid #e5e7eb;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .vbs-tool-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-        }
-
-        .vbs-tool-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #eff6ff;
-            color: #2563eb;
-        }
-
-        .vbs-tool-body {
-            padding: 25px;
-        }
-
-        .vbs-progress {
-            height: 7px;
-            border-radius: 10px;
-            background: #e2e8f0;
-            overflow: hidden;
-        }
-
-        .vbs-progress span {
-            display: block;
-            height: 100%;
-            background: #2563eb;
-            border-radius: 10px;
-        }
-
-
-        /* =====================================================
-           KEYWORD TABLE
-        ===================================================== */
-
-        .vbs-keyword-table {
-            margin-top: 45px;
-            border: 1px solid #e5e7eb;
-            border-radius: 18px;
-            overflow: hidden;
-            background: #fff;
-        }
-
-        .vbs-keyword-row {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 20px;
-            align-items: center;
-            padding: 18px 22px;
-            border-bottom: 1px solid #edf0f4;
-        }
-
-        .vbs-keyword-row:last-child {
-            border-bottom: none;
-        }
-
-        .vbs-keyword-row.header {
-            background: #f8fafc;
-            color: #64748b;
-            font-size: 11px;
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: .7px;
-        }
-
-        .vbs-keyword {
-            font-weight: 600;
-            color: #111827;
-        }
-
-        .vbs-position {
-            width: 36px;
-            height: 36px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            background: #eff6ff;
-            color: #2563eb;
-            border-radius: 50%;
-            font-size: 12px;
-            font-weight: 800;
-        }
-
-        .vbs-business {
-            font-size: 13px;
-            color: #475569;
-        }
-
-
-        /* =====================================================
-           LOCAL SEO / MAP
-        ===================================================== */
-
-        .vbs-local-section {
-            background: #f8fafc;
-        }
-
-        .vbs-map {
-            position: relative;
-            min-height: 470px;
-            border-radius: 20px;
-            overflow: hidden;
-            background:
-                linear-gradient(30deg, transparent 48%, rgba(255,255,255,.7) 49%, rgba(255,255,255,.7) 51%, transparent 52%),
-                linear-gradient(120deg, transparent 48%, rgba(255,255,255,.65) 49%, rgba(255,255,255,.65) 51%, transparent 52%),
-                #dcebdc;
-            background-size: 100px 100px, 130px 130px, auto;
-            border: 1px solid #d9e1d9;
-        }
-
-        .vbs-map-road {
-            position: absolute;
-            background: #fff;
-            opacity: .8;
-            transform: rotate(-18deg);
-        }
-
-        .vbs-map-road.one {
-            width: 120%;
-            height: 40px;
-            left: -10%;
-            top: 30%;
-        }
-
-        .vbs-map-road.two {
-            width: 120%;
-            height: 25px;
-            left: -10%;
-            top: 65%;
-            transform: rotate(12deg);
-        }
-
-        .vbs-map-pin {
-            position: absolute;
-            width: 35px;
-            height: 35px;
             border-radius: 50% 50% 50% 0;
             background: #ef4444;
+            color: #ffffff;
             transform: rotate(-45deg);
-            box-shadow: 0 8px 18px rgba(239,68,68,.3);
+            box-shadow: 0 12px 25px rgba(239,68,68,.25);
         }
 
-        .vbs-map-pin::after {
-            content: "";
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #fff;
-            border-radius: 50%;
-            top: 11px;
-            left: 11px;
+        .vbs-map-pin i {
+            transform: rotate(45deg);
         }
 
-        .vbs-pin-1 {
-            top: 28%;
+        .pin-one {
+            left: 25%;
+            top: 31%;
+        }
+
+        .pin-two {
+            right: 25%;
+            top: 50%;
+        }
+
+        .pin-three {
             left: 52%;
+            bottom: 15%;
         }
 
-        .vbs-pin-2 {
-            top: 48%;
-            left: 34%;
+        .vbs-local-result {
+            position: absolute;
+            left: 22px;
+            bottom: 22px;
+            max-width: 330px;
+            padding: 18px;
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 15px 35px rgba(15,23,42,.14);
         }
 
-        .vbs-pin-3 {
-            top: 63%;
-            left: 65%;
-        }
-
-        .vbs-local-results {
-            background: #fff;
-            border-radius: 18px;
-            padding: 20px;
-            box-shadow: 0 20px 50px rgba(15,23,42,.12);
-        }
-
-        .vbs-local-search {
-            border: 1px solid #e5e7eb;
-            border-radius: 9px;
-            padding: 13px 15px;
-            margin-bottom: 17px;
-            font-size: 13px;
-            color: #475569;
-        }
-
-        .vbs-place {
-            padding: 16px 0;
-            border-bottom: 1px solid #edf0f4;
-        }
-
-        .vbs-place:last-child {
-            border-bottom: none;
-        }
-
-        .vbs-place-number {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: #eff6ff;
-            color: #2563eb;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: 800;
-            margin-right: 10px;
-        }
-
-        .vbs-place-name {
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .vbs-place-meta {
-            font-size: 11px;
+        .vbs-local-result small {
             color: #64748b;
-            margin-top: 6px;
+        }
+
+        .vbs-local-result h4 {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #111827 !important;
         }
 
 
-        /* =====================================================
-           AEO / GEO / AI
-        ===================================================== */
+        /* =========================================================
+           AI / AEO / GEO
+        ========================================================= */
 
         .vbs-ai-card {
-            background: #0f172a;
-            color: #fff;
-            padding: 30px;
-            border-radius: 20px;
             height: 100%;
-            position: relative;
-            overflow: hidden;
+            padding: 28px;
+            border: 1px solid #23334b;
+            background: #0d1a2c;
+            border-radius: 18px;
         }
 
-        .vbs-ai-card::before {
-            content: "";
-            position: absolute;
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            background: rgba(37,99,235,.20);
-            right: -80px;
-            top: -80px;
+        .vbs-ai-card .icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(37,99,235,.15);
+            color: #60a5fa;
+            margin-bottom: 18px;
         }
 
         .vbs-ai-card h3 {
-            color: #fff !important;
-            position: relative;
-        }
-
-        .vbs-ai-card p {
-            color: #cbd5e1 !important;
-            position: relative;
-            line-height: 1.7;
-        }
-
-        .vbs-ai-question {
-            background: rgba(255,255,255,.08);
-            border: 1px solid rgba(255,255,255,.12);
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            font-size: 13px;
-            color: #e2e8f0;
-        }
-
-        .vbs-platform {
-            display: inline-flex;
-            padding: 7px 10px;
-            background: rgba(255,255,255,.09);
-            border-radius: 20px;
-            margin: 4px;
-            font-size: 11px;
-            color: #cbd5e1;
+            font-size: 21px;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            SEO SERVICES
-        ===================================================== */
+        ========================================================= */
 
-        .vbs-service-box {
-            border: 1px solid #e5e7eb;
-            border-radius: 18px;
-            padding: 28px;
-            height: 100%;
-            background: #fff;
-            transition: .3s ease;
+        .vbs-service-item {
+            display: flex;
+            gap: 20px;
+            padding: 25px 0;
+            border-bottom: 1px solid #e5eaf2;
         }
 
-        .vbs-service-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 45px rgba(15,23,42,.07);
+        .vbs-service-item:last-child {
+            border-bottom: 0;
         }
 
         .vbs-service-number {
-            font-family: 'Space Grotesk';
-            font-size: 13px;
+            flex: 0 0 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eff6ff;
             color: #2563eb;
             font-weight: 800;
-            margin-bottom: 25px;
         }
 
-        .vbs-service-box h3 {
+        .vbs-service-item h3 {
+            margin-bottom: 7px;
             font-size: 21px;
-            margin-bottom: 12px;
         }
 
-        .vbs-service-box p {
-            color: #64748b !important;
-            font-size: 14px;
-            line-height: 1.75;
+        .vbs-service-item p {
+            margin: 0;
+            line-height: 1.7;
         }
 
 
-        /* =====================================================
+        /* =========================================================
+           INTELLIGENCE PANEL
+        ========================================================= */
+
+        .vbs-intelligence {
+            border-radius: 22px;
+            background: #ffffff;
+            border: 1px solid #e5eaf2;
+            padding: 25px;
+            box-shadow: 0 20px 55px rgba(15,23,42,.07);
+        }
+
+        .vbs-intelligence-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #edf0f5;
+            margin-bottom: 20px;
+        }
+
+        .vbs-intelligence-head h3 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .vbs-tag {
+            display: inline-flex;
+            padding: 6px 10px;
+            border-radius: 6px;
+            background: #eff6ff;
+            color: #2563eb;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .vbs-keyword-line {
+            display: grid;
+            grid-template-columns: 1.5fr .6fr .7fr .7fr;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .vbs-keyword-line:last-child {
+            border-bottom: 0;
+        }
+
+        .vbs-keyword-line span {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .vbs-keyword-line strong {
+            color: #111827;
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
            FUNNEL
-        ===================================================== */
+        ========================================================= */
 
         .vbs-funnel {
-            margin-top: 50px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 850px;
+            margin: 45px auto 0;
         }
 
         .vbs-funnel-step {
-            margin: 0 auto 12px;
-            padding: 20px;
+            margin: 0 auto 10px;
+            padding: 17px 20px;
             text-align: center;
-            border-radius: 9px;
-            color: #fff;
-            font-weight: 700;
-        }
-
-        .vbs-funnel-step:nth-child(1) {
-            width: 100%;
-            background: #111827;
+            border-radius: 8px;
+            color: #ffffff;
+            font-weight: 800;
+            background: linear-gradient(90deg, #2563eb, #4f46e5);
         }
 
         .vbs-funnel-step:nth-child(2) {
-            width: 85%;
-            background: #1e3a8a;
+            width: 88%;
+            background: linear-gradient(90deg, #315fd7, #5d49dc);
         }
 
         .vbs-funnel-step:nth-child(3) {
-            width: 70%;
-            background: #2563eb;
+            width: 75%;
+            background: linear-gradient(90deg, #4358ce, #6746d6);
         }
 
         .vbs-funnel-step:nth-child(4) {
-            width: 55%;
-            background: #7c3aed;
+            width: 60%;
+            background: linear-gradient(90deg, #534fca, #7142cf);
         }
 
         .vbs-funnel-step:nth-child(5) {
-            width: 40%;
-            background: #16a34a;
+            width: 45%;
+            background: linear-gradient(90deg, #6346bd, #7c3aed);
         }
 
 
-        /* =====================================================
-           CTA
-        ===================================================== */
+        /* =========================================================
+           FINAL CTA
+        ========================================================= */
 
         .vbs-final-cta {
-            padding: 100px 20px;
+            position: relative;
+            padding: 100px 0;
             background:
-                radial-gradient(circle at 20% 30%, rgba(37,99,235,.15), transparent 30%),
-                radial-gradient(circle at 80% 70%, rgba(124,58,237,.15), transparent 30%),
-                #0f172a;
-            text-align: center;
+                radial-gradient(circle at 20% 30%, rgba(37,99,235,.20), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(124,58,237,.18), transparent 30%),
+                #07111f;
+            overflow: hidden;
         }
 
         .vbs-final-cta h2 {
-            color: #fff !important;
-            font-family: 'Space Grotesk';
+            color: #ffffff !important;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(40px, 5vw, 68px);
+            line-height: 1.05;
             letter-spacing: -2px;
             margin-bottom: 20px;
         }
 
         .vbs-final-cta p {
             max-width: 700px;
-            margin: 0 auto;
-            color: #cbd5e1 !important;
+            margin: 0 auto 30px;
+            color: #aebbd0;
+            font-size: 17px;
             line-height: 1.8;
         }
 
-        .vbs-final-cta .vbs-btn {
-            margin-top: 30px;
-        }
 
-
-        /* =====================================================
-           RESPONSIVE
-        ===================================================== */
+        /* =========================================================
+           MOBILE
+        ========================================================= */
 
         @media (max-width: 991px) {
 
             .vbs-seo-hero {
-                padding: 90px 0 70px;
-            }
-
-            .vbs-section {
                 padding: 80px 0;
             }
 
-            .vbs-hero-title {
-                letter-spacing: -2px;
+            .vbs-hero-visual {
+                min-height: 400px;
+                margin-top: 45px;
             }
 
-            .vbs-search-dashboard {
-                margin-top: 50px;
+            .vbs-section {
+                padding: 75px 0;
+            }
+
+            .vbs-seo-page .vbs-hero-title {
+                font-size: clamp(46px, 8vw, 68px) !important;
+                line-height: 1 !important;
+                letter-spacing: -2.5px !important;
             }
 
             .vbs-keyword-row {
-                grid-template-columns: 1.6fr 1fr 1fr 1fr;
-                gap: 10px;
+                grid-template-columns: 1.4fr .7fr .7fr;
             }
 
+            .vbs-keyword-row > div:nth-child(4) {
+                display: none;
+            }
+
+            .vbs-keyword-line {
+                grid-template-columns: 1.4fr .6fr .7fr;
+            }
+
+            .vbs-keyword-line > span:nth-child(4) {
+                display: none;
+            }
         }
 
-        @media (max-width: 767px) {
 
-            .vbs-section {
+        @media (max-width: 575px) {
+
+            .vbs-container {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .vbs-seo-hero {
                 padding: 65px 0;
             }
 
-            .vbs-hero-title {
-                font-size: 46px;
+            .vbs-seo-page .vbs-hero-title {
+                font-size: 48px !important;
+                line-height: 1.02 !important;
+                letter-spacing: -2px !important;
+                margin-top: 15px !important;
             }
 
-            .vbs-trust-items {
-                justify-content: center;
+            .vbs-hero-description {
+                font-size: 16px;
             }
 
-            .vbs-keyword-table {
-                overflow-x: auto;
+            .vbs-hero-buttons {
+                flex-direction: column;
+            }
+
+            .vbs-primary-btn,
+            .vbs-secondary-btn {
+                width: 100%;
             }
 
             .vbs-keyword-row {
-                min-width: 700px;
+                grid-template-columns: 1fr .7fr;
             }
 
-            .vbs-map {
+            .vbs-keyword-row > div:nth-child(3),
+            .vbs-keyword-row > div:nth-child(4) {
+                display: none;
+            }
+
+            .vbs-keyword-line {
+                grid-template-columns: 1fr .6fr;
+            }
+
+            .vbs-keyword-line > span:nth-child(3),
+            .vbs-keyword-line > span:nth-child(4) {
+                display: none;
+            }
+
+            .vbs-search-window {
+                transform: none;
+            }
+
+            .vbs-map-card {
                 min-height: 350px;
             }
-
-            .vbs-final-cta {
-                padding: 75px 20px;
-            }
-
         }
 
     </style>
-
 </head>
 
 
 <body>
 
-
     <!-- =========================================================
          PRELOADER
-    ========================================================== -->
+    ========================================================= -->
 
     <div id="preloader" class="preloader">
-        <div class="loader">
-            <div class="row">
-
-                <div class="col-3 loader-section section-left">
-                    <div class="bg"></div>
-                </div>
-
-                <div class="col-3 loader-section section-left">
-                    <div class="bg"></div>
-                </div>
-
-                <div class="col-3 loader-section section-right">
-                    <div class="bg"></div>
-                </div>
-
-                <div class="col-3 loader-section section-right">
-                    <div class="bg"></div>
-                </div>
-
-            </div>
-        </div>
+        <div class="loader"></div>
     </div>
 
 
     <!-- =========================================================
          HEADER
-    ========================================================== -->
+    ========================================================= -->
 
-    <header id="header-sticky" class="header-section header-style1">
+    <header class="header-section header-1">
 
         <div class="container">
+            <div class="header-main">
 
-            <div class="mega-menu-wrapper">
-
-                <div class="header-main">
-
-                    <a href="index.html" class="header-logo">
+                <div class="logo">
+                    <a href="index.html">
                         <img src="assets/img/logo/logo.png" alt="Vector Business Solutions">
                     </a>
+                </div>
 
-                    <div class="mean__menu-wrapper">
+                <div class="main-menu">
 
-                        <div class="main-menu">
+                    <nav id="mobile-menu">
 
-                            <nav id="mobile-menu">
+                        <ul>
 
-                                <ul>
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+
+                            <li>
+                                <a href="about.html">About</a>
+                            </li>
+
+                            <li class="has-dropdown">
+                                <a href="#">Services</a>
+
+                                <ul class="submenu">
 
                                     <li>
-                                        <a href="index.html">Home</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="about.html">About Us</a>
-                                    </li>
-
-                                    <li class="has-dropdown">
-
-                                        <a href="javascript:void(0)">
-                                            Services
-                                            <i class="fas fa-angle-down"></i>
+                                        <a href="website-design-and-development.html">
+                                            Website Design & Development
                                         </a>
-
-                                        <ul class="submenu">
-
-                                            <li>
-                                                <a href="website-design-and-development.html">
-                                                    Web Design &amp; Development
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="google-and-meta-ads.html">
-                                                    Google and Meta Ads
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="ad-cost-calculator.html">
-                                                    Ad Cost Calculator
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="social-media-management.html">
-                                                    Social Media Management
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="graphics-designing.html">
-                                                    Graphics Designing
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="seo.html">
-                                                    SEO
-                                                </a>
-                                            </li>
-
-                                        </ul>
-
                                     </li>
 
                                     <li>
-                                        <a href="team.html">Team</a>
+                                        <a href="google-and-meta-ads.html">
+                                            Google & Meta Ads
+                                        </a>
                                     </li>
 
                                     <li>
-                                        <a href="testimonial.html">Testimonial</a>
+                                        <a href="ad-cost-calculator.html">
+                                            Ad Cost Calculator
+                                        </a>
                                     </li>
 
                                     <li>
-                                        <a href="contact.html">Contact Us</a>
+                                        <a href="social-media-management.html">
+                                            Social Media Management
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="graphics-designing.html">
+                                            Graphics Designing
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="seo.html">
+                                            SEO Services
+                                        </a>
                                     </li>
 
                                 </ul>
 
-                            </nav>
+                            </li>
 
+                            <li>
+                                <a href="team.html">Team</a>
+                            </li>
+
+                            <li>
+                                <a href="testimonial.html">Testimonial</a>
+                            </li>
+
+                            <li>
+                                <a href="contact.html">Contact</a>
+                            </li>
+
+                        </ul>
+
+                    </nav>
+
+                </div>
+
+                <div class="header-right">
+
+                    <a href="#" class="search-trigger">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+
+                    <a href="#" class="theme-btn">
+                        Download CV
+                    </a>
+
+                    <div class="header__hamburger d-xl-none my-auto">
+                        <div class="sidebar__toggle">
+                            <img src="assets/img/icon/bars.png" alt="Menu">
                         </div>
-
-                    </div>
-
-
-                    <div class="header-right d-flex justify-content-end align-items-center">
-
-                        <a href="javascript:void(0)"
-                            class="search-trigger d-center rounded-circle search-icon">
-
-                            <i class="fa-solid fa-magnifying-glass"></i>
-
-                        </a>
-
-
-                        <button type="button"
-                            class="common_btn d-sm-flex d-none text-nowrap">
-
-                            download cv
-
-                            <span class="icon_wrapper">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-
-                        </button>
-
-
-                        <div class="header__hamburger d-xl-none d-block my-auto">
-
-                            <div class="sidebar__toggle">
-
-                                <img src="assets/img/icon/bars.png"
-                                    alt="menu icon"
-                                    class="">
-
-                            </div>
-
-                        </div>
-
                     </div>
 
                 </div>
 
             </div>
-
         </div>
 
     </header>
 
-<!-- Banner Section Start -->
-    <section class="banner-breadcrumb-section fix position-relative">
-        <div class="container">
-            <div class="breadcrumb-content">
-                <h1 class="text-center heading-font visible-slowly-bottom">
-                    SEO
-                </h1>
-                <div class="text-center">
-                    <ul class="bread-link">
-                        <li>
-                            <a href="index.html">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            //
-                        </li>
-                        <li>
-                            SEO
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <img src="assets/img/element/circle-opacity.png" alt="img" class="breadcrumb-cirlce cir36">
-    </section>
-    <!-- Banner Section Start -->
 
     <!-- =========================================================
-         SEO PAGE START
-    ========================================================== -->
+         SEO PAGE
+    ========================================================= -->
 
     <main class="vbs-seo-page">
 
 
         <!-- =====================================================
-             HERO / BANNER
-        ====================================================== -->
+             HERO
+        ===================================================== -->
 
         <section class="vbs-seo-hero">
-
-            <div class="vbs-container">
-
-                <div class="row align-items-center g-5">
-
-                    <div class="col-lg-7">
-
-                        <div class="vbs-label">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            SEO • AEO • GEO • AI SEARCH
-                        </div>
-
-                          <h1 class="vbs-hero-title">
-                        Get Found.<br>
-                        <span class="vbs-gradient-text">Get Ranked.</span><br>
-                        Get Chosen.
-                        </h1>
-
-                        <p class="vbs-hero-description">
-
-                            We build search visibility that turns the right searches
-                            into real business opportunities. From Google rankings
-                            and Google Maps to Answer Engines, Generative Search and
-                            AI platforms, we optimize your digital presence where
-                            your customers are looking.
-
-                        </p>
-
-
-                        <div class="vbs-hero-buttons">
-
-                            <a href="contact.html"
-                                class="vbs-btn vbs-btn-primary">
-
-                                Start Your SEO Strategy
-
-                                <i class="fa-solid fa-arrow-right"></i>
-
-                            </a>
-
-
-                            <a href="#seo-dashboard"
-                                class="vbs-btn vbs-btn-outline">
-
-                                Explore Search Data
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- HERO SEARCH MOCKUP -->
-
-                    <div class="col-lg-5">
-
-                        <div class="vbs-search-dashboard">
-
-                            <div class="vbs-browser-top">
-
-                                <span class="vbs-dot"></span>
-                                <span class="vbs-dot"></span>
-                                <span class="vbs-dot"></span>
-
-                            </div>
-
-
-                            <div class="vbs-search-bar">
-
-                                <i class="fa-solid fa-magnifying-glass me-2"></i>
-
-                                interior design companies in Dubai
-
-                            </div>
-
-
-                            <div class="vbs-google-results">
-
-                                <div class="vbs-result-url">
-                                    www.examplebusiness.com
-                                </div>
-
-                                <div class="vbs-result-title">
-                                    Premium Interior Design Company in Dubai
-                                </div>
-
-                                <div class="vbs-result-description">
-
-                                    Discover premium interior design solutions,
-                                    residential interiors, commercial projects
-                                    and luxury spaces in Dubai.
-
-                                </div>
-
-                                <span class="vbs-ranking">
-
-                                    ↑ Example visibility improvement
-
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             TRUST STRIP
-        ====================================================== -->
-
-        <div class="vbs-trust-strip">
-
-            <div class="vbs-container">
-
-                <div class="vbs-trust-items">
-
-                    <span class="vbs-trust-item">
-                        Google Search
-                    </span>
-
-                    <span class="vbs-trust-item">
-                        Google Maps
-                    </span>
-
-                    <span class="vbs-trust-item">
-                        Search Console
-                    </span>
-
-                    <span class="vbs-trust-item">
-                        Google Analytics
-                    </span>
-
-                    <span class="vbs-trust-item">
-                        AI Search
-                    </span>
-
-                    <span class="vbs-trust-item">
-                        Answer Engines
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =====================================================
-             SEARCH INTENT
-        ====================================================== -->
-
-        <section class="vbs-section vbs-intent-section">
-
-            <div class="vbs-container">
-
-                <div class="row align-items-end mb-5">
-
-                    <div class="col-lg-8">
-
-                        <div class="vbs-label">
-                            SEARCH INTENT
-                        </div>
-
-                        <!-- FIXED HEADING COLOR -->
-
-                        <h2 class="vbs-section-title search-intent-heading">
-
-                            We Turn Search Intent
-                            <br>
-
-                            Into Business Opportunities.
-
-                        </h2>
-
-                    </div>
-
-
-                    <div class="col-lg-4">
-
-                        <p class="vbs-section-description">
-
-                            Ranking is only part of SEO. We focus on
-                            understanding what people actually want,
-                            then positioning your business at the exact
-                            moment they are ready to act.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="row g-4">
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="vbs-intent-card">
-
-                            <div class="vbs-intent-icon">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </div>
-
-                            <h3>Informational Intent</h3>
-
-                            <p>
-                                Capture people researching services,
-                                products, solutions and answers before
-                                they make a buying decision.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="vbs-intent-card">
-
-                            <div class="vbs-intent-icon">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-
-                            <h3>Local Intent</h3>
-
-                            <p>
-                                Improve visibility for customers searching
-                                for businesses, services and products
-                                near their location.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="vbs-intent-card">
-
-                            <div class="vbs-intent-icon">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </div>
-
-                            <h3>Commercial Intent</h3>
-
-                            <p>
-                                Target searches where customers are
-                                comparing options, evaluating providers
-                                and preparing to buy.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             SEARCH TERMS
-        ====================================================== -->
-
-        <section class="vbs-section">
-
-            <div class="vbs-container">
-
-                <div class="text-center">
-
-                    <div class="vbs-label">
-                        KEYWORD STRATEGY
-                    </div>
-
-                    <!-- FIXED HEADING COLOR -->
-
-                    <h2 class="vbs-section-title search-terms-heading">
-
-                        Search Terms We Can Build Around
-
-                    </h2>
-
-                    <p class="vbs-section-description mx-auto">
-
-                        We identify high-value search opportunities based
-                        on relevance, intent, competition, location and
-                        business value.
-
-                    </p>
-
-                </div>
-
-
-                <div class="vbs-keyword-table">
-
-                    <div class="vbs-keyword-row header">
-
-                        <div>Search Term</div>
-                        <div>Example Position</div>
-                        <div>Example Business</div>
-                        <div>Intent</div>
-
-                    </div>
-
-
-                    <div class="vbs-keyword-row">
-
-                        <div class="vbs-keyword">
-                            interior design companies in Dubai
-                        </div>
-
-                        <div>
-                            <span class="vbs-position">01</span>
-                        </div>
-
-                        <div class="vbs-business">
-                            Motif Interiors
-                        </div>
-
-                        <div class="vbs-business">
-                            Commercial
-                        </div>
-
-                    </div>
-
-
-                    <div class="vbs-keyword-row">
-
-                        <div class="vbs-keyword">
-                            luxury villa property in Dubai
-                        </div>
-
-                        <div>
-                            <span class="vbs-position">01</span>
-                        </div>
-
-                        <div class="vbs-business">
-                            haus &amp; haus
-                        </div>
-
-                        <div class="vbs-business">
-                            Transactional
-                        </div>
-
-                    </div>
-
-
-                    <div class="vbs-keyword-row">
-
-                        <div class="vbs-keyword">
-                            rental properties in UAE
-                        </div>
-
-                        <div>
-                            <span class="vbs-position">02</span>
-                        </div>
-
-                        <div class="vbs-business">
-                            Fam Properties
-                        </div>
-
-                        <div class="vbs-business">
-                            Commercial
-                        </div>
-
-                    </div>
-
-
-                    <div class="vbs-keyword-row">
-
-                        <div class="vbs-keyword">
-                            cheap hotel rooms in Dubai
-                        </div>
-
-                        <div>
-                            <span class="vbs-position">03</span>
-                        </div>
-
-                        <div class="vbs-business">
-                            Times Hotel
-                        </div>
-
-                        <div class="vbs-business">
-                            Transactional
-                        </div>
-
-                    </div>
-
-
-                    <div class="vbs-keyword-row">
-
-                        <div class="vbs-keyword">
-                            chinese restaurant in Dubai
-                        </div>
-
-                        <div>
-                            <span class="vbs-position">02</span>
-                        </div>
-
-                        <div class="vbs-business">
-                            Ming Dynasty / Tang Town
-                        </div>
-
-                        <div class="vbs-business">
-                            Local
-                        </div>
-
-                    </div>
-
-
-                    <div class="vbs-keyword-row">
-
-                        <div class="vbs-keyword">
-                            beautiful abayas in UAE
-                        </div>
-
-                        <div>
-                            <span class="vbs-position">01</span>
-                        </div>
-
-                        <div class="vbs-business">
-                            Hashtag Fashion Store
-                        </div>
-
-                        <div class="vbs-business">
-                            Shopping
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <p class="text-center mt-4"
-                    style="font-size:11px;color:#94a3b8;">
-
-                    Illustrative keyword examples for presentation purposes.
-                    Actual rankings vary by location, device, competition and time.
-
-                </p>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             COMPETITORS
-        ====================================================== -->
-
-        <section class="vbs-section vbs-dashboard-section">
 
             <div class="vbs-container">
 
@@ -1695,106 +1188,119 @@
 
                     <div class="col-lg-7">
 
-                        <div class="vbs-label">
-                            COMPETITIVE SEARCH
+                        <div class="vbs-hero-content">
+
+                            <div class="vbs-eyebrow">
+                                <span></span>
+                                SEO • AEO • GEO • AI SEARCH
+                            </div>
+
+
+                            <!-- FIXED HERO TITLE -->
+
+                            <h1 class="vbs-hero-title">
+
+                                <span class="hero-line">
+                                    Get Found.
+                                </span>
+
+                                <span class="hero-line vbs-gradient-text">
+                                    Get Ranked.
+                                </span>
+
+                                <span class="hero-line">
+                                    Get Chosen.
+                                </span>
+
+                            </h1>
+
+
+                            <p class="vbs-hero-description">
+
+                                Your customers are already searching.
+                                We help your business appear where they are looking —
+                                across Google, Maps, search engines, AI platforms and
+                                answer-driven search experiences.
+
+                            </p>
+
+
+                            <div class="vbs-hero-buttons">
+
+                                <a href="contact.html" class="vbs-primary-btn">
+                                    Grow My Visibility
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+
+                                <a href="#seo-dashboard" class="vbs-secondary-btn">
+                                    Explore SEO Results
+                                </a>
+
+                            </div>
+
                         </div>
-
-                        <!-- FIXED HEADING COLOR -->
-
-                        <h2 class="vbs-section-title competitor-heading">
-
-                            Our Competitors Are Already
-                            <br>
-                            Competing For Your Customers.
-
-                        </h2>
-
-                        <p class="vbs-section-description">
-
-                            Your customers are already searching.
-                            Competitors are already appearing.
-                            SEO helps you compete for the attention,
-                            clicks and enquiries that matter.
-
-                        </p>
 
                     </div>
 
 
+                    <!-- HERO VISUAL -->
+
                     <div class="col-lg-5">
 
-                        <div class="vbs-tool-card">
+                        <div class="vbs-hero-visual">
 
-                            <div class="vbs-tool-header">
+                            <div class="vbs-search-window">
 
-                                <div class="vbs-tool-brand">
+                                <div class="vbs-window-top">
 
-                                    <div class="vbs-tool-icon">
-                                        <i class="fa-solid fa-chart-line"></i>
-                                    </div>
-
-                                    Competitive Visibility
+                                    <span class="vbs-window-dot"></span>
+                                    <span class="vbs-window-dot"></span>
+                                    <span class="vbs-window-dot"></span>
 
                                 </div>
 
-                                <span style="font-size:11px;color:#94a3b8;">
-                                    Example
-                                </span>
+                                <div class="vbs-search-bar">
 
-                            </div>
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                                    &nbsp;
+
+                                    interior design companies in Dubai
+
+                                </div>
 
 
-                            <div class="vbs-tool-body">
+                                <div class="vbs-search-result">
 
-                                <div class="d-flex justify-content-between mb-2">
+                                    <small>Sponsored results</small>
 
-                                    <span style="font-size:12px;">
-                                        Search Visibility
+                                    <h4>Search Results</h4>
+
+                                    <p>
+                                        Businesses competing for high-intent
+                                        search visibility and qualified enquiries.
+                                    </p>
+
+                                    <span class="vbs-rank-badge">
+                                        ↑ Visibility Growth
                                     </span>
 
-                                    <strong style="font-size:12px;">
-                                        78%
-                                    </strong>
-
                                 </div>
 
-                                <div class="vbs-progress mb-4">
-                                    <span style="width:78%;"></span>
-                                </div>
+                                <div class="vbs-search-result">
 
+                                    <small>Organic result example</small>
 
-                                <div class="d-flex justify-content-between mb-2">
+                                    <h4>Dubai Interior Design Services</h4>
 
-                                    <span style="font-size:12px;">
-                                        Keyword Coverage
+                                    <p>
+                                        Example search-result placement —
+                                        illustrative interface, not a live ranking.
+                                    </p>
+
+                                    <span class="vbs-rank-badge">
+                                        Top Visibility
                                     </span>
-
-                                    <strong style="font-size:12px;">
-                                        64%
-                                    </strong>
-
-                                </div>
-
-                                <div class="vbs-progress mb-4">
-                                    <span style="width:64%;"></span>
-                                </div>
-
-
-                                <div class="d-flex justify-content-between mb-2">
-
-                                    <span style="font-size:12px;">
-                                        Local Visibility
-                                    </span>
-
-                                    <strong style="font-size:12px;">
-                                        82%
-                                    </strong>
-
-                                </div>
-
-                                <div class="vbs-progress">
-
-                                    <span style="width:82%;"></span>
 
                                 </div>
 
@@ -1810,901 +1316,520 @@
 
         </section>
 
+
+        <!-- =====================================================
+             TRUST STRIP
+        ===================================================== -->
+
+        <section class="vbs-trust-strip">
+
+            <div class="vbs-container">
+
+                <div class="row">
+
+                    <div class="col-6 col-md-3">
+
+                        <div class="vbs-trust-item">
+
+                            <strong>SEO</strong>
+                            <span>Organic Search</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-6 col-md-3">
+
+                        <div class="vbs-trust-item">
+
+                            <strong>Maps</strong>
+                            <span>Local Discovery</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-6 col-md-3">
+
+                        <div class="vbs-trust-item">
+
+                            <strong>AEO</strong>
+                            <span>Answer Search</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-6 col-md-3">
+
+                        <div class="vbs-trust-item">
+
+                            <strong>GEO</strong>
+                            <span>AI Search</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SEARCH INTENT
+        ===================================================== -->
+
+        <section class="vbs-section vbs-section-light">
+
+            <div class="vbs-container">
+
+                <div class="text-center mb-5">
+
+                    <span class="vbs-section-tag">
+                        Search Strategy
+                    </span>
+
+                    <h2 class="vbs-section-title search-intent-heading">
+                        We Turn Search Intent Into Business Opportunities.
+                    </h2>
+
+                    <p class="vbs-section-intro mx-auto">
+                        SEO is not simply about increasing website traffic.
+                        It is about getting your business in front of people
+                        who are actively looking for what you sell.
+                    </p>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <div class="vbs-intent-card">
+
+                            <div class="vbs-intent-icon">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+
+                            <h3>Discovery</h3>
+
+                            <p>
+                                Identify what your customers search before
+                                they discover your business.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <div class="vbs-intent-card">
+
+                            <div class="vbs-intent-icon">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+
+                            <h3>Intent</h3>
+
+                            <p>
+                                Separate informational searches from
+                                commercial and high-conversion searches.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <div class="vbs-intent-card">
+
+                            <div class="vbs-intent-icon">
+                                <i class="fa-solid fa-ranking-star"></i>
+                            </div>
+
+                            <h3>Visibility</h3>
+
+                            <p>
+                                Build content and technical authority around
+                                the searches that matter most.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <div class="vbs-intent-card">
+
+                            <div class="vbs-intent-icon">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+
+                            <h3>Growth</h3>
+
+                            <p>
+                                Convert growing organic visibility into
+                                enquiries, leads and opportunities.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             KEYWORDS
+        ===================================================== -->
+
+        <section class="vbs-section vbs-section-soft">
+
+            <div class="vbs-container">
+
+                <div class="mb-5">
+
+                    <span class="vbs-section-tag">
+                        Keyword Opportunities
+                    </span>
+
+                    <h2 class="vbs-section-title search-terms-heading">
+                        Search Terms We Can Build Around
+                    </h2>
+
+                    <p class="vbs-section-intro">
+                        These are illustrative examples of commercial search
+                        opportunities. Actual rankings depend on market,
+                        competition, location, website authority and SEO work.
+                    </p>
+
+                </div>
+
+
+                <div class="vbs-keyword-table">
+
+                    <div class="vbs-keyword-row vbs-keyword-head">
+
+                        <div>Search Term</div>
+                        <div>Intent</div>
+                        <div>Visibility</div>
+                        <div>Status</div>
+
+                    </div>
+
+
+                    <div class="vbs-keyword-row">
+
+                        <div class="vbs-keyword-name">
+                            interior design companies in Dubai
+                        </div>
+
+                        <div>Commercial</div>
+
+                        <div>
+                            <span class="vbs-rank-pill">
+                                High
+                            </span>
+                        </div>
+
+                        <div>Opportunity</div>
+
+                    </div>
+
+
+                    <div class="vbs-keyword-row">
+
+                        <div class="vbs-keyword-name">
+                            luxury villa property in Dubai
+                        </div>
+
+                        <div>Transactional</div>
+
+                        <div>
+                            <span class="vbs-rank-pill">
+                                High
+                            </span>
+                        </div>
+
+                        <div>Opportunity</div>
+
+                    </div>
+
+
+                    <div class="vbs-keyword-row">
+
+                        <div class="vbs-keyword-name">
+                            rental properties in UAE
+                        </div>
+
+                        <div>Commercial</div>
+
+                        <div>
+                            <span class="vbs-rank-pill">
+                                High
+                            </span>
+                        </div>
+
+                        <div>Opportunity</div>
+
+                    </div>
+
+
+                    <div class="vbs-keyword-row">
+
+                        <div class="vbs-keyword-name">
+                            cheap hotel rooms in Dubai
+                        </div>
+
+                        <div>Transactional</div>
+
+                        <div>
+                            <span class="vbs-rank-pill">
+                                High
+                            </span>
+                        </div>
+
+                        <div>Opportunity</div>
+
+                    </div>
+
+
+                    <div class="vbs-keyword-row">
+
+                        <div class="vbs-keyword-name">
+                            chinese restaurant in Dubai
+                        </div>
+
+                        <div>Local</div>
+
+                        <div>
+                            <span class="vbs-rank-pill">
+                                High
+                            </span>
+                        </div>
+
+                        <div>Opportunity</div>
+
+                    </div>
+
+
+                    <div class="vbs-keyword-row">
+
+                        <div class="vbs-keyword-name">
+                            beautiful abayas in UAE
+                        </div>
+
+                        <div>Shopping</div>
+
+                        <div>
+                            <span class="vbs-rank-pill">
+                                High
+                            </span>
+                        </div>
+
+                        <div>Opportunity</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMPETITORS
+        ===================================================== -->
+
+        <section class="vbs-section vbs-section-light">
+
+            <div class="vbs-container">
+
+                <div class="mb-5">
+
+                    <span class="vbs-section-tag">
+                        Competitive Search
+                    </span>
+
+                    <h2 class="vbs-section-title competitor-heading">
+                        Our Competitors Are Already Competing For Your Customers.
+                    </h2>
+
+                    <p class="vbs-section-intro">
+                        Search results are competitive. The objective is not
+                        simply to publish more pages — it is to build stronger
+                        relevance, authority and search visibility.
+                    </p>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="vbs-competitor-card">
+
+                            <h3>Motif Interiors</h3>
+
+                            <div class="vbs-competitor-keyword">
+                                interior design companies in Dubai
+                            </div>
+
+                            <div class="vbs-competitor-bar">
+                                <span></span>
+                            </div>
+
+                            <p class="mt-3 mb-0">
+                                Example competitor/search landscape.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="vbs-competitor-card">
+
+                            <h3>haus & haus</h3>
+
+                            <div class="vbs-competitor-keyword">
+                                luxury villa property in Dubai
+                            </div>
+
+                            <div class="vbs-competitor-bar">
+                                <span style="width:88%;"></span>
+                            </div>
+
+                            <p class="mt-3 mb-0">
+                                Example competitor/search landscape.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="vbs-competitor-card">
+
+                            <h3>Fam Properties</h3>
+
+                            <div class="vbs-competitor-keyword">
+                                rental properties in UAE
+                            </div>
+
+                            <div class="vbs-competitor-bar">
+                                <span style="width:78%;"></span>
+                            </div>
+
+                            <p class="mt-3 mb-0">
+                                Example competitor/search landscape.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="vbs-competitor-card">
+
+                            <h3>Times Hotel</h3>
+
+                            <div class="vbs-competitor-keyword">
+                                cheap hotel rooms in Dubai
+                            </div>
+
+                            <div class="vbs-competitor-bar">
+                                <span style="width:74%;"></span>
+                            </div>
+
+                            <p class="mt-3 mb-0">
+                                Example competitor/search landscape.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="vbs-competitor-card">
+
+                            <h3>Ming Dynasty</h3>
+
+                            <div class="vbs-competitor-keyword">
+                                chinese restaurant in Dubai
+                            </div>
+
+                            <div class="vbs-competitor-bar">
+                                <span style="width:81%;"></span>
+                            </div>
+
+                            <p class="mt-3 mb-0">
+                                Example competitor/search landscape.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="vbs-competitor-card">
+
+                            <h3>Hashtag Fashion Store</h3>
+
+                            <div class="vbs-competitor-keyword">
+                                beautiful abayas in UAE
+                            </div>
+
+                            <div class="vbs-competitor-bar">
+                                <span style="width:76%;"></span>
+                            </div>
+
+                            <p class="mt-3 mb-0">
+                                Example competitor/search landscape.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
 
 
         <!-- =====================================================
              SEO DASHBOARD
-        ====================================================== -->
+        ===================================================== -->
 
-        <section class="vbs-section" id="seo-dashboard">
-
-            <div class="vbs-container">
-
-                <div class="text-center">
-
-                    <div class="vbs-label">
-                        SEARCH INTELLIGENCE
-                    </div>
-
-                    <h2 class="vbs-section-title">
-
-                        Your SEO, Measured Like a
-                        <span class="vbs-gradient-text">
-                            Growth Channel.
-                        </span>
-
-                    </h2>
-
-                    <p class="vbs-section-description mx-auto">
-
-                        We track rankings, visibility, organic traffic,
-                        indexing, engagement and conversions so SEO
-                        becomes measurable business growth.
-
-                    </p>
-
-                </div>
-
-
-                <div class="vbs-dashboard">
-
-                    <div class="vbs-dashboard-header">
-
-                        <div>
-
-                            <div class="vbs-dashboard-title">
-                                SEO Performance Dashboard
-                            </div>
-
-                            <div class="vbs-demo-note">
-                                Illustrative dashboard data
-                            </div>
-
-                        </div>
-
-
-                        <div class="vbs-dashboard-status">
-
-                            <span class="vbs-live-dot"></span>
-
-                            Tracking Active
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="vbs-dashboard-body">
-
-                        <div class="row g-3">
-
-                            <div class="col-lg-2 col-md-4 col-6">
-
-                                <div class="vbs-stat">
-
-                                    <div class="vbs-stat-label">
-                                        Organic Clicks
-                                    </div>
-
-                                    <div class="vbs-stat-value">
-                                        18.4K
-                                    </div>
-
-                                    <div class="vbs-stat-growth">
-                                        ↑ 28.6%
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="col-lg-2 col-md-4 col-6">
-
-                                <div class="vbs-stat">
-
-                                    <div class="vbs-stat-label">
-                                        Impressions
-                                    </div>
-
-                                    <div class="vbs-stat-value">
-                                        426K
-                                    </div>
-
-                                    <div class="vbs-stat-growth">
-                                        ↑ 34.2%
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="col-lg-2 col-md-4 col-6">
-
-                                <div class="vbs-stat">
-
-                                    <div class="vbs-stat-label">
-                                        Avg Position
-                                    </div>
-
-                                    <div class="vbs-stat-value">
-                                        6.8
-                                    </div>
-
-                                    <div class="vbs-stat-growth">
-                                        ↑ Improved
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="col-lg-2 col-md-4 col-6">
-
-                                <div class="vbs-stat">
-
-                                    <div class="vbs-stat-label">
-                                        Indexed Pages
-                                    </div>
-
-                                    <div class="vbs-stat-value">
-                                        248
-                                    </div>
-
-                                    <div class="vbs-stat-growth">
-                                        ↑ 18
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="col-lg-2 col-md-4 col-6">
-
-                                <div class="vbs-stat">
-
-                                    <div class="vbs-stat-label">
-                                        Organic Leads
-                                    </div>
-
-                                    <div class="vbs-stat-value">
-                                        684
-                                    </div>
-
-                                    <div class="vbs-stat-growth">
-                                        ↑ 31.4%
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="col-lg-2 col-md-4 col-6">
-
-                                <div class="vbs-stat">
-
-                                    <div class="vbs-stat-label">
-                                        Visibility
-                                    </div>
-
-                                    <div class="vbs-stat-value">
-                                        72%
-                                    </div>
-
-                                    <div class="vbs-stat-growth">
-                                        ↑ 16.8%
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="vbs-chart-box">
-
-                            <div class="d-flex justify-content-between">
-
-                                <strong style="font-size:14px;">
-                                    Organic Search Growth
-                                </strong>
-
-                                <span style="font-size:11px;color:#64748b;">
-                                    Last 10 periods
-                                </span>
-
-                            </div>
-
-
-                            <div class="vbs-chart">
-
-                                <span class="vbs-chart-bar"></span>
-                                <span class="vbs-chart-bar"></span>
-                                <span class="vbs-chart-bar"></span>
-                                <span class="vbs-chart-bar"></span>
-                                <span class="vbs-chart-bar"></span>
-                                <span class="vbs-chart-bar"></span>
-                                <span class="vbs-chart-bar"></span>
-                                <span class="vbs-chart-bar"></span>
-                                <span class="vbs-chart-bar"></span>
-                                <span class="vbs-chart-bar"></span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             SEARCH CONSOLE + ANALYTICS
-        ====================================================== -->
-
-        <section class="vbs-section vbs-dashboard-section">
-
-            <div class="vbs-container">
-
-                <div class="row g-4">
-
-
-                    <!-- SEARCH CONSOLE -->
-
-                    <div class="col-lg-6">
-
-                        <div class="vbs-tool-card">
-
-                            <div class="vbs-tool-header">
-
-                                <div class="vbs-tool-brand">
-
-                                    <div class="vbs-tool-icon">
-                                        <i class="fa-solid fa-magnifying-glass-chart"></i>
-                                    </div>
-
-                                    Search Console
-
-                                </div>
-
-                                <span style="font-size:11px;color:#16a34a;">
-                                    Performance
-                                </span>
-
-                            </div>
-
-
-                            <div class="vbs-tool-body">
-
-                                <div class="row g-3">
-
-                                    <div class="col-6">
-
-                                        <div class="vbs-stat">
-
-                                            <div class="vbs-stat-label">
-                                                Clicks
-                                            </div>
-
-                                            <div class="vbs-stat-value">
-                                                18.4K
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="col-6">
-
-                                        <div class="vbs-stat">
-
-                                            <div class="vbs-stat-label">
-                                                Impressions
-                                            </div>
-
-                                            <div class="vbs-stat-value">
-                                                426K
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="col-6">
-
-                                        <div class="vbs-stat">
-
-                                            <div class="vbs-stat-label">
-                                                CTR
-                                            </div>
-
-                                            <div class="vbs-stat-value">
-                                                4.3%
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="col-6">
-
-                                        <div class="vbs-stat">
-
-                                            <div class="vbs-stat-label">
-                                                Position
-                                            </div>
-
-                                            <div class="vbs-stat-value">
-                                                6.8
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="mt-4">
-
-                                    <div class="d-flex justify-content-between mb-2">
-
-                                        <span style="font-size:12px;">
-                                            Pages indexed
-                                        </span>
-
-                                        <strong style="font-size:12px;">
-                                            248 / 265
-                                        </strong>
-
-                                    </div>
-
-                                    <div class="vbs-progress">
-
-                                        <span style="width:94%;"></span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ANALYTICS -->
-
-                    <div class="col-lg-6">
-
-                        <div class="vbs-tool-card">
-
-                            <div class="vbs-tool-header">
-
-                                <div class="vbs-tool-brand">
-
-                                    <div class="vbs-tool-icon">
-                                        <i class="fa-solid fa-chart-simple"></i>
-                                    </div>
-
-                                    Organic Analytics
-
-                                </div>
-
-                                <span style="font-size:11px;color:#16a34a;">
-                                    Growth
-                                </span>
-
-                            </div>
-
-
-                            <div class="vbs-tool-body">
-
-                                <div class="row g-3">
-
-                                    <div class="col-6">
-
-                                        <div class="vbs-stat">
-
-                                            <div class="vbs-stat-label">
-                                                Organic Sessions
-                                            </div>
-
-                                            <div class="vbs-stat-value">
-                                                31.2K
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="col-6">
-
-                                        <div class="vbs-stat">
-
-                                            <div class="vbs-stat-label">
-                                                Engaged Sessions
-                                            </div>
-
-                                            <div class="vbs-stat-value">
-                                                24.7K
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="col-6">
-
-                                        <div class="vbs-stat">
-
-                                            <div class="vbs-stat-label">
-                                                Conversions
-                                            </div>
-
-                                            <div class="vbs-stat-value">
-                                                684
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="col-6">
-
-                                        <div class="vbs-stat">
-
-                                            <div class="vbs-stat-label">
-                                                Engagement
-                                            </div>
-
-                                            <div class="vbs-stat-value">
-                                                79%
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="vbs-chart-box">
-
-                                    <div class="d-flex justify-content-between mb-3">
-
-                                        <strong style="font-size:13px;">
-                                            Organic Traffic
-                                        </strong>
-
-                                        <span style="font-size:11px;color:#16a34a;">
-                                            +31.4%
-                                        </span>
-
-                                    </div>
-
-                                    <div style="height:80px;position:relative;">
-
-                                        <svg width="100%" height="80"
-                                            viewBox="0 0 500 80"
-                                            preserveAspectRatio="none">
-
-                                            <polyline
-                                                points="0,68 55,62 110,65 165,52 220,55 275,40 330,45 385,27 440,31 500,12"
-                                                fill="none"
-                                                stroke="#2563eb"
-                                                stroke-width="4"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                            </polyline>
-
-                                        </svg>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             LOCAL SEO
-        ====================================================== -->
-
-        <section class="vbs-section vbs-local-section">
-
-            <div class="vbs-container">
-
-                <div class="row align-items-center g-5">
-
-                    <div class="col-lg-6">
-
-                        <div class="vbs-label">
-                            LOCAL SEO
-                        </div>
-
-                        <h2 class="vbs-section-title">
-
-                            Be Where Local
-                            Customers Are Looking.
-
-                        </h2>
-
-                        <p class="vbs-section-description">
-
-                            We optimize your local search presence,
-                            Google Business Profile signals, location
-                            relevance, service categories, reviews,
-                            citations and location-focused content.
-
-                        </p>
-
-
-                        <div class="vbs-hero-buttons">
-
-                            <a href="contact.html"
-                                class="vbs-btn vbs-btn-primary">
-
-                                Improve Local Visibility
-
-                                <i class="fa-solid fa-arrow-right"></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-lg-6">
-
-                        <div class="vbs-local-results">
-
-                            <div class="vbs-local-search">
-
-                                <i class="fa-solid fa-location-dot me-2"></i>
-
-                                chinese restaurant in Dubai
-
-                            </div>
-
-
-                            <div class="vbs-place">
-
-                                <span class="vbs-place-number">
-                                    1
-                                </span>
-
-                                <span class="vbs-place-name">
-                                    Ming Dynasty
-                                </span>
-
-                                <div class="vbs-place-meta">
-                                    Chinese Restaurant • Dubai
-                                </div>
-
-                            </div>
-
-
-                            <div class="vbs-place">
-
-                                <span class="vbs-place-number">
-                                    2
-                                </span>
-
-                                <span class="vbs-place-name">
-                                    Tang Town Chinese Restaurant
-                                </span>
-
-                                <div class="vbs-place-meta">
-                                    Chinese Restaurant • Dubai
-                                </div>
-
-                            </div>
-
-
-                            <div class="vbs-place">
-
-                                <span class="vbs-place-number">
-                                    3
-                                </span>
-
-                                <span class="vbs-place-name">
-                                    Example Local Business
-                                </span>
-
-                                <div class="vbs-place-meta">
-                                    Restaurant • Dubai
-                                </div>
-
-                            </div>
-
-
-                            <p class="mt-3 mb-0"
-                                style="font-size:10px;color:#94a3b8;">
-
-                                Illustrative local search layout —
-                                not a live Google Maps result.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             MAP VISUAL
-        ====================================================== -->
-
-        <section class="vbs-section">
-
-            <div class="vbs-container">
-
-                <div class="row align-items-center g-5">
-
-                    <div class="col-lg-6">
-
-                        <div class="vbs-map">
-
-                            <div class="vbs-map-road one"></div>
-                            <div class="vbs-map-road two"></div>
-
-                            <div class="vbs-map-pin vbs-pin-1"></div>
-                            <div class="vbs-map-pin vbs-pin-2"></div>
-                            <div class="vbs-map-pin vbs-pin-3"></div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-lg-6">
-
-                        <div class="vbs-label">
-                            GOOGLE MAPS VISIBILITY
-                        </div>
-
-                        <h2 class="vbs-section-title">
-
-                            Local Search Is
-                            <span class="vbs-gradient-text">
-                                High Intent.
-                            </span>
-
-                        </h2>
-
-                        <p class="vbs-section-description">
-
-                            When someone searches for a service
-                            near them, they are often much closer
-                            to making a decision. Local SEO helps
-                            your business become easier to discover,
-                            compare and contact.
-
-                        </p>
-
-
-                        <div class="row g-3 mt-3">
-
-                            <div class="col-6">
-
-                                <div class="vbs-stat">
-
-                                    <div class="vbs-stat-label">
-                                        Map Visibility
-                                    </div>
-
-                                    <div class="vbs-stat-value">
-                                        82%
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="col-6">
-
-                                <div class="vbs-stat">
-
-                                    <div class="vbs-stat-label">
-                                        Local Queries
-                                    </div>
-
-                                    <div class="vbs-stat-value">
-                                        +42%
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             AEO / GEO / AI SEARCH
-        ====================================================== -->
-
-        <section class="vbs-section vbs-dashboard-section">
-
-            <div class="vbs-container">
-
-                <div class="text-center">
-
-                    <div class="vbs-label">
-                        SEARCH IS EVOLVING
-                    </div>
-
-                    <h2 class="vbs-section-title">
-
-                        SEO Beyond
-                        <span class="vbs-gradient-text">
-                            Blue Links.
-                        </span>
-
-                    </h2>
-
-                    <p class="vbs-section-description mx-auto">
-
-                        Search behaviour is changing. We prepare your
-                        content and digital presence for traditional
-                        search, answer engines, generative search and
-                        AI-powered discovery.
-
-                    </p>
-
-                </div>
-
-
-                <div class="row g-4 mt-4">
-
-
-                    <div class="col-lg-4">
-
-                        <div class="vbs-ai-card">
-
-                            <h3>
-                                AEO
-                            </h3>
-
-                            <p>
-                                Answer Engine Optimization helps structure
-                                your content so it can better answer
-                                questions users ask.
-                            </p>
-
-                            <div class="vbs-ai-question">
-
-                                "What are the best interior design
-                                companies in Dubai?"
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-lg-4">
-
-                        <div class="vbs-ai-card">
-
-                            <h3>
-                                GEO
-                            </h3>
-
-                            <p>
-                                Generative Engine Optimization focuses
-                                on making your brand and information
-                                easier for generative search systems
-                                to understand and reference.
-                            </p>
-
-                            <div class="vbs-ai-question">
-
-                                "Which companies offer luxury villa
-                                properties in Dubai?"
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-lg-4">
-
-                        <div class="vbs-ai-card">
-
-                            <h3>
-                                AI Search
-                            </h3>
-
-                            <p>
-                                We build structured, authoritative and
-                                context-rich content for the changing
-                                AI search ecosystem.
-                            </p>
-
-                            <div>
-
-                                <span class="vbs-platform">
-                                    AI Search
-                                </span>
-
-                                <span class="vbs-platform">
-                                    Answer Engines
-                                </span>
-
-                                <span class="vbs-platform">
-                                    Generative Search
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             SEO SERVICES
-        ====================================================== -->
-
-        <section class="vbs-section">
+        <section id="seo-dashboard" class="vbs-section vbs-section-dark">
 
             <div class="vbs-container">
 
@@ -2712,302 +1837,412 @@
 
                     <div class="col-lg-8">
 
-                        <div class="vbs-label">
-                            WHAT WE OPTIMIZE
-                        </div>
-
-                        <h2 class="vbs-section-title">
-
-                            Search Visibility
-                            <br>
-                            Built From Every Angle.
-
-                        </h2>
-
-                    </div>
-
-                </div>
-
-
-                <div class="row g-4">
-
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="vbs-service-box">
-
-                            <div class="vbs-service-number">
-                                01 / TECHNICAL
-                            </div>
-
-                            <h3>
-                                Technical SEO
-                            </h3>
-
-                            <p>
-                                Improve crawling, indexing, site structure,
-                                page speed, mobile usability, schema,
-                                canonicalization and technical health.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="vbs-service-box">
-
-                            <div class="vbs-service-number">
-                                02 / CONTENT
-                            </div>
-
-                            <h3>
-                                On-Page SEO
-                            </h3>
-
-                            <p>
-                                Build pages around valuable search terms,
-                                search intent, entities, content depth,
-                                internal linking and conversion opportunities.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="vbs-service-box">
-
-                            <div class="vbs-service-number">
-                                03 / LOCAL
-                            </div>
-
-                            <h3>
-                                Local SEO
-                            </h3>
-
-                            <p>
-                                Improve local visibility across Google Maps,
-                                location searches, business profiles,
-                                citations and location-focused content.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="vbs-service-box">
-
-                            <div class="vbs-service-number">
-                                04 / AUTHORITY
-                            </div>
-
-                            <h3>
-                                Authority Building
-                            </h3>
-
-                            <p>
-                                Develop a stronger digital footprint through
-                                relevant content, mentions, relationships,
-                                backlinks and topical authority.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="vbs-service-box">
-
-                            <div class="vbs-service-number">
-                                05 / AEO
-                            </div>
-
-                            <h3>
-                                Answer Engine Optimization
-                            </h3>
-
-                            <p>
-                                Structure content around questions and
-                                entities so your business is prepared for
-                                answer-driven search experiences.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="vbs-service-box">
-
-                            <div class="vbs-service-number">
-                                06 / AI SEARCH
-                            </div>
-
-                            <h3>
-                                AI Search Optimization
-                            </h3>
-
-                            <p>
-                                Optimize brand information, content structure
-                                and topical authority for the evolving AI
-                                search ecosystem.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             SEMRUSH / AHREFS STYLE INTELLIGENCE
-        ====================================================== -->
-
-        <section class="vbs-section vbs-dashboard-section">
-
-            <div class="vbs-container">
-
-                <div class="text-center">
-
-                    <div class="vbs-label">
-                        SEO INTELLIGENCE
-                    </div>
-
-                    <h2 class="vbs-section-title">
-
-                        See What Is
-                        <span class="vbs-gradient-text">
-                            Moving.
+                        <span class="vbs-section-tag">
+                            Performance Intelligence
                         </span>
 
-                    </h2>
+                        <h2 class="vbs-section-title">
+                            See What Your SEO Is Actually Doing.
+                        </h2>
+
+                        <p class="vbs-section-intro">
+                            Track organic clicks, impressions, rankings,
+                            indexed pages, visibility and lead opportunities
+                            through a clear performance dashboard.
+                        </p>
+
+                    </div>
 
                 </div>
 
 
                 <div class="vbs-dashboard">
 
-                    <div class="vbs-dashboard-header">
+                    <div class="vbs-dashboard-top">
 
-                        <div>
+                        <h3>Organic Search Performance</h3>
 
-                            <div class="vbs-dashboard-title">
-                                Organic Search Intelligence
-                            </div>
-
-                            <div class="vbs-demo-note">
-                                Illustrative third-party SEO dashboard
-                            </div>
-
-                        </div>
-
-                        <i class="fa-solid fa-ellipsis"></i>
+                        <span class="vbs-period">
+                            Last 90 Days
+                        </span>
 
                     </div>
 
 
-                    <div class="vbs-dashboard-body">
+                    <div class="row g-3">
 
-                        <div class="row g-3">
+                        <div class="col-lg-2 col-md-4 col-6">
 
-                            <div class="col-lg-3 col-md-6">
+                            <div class="vbs-metric-card">
 
-                                <div class="vbs-stat">
+                                <span>Organic Clicks</span>
 
-                                    <div class="vbs-stat-label">
-                                        Organic Keywords
-                                    </div>
+                                <strong>24.8K</strong>
 
-                                    <div class="vbs-stat-value">
-                                        4,862
-                                    </div>
+                                <span class="vbs-growth">
+                                    +28.4%
+                                </span>
 
-                                    <div class="vbs-stat-growth">
-                                        +18.2%
-                                    </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-lg-2 col-md-4 col-6">
+
+                            <div class="vbs-metric-card">
+
+                                <span>Impressions</span>
+
+                                <strong>681K</strong>
+
+                                <span class="vbs-growth">
+                                    +34.7%
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-lg-2 col-md-4 col-6">
+
+                            <div class="vbs-metric-card">
+
+                                <span>Avg Position</span>
+
+                                <strong>8.4</strong>
+
+                                <span class="vbs-growth">
+                                    Improving
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-lg-2 col-md-4 col-6">
+
+                            <div class="vbs-metric-card">
+
+                                <span>Indexed Pages</span>
+
+                                <strong>246</strong>
+
+                                <span class="vbs-growth">
+                                    +42
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-lg-2 col-md-4 col-6">
+
+                            <div class="vbs-metric-card">
+
+                                <span>Leads</span>
+
+                                <strong>386</strong>
+
+                                <span class="vbs-growth">
+                                    +31.2%
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-lg-2 col-md-4 col-6">
+
+                            <div class="vbs-metric-card">
+
+                                <span>Visibility</span>
+
+                                <strong>72%</strong>
+
+                                <span class="vbs-growth">
+                                    +19.8%
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="vbs-chart">
+
+                        <svg viewBox="0 0 1000 230"
+                            preserveAspectRatio="none">
+
+                            <polyline
+                                points="0,195 70,185 140,190 210,160 280,175 350,140 420,150 490,105 560,125 630,90 700,100 770,65 840,78 910,42 1000,28"
+                                fill="none"
+                                stroke="#60a5fa"
+                                stroke-width="5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+
+                            <polyline
+                                points="0,205 70,202 140,200 210,192 280,188 350,180 420,174 490,164 560,158 630,150 700,140 770,135 840,122 910,115 1000,105"
+                                fill="none"
+                                stroke="#a78bfa"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+
+                        </svg>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SEARCH CONSOLE / ANALYTICS
+        ===================================================== -->
+
+        <section class="vbs-section vbs-section-soft">
+
+            <div class="vbs-container">
+
+                <div class="text-center mb-5">
+
+                    <span class="vbs-section-tag">
+                        Measurement
+                    </span>
+
+                    <h2 class="vbs-section-title">
+                        Search Data. Traffic Data. Business Data.
+                    </h2>
+
+                    <p class="vbs-section-intro mx-auto">
+                        SEO becomes more valuable when rankings are connected
+                        to actual website behaviour and business outcomes.
+                    </p>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <div class="col-lg-6">
+
+                        <div class="vbs-tool-window">
+
+                            <h3>
+                                <i class="fa-solid fa-magnifying-glass-chart me-2"></i>
+                                Search Performance
+                            </h3>
+
+                            <div class="vbs-tool-stat">
+                                <span>Organic Clicks</span>
+                                <strong>24,821</strong>
+                            </div>
+
+                            <div class="vbs-tool-stat">
+                                <span>Search Impressions</span>
+                                <strong>681,240</strong>
+                            </div>
+
+                            <div class="vbs-tool-stat">
+                                <span>Average CTR</span>
+                                <strong>3.64%</strong>
+                            </div>
+
+                            <div class="vbs-tool-stat">
+                                <span>Average Position</span>
+                                <strong>8.4</strong>
+                            </div>
+
+                            <div class="vbs-tool-stat">
+                                <span>Indexed Pages</span>
+                                <strong>246</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-6">
+
+                        <div class="vbs-tool-window">
+
+                            <h3>
+                                <i class="fa-solid fa-chart-pie me-2"></i>
+                                Website Analytics
+                            </h3>
+
+                            <div class="vbs-tool-stat">
+                                <span>Organic Users</span>
+                                <strong>31,842</strong>
+                            </div>
+
+                            <div class="vbs-tool-stat">
+                                <span>Engaged Sessions</span>
+                                <strong>19,463</strong>
+                            </div>
+
+                            <div class="vbs-tool-stat">
+                                <span>Engagement Rate</span>
+                                <strong>61.2%</strong>
+                            </div>
+
+                            <div class="vbs-tool-stat">
+                                <span>Lead Actions</span>
+                                <strong>386</strong>
+                            </div>
+
+                            <div class="vbs-tool-stat">
+                                <span>Conversion Rate</span>
+                                <strong>4.8%</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LOCAL SEO
+        ===================================================== -->
+
+        <section class="vbs-section vbs-section-light">
+
+            <div class="vbs-container">
+
+                <div class="row align-items-center g-5">
+
+                    <div class="col-lg-5">
+
+                        <span class="vbs-section-tag">
+                            Local SEO
+                        </span>
+
+                        <h2 class="vbs-section-title">
+                            Be Visible When Customers Search Nearby.
+                        </h2>
+
+                        <p class="vbs-section-intro">
+                            Local SEO helps your business compete for location-based
+                            searches, Google Maps visibility and local discovery.
+                        </p>
+
+                        <div class="mt-4">
+
+                            <div class="vbs-service-item">
+
+                                <div class="vbs-service-number">
+                                    01
+                                </div>
+
+                                <div>
+
+                                    <h3>Google Business Profile</h3>
+
+                                    <p>
+                                        Improve business information,
+                                        categories, services and local relevance.
+                                    </p>
 
                                 </div>
 
                             </div>
 
 
-                            <div class="col-lg-3 col-md-6">
+                            <div class="vbs-service-item">
 
-                                <div class="vbs-stat">
+                                <div class="vbs-service-number">
+                                    02
+                                </div>
 
-                                    <div class="vbs-stat-label">
-                                        Organic Traffic
-                                    </div>
+                                <div>
 
-                                    <div class="vbs-stat-value">
-                                        31.2K
-                                    </div>
+                                    <h3>Maps Visibility</h3>
 
-                                    <div class="vbs-stat-growth">
-                                        +31.4%
-                                    </div>
+                                    <p>
+                                        Build stronger local signals around
+                                        important service and location searches.
+                                    </p>
 
                                 </div>
 
                             </div>
 
 
-                            <div class="col-lg-3 col-md-6">
+                            <div class="vbs-service-item">
 
-                                <div class="vbs-stat">
+                                <div class="vbs-service-number">
+                                    03
+                                </div>
 
-                                    <div class="vbs-stat-label">
-                                        Referring Domains
-                                    </div>
+                                <div>
 
-                                    <div class="vbs-stat-value">
-                                        684
-                                    </div>
+                                    <h3>Reviews & Reputation</h3>
 
-                                    <div class="vbs-stat-growth">
-                                        +12.8%
-                                    </div>
+                                    <p>
+                                        Strengthen trust signals that support
+                                        customer discovery and decision-making.
+                                    </p>
 
                                 </div>
 
                             </div>
 
+                        </div>
 
-                            <div class="col-lg-3 col-md-6">
+                    </div>
 
-                                <div class="vbs-stat">
 
-                                    <div class="vbs-stat-label">
-                                        Visibility Score
-                                    </div>
+                    <div class="col-lg-7">
 
-                                    <div class="vbs-stat-value">
-                                        72%
-                                    </div>
+                        <div class="vbs-map-card">
 
-                                    <div class="vbs-stat-growth">
-                                        +16.8%
-                                    </div>
+                            <div class="vbs-road"></div>
+                            <div class="vbs-road two"></div>
 
-                                </div>
+                            <div class="vbs-map-pin pin-one">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+
+                            <div class="vbs-map-pin pin-two">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+
+                            <div class="vbs-map-pin pin-three">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+
+
+                            <div class="vbs-local-result">
+
+                                <small>
+                                    Local search example
+                                </small>
+
+                                <h4>
+                                    Chinese Restaurant in Dubai
+                                </h4>
+
+                                <small>
+                                    Maps / Local Pack style interface
+                                </small>
 
                             </div>
 
@@ -3022,39 +2257,408 @@
         </section>
 
 
-
         <!-- =====================================================
-             SEO FUNNEL
-        ====================================================== -->
+             AEO / GEO / AI SEARCH
+        ===================================================== -->
 
-        <section class="vbs-section">
+        <section class="vbs-section vbs-section-dark">
 
             <div class="vbs-container">
 
-                <div class="text-center">
+                <div class="text-center mb-5">
 
-                    <div class="vbs-label">
-                        FROM SEARCH TO SALES
-                    </div>
+                    <span class="vbs-section-tag">
+                        Beyond Traditional Search
+                    </span>
 
                     <h2 class="vbs-section-title">
-
-                        Rankings Are Only
-                        <span class="vbs-gradient-text">
-                            The Beginning.
-                        </span>
-
+                        Search Is Changing. Your SEO Should Too.
                     </h2>
 
-                    <p class="vbs-section-description mx-auto">
-
-                        The real objective is not simply more traffic.
-                        It is attracting the right people and moving them
-                        toward meaningful business action.
-
+                    <p class="vbs-section-intro mx-auto">
+                        We prepare content and website structures for traditional
+                        search engines, answer engines, local discovery and
+                        emerging AI-driven search experiences.
                     </p>
 
                 </div>
+
+
+                <div class="row g-4">
+
+                    <div class="col-lg-4">
+
+                        <div class="vbs-ai-card">
+
+                            <div class="icon">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+
+                            <h3>AEO</h3>
+
+                            <p>
+                                Answer Engine Optimization focuses on creating
+                                useful, structured answers that can satisfy
+                                question-based searches.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-4">
+
+                        <div class="vbs-ai-card">
+
+                            <div class="icon">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+
+                            <h3>GEO</h3>
+
+                            <p>
+                                Generative Engine Optimization helps structure
+                                authoritative information for AI-assisted discovery
+                                and generative search experiences.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-4">
+
+                        <div class="vbs-ai-card">
+
+                            <div class="icon">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+
+                            <h3>AI Search</h3>
+
+                            <p>
+                                Build clearer entities, topical authority,
+                                useful content and structured information for
+                                evolving AI search journeys.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SEO SERVICES
+        ===================================================== -->
+
+        <section class="vbs-section vbs-section-light">
+
+            <div class="vbs-container">
+
+                <div class="row g-5">
+
+                    <div class="col-lg-5">
+
+                        <span class="vbs-section-tag">
+                            What We Do
+                        </span>
+
+                        <h2 class="vbs-section-title">
+                            SEO Built Around Your Business.
+                        </h2>
+
+                        <p class="vbs-section-intro">
+                            We combine technical SEO, content strategy,
+                            local visibility and search intelligence into
+                            one growth-focused process.
+                        </p>
+
+                    </div>
+
+
+                    <div class="col-lg-7">
+
+                        <div class="vbs-service-item">
+
+                            <div class="vbs-service-number">01</div>
+
+                            <div>
+
+                                <h3>Technical SEO</h3>
+
+                                <p>
+                                    Crawling, indexing, site structure,
+                                    performance, internal linking,
+                                    structured data and technical improvements.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vbs-service-item">
+
+                            <div class="vbs-service-number">02</div>
+
+                            <div>
+
+                                <h3>Keyword Strategy</h3>
+
+                                <p>
+                                    Identify high-value keywords based on
+                                    intent, relevance, competition and
+                                    commercial opportunity.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vbs-service-item">
+
+                            <div class="vbs-service-number">03</div>
+
+                            <div>
+
+                                <h3>Content SEO</h3>
+
+                                <p>
+                                    Create useful landing pages, service pages,
+                                    articles and topical content designed around
+                                    real search demand.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vbs-service-item">
+
+                            <div class="vbs-service-number">04</div>
+
+                            <div>
+
+                                <h3>Local SEO</h3>
+
+                                <p>
+                                    Improve location relevance, local pages,
+                                    Google Business Profile signals and Maps
+                                    discovery opportunities.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vbs-service-item">
+
+                            <div class="vbs-service-number">05</div>
+
+                            <div>
+
+                                <h3>SEO Reporting</h3>
+
+                                <p>
+                                    Monitor rankings, traffic, clicks,
+                                    impressions, visibility, leads and
+                                    conversion opportunities.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SEO INTELLIGENCE
+        ===================================================== -->
+
+        <section class="vbs-section vbs-section-soft">
+
+            <div class="vbs-container">
+
+                <div class="text-center mb-5">
+
+                    <span class="vbs-section-tag">
+                        Search Intelligence
+                    </span>
+
+                    <h2 class="vbs-section-title">
+                        Know Where You Stand. Know What To Improve.
+                    </h2>
+
+                    <p class="vbs-section-intro mx-auto">
+                        Our reporting approach is inspired by professional
+                        SEO intelligence platforms — giving you a clearer
+                        view of keywords, competitors, visibility and growth.
+                    </p>
+
+                </div>
+
+
+                <div class="vbs-intelligence">
+
+                    <div class="vbs-intelligence-head">
+
+                        <h3>
+                            Organic Keyword Intelligence
+                        </h3>
+
+                        <span class="vbs-tag">
+                            SEO MONITORING
+                        </span>
+
+                    </div>
+
+
+                    <div class="vbs-keyword-line">
+
+                        <strong>Keyword</strong>
+                        <strong>Position</strong>
+                        <strong>Change</strong>
+                        <strong>Intent</strong>
+
+                    </div>
+
+
+                    <div class="vbs-keyword-line">
+
+                        <span>
+                            interior design companies in Dubai
+                        </span>
+
+                        <strong>#4</strong>
+
+                        <span class="vbs-growth">
+                            ↑ 7
+                        </span>
+
+                        <span>Commercial</span>
+
+                    </div>
+
+
+                    <div class="vbs-keyword-line">
+
+                        <span>
+                            luxury villa property in Dubai
+                        </span>
+
+                        <strong>#7</strong>
+
+                        <span class="vbs-growth">
+                            ↑ 5
+                        </span>
+
+                        <span>Transaction</span>
+
+                    </div>
+
+
+                    <div class="vbs-keyword-line">
+
+                        <span>
+                            rental properties in UAE
+                        </span>
+
+                        <strong>#9</strong>
+
+                        <span class="vbs-growth">
+                            ↑ 12
+                        </span>
+
+                        <span>Commercial</span>
+
+                    </div>
+
+
+                    <div class="vbs-keyword-line">
+
+                        <span>
+                            chinese restaurant in Dubai
+                        </span>
+
+                        <strong>#6</strong>
+
+                        <span class="vbs-growth">
+                            ↑ 4
+                        </span>
+
+                        <span>Local</span>
+
+                    </div>
+
+
+                    <div class="vbs-keyword-line">
+
+                        <span>
+                            beautiful abayas in UAE
+                        </span>
+
+                        <strong>#8</strong>
+
+                        <span class="vbs-growth">
+                            ↑ 9
+                        </span>
+
+                        <span>Shopping</span>
+
+                    </div>
+
+                </div>
+
+                <p class="text-center mt-4 mb-0">
+                    <small>
+                        Example dashboard data shown for presentation purposes.
+                        Actual SEO results vary by website, industry, market and campaign.
+                    </small>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SEARCH TO SALES FUNNEL
+        ===================================================== -->
+
+        <section class="vbs-section vbs-section-dark">
+
+            <div class="vbs-container text-center">
+
+                <span class="vbs-section-tag">
+                    The Growth Journey
+                </span>
+
+                <h2 class="vbs-section-title">
+                    Rankings Are Only The Beginning.
+                </h2>
+
+                <p class="vbs-section-intro mx-auto">
+                    The real objective is to turn search visibility into
+                    meaningful customer actions and measurable business growth.
+                </p>
 
 
                 <div class="vbs-funnel">
@@ -3064,19 +2668,19 @@
                     </div>
 
                     <div class="vbs-funnel-step">
-                        Qualified Traffic
+                        Website Traffic
                     </div>
 
                     <div class="vbs-funnel-step">
-                        Website Engagement
+                        Engagement
                     </div>
 
                     <div class="vbs-funnel-step">
-                        Enquiries &amp; Leads
+                        Qualified Enquiries
                     </div>
 
                     <div class="vbs-funnel-step">
-                        Business Opportunities
+                        Business Growth
                     </div>
 
                 </div>
@@ -3086,51 +2690,32 @@
         </section>
 
 
-
         <!-- =====================================================
              FINAL CTA
-        ====================================================== -->
+        ===================================================== -->
 
         <section class="vbs-final-cta">
 
-            <div class="vbs-container">
+            <div class="vbs-container text-center">
 
-                <div class="vbs-label"
-                    style="background:rgba(255,255,255,.08);
-                           border-color:rgba(255,255,255,.15);
-                           color:#93c5fd;">
-
-                    READY TO COMPETE?
-
-                </div>
-
+                <span class="vbs-section-tag">
+                    Ready To Grow?
+                </span>
 
                 <h2>
-
-                    Let's Put Your Business
-                    <br>
+                    Let's Put Your Business<br>
                     Where Customers Search.
-
                 </h2>
 
-
                 <p>
-
-                    Build a search strategy designed around rankings,
-                    visibility, qualified traffic and measurable business
-                    opportunities.
-
+                    Build stronger organic visibility, improve search
+                    presence and turn high-intent searches into real
+                    business opportunities.
                 </p>
 
-
-                <a href="contact.html"
-                    class="vbs-btn vbs-btn-primary"
-                    style="background:#fff;color:#111827 !important;">
-
+                <a href="contact.html" class="vbs-primary-btn">
                     Start Your SEO Strategy
-
                     <i class="fa-solid fa-arrow-right"></i>
-
                 </a>
 
             </div>
@@ -3141,68 +2726,56 @@
     </main>
 
 
-
     <!-- =========================================================
          FOOTER
-    ========================================================== -->
+    ========================================================= -->
 
-    <footer class="footer-section footer-section-main fix">
+    <footer class="footer-section footer-1">
 
         <div class="container">
 
-            <div class="row g-lg-0 g-4 justify-content-between">
+            <div class="footer-widgets-wrapper">
 
-                <div class="col-lg-7">
+                <div class="row g-4">
 
-                    <div class="left-side-footer">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
 
-                        <div class="left-area">
+                        <div class="single-footer-widget">
 
-                            <div class="serial text-nowrap wow fadeInLeft"
-                                data-wow-delay="0.3s">
+                            <div class="widget-head">
 
-                                Creative
-
-                            </div>
-
-                            <h2 class="visible-from-bottom">
-                                360 Degree Marketing
-                            </h2>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="location-area-wrap">
-
-                        <div class="location-area-item">
-
-                            <div class="text-location">
-                                Location
-                            </div>
-
-                            <div class="text-name visible-from-bottom">
-
-                                Dubai <br>
-                                UAE
+                                <a href="index.html">
+                                    <img src="assets/img/logo/logo-big.png"
+                                        alt="Vector Business Solutions">
+                                </a>
 
                             </div>
 
-                        </div>
+                            <div class="footer-content">
 
+                                <p>
+                                    Smart Solutions. Stronger Business.
+                                </p>
 
-                        <div class="location-area-item">
+                                <div class="social-icon d-flex align-items-center">
 
-                            <div class="text-location">
-                                CONTACT US
-                            </div>
+                                    <a href="#">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
 
-                            <div class="text-name">
+                                    <a href="#">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
 
-                                +971 54 317 5867
-                                <br>
-                                fahadanwarhassan@gmail.com
+                                    <a href="#">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+
+                                    <a href="#">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+
+                                </div>
 
                             </div>
 
@@ -3210,65 +2783,133 @@
 
                     </div>
 
-                </div>
+
+                    <div class="col-xl-2 col-lg-2 col-md-6">
+
+                        <div class="single-footer-widget">
+
+                            <div class="widget-head">
+                                <h4>Quick Links</h4>
+                            </div>
+
+                            <ul class="list-area">
+
+                                <li>
+                                    <a href="index.html">
+                                        Home
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="about.html">
+                                        About
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="team.html">
+                                        Team
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="testimonial.html">
+                                        Testimonials
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="contact.html">
+                                        Contact
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
 
 
-                <div class="col-lg-5">
+                    <div class="col-xl-3 col-lg-3 col-md-6">
 
-                    <div class="right-side-footer">
+                        <div class="single-footer-widget">
 
-                        <h3 class="wow fadeInUp"
-                            data-wow-delay="0.3s">
+                            <div class="widget-head">
+                                <h4>Services</h4>
+                            </div>
 
-                            Quick Links
+                            <ul class="list-area">
 
-                        </h3>
+                                <li>
+                                    <a href="website-design-and-development.html">
+                                        Website Design
+                                    </a>
+                                </li>
 
+                                <li>
+                                    <a href="google-and-meta-ads.html">
+                                        Google & Meta Ads
+                                    </a>
+                                </li>
 
-                        <ul class="r-link wow fadeInUp"
-                            data-wow-delay="0.4s">
+                                <li>
+                                    <a href="social-media-management.html">
+                                        Social Media
+                                    </a>
+                                </li>
 
-                            <li>
-                                <a href="blog.html">
-                                    News &amp; Articles
-                                </a>
-                            </li>
+                                <li>
+                                    <a href="graphics-designing.html">
+                                        Graphics Design
+                                    </a>
+                                </li>
 
-                            <li>
-                                <a href="service.html">
-                                    Services
-                                </a>
-                            </li>
+                                <li>
+                                    <a href="seo.html">
+                                        SEO Services
+                                    </a>
+                                </li>
 
-                            <li>
-                                <a href="contact.html">
-                                    Contact Us
-                                </a>
-                            </li>
+                            </ul>
 
-                            <li>
-                                <a href="project.html">
-                                    Recent Work
-                                </a>
-                            </li>
+                        </div>
 
-                            <li>
-                                <a href="about.html">
-                                    About Us
-                                </a>
-                            </li>
-
-                        </ul>
+                    </div>
 
 
-                        <a href="index.html"
-                            class="footer-logo-big wow fadeInUp"
-                            data-wow-delay="0.5s">
+                    <div class="col-xl-3 col-lg-3 col-md-6">
 
-                            <img src="assets/img/logo/logo-big.png"
-                                alt="Vector Business Solutions">
+                        <div class="single-footer-widget">
 
-                        </a>
+                            <div class="widget-head">
+                                <h4>Contact</h4>
+                            </div>
+
+                            <ul class="list-area">
+
+                                <li>
+                                    <i class="fa-solid fa-phone"></i>
+                                    <a href="tel:+971543175867">
+                                        +971 54 317 5867
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <a href="mailto:fahadanwarhassan@gmail.com">
+                                        fahadanwarhassan@gmail.com
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Dubai, UAE
+                                </li>
+
+                            </ul>
+
+                        </div>
 
                     </div>
 
@@ -3279,41 +2920,24 @@
         </div>
 
 
-        <div class="footer-bottom py-4">
+        <div class="footer-bottom">
 
             <div class="container">
 
-                <div class="justify-content-md-between justify-content-center d-flex flex-md-nowrap flex-wrap gap-3">
+                <div class="footer-bottom-wrapper">
 
-                    <p class="text-white opacity-75 wow fadeInLeft body-font"
-                        data-wow-delay=".3s">
-
-                        &copy; 2026
-
-                        <a href="index.html"
-                            class="text-p1">
-
-                            Fahad Anwar.
-
-                        </a>
-
-                        All Rights Reserved.
-
+                    <p class="mb-0">
+                        © 2026 Vector Business Solutions. All Rights Reserved.
                     </p>
 
+                    <div class="footer-bottom-list">
 
-                    <div class="footer-bottom-link">
-
-                        <a href="contact.html">
-                            Terms &amp; Conditions
-                        </a>
-
-                        <a href="contact.html">
-                            //
-                        </a>
-
-                        <a href="contact.html">
+                        <a href="#">
                             Privacy Policy
+                        </a>
+
+                        <a href="#">
+                            Terms & Conditions
                         </a>
 
                     </div>
@@ -3327,17 +2951,17 @@
     </footer>
 
 
-
     <!-- =========================================================
          SEARCH OVERLAY
-    ========================================================== -->
+    ========================================================= -->
 
     <div class="search-wrap">
 
         <div class="search-inner">
 
-            <i class="fas fa-times search-close"
-                id="search-close"></i>
+            <div class="search-close">
+                <i class="fas fa-times"></i>
+            </div>
 
             <div class="search-cell">
 
@@ -3360,104 +2984,73 @@
     </div>
 
 
-
     <!-- =========================================================
-         ARIGO JAVASCRIPT
-    ========================================================== -->
+         JAVASCRIPT
+    ========================================================= -->
 
-    <!-- All JS Plugins -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
-
-    <!-- Viewport Js -->
     <script src="assets/js/viewport.jquery.js"></script>
-
-    <!-- Bootstrap Js -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Nice Select Js -->
     <script src="assets/js/jquery.nice-select.min.js"></script>
-
-    <!-- Swiper slider Js -->
     <script src="assets/js/swiper-bundle.min.js"></script>
-
-    <!-- Waypoints Js -->
     <script src="assets/js/jquery.waypoints.js"></script>
-
-    <!-- Counterup Js -->
     <script src="assets/js/jquery.counterup.min.js"></script>
-
-    <!-- Swiper Slider Js -->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-
-    <!-- MeanMenu Js -->
+    <script src="assets/js/jquery.swiper-bundle.min.js"></script>
     <script src="assets/js/jquery.meanmenu.min.js"></script>
-
-    <!-- Magnific Popup Js -->
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
-
-    <!-- Wow Animation Js -->
     <script src="assets/js/wow.min.js"></script>
-
-    <!-- Gsap Js -->
     <script src="assets/js/gsap.min.js"></script>
-
-    <!-- Lenis Js -->
     <script src="assets/js/lenis.min.js"></script>
-
-    <!-- ScrollSmoother Js -->
     <script src="assets/js/scrollSmoother.js"></script>
-
-    <!-- ScrollTrigger Js -->
     <script src="assets/js/ScrollTrigger.min.js"></script>
-
-    <!-- Split Text Js -->
     <script src="assets/js/spilitext-gsap.js"></script>
-
-    <!-- Vanilla Tilt Js -->
     <script src="assets/js/vanilla-tilt.min.js"></script>
-
-    <!-- Main.js -->
     <script src="assets/js/main.js"></script>
 
 
     <!-- =========================================================
-         SEO PAGE CUSTOM JS
-    ========================================================== -->
+         SEO PAGE JS
+    ========================================================= -->
 
     <script>
 
         document.addEventListener("DOMContentLoaded", function () {
 
             /*
-             * Make sure SEO page headings remain dark
-             * even if Arigo's main.css adds text-white.
+             * Prevent Arigo theme heading rules from changing
+             * our SEO page heading colors.
              */
 
-            const seoPage = document.querySelector(".vbs-seo-page");
+            document.querySelectorAll(
+                '.vbs-seo-page h1, .vbs-seo-page h2, .vbs-seo-page h3, .vbs-seo-page h4'
+            ).forEach(function (heading) {
 
-            if (seoPage) {
+                if (
+                    !heading.closest('.vbs-section-dark') &&
+                    !heading.closest('.vbs-final-cta')
+                ) {
+                    heading.style.color = '#111827';
+                }
 
-                const headings = seoPage.querySelectorAll(
-                    "h1, h2, h3, h4, h5, h6"
-                );
+            });
 
-                headings.forEach(function (heading) {
 
-                    /*
-                     * Do not override dark AI CTA headings
-                     * which intentionally use white text.
-                     */
+            /*
+             * Make sure the SEO hero lines stay as
+             * separate blocks after theme JS loads.
+             */
 
-                    if (!heading.closest(".vbs-ai-card") &&
-                        !heading.closest(".vbs-final-cta")) {
+            const heroLines = document.querySelectorAll(
+                '.vbs-hero-title .hero-line'
+            );
 
-                        heading.style.color = "#111827";
+            heroLines.forEach(function (line) {
 
-                    }
+                line.style.display = 'block';
+                line.style.margin = '0';
+                line.style.padding = '0';
 
-                });
-
-            }
+            });
 
         });
 
@@ -3467,3 +3060,4 @@
 </body>
 
 </html>
+```
