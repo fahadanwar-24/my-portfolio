@@ -83,6 +83,78 @@
     gap: 0 !important;
 }
 
+/* Every line */
+.vbs-seo-page .vbs-hero-title > span {
+    display: block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-family: "Space Grotesk", sans-serif !important;
+    font-size: inherit !important;
+    font-weight: 700 !important;
+    line-height: 1.03 !important;
+    letter-spacing: -3.2px !important;
+
+    color: #111827 !important;
+    text-transform: none !important;
+}
+
+/* Gradient ONLY on Get Ranked */
+.vbs-seo-page .vbs-hero-title > .vbs-gradient-text {
+    background: linear-gradient(
+        90deg,
+        #2563eb 0%,
+        #4f46e5 50%,
+        #7c3aed 100%
+    ) !important;
+
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+}
+
+/* Kill anything Arigo may inject */
+.vbs-seo-page .vbs-hero-title::before,
+.vbs-seo-page .vbs-hero-title::after,
+.vbs-seo-page .vbs-hero-title span::before,
+.vbs-seo-page .vbs-hero-title span::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+
+    .vbs-seo-page .vbs-hero-title {
+        font-size: 64px !important;
+        line-height: 1.02 !important;
+        letter-spacing: -2.5px !important;
+    }
+
+    .vbs-seo-page .vbs-hero-title > span {
+        line-height: 1.02 !important;
+        letter-spacing: -2.5px !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+
+    .vbs-seo-page .vbs-hero-title {
+        font-size: 48px !important;
+        line-height: 1.04 !important;
+        letter-spacing: -2px !important;
+        margin: 18px 0 24px !important;
+    }
+
+    .vbs-seo-page .vbs-hero-title > span {
+        line-height: 1.04 !important;
+        letter-spacing: -2px !important;
+    }
+}
 
         /* =====================================================
            IMPORTANT:
