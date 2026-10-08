@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-     <head>
-     <!-- ========== Meta Tags ========== -->
+
+<head>
+
+    <!-- ========== Meta Tags ========== -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="authorName">
-    <meta name="description" content="Arigo - Creative Agency & Portfolio HTML Template">
-    <title>SEO Services to get Top Rank in Google | Search Engine Optimization</title>
+
+    <meta name="author" content="Vector Business Solutions">
+
+    <meta name="description"
+          content="SEO services in Dubai and UAE focused on Google rankings, technical SEO, local SEO, Google Maps, AEO, GEO, AI search optimization, organic traffic and qualified lead generation.">
+
+    <meta name="keywords"
+          content="SEO services Dubai, SEO company Dubai, search engine optimization UAE, Google ranking Dubai, local SEO Dubai, Google Maps SEO, AEO services, GEO services, AI SEO, SEO UAE, technical SEO, real estate SEO Dubai, construction SEO Dubai">
+
+    <title>SEO Services to Get Top Rank in Google | Search Engine Optimization</title>
 
     <link rel="shortcut icon" href="assets/img/logo/favs.png">
+
+    <!-- Arigo CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/animate.css">
@@ -19,1725 +30,1847 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/main.css">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<!-- =========================================================
-     VECTOR BUSINESS SOLUTIONS
-     SEO SERVICES PAGE - ARIGO THEME
-     Banner + Body Only
-========================================================= -->
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-
-
-<style>
-
-/* =========================================================
-   VECTORBS SEO PAGE
-========================================================= */
-
-.vbs-seo-page {
-    --vbs-blue: #1646c8;
-    --vbs-blue-dark: #0c2d91;
-    --vbs-navy: #071632;
-    --vbs-maroon: #711d38;
-    --vbs-purple: #6545d8;
-    --vbs-green: #15966c;
-    --vbs-orange: #e88425;
-    --vbs-text: #111827;
-    --vbs-muted: #687386;
-    --vbs-border: #e7eaf0;
-    --vbs-soft: #f6f8fc;
-    --vbs-shadow: 0 20px 60px rgba(18, 42, 86, .09);
-
-    font-family: 'Inter', sans-serif;
-    color: var(--vbs-text);
-    background: #ffffff;
-    overflow: hidden;
-}
-
-.vbs-seo-page *,
-.vbs-seo-page *::before,
-.vbs-seo-page *::after {
-    box-sizing: border-box;
-}
-
-.vbs-seo-page h1,
-.vbs-seo-page h2,
-.vbs-seo-page h3,
-.vbs-seo-page h4 {
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-.vbs-seo-container {
-    width: min(1200px, calc(100% - 40px));
-    margin: 0 auto;
-}
-
-.vbs-seo-section {
-    padding: 100px 0;
-}
-
-.vbs-seo-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    border: 1px solid #dce5ff;
-    background: #f5f8ff;
-    border-radius: 50px;
-    color: var(--vbs-blue);
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
-}
-
-.vbs-seo-eyebrow span {
-    width: 7px;
-    height: 7px;
-    background: #24b47e;
-    border-radius: 50%;
-    box-shadow: 0 0 0 5px rgba(36,180,126,.12);
-}
-
-
-/* =========================================================
-   HERO BANNER
-========================================================= */
-
-.vbs-seo-hero {
-    position: relative;
-    min-height: 720px;
-    display: flex;
-    align-items: center;
-    background:
-        radial-gradient(circle at 88% 20%, rgba(91,70,210,.12), transparent 28%),
-        radial-gradient(circle at 10% 90%, rgba(22,70,200,.09), transparent 30%),
-        #ffffff;
-    border-bottom: 1px solid #edf0f5;
-}
-
-.vbs-seo-hero::before {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    border: 1px solid rgba(22,70,200,.08);
-    border-radius: 50%;
-    right: -170px;
-    top: -140px;
-}
-
-.vbs-seo-hero::after {
-    content: "";
-    position: absolute;
-    width: 360px;
-    height: 360px;
-    border: 1px dashed rgba(113,29,56,.12);
-    border-radius: 50%;
-    right: -100px;
-    top: -70px;
-}
-
-.vbs-seo-hero-grid {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1.02fr .98fr;
-    align-items: center;
-    gap: 70px;
-}
-
-.vbs-seo-hero h1 {
-    margin: 24px 0 22px;
-    font-size: clamp(44px, 5vw, 72px);
-    line-height: 1.03;
-    letter-spacing: -2.5px;
-    font-weight: 700;
-}
-
-.vbs-seo-hero h1 .blue {
-    color: var(--vbs-blue);
-}
-
-.vbs-seo-hero h1 .gradient {
-    background: linear-gradient(100deg, #1646c8, #711d38, #6545d8);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.vbs-seo-hero-text {
-    max-width: 650px;
-    color: var(--vbs-muted);
-    font-size: 18px;
-    line-height: 1.8;
-}
-
-.vbs-seo-hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 34px;
-}
-
-.vbs-seo-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    min-height: 52px;
-    padding: 0 24px;
-    border-radius: 9px;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: .3s ease;
-}
-
-.vbs-seo-btn-primary {
-    background: var(--vbs-navy);
-    color: #fff;
-    box-shadow: 0 12px 25px rgba(7,22,50,.18);
-}
-
-.vbs-seo-btn-primary:hover {
-    background: var(--vbs-blue);
-    color: #fff;
-    transform: translateY(-2px);
-}
-
-.vbs-seo-btn-outline {
-    color: var(--vbs-navy);
-    border: 1px solid #d8dee9;
-    background: #fff;
-}
-
-.vbs-seo-btn-outline:hover {
-    color: var(--vbs-blue);
-    border-color: var(--vbs-blue);
-}
-
-
-/* =========================================================
-   HERO SEO COMMAND CENTER
-========================================================= */
-
-.vbs-seo-command {
-    position: relative;
-    background: #071632;
-    border-radius: 22px;
-    padding: 20px;
-    box-shadow: 0 30px 80px rgba(7,22,50,.22);
-    transform: perspective(1200px) rotateY(-3deg);
-}
-
-.vbs-command-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 3px 4px 15px;
-    color: #fff;
-}
-
-.vbs-command-title {
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.vbs-command-live {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 10px;
-    color: #8ce1c2;
-}
-
-.vbs-command-live i {
-    width: 7px;
-    height: 7px;
-    background: #27c48b;
-    border-radius: 50%;
-    box-shadow: 0 0 0 5px rgba(39,196,139,.12);
-}
-
-.vbs-command-screen {
-    background: #f8faff;
-    border-radius: 14px;
-    padding: 17px;
-}
-
-.vbs-command-search {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #fff;
-    border: 1px solid #e7eaf0;
-    border-radius: 8px;
-    height: 42px;
-    padding: 0 12px;
-    font-size: 11px;
-    color: #687386;
-    margin-bottom: 15px;
-}
-
-.vbs-command-search i {
-    color: var(--vbs-blue);
-}
-
-.vbs-command-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
-.vbs-command-stat {
-    background: #fff;
-    border: 1px solid #e8ebf1;
-    border-radius: 10px;
-    padding: 13px;
-}
-
-.vbs-command-stat small {
-    display: block;
-    color: #7b8494;
-    font-size: 9px;
-    margin-bottom: 6px;
-}
-
-.vbs-command-stat strong {
-    font-family: 'Space Grotesk';
-    font-size: 20px;
-    color: #071632;
-}
-
-.vbs-up {
-    color: #15966c !important;
-}
-
-.vbs-command-chart {
-    position: relative;
-    height: 150px;
-    background: #fff;
-    border: 1px solid #e8ebf1;
-    border-radius: 10px;
-    margin-top: 10px;
-    overflow: hidden;
-}
-
-.vbs-chart-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(#edf1f6 1px, transparent 1px),
-        linear-gradient(90deg, #edf1f6 1px, transparent 1px);
-    background-size: 100% 30px, 60px 100%;
-}
-
-.vbs-chart-line {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 15px;
-    height: 110px;
-}
-
-.vbs-chart-line svg {
-    width: 100%;
-    height: 100%;
-}
-
-.vbs-command-keywords {
-    margin-top: 10px;
-    display: grid;
-    gap: 7px;
-}
-
-.vbs-keyword-mini {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fff;
-    border: 1px solid #e8ebf1;
-    border-radius: 8px;
-    padding: 9px 11px;
-    font-size: 10px;
-}
-
-.vbs-keyword-mini b {
-    font-size: 11px;
-}
-
-.vbs-rank-up {
-    color: #15966c;
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   TRUST STRIP
-========================================================= */
-
-.vbs-seo-trust {
-    border-bottom: 1px solid var(--vbs-border);
-    border-top: 1px solid var(--vbs-border);
-    padding: 24px 0;
-    background: #fff;
-}
-
-.vbs-trust-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.vbs-trust-label {
-    color: #7a8392;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-}
-
-.vbs-trust-items {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    flex-wrap: wrap;
-}
-
-.vbs-trust-item {
-    font-family: 'Space Grotesk';
-    font-weight: 700;
-    color: #1c2940;
-    font-size: 14px;
-}
-
-.vbs-trust-item span {
-    color: var(--vbs-blue);
-}
-
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-.vbs-seo-intro {
-    text-align: center;
-    max-width: 850px;
-    margin: 0 auto 55px;
-}
-
-.vbs-seo-intro h2 {
-    font-size: clamp(32px, 4vw, 50px);
-    line-height: 1.1;
-    margin: 18px 0;
-}
-
-.vbs-seo-intro p {
-    color: var(--vbs-muted);
-    line-height: 1.8;
-    font-size: 16px;
-}
-
-
-/* =========================================================
-   SERVICE CARDS
-========================================================= */
-
-.vbs-seo-service-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.vbs-seo-service-card {
-    position: relative;
-    padding: 30px;
-    border: 1px solid var(--vbs-border);
-    border-radius: 16px;
-    background: #fff;
-    transition: .35s ease;
-    overflow: hidden;
-}
-
-.vbs-seo-service-card:hover {
-    transform: translateY(-7px);
-    box-shadow: var(--vbs-shadow);
-    border-color: #ccd7f2;
-}
-
-.vbs-seo-service-card::after {
-    content: "";
-    position: absolute;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: rgba(22,70,200,.045);
-    right: -30px;
-    top: -30px;
-}
-
-.vbs-service-icon {
-    width: 54px;
-    height: 54px;
-    display: grid;
-    place-items: center;
-    background: #f0f4ff;
-    color: var(--vbs-blue);
-    border-radius: 13px;
-    font-size: 20px;
-    margin-bottom: 22px;
-}
-
-.vbs-seo-service-card h3 {
-    font-size: 21px;
-    margin: 0 0 12px;
-}
-
-.vbs-seo-service-card p {
-    color: var(--vbs-muted);
-    font-size: 14px;
-    line-height: 1.75;
-    margin: 0;
-}
-
-.vbs-service-tag {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 5px 9px;
-    background: #f6f7fa;
-    border-radius: 5px;
-    font-size: 9px;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: .6px;
-    color: #6b7280;
-}
-
-
-/* =========================================================
-   SEO / AEO / GEO
-========================================================= */
-
-.vbs-seo-ai-section {
-    background:
-        radial-gradient(circle at 90% 10%, rgba(101,69,216,.08), transparent 28%),
-        #f7f9fc;
-}
-
-.vbs-ai-grid {
-    display: grid;
-    grid-template-columns: .9fr 1.1fr;
-    gap: 70px;
-    align-items: center;
-}
-
-.vbs-ai-copy h2 {
-    font-size: clamp(34px, 4vw, 50px);
-    line-height: 1.1;
-    margin: 20px 0;
-}
-
-.vbs-ai-copy p {
-    color: var(--vbs-muted);
-    line-height: 1.8;
-}
-
-.vbs-ai-list {
-    margin-top: 30px;
-    display: grid;
-    gap: 13px;
-}
-
-.vbs-ai-list-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.vbs-ai-check {
-    width: 24px;
-    height: 24px;
-    min-width: 24px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: #e7f8f1;
-    color: var(--vbs-green);
-    font-size: 11px;
-    margin-top: 1px;
-}
-
-.vbs-ai-list-item div {
-    font-size: 13px;
-    color: #3d4655;
-    line-height: 1.5;
-}
-
-.vbs-ai-list-item strong {
-    display: block;
-    color: #111827;
-    margin-bottom: 3px;
-}
-
-
-/* =========================================================
-   AI SEARCH BOX
-========================================================= */
-
-.vbs-ai-panel {
-    background: #fff;
-    border: 1px solid #e3e7ef;
-    border-radius: 18px;
-    padding: 20px;
-    box-shadow: var(--vbs-shadow);
-}
-
-.vbs-ai-panel-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 17px;
-    border-bottom: 1px solid #edf0f5;
-}
-
-.vbs-ai-panel-header strong {
-    font-family: 'Space Grotesk';
-    font-size: 14px;
-}
-
-.vbs-ai-platforms {
-    display: flex;
-    gap: 6px;
-}
-
-.vbs-platform {
-    font-size: 8px;
-    padding: 5px 7px;
-    border: 1px solid #e2e6ed;
-    border-radius: 5px;
-    font-weight: 700;
-}
-
-.vbs-ai-query {
-    margin: 17px 0;
-    padding: 13px 15px;
-    background: #f7f8fb;
-    border: 1px solid #e5e8ef;
-    border-radius: 8px;
-    font-size: 11px;
-    color: #596273;
-}
-
-.vbs-ai-result {
-    padding: 15px;
-    border: 1px solid #e7eaf0;
-    border-radius: 10px;
-    margin-bottom: 9px;
-}
-
-.vbs-ai-result:last-child {
-    margin-bottom: 0;
-}
-
-.vbs-ai-result-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 7px;
-}
-
-.vbs-ai-result-title {
-    font-size: 12px;
-    font-weight: 700;
-    color: #17233a;
-}
-
-.vbs-ai-result-score {
-    color: var(--vbs-green);
-    font-size: 10px;
-    font-weight: 700;
-}
-
-.vbs-ai-result p {
-    color: #7a8494;
-    font-size: 9px;
-    line-height: 1.5;
-    margin: 0;
-}
-
-
-/* =========================================================
-   DUBAI KEYWORD RESULTS
-========================================================= */
-
-.vbs-results-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 30px;
-    margin-bottom: 35px;
-}
-
-.vbs-results-header h2 {
-    margin: 15px 0 0;
-    font-size: clamp(32px, 4vw, 47px);
-}
-
-.vbs-results-header p {
-    color: var(--vbs-muted);
-    max-width: 520px;
-    line-height: 1.7;
-    margin: 0;
-}
-
-.vbs-keyword-table {
-    border: 1px solid var(--vbs-border);
-    border-radius: 16px;
-    overflow: hidden;
-    background: #fff;
-}
-
-.vbs-keyword-head,
-.vbs-keyword-row {
-    display: grid;
-    grid-template-columns: 2.25fr 1.1fr .7fr .8fr 1fr;
-    align-items: center;
-    gap: 15px;
-}
-
-.vbs-keyword-head {
-    padding: 14px 20px;
-    background: #071632;
-    color: #fff;
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: .7px;
-    font-weight: 700;
-}
-
-.vbs-keyword-row {
-    padding: 18px 20px;
-    border-bottom: 1px solid #edf0f4;
-}
-
-.vbs-keyword-row:last-child {
-    border-bottom: 0;
-}
-
-.vbs-keyword {
-    font-weight: 700;
-    font-size: 12px;
-}
-
-.vbs-keyword-company {
-    font-size: 10px;
-    color: #7a8492;
-    margin-top: 4px;
-}
-
-.vbs-position {
-    display: inline-flex;
-    width: 30px;
-    height: 30px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 7px;
-    background: #eef3ff;
-    color: var(--vbs-blue);
-    font-family: 'Space Grotesk';
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.vbs-change {
-    color: var(--vbs-green);
-    font-size: 11px;
-    font-weight: 700;
-}
-
-.vbs-intent {
-    display: inline-block;
-    font-size: 9px;
-    font-weight: 700;
-    padding: 5px 7px;
-    border-radius: 5px;
-    background: #f3f4f7;
-    color: #626b79;
-}
-
-.vbs-visibility {
-    font-weight: 700;
-    font-size: 11px;
-}
-
-
-/* =========================================================
-   BUSINESS RESULT CARDS
-========================================================= */
-
-.vbs-business-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 25px;
-}
-
-.vbs-business-card {
-    border: 1px solid var(--vbs-border);
-    border-radius: 14px;
-    padding: 22px;
-    background: #fff;
-    transition: .3s;
-}
-
-.vbs-business-card:hover {
-    box-shadow: var(--vbs-shadow);
-    transform: translateY(-4px);
-}
-
-.vbs-business-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.vbs-business-type {
-    font-size: 9px;
-    text-transform: uppercase;
-    color: #7b8492;
-    font-weight: 700;
-    letter-spacing: .6px;
-}
-
-.vbs-google-mark {
-    font-size: 10px;
-    font-weight: 700;
-    color: #4285f4;
-}
-
-.vbs-business-card h3 {
-    font-size: 18px;
-    margin: 0 0 7px;
-}
-
-.vbs-business-keyword {
-    color: var(--vbs-blue);
-    font-size: 11px;
-    font-weight: 600;
-    margin-bottom: 17px;
-}
-
-.vbs-business-ranking {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 15px;
-    border-top: 1px solid #edf0f4;
-}
-
-.vbs-business-ranking small {
-    font-size: 9px;
-    color: #7b8492;
-}
-
-.vbs-business-ranking strong {
-    font-family: 'Space Grotesk';
-    font-size: 21px;
-}
-
-
-/* =========================================================
-   INDUSTRIES
-========================================================= */
-
-.vbs-industries {
-    background: #071632;
-    color: #fff;
-}
-
-.vbs-industries .vbs-seo-eyebrow {
-    background: rgba(255,255,255,.07);
-    border-color: rgba(255,255,255,.13);
-    color: #bcd0ff;
-}
-
-.vbs-industries h2 {
-    font-size: clamp(34px, 4vw, 50px);
-    line-height: 1.1;
-    margin: 20px 0 15px;
-}
-
-.vbs-industries-intro {
-    max-width: 680px;
-    color: #9eabc0;
-    line-height: 1.8;
-}
-
-.vbs-industry-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 45px;
-}
-
-.vbs-industry {
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 12px;
-    padding: 22px;
-    background: rgba(255,255,255,.035);
-    transition: .3s;
-}
-
-.vbs-industry:hover {
-    background: rgba(255,255,255,.07);
-    transform: translateY(-3px);
-}
-
-.vbs-industry i {
-    color: #8eaaff;
-    font-size: 18px;
-    margin-bottom: 16px;
-}
-
-.vbs-industry h3 {
-    color: #fff;
-    font-size: 17px;
-    margin: 0 0 7px;
-}
-
-.vbs-industry p {
-    color: #8d99ad;
-    font-size: 11px;
-    line-height: 1.6;
-    margin: 0;
-}
-
-
-/* =========================================================
-   ANALYTICS DASHBOARD
-========================================================= */
-
-.vbs-dashboard-section {
-    background: #f7f9fc;
-}
-
-.vbs-dashboard {
-    background: #fff;
-    border: 1px solid #e3e7ee;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: var(--vbs-shadow);
-}
-
-.vbs-dashboard-top {
-    padding: 20px 24px;
-    border-bottom: 1px solid #e7eaf0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.vbs-dashboard-brand {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-}
-
-.vbs-dashboard-logo {
-    width: 34px;
-    height: 34px;
-    display: grid;
-    place-items: center;
-    border-radius: 8px;
-    background: var(--vbs-blue);
-    color: #fff;
-    font-weight: 700;
-    font-family: 'Space Grotesk';
-}
-
-.vbs-dashboard-brand strong {
-    display: block;
-    font-size: 13px;
-}
-
-.vbs-dashboard-brand small {
-    color: #8490a0;
-    font-size: 9px;
-}
-
-.vbs-dashboard-period {
-    border: 1px solid #e3e7ee;
-    padding: 8px 12px;
-    border-radius: 7px;
-    color: #667085;
-    font-size: 10px;
-}
-
-.vbs-dashboard-body {
-    padding: 22px;
-}
-
-.vbs-dashboard-metrics {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-}
-
-.vbs-metric {
-    border: 1px solid #e7eaf0;
-    border-radius: 10px;
-    padding: 15px;
-}
-
-.vbs-metric small {
-    display: block;
-    color: #7a8494;
-    font-size: 9px;
-    margin-bottom: 8px;
-}
-
-.vbs-metric strong {
-    font-family: 'Space Grotesk';
-    font-size: 22px;
-}
-
-.vbs-metric-change {
-    display: block;
-    margin-top: 5px;
-    color: #15966c;
-    font-size: 9px;
-    font-weight: 700;
-}
-
-.vbs-dashboard-main {
-    display: grid;
-    grid-template-columns: 1.5fr .8fr;
-    gap: 14px;
-    margin-top: 14px;
-}
-
-.vbs-dashboard-box {
-    border: 1px solid #e7eaf0;
-    border-radius: 10px;
-    padding: 18px;
-}
-
-.vbs-dashboard-box h4 {
-    margin: 0 0 17px;
-    font-size: 13px;
-}
-
-.vbs-big-chart {
-    height: 240px;
-    position: relative;
-    overflow: hidden;
-}
-
-.vbs-big-chart-grid {
-    position: absolute;
-    inset: 0;
-    background-image: linear-gradient(#eef1f5 1px, transparent 1px);
-    background-size: 100% 48px;
-}
-
-.vbs-big-chart svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.vbs-source-list {
-    display: grid;
-    gap: 13px;
-}
-
-.vbs-source {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 8px;
-}
-
-.vbs-source-name {
-    font-size: 10px;
-    font-weight: 600;
-}
-
-.vbs-source-value {
-    font-size: 10px;
-    font-weight: 700;
-}
-
-.vbs-progress {
-    grid-column: 1 / -1;
-    height: 5px;
-    background: #edf0f4;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.vbs-progress span {
-    display: block;
-    height: 100%;
-    background: var(--vbs-blue);
-    border-radius: inherit;
-}
-
-
-/* =========================================================
-   SEARCH CONSOLE
-========================================================= */
-
-.vbs-search-console {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 16px;
-}
-
-.vbs-index-status {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 13px;
-    background: #f7faf8;
-    border: 1px solid #dff1e9;
-    border-radius: 8px;
-    margin-bottom: 9px;
-}
-
-.vbs-index-status-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.vbs-index-icon {
-    width: 28px;
-    height: 28px;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    background: #dcf5e9;
-    color: #15966c;
-    font-size: 10px;
-}
-
-.vbs-index-status strong {
-    font-size: 10px;
-}
-
-.vbs-index-status small {
-    display: block;
-    color: #788391;
-    font-size: 8px;
-    margin-top: 3px;
-}
-
-.vbs-index-number {
-    font-family: 'Space Grotesk';
-    font-weight: 700;
-    font-size: 16px;
-}
-
-
-/* =========================================================
-   LOCAL SEO / MAP
-========================================================= */
-
-.vbs-local-section {
-    position: relative;
-}
-
-.vbs-local-grid {
-    display: grid;
-    grid-template-columns: .85fr 1.15fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.vbs-local-copy h2 {
-    font-size: clamp(34px, 4vw, 49px);
-    line-height: 1.1;
-    margin: 18px 0;
-}
-
-.vbs-local-copy p {
-    color: var(--vbs-muted);
-    line-height: 1.8;
-}
-
-.vbs-local-features {
-    display: grid;
-    gap: 12px;
-    margin-top: 28px;
-}
-
-.vbs-local-feature {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.vbs-local-feature i {
-    width: 28px;
-    height: 28px;
-    display: grid;
-    place-items: center;
-    border-radius: 7px;
-    background: #eef3ff;
-    color: var(--vbs-blue);
-}
-
-.vbs-map-card {
-    position: relative;
-    background: #f2f5f8;
-    min-height: 450px;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid #dfe4eb;
-}
-
-.vbs-map-grid {
-    position: absolute;
-    inset: 0;
-    opacity: .55;
-    background-image:
-        linear-gradient(30deg, #d9dfe7 1px, transparent 1px),
-        linear-gradient(120deg, #d9dfe7 1px, transparent 1px),
-        linear-gradient(90deg, #e4e8ed 1px, transparent 1px);
-    background-size: 95px 95px, 130px 130px, 65px 65px;
-}
-
-.vbs-map-road {
-    position: absolute;
-    background: #fff;
-    border: 1px solid #d8dee6;
-    height: 34px;
-    width: 120%;
-    transform: rotate(-17deg);
-    left: -50px;
-    top: 190px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.04);
-}
-
-.vbs-map-road.two {
-    transform: rotate(31deg);
-    top: 100px;
-}
-
-.vbs-map-road.three {
-    transform: rotate(-55deg);
-    top: 320px;
-}
-
-.vbs-map-business {
-    position: absolute;
-    background: #fff;
-    border: 1px solid #e1e5eb;
-    border-radius: 10px;
-    padding: 13px;
-    box-shadow: 0 12px 30px rgba(20,30,50,.12);
-    width: 230px;
-}
-
-.vbs-map-business.main {
-    left: 50%;
-    top: 48%;
-    transform: translate(-50%,-50%);
-}
-
-.vbs-map-business.small-one {
-    left: 9%;
-    top: 18%;
-}
-
-.vbs-map-business.small-two {
-    right: 7%;
-    bottom: 12%;
-}
-
-.vbs-map-pin {
-    width: 30px;
-    height: 30px;
-    border-radius: 50% 50% 50% 0;
-    transform: rotate(-45deg);
-    background: var(--vbs-blue);
-    color: #fff;
-    display: grid;
-    place-items: center;
-    margin-bottom: 10px;
-}
-
-.vbs-map-pin i {
-    transform: rotate(45deg);
-    font-size: 11px;
-}
-
-.vbs-map-business strong {
-    display: block;
-    font-family: 'Space Grotesk';
-    font-size: 13px;
-}
-
-.vbs-map-business small {
-    color: #788391;
-    font-size: 9px;
-    line-height: 1.5;
-}
-
-.vbs-map-stars {
-    color: #f39c35;
-    font-size: 9px;
-    margin-top: 6px;
-}
-
-
-/* =========================================================
-   REPORTING
-========================================================= */
-
-.vbs-reporting-section {
-    background: #f7f9fc;
-}
-
-.vbs-report-grid {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 15px;
-    margin-top: 40px;
-}
-
-.vbs-report-card {
-    background: #fff;
-    border: 1px solid #e3e7ed;
-    border-radius: 12px;
-    padding: 23px;
-}
-
-.vbs-report-card i {
-    font-size: 18px;
-    color: var(--vbs-blue);
-    margin-bottom: 17px;
-}
-
-.vbs-report-card h3 {
-    font-size: 16px;
-    margin: 0 0 8px;
-}
-
-.vbs-report-card p {
-    color: #788391;
-    font-size: 10px;
-    line-height: 1.65;
-    margin: 0;
-}
-
-
-/* =========================================================
-   PROCESS
-========================================================= */
-
-.vbs-process-grid {
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 12px;
-    margin-top: 50px;
-}
-
-.vbs-process {
-    position: relative;
-    padding: 25px 20px;
-    border: 1px solid var(--vbs-border);
-    border-radius: 12px;
-    background: #fff;
-}
-
-.vbs-process-number {
-    font-family: 'Space Grotesk';
-    color: #dce2ed;
-    font-size: 32px;
-    font-weight: 700;
-}
-
-.vbs-process h3 {
-    font-size: 15px;
-    margin: 10px 0 8px;
-}
-
-.vbs-process p {
-    font-size: 10px;
-    color: #7a8492;
-    line-height: 1.6;
-    margin: 0;
-}
-
-
-/* =========================================================
-   KEYWORD CLOUD
-========================================================= */
-
-.vbs-keyword-cloud {
-    background: #071632;
-    border-radius: 20px;
-    padding: 45px;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-}
-
-.vbs-keyword-cloud::after {
-    content: "";
-    position: absolute;
-    width: 450px;
-    height: 450px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,.07);
-    right: -150px;
-    top: -200px;
-}
-
-.vbs-keyword-cloud h2 {
-    position: relative;
-    z-index: 2;
-    font-size: 35px;
-    margin: 0 0 10px;
-}
-
-.vbs-keyword-cloud p {
-    position: relative;
-    z-index: 2;
-    color: #99a7bd;
-    font-size: 13px;
-    max-width: 650px;
-}
-
-.vbs-cloud {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-    margin-top: 28px;
-}
-
-.vbs-cloud span {
-    border: 1px solid rgba(255,255,255,.12);
-    background: rgba(255,255,255,.045);
-    padding: 9px 13px;
-    border-radius: 50px;
-    font-size: 10px;
-    color: #d7deeb;
-}
-
-
-/* =========================================================
-   CTA
-========================================================= */
-
-.vbs-seo-cta {
-    padding: 90px 0 110px;
-}
-
-.vbs-cta-box {
-    position: relative;
-    overflow: hidden;
-    border-radius: 22px;
-    background:
-        radial-gradient(circle at 90% 20%, rgba(101,69,216,.45), transparent 28%),
-        linear-gradient(120deg,#071632,#102b66);
-    padding: 65px;
-    text-align: center;
-    color: #fff;
-}
-
-.vbs-cta-box::before {
-    content: "";
-    position: absolute;
-    width: 420px;
-    height: 420px;
-    border: 1px solid rgba(255,255,255,.07);
-    border-radius: 50%;
-    left: -170px;
-    bottom: -260px;
-}
-
-.vbs-cta-box h2 {
-    position: relative;
-    z-index: 2;
-    font-size: clamp(32px, 4vw, 51px);
-    margin: 0 auto 17px;
-    line-height: 1.1;
-}
-
-.vbs-cta-box p {
-    position: relative;
-    z-index: 2;
-    color: #aebbd0;
-    max-width: 680px;
-    margin: 0 auto;
-    line-height: 1.7;
-}
-
-.vbs-cta-box .vbs-seo-btn {
-    position: relative;
-    z-index: 2;
-    margin-top: 28px;
-    background: #fff;
-    color: #071632;
-}
-
-.vbs-cta-box .vbs-seo-btn:hover {
-    background: #edf2ff;
-}
-
-
-/* =========================================================
-   ANIMATION
-========================================================= */
-
-.vbs-fade-up {
-    animation: vbsFadeUp .8s ease both;
-}
-
-@keyframes vbsFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =========================================================
+         VECTOR BUSINESS SOLUTIONS
+         SEO SERVICES PAGE
+    ========================================================= -->
+
+    <style>
+
+    /* =========================================================
+       VECTORBS SEO PAGE
+    ========================================================= */
+
+    .vbs-seo-page {
+        --vbs-blue: #1646c8;
+        --vbs-blue-dark: #0c2d91;
+        --vbs-navy: #071632;
+        --vbs-maroon: #711d38;
+        --vbs-purple: #6545d8;
+        --vbs-green: #15966c;
+        --vbs-orange: #e88425;
+        --vbs-text: #111827;
+        --vbs-muted: #687386;
+        --vbs-border: #e7eaf0;
+        --vbs-soft: #f6f8fc;
+        --vbs-shadow: 0 20px 60px rgba(18, 42, 86, .09);
+
+        font-family: 'Inter', sans-serif;
+        color: var(--vbs-text);
+        background: #ffffff;
+        overflow: hidden;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .vbs-seo-page *,
+    .vbs-seo-page *::before,
+    .vbs-seo-page *::after {
+        box-sizing: border-box;
     }
-}
 
+    .vbs-seo-page h1,
+    .vbs-seo-page h2,
+    .vbs-seo-page h3,
+    .vbs-seo-page h4 {
+        font-family: 'Space Grotesk', sans-serif;
+    }
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media(max-width: 991px) {
+    .vbs-seo-container {
+        width: min(1200px, calc(100% - 40px));
+        margin: 0 auto;
+    }
 
     .vbs-seo-section {
-        padding: 75px 0;
+        padding: 100px 0;
     }
+
+    .vbs-seo-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border: 1px solid #dce5ff;
+        background: #f5f8ff;
+        border-radius: 50px;
+        color: var(--vbs-blue);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.1px;
+    }
+
+    .vbs-seo-eyebrow span {
+        width: 7px;
+        height: 7px;
+        background: #24b47e;
+        border-radius: 50%;
+        box-shadow: 0 0 0 5px rgba(36,180,126,.12);
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
 
     .vbs-seo-hero {
-        min-height: auto;
-        padding: 90px 0;
+        position: relative;
+        min-height: 720px;
+        display: flex;
+        align-items: center;
+
+        background:
+            radial-gradient(circle at 88% 20%, rgba(91,70,210,.12), transparent 28%),
+            radial-gradient(circle at 10% 90%, rgba(22,70,200,.09), transparent 30%),
+            #ffffff;
+
+        border-bottom: 1px solid #edf0f5;
     }
 
-    .vbs-seo-hero-grid,
-    .vbs-ai-grid,
-    .vbs-local-grid {
-        grid-template-columns: 1fr;
-        gap: 45px;
+    .vbs-seo-hero::before {
+        content: "";
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border: 1px solid rgba(22,70,200,.08);
+        border-radius: 50%;
+        right: -170px;
+        top: -140px;
     }
+
+    .vbs-seo-hero::after {
+        content: "";
+        position: absolute;
+        width: 360px;
+        height: 360px;
+        border: 1px dashed rgba(113,29,56,.12);
+        border-radius: 50%;
+        right: -100px;
+        top: -70px;
+    }
+
+    .vbs-seo-hero-grid {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1.02fr .98fr;
+        align-items: center;
+        gap: 70px;
+    }
+
+    .vbs-seo-hero h1 {
+        margin: 24px 0 22px;
+        font-size: clamp(44px, 5vw, 72px);
+        line-height: 1.03;
+        letter-spacing: -2.5px;
+        font-weight: 700;
+    }
+
+    .vbs-seo-hero h1 .blue {
+        color: var(--vbs-blue);
+    }
+
+    .vbs-seo-hero h1 .gradient {
+        background: linear-gradient(100deg, #1646c8, #711d38, #6545d8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .vbs-seo-hero-text {
+        max-width: 650px;
+        color: var(--vbs-muted);
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    .vbs-seo-hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 34px;
+    }
+
+    .vbs-seo-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 52px;
+        padding: 0 24px;
+        border-radius: 9px;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: .3s ease;
+    }
+
+    .vbs-seo-btn-primary {
+        background: var(--vbs-navy);
+        color: #fff;
+        box-shadow: 0 12px 25px rgba(7,22,50,.18);
+    }
+
+    .vbs-seo-btn-primary:hover {
+        background: var(--vbs-blue);
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    .vbs-seo-btn-outline {
+        color: var(--vbs-navy);
+        border: 1px solid #d8dee9;
+        background: #fff;
+    }
+
+    .vbs-seo-btn-outline:hover {
+        color: var(--vbs-blue);
+        border-color: var(--vbs-blue);
+    }
+
+
+    /* =========================================================
+       HERO SEO COMMAND CENTER
+    ========================================================= */
 
     .vbs-seo-command {
-        transform: none;
+        position: relative;
+        background: #071632;
+        border-radius: 22px;
+        padding: 20px;
+        box-shadow: 0 30px 80px rgba(7,22,50,.22);
+        transform: perspective(1200px) rotateY(-3deg);
     }
 
-    .vbs-seo-service-grid,
-    .vbs-business-grid,
-    .vbs-industry-grid {
-        grid-template-columns: repeat(2,1fr);
+    .vbs-command-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3px 4px 15px;
+        color: #fff;
     }
 
-    .vbs-dashboard-metrics {
-        grid-template-columns: repeat(3,1fr);
+    .vbs-command-title {
+        font-size: 13px;
+        font-weight: 700;
     }
 
-    .vbs-dashboard-main {
-        grid-template-columns: 1fr;
+    .vbs-command-live {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 10px;
+        color: #8ce1c2;
     }
 
-    .vbs-report-grid {
-        grid-template-columns: repeat(2,1fr);
+    .vbs-command-live i {
+        width: 7px;
+        height: 7px;
+        background: #27c48b;
+        border-radius: 50%;
+        box-shadow: 0 0 0 5px rgba(39,196,139,.12);
     }
 
-    .vbs-process-grid {
-        grid-template-columns: repeat(2,1fr);
+    .vbs-command-screen {
+        background: #f8faff;
+        border-radius: 14px;
+        padding: 17px;
+    }
+
+    .vbs-command-search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        border: 1px solid #e7eaf0;
+        border-radius: 8px;
+        height: 42px;
+        padding: 0 12px;
+        font-size: 11px;
+        color: #687386;
+        margin-bottom: 15px;
+    }
+
+    .vbs-command-search i {
+        color: var(--vbs-blue);
+    }
+
+    .vbs-command-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .vbs-command-stat {
+        background: #fff;
+        border: 1px solid #e8ebf1;
+        border-radius: 10px;
+        padding: 13px;
+    }
+
+    .vbs-command-stat small {
+        display: block;
+        color: #7b8494;
+        font-size: 9px;
+        margin-bottom: 6px;
+    }
+
+    .vbs-command-stat strong {
+        font-family: 'Space Grotesk';
+        font-size: 20px;
+        color: #071632;
+    }
+
+    .vbs-up {
+        color: #15966c !important;
+    }
+
+    .vbs-command-chart {
+        position: relative;
+        height: 150px;
+        background: #fff;
+        border: 1px solid #e8ebf1;
+        border-radius: 10px;
+        margin-top: 10px;
+        overflow: hidden;
+    }
+
+    .vbs-chart-grid {
+        position: absolute;
+        inset: 0;
+
+        background-image:
+            linear-gradient(#edf1f6 1px, transparent 1px),
+            linear-gradient(90deg, #edf1f6 1px, transparent 1px);
+
+        background-size: 100% 30px, 60px 100%;
+    }
+
+    .vbs-chart-line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 15px;
+        height: 110px;
+    }
+
+    .vbs-chart-line svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .vbs-command-keywords {
+        margin-top: 10px;
+        display: grid;
+        gap: 7px;
+    }
+
+    .vbs-keyword-mini {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #fff;
+        border: 1px solid #e8ebf1;
+        border-radius: 8px;
+        padding: 9px 11px;
+        font-size: 10px;
+    }
+
+    .vbs-keyword-mini b {
+        font-size: 11px;
+    }
+
+    .vbs-rank-up {
+        color: #15966c;
+        font-weight: 700;
+    }
+
+
+    /* =========================================================
+       TRUST
+    ========================================================= */
+
+    .vbs-seo-trust {
+        border-bottom: 1px solid var(--vbs-border);
+        border-top: 1px solid var(--vbs-border);
+        padding: 24px 0;
+        background: #fff;
+    }
+
+    .vbs-trust-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .vbs-trust-label {
+        color: #7a8392;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+    }
+
+    .vbs-trust-items {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        flex-wrap: wrap;
+    }
+
+    .vbs-trust-item {
+        font-family: 'Space Grotesk';
+        font-weight: 700;
+        color: #1c2940;
+        font-size: 14px;
+    }
+
+    .vbs-trust-item span {
+        color: var(--vbs-blue);
+    }
+
+
+    /* =========================================================
+       INTRO
+    ========================================================= */
+
+    .vbs-seo-intro {
+        text-align: center;
+        max-width: 850px;
+        margin: 0 auto 55px;
+    }
+
+    .vbs-seo-intro h2 {
+        font-size: clamp(32px, 4vw, 50px);
+        line-height: 1.1;
+        margin: 18px 0;
+    }
+
+    .vbs-seo-intro p {
+        color: var(--vbs-muted);
+        line-height: 1.8;
+        font-size: 16px;
+    }
+
+
+    /* =========================================================
+       SERVICE CARDS
+    ========================================================= */
+
+    .vbs-seo-service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .vbs-seo-service-card {
+        position: relative;
+        padding: 30px;
+        border: 1px solid var(--vbs-border);
+        border-radius: 16px;
+        background: #fff;
+        transition: .35s ease;
+        overflow: hidden;
+    }
+
+    .vbs-seo-service-card:hover {
+        transform: translateY(-7px);
+        box-shadow: var(--vbs-shadow);
+        border-color: #ccd7f2;
+    }
+
+    .vbs-seo-service-card::after {
+        content: "";
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: rgba(22,70,200,.045);
+        right: -30px;
+        top: -30px;
+    }
+
+    .vbs-service-icon {
+        width: 54px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        background: #f0f4ff;
+        color: var(--vbs-blue);
+        border-radius: 13px;
+        font-size: 20px;
+        margin-bottom: 22px;
+    }
+
+    .vbs-seo-service-card h3 {
+        font-size: 21px;
+        margin: 0 0 12px;
+    }
+
+    .vbs-seo-service-card p {
+        color: var(--vbs-muted);
+        font-size: 14px;
+        line-height: 1.75;
+        margin: 0;
+    }
+
+    .vbs-service-tag {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 5px 9px;
+        background: #f6f7fa;
+        border-radius: 5px;
+        font-size: 9px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: .6px;
+        color: #6b7280;
+    }
+
+
+    /* =========================================================
+       AI / AEO / GEO
+    ========================================================= */
+
+    .vbs-seo-ai-section {
+        background:
+            radial-gradient(circle at 90% 10%, rgba(101,69,216,.08), transparent 28%),
+            #f7f9fc;
+    }
+
+    .vbs-ai-grid {
+        display: grid;
+        grid-template-columns: .9fr 1.1fr;
+        gap: 70px;
+        align-items: center;
+    }
+
+    .vbs-ai-copy h2 {
+        font-size: clamp(34px, 4vw, 50px);
+        line-height: 1.1;
+        margin: 20px 0;
+    }
+
+    .vbs-ai-copy p {
+        color: var(--vbs-muted);
+        line-height: 1.8;
+    }
+
+    .vbs-ai-list {
+        margin-top: 30px;
+        display: grid;
+        gap: 13px;
+    }
+
+    .vbs-ai-list-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .vbs-ai-check {
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #e7f8f1;
+        color: var(--vbs-green);
+        font-size: 11px;
+        margin-top: 1px;
+    }
+
+    .vbs-ai-list-item div {
+        font-size: 13px;
+        color: #3d4655;
+        line-height: 1.5;
+    }
+
+    .vbs-ai-list-item strong {
+        display: block;
+        color: #111827;
+        margin-bottom: 3px;
+    }
+
+
+    /* =========================================================
+       AI PANEL
+    ========================================================= */
+
+    .vbs-ai-panel {
+        background: #fff;
+        border: 1px solid #e3e7ef;
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: var(--vbs-shadow);
+    }
+
+    .vbs-ai-panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 17px;
+        border-bottom: 1px solid #edf0f5;
+    }
+
+    .vbs-ai-panel-header strong {
+        font-family: 'Space Grotesk';
+        font-size: 14px;
+    }
+
+    .vbs-ai-platforms {
+        display: flex;
+        gap: 6px;
+    }
+
+    .vbs-platform {
+        font-size: 8px;
+        padding: 5px 7px;
+        border: 1px solid #e2e6ed;
+        border-radius: 5px;
+        font-weight: 700;
+    }
+
+    .vbs-ai-query {
+        margin: 17px 0;
+        padding: 13px 15px;
+        background: #f7f8fb;
+        border: 1px solid #e5e8ef;
+        border-radius: 8px;
+        font-size: 11px;
+        color: #596273;
+    }
+
+    .vbs-ai-result {
+        padding: 15px;
+        border: 1px solid #e7eaf0;
+        border-radius: 10px;
+        margin-bottom: 9px;
+    }
+
+    .vbs-ai-result:last-child {
+        margin-bottom: 0;
+    }
+
+    .vbs-ai-result-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 7px;
+    }
+
+    .vbs-ai-result-title {
+        font-size: 12px;
+        font-weight: 700;
+        color: #17233a;
+    }
+
+    .vbs-ai-result-score {
+        color: var(--vbs-green);
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    .vbs-ai-result p {
+        color: #7a8494;
+        font-size: 9px;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+
+    /* =========================================================
+       RESULTS
+    ========================================================= */
+
+    .vbs-results-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 30px;
+        margin-bottom: 35px;
+    }
+
+    .vbs-results-header h2 {
+        margin: 15px 0 0;
+        font-size: clamp(32px, 4vw, 47px);
+    }
+
+    .vbs-results-header p {
+        color: var(--vbs-muted);
+        max-width: 520px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    .vbs-keyword-table {
+        border: 1px solid var(--vbs-border);
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
     }
 
     .vbs-keyword-head,
     .vbs-keyword-row {
-        grid-template-columns: 2fr 1fr .7fr .8fr;
-    }
-
-    .vbs-keyword-head div:nth-child(5),
-    .vbs-keyword-row > div:nth-child(5) {
-        display: none;
-    }
-}
-
-@media(max-width: 600px) {
-
-    .vbs-seo-container {
-        width: min(100% - 28px, 1200px);
-    }
-
-    .vbs-seo-hero h1 {
-        letter-spacing: -1.5px;
-    }
-
-    .vbs-seo-hero-text {
-        font-size: 15px;
-    }
-
-    .vbs-seo-service-grid,
-    .vbs-business-grid,
-    .vbs-industry-grid,
-    .vbs-report-grid,
-    .vbs-process-grid,
-    .vbs-search-console {
-        grid-template-columns: 1fr;
-    }
-
-    .vbs-command-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .vbs-dashboard-metrics {
-        grid-template-columns: repeat(2,1fr);
+        display: grid;
+        grid-template-columns: 2.25fr 1.1fr .7fr .8fr 1fr;
+        align-items: center;
+        gap: 15px;
     }
 
     .vbs-keyword-head {
-        display: none;
+        padding: 14px 20px;
+        background: #071632;
+        color: #fff;
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: .7px;
+        font-weight: 700;
     }
 
     .vbs-keyword-row {
-        grid-template-columns: 1fr 50px 60px;
-        padding: 17px 15px;
+        padding: 18px 20px;
+        border-bottom: 1px solid #edf0f4;
     }
 
-    .vbs-keyword-row > div:nth-child(2) {
-        display: none;
+    .vbs-keyword-row:last-child {
+        border-bottom: 0;
     }
 
-    .vbs-keyword-row > div:nth-child(5) {
-        display: none;
+    .vbs-keyword {
+        font-weight: 700;
+        font-size: 12px;
     }
 
-    .vbs-results-header {
+    .vbs-keyword-company {
+        font-size: 10px;
+        color: #7a8492;
+        margin-top: 4px;
+    }
+
+    .vbs-position {
+        display: inline-flex;
+        width: 30px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 7px;
+        background: #eef3ff;
+        color: var(--vbs-blue);
+        font-family: 'Space Grotesk';
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .vbs-change {
+        color: var(--vbs-green);
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    .vbs-intent {
+        display: inline-block;
+        font-size: 9px;
+        font-weight: 700;
+        padding: 5px 7px;
+        border-radius: 5px;
+        background: #f3f4f7;
+        color: #626b79;
+    }
+
+    .vbs-visibility {
+        font-weight: 700;
+        font-size: 11px;
+    }
+
+
+    /* =========================================================
+       BUSINESS RESULTS
+    ========================================================= */
+
+    .vbs-business-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 25px;
+    }
+
+    .vbs-business-card {
+        border: 1px solid var(--vbs-border);
+        border-radius: 14px;
+        padding: 22px;
+        background: #fff;
+        transition: .3s;
+    }
+
+    .vbs-business-card:hover {
+        box-shadow: var(--vbs-shadow);
+        transform: translateY(-4px);
+    }
+
+    .vbs-business-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .vbs-business-type {
+        font-size: 9px;
+        text-transform: uppercase;
+        color: #7b8492;
+        font-weight: 700;
+        letter-spacing: .6px;
+    }
+
+    .vbs-google-mark {
+        font-size: 10px;
+        font-weight: 700;
+        color: #4285f4;
+    }
+
+    .vbs-business-card h3 {
+        font-size: 18px;
+        margin: 0 0 7px;
+    }
+
+    .vbs-business-keyword {
+        color: var(--vbs-blue);
+        font-size: 11px;
+        font-weight: 600;
+        margin-bottom: 17px;
+    }
+
+    .vbs-business-ranking {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 15px;
+        border-top: 1px solid #edf0f4;
+    }
+
+    .vbs-business-ranking small {
+        font-size: 9px;
+        color: #7b8492;
+    }
+
+    .vbs-business-ranking strong {
+        font-family: 'Space Grotesk';
+        font-size: 21px;
+    }
+
+
+    /* =========================================================
+       INDUSTRIES
+    ========================================================= */
+
+    .vbs-industries {
+        background: #071632;
+        color: #fff;
+    }
+
+    .vbs-industries .vbs-seo-eyebrow {
+        background: rgba(255,255,255,.07);
+        border-color: rgba(255,255,255,.13);
+        color: #bcd0ff;
+    }
+
+    .vbs-industries h2 {
+        font-size: clamp(34px, 4vw, 50px);
+        line-height: 1.1;
+        margin: 20px 0 15px;
+    }
+
+    .vbs-industries-intro {
+        max-width: 680px;
+        color: #9eabc0;
+        line-height: 1.8;
+    }
+
+    .vbs-industry-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: 45px;
+    }
+
+    .vbs-industry {
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 12px;
+        padding: 22px;
+        background: rgba(255,255,255,.035);
+        transition: .3s;
+    }
+
+    .vbs-industry:hover {
+        background: rgba(255,255,255,.07);
+        transform: translateY(-3px);
+    }
+
+    .vbs-industry i {
+        color: #8eaaff;
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .vbs-industry h3 {
+        color: #fff;
+        font-size: 17px;
+        margin: 0 0 7px;
+    }
+
+    .vbs-industry p {
+        color: #8d99ad;
+        font-size: 11px;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+
+    /* =========================================================
+       DASHBOARD
+    ========================================================= */
+
+    .vbs-dashboard-section {
+        background: #f7f9fc;
+    }
+
+    .vbs-dashboard {
+        background: #fff;
+        border: 1px solid #e3e7ee;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: var(--vbs-shadow);
+    }
+
+    .vbs-dashboard-top {
+        padding: 20px 24px;
+        border-bottom: 1px solid #e7eaf0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .vbs-dashboard-brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+    }
+
+    .vbs-dashboard-logo {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--vbs-blue);
+        color: #fff;
+        font-weight: 700;
+        font-family: 'Space Grotesk';
+    }
+
+    .vbs-dashboard-brand strong {
         display: block;
+        font-size: 13px;
     }
 
-    .vbs-results-header p {
-        margin-top: 15px;
+    .vbs-dashboard-brand small {
+        color: #8490a0;
+        font-size: 9px;
     }
+
+    .vbs-dashboard-period {
+        border: 1px solid #e3e7ee;
+        padding: 8px 12px;
+        border-radius: 7px;
+        color: #667085;
+        font-size: 10px;
+    }
+
+    .vbs-dashboard-body {
+        padding: 22px;
+    }
+
+    .vbs-dashboard-metrics {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+    }
+
+    .vbs-metric {
+        border: 1px solid #e7eaf0;
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    .vbs-metric small {
+        display: block;
+        color: #7a8494;
+        font-size: 9px;
+        margin-bottom: 8px;
+    }
+
+    .vbs-metric strong {
+        font-family: 'Space Grotesk';
+        font-size: 22px;
+    }
+
+    .vbs-metric-change {
+        display: block;
+        margin-top: 5px;
+        color: #15966c;
+        font-size: 9px;
+        font-weight: 700;
+    }
+
+    .vbs-dashboard-main {
+        display: grid;
+        grid-template-columns: 1.5fr .8fr;
+        gap: 14px;
+        margin-top: 14px;
+    }
+
+    .vbs-dashboard-box {
+        border: 1px solid #e7eaf0;
+        border-radius: 10px;
+        padding: 18px;
+    }
+
+    .vbs-dashboard-box h4 {
+        margin: 0 0 17px;
+        font-size: 13px;
+    }
+
+    .vbs-big-chart {
+        height: 240px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .vbs-big-chart-grid {
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(#eef1f5 1px, transparent 1px);
+        background-size: 100% 48px;
+    }
+
+    .vbs-big-chart svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .vbs-source-list {
+        display: grid;
+        gap: 13px;
+    }
+
+    .vbs-source {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+    }
+
+    .vbs-source-name {
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+    .vbs-source-value {
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    .vbs-progress {
+        grid-column: 1 / -1;
+        height: 5px;
+        background: #edf0f4;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .vbs-progress span {
+        display: block;
+        height: 100%;
+        background: var(--vbs-blue);
+        border-radius: inherit;
+    }
+
+
+    /* =========================================================
+       SEARCH CONSOLE
+    ========================================================= */
+
+    .vbs-search-console {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 16px;
+    }
+
+    .vbs-index-status {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 13px;
+        background: #f7faf8;
+        border: 1px solid #dff1e9;
+        border-radius: 8px;
+        margin-bottom: 9px;
+    }
+
+    .vbs-index-status-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .vbs-index-icon {
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #dcf5e9;
+        color: #15966c;
+        font-size: 10px;
+    }
+
+    .vbs-index-status strong {
+        font-size: 10px;
+    }
+
+    .vbs-index-status small {
+        display: block;
+        color: #788391;
+        font-size: 8px;
+        margin-top: 3px;
+    }
+
+    .vbs-index-number {
+        font-family: 'Space Grotesk';
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+
+    /* =========================================================
+       LOCAL SEO
+    ========================================================= */
+
+    .vbs-local-section {
+        position: relative;
+    }
+
+    .vbs-local-grid {
+        display: grid;
+        grid-template-columns: .85fr 1.15fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .vbs-local-copy h2 {
+        font-size: clamp(34px, 4vw, 49px);
+        line-height: 1.1;
+        margin: 18px 0;
+    }
+
+    .vbs-local-copy p {
+        color: var(--vbs-muted);
+        line-height: 1.8;
+    }
+
+    .vbs-local-features {
+        display: grid;
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    .vbs-local-feature {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .vbs-local-feature i {
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        border-radius: 7px;
+        background: #eef3ff;
+        color: var(--vbs-blue);
+    }
+
+    .vbs-map-card {
+        position: relative;
+        background: #f2f5f8;
+        min-height: 450px;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid #dfe4eb;
+    }
+
+    .vbs-map-grid {
+        position: absolute;
+        inset: 0;
+        opacity: .55;
+
+        background-image:
+            linear-gradient(30deg, #d9dfe7 1px, transparent 1px),
+            linear-gradient(120deg, #d9dfe7 1px, transparent 1px),
+            linear-gradient(90deg, #e4e8ed 1px, transparent 1px);
+
+        background-size: 95px 95px, 130px 130px, 65px 65px;
+    }
+
+    .vbs-map-road {
+        position: absolute;
+        background: #fff;
+        border: 1px solid #d8dee6;
+        height: 34px;
+        width: 120%;
+        transform: rotate(-17deg);
+        left: -50px;
+        top: 190px;
+        box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    }
+
+    .vbs-map-road.two {
+        transform: rotate(31deg);
+        top: 100px;
+    }
+
+    .vbs-map-road.three {
+        transform: rotate(-55deg);
+        top: 320px;
+    }
+
+    .vbs-map-business {
+        position: absolute;
+        background: #fff;
+        border: 1px solid #e1e5eb;
+        border-radius: 10px;
+        padding: 13px;
+        box-shadow: 0 12px 30px rgba(20,30,50,.12);
+        width: 230px;
+    }
+
+    .vbs-map-business.main {
+        left: 50%;
+        top: 48%;
+        transform: translate(-50%,-50%);
+    }
+
+    .vbs-map-business.small-one {
+        left: 9%;
+        top: 18%;
+    }
+
+    .vbs-map-business.small-two {
+        right: 7%;
+        bottom: 12%;
+    }
+
+    .vbs-map-pin {
+        width: 30px;
+        height: 30px;
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(-45deg);
+        background: var(--vbs-blue);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        margin-bottom: 10px;
+    }
+
+    .vbs-map-pin i {
+        transform: rotate(45deg);
+        font-size: 11px;
+    }
+
+    .vbs-map-business strong {
+        display: block;
+        font-family: 'Space Grotesk';
+        font-size: 13px;
+    }
+
+    .vbs-map-business small {
+        color: #788391;
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+    .vbs-map-stars {
+        color: #f39c35;
+        font-size: 9px;
+        margin-top: 6px;
+    }
+
+
+    /* =========================================================
+       REPORTING
+    ========================================================= */
+
+    .vbs-reporting-section {
+        background: #f7f9fc;
+    }
+
+    .vbs-report-grid {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 15px;
+        margin-top: 40px;
+    }
+
+    .vbs-report-card {
+        background: #fff;
+        border: 1px solid #e3e7ed;
+        border-radius: 12px;
+        padding: 23px;
+    }
+
+    .vbs-report-card i {
+        font-size: 18px;
+        color: var(--vbs-blue);
+        margin-bottom: 17px;
+    }
+
+    .vbs-report-card h3 {
+        font-size: 16px;
+        margin: 0 0 8px;
+    }
+
+    .vbs-report-card p {
+        color: #788391;
+        font-size: 10px;
+        line-height: 1.65;
+        margin: 0;
+    }
+
+
+    /* =========================================================
+       PROCESS
+    ========================================================= */
+
+    .vbs-process-grid {
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        gap: 12px;
+        margin-top: 50px;
+    }
+
+    .vbs-process {
+        position: relative;
+        padding: 25px 20px;
+        border: 1px solid var(--vbs-border);
+        border-radius: 12px;
+        background: #fff;
+    }
+
+    .vbs-process-number {
+        font-family: 'Space Grotesk';
+        color: #dce2ed;
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    .vbs-process h3 {
+        font-size: 15px;
+        margin: 10px 0 8px;
+    }
+
+    .vbs-process p {
+        font-size: 10px;
+        color: #7a8492;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+
+    /* =========================================================
+       KEYWORD CLOUD
+    ========================================================= */
 
     .vbs-keyword-cloud {
-        padding: 30px 22px;
+        background: #071632;
+        border-radius: 20px;
+        padding: 45px;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .vbs-keyword-cloud::after {
+        content: "";
+        position: absolute;
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,.07);
+        right: -150px;
+        top: -200px;
+    }
+
+    .vbs-keyword-cloud h2 {
+        position: relative;
+        z-index: 2;
+        font-size: 35px;
+        margin: 0 0 10px;
+    }
+
+    .vbs-keyword-cloud p {
+        position: relative;
+        z-index: 2;
+        color: #99a7bd;
+        font-size: 13px;
+        max-width: 650px;
+    }
+
+    .vbs-cloud {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 28px;
+    }
+
+    .vbs-cloud span {
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.045);
+        padding: 9px 13px;
+        border-radius: 50px;
+        font-size: 10px;
+        color: #d7deeb;
+    }
+
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .vbs-seo-cta {
+        padding: 90px 0 110px;
     }
 
     .vbs-cta-box {
-        padding: 45px 22px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 22px;
+
+        background:
+            radial-gradient(circle at 90% 20%, rgba(101,69,216,.45), transparent 28%),
+            linear-gradient(120deg,#071632,#102b66);
+
+        padding: 65px;
+        text-align: center;
+        color: #fff;
     }
 
-    .vbs-trust-inner {
-        display: block;
+    .vbs-cta-box::before {
+        content: "";
+        position: absolute;
+        width: 420px;
+        height: 420px;
+        border: 1px solid rgba(255,255,255,.07);
+        border-radius: 50%;
+        left: -170px;
+        bottom: -260px;
     }
 
-    .vbs-trust-items {
-        margin-top: 15px;
-        gap: 15px;
+    .vbs-cta-box h2 {
+        position: relative;
+        z-index: 2;
+        font-size: clamp(32px, 4vw, 51px);
+        margin: 0 auto 17px;
+        line-height: 1.1;
     }
-}
 
-</style>
- <head/>
+    .vbs-cta-box p {
+        position: relative;
+        z-index: 2;
+        color: #aebbd0;
+        max-width: 680px;
+        margin: 0 auto;
+        line-height: 1.7;
+    }
+
+    .vbs-cta-box .vbs-seo-btn {
+        position: relative;
+        z-index: 2;
+        margin-top: 28px;
+        background: #fff;
+        color: #071632;
+    }
+
+    .vbs-cta-box .vbs-seo-btn:hover {
+        background: #edf2ff;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media(max-width: 991px) {
+
+        .vbs-seo-section {
+            padding: 75px 0;
+        }
+
+        .vbs-seo-hero {
+            min-height: auto;
+            padding: 90px 0;
+        }
+
+        .vbs-seo-hero-grid,
+        .vbs-ai-grid,
+        .vbs-local-grid {
+            grid-template-columns: 1fr;
+            gap: 45px;
+        }
+
+        .vbs-seo-command {
+            transform: none;
+        }
+
+        .vbs-seo-service-grid,
+        .vbs-business-grid,
+        .vbs-industry-grid {
+            grid-template-columns: repeat(2,1fr);
+        }
+
+        .vbs-dashboard-metrics {
+            grid-template-columns: repeat(3,1fr);
+        }
+
+        .vbs-dashboard-main {
+            grid-template-columns: 1fr;
+        }
+
+        .vbs-report-grid {
+            grid-template-columns: repeat(2,1fr);
+        }
+
+        .vbs-process-grid {
+            grid-template-columns: repeat(2,1fr);
+        }
+
+        .vbs-keyword-head,
+        .vbs-keyword-row {
+            grid-template-columns: 2fr 1fr .7fr .8fr;
+        }
+
+        .vbs-keyword-head div:nth-child(5),
+        .vbs-keyword-row > div:nth-child(5) {
+            display: none;
+        }
+    }
+
+
+    @media(max-width: 600px) {
+
+        .vbs-seo-container {
+            width: min(100% - 28px, 1200px);
+        }
+
+        .vbs-seo-hero h1 {
+            letter-spacing: -1.5px;
+        }
+
+        .vbs-seo-hero-text {
+            font-size: 15px;
+        }
+
+        .vbs-seo-service-grid,
+        .vbs-business-grid,
+        .vbs-industry-grid,
+        .vbs-report-grid,
+        .vbs-process-grid,
+        .vbs-search-console {
+            grid-template-columns: 1fr;
+        }
+
+        .vbs-command-stats {
+            grid-template-columns: 1fr;
+        }
+
+        .vbs-dashboard-metrics {
+            grid-template-columns: repeat(2,1fr);
+        }
+
+        .vbs-keyword-head {
+            display: none;
+        }
+
+        .vbs-keyword-row {
+            grid-template-columns: 1fr 50px 60px;
+            padding: 17px 15px;
+        }
+
+        .vbs-keyword-row > div:nth-child(2) {
+            display: none;
+        }
+
+        .vbs-keyword-row > div:nth-child(5) {
+            display: none;
+        }
+
+        .vbs-results-header {
+            display: block;
+        }
+
+        .vbs-results-header p {
+            margin-top: 15px;
+        }
+
+        .vbs-keyword-cloud {
+            padding: 30px 22px;
+        }
+
+        .vbs-cta-box {
+            padding: 45px 22px;
+        }
+
+        .vbs-trust-inner {
+            display: block;
+        }
+
+        .vbs-trust-items {
+            margin-top: 15px;
+            gap: 15px;
+        }
+    }
+
+    </style>
+
+</head>
+
+
 <body>
 
-         <!-- Preloader Start -->
-    <div id="preloader" class="preloader">
-        <div class="loader">
-            <div class="row">
-                <div class="col-3 loader-section section-left">
-                    <div class="bg"></div>
-                </div>
-                <div class="col-3 loader-section section-left">
-                    <div class="bg"></div>
-                </div>
-                <div class="col-3 loader-section section-right">
-                    <div class="bg"></div>
-                </div>
-                <div class="col-3 loader-section section-right">
-                    <div class="bg"></div>
-                </div>
+
+<!-- =========================================================
+     PRELOADER
+========================================================= -->
+
+<div id="preloader" class="preloader">
+
+    <div class="loader">
+
+        <div class="row">
+
+            <div class="col-3 loader-section section-left">
+                <div class="bg"></div>
             </div>
+
+            <div class="col-3 loader-section section-left">
+                <div class="bg"></div>
+            </div>
+
+            <div class="col-3 loader-section section-right">
+                <div class="bg"></div>
+            </div>
+
+            <div class="col-3 loader-section section-right">
+                <div class="bg"></div>
+            </div>
+
         </div>
+
     </div>
 
-     <!-- ================= HEADER (Arigo template) ================= -->
+</div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
 <header id="header-sticky" class="header-section header-style1">
+
     <div class="container">
+
         <div class="mega-menu-wrapper">
+
             <div class="header-main">
+
                 <a href="index.html" class="header-logo">
-                    <img src="assets/img/logo/logo.png" alt="logo-img">
+
+                    <img src="assets/img/logo/logo.png"
+                         alt="Vector Business Solutions">
+
                 </a>
+
+
                 <div class="mean__menu-wrapper">
+
                     <div class="main-menu">
+
                         <nav id="mobile-menu">
+
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About Us</a></li>
-                                <li class="has-dropdown">
-                                    <a href="javascript:void(0)">
-                                        Services
-                                        <i class="fas fa-angle-down"></i>
+
+                                <li>
+                                    <a href="index.html">
+                                        Home
                                     </a>
-                                    <ul class="submenu">
-                                        <li><a href="website-design-and-development.html">Web Design &amp; Development</a></li>
-                                        <li><a href="google-and-meta-ads.html">Google and Meta Ads</a></li>
-                                        <li><a href="ad-cost-calculator.html">Ad Cost Calculator</a></li>
-                                        <li><a href="social-media-management.html">Social Media Management</a></li>
-                                        <li><a href="graphics-designing.html">Graphics Designing</a></li>
-                                         <li><a href="seo.html">SEO</a></li>
-                                    </ul>
                                 </li>
-                                <li><a href="team.html">Team</a></li>
-                                <li><a href="testimonial.html">Testimonial</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
+
+
+                                <li>
+                                    <a href="about.html">
+                                        About Us
+                                    </a>
+                                </li>
+
+
+                                <li class="has-dropdown">
+
+                                    <a href="javascript:void(0)">
+
+                                        Services
+
+                                        <i class="fas fa-angle-down"></i>
+
+                                    </a>
+
+
+                                    <ul class="submenu">
+
+                                        <li>
+                                            <a href="website-design-and-development.html">
+                                                Web Design &amp; Development
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="google-and-meta-ads.html">
+                                                Google and Meta Ads
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="ad-cost-calculator.html">
+                                                Ad Cost Calculator
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="social-media-management.html">
+                                                Social Media Management
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="graphics-designing.html">
+                                                Graphics Designing
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="seo.html">
+                                                SEO
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+
+                                <li>
+                                    <a href="team.html">
+                                        Team
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a href="testimonial.html">
+                                        Testimonial
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a href="contact.html">
+                                        Contact Us
+                                    </a>
+                                </li>
+
                             </ul>
+
                         </nav>
+
                     </div>
+
                 </div>
+
+
                 <div class="header-right d-flex justify-content-end align-items-center">
-                    <a href="javascript:void(0)" class="search-trigger d-center rounded-circle search-icon">
+
+                    <a href="javascript:void(0)"
+                       class="search-trigger d-center rounded-circle search-icon">
+
                         <i class="fa-solid fa-magnifying-glass"></i>
+
                     </a>
-                    <button type="button" class="common_btn d-sm-flex d-none text-nowrap">
+
+
+                    <button type="button"
+                            class="common_btn d-sm-flex d-none text-nowrap">
+
                         download cv
+
                         <span class="icon_wrapper">
+
                             <i class="fa-solid fa-arrow-right"></i>
+
                         </span>
+
                     </button>
+
+
                     <div class="header__hamburger d-xl-none d-block my-auto">
+
                         <div class="sidebar__toggle">
-                            <img src="assets/img/icon/bars.png" alt="icon" class="">
+
+                            <img src="assets/img/icon/bars.png"
+                                 alt="menu"
+                                 class="">
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
 </header>
+
+
+
 <!-- =========================================================
      SEO PAGE START
 ========================================================= -->
@@ -1746,7 +1879,7 @@
 
 
 <!-- =========================================================
-     HERO
+     HERO BANNER
 ========================================================= -->
 
 <section class="vbs-seo-hero">
@@ -1755,35 +1888,60 @@
 
         <div class="vbs-seo-hero-grid">
 
+
             <div class="vbs-fade-up">
 
                 <div class="vbs-seo-eyebrow">
+
                     <span></span>
+
                     SEO • AEO • GEO • AI Search
+
                 </div>
 
+
                 <h1>
+
                     Get Found.<br>
-                    Get <span class="blue">Ranked.</span><br>
-                    Get <span class="gradient">Leads.</span>
+
+                    Get <span class="blue">
+                        Ranked.
+                    </span><br>
+
+                    Get <span class="gradient">
+                        Leads.
+                    </span>
+
                 </h1>
 
+
                 <p class="vbs-seo-hero-text">
-                    Search has changed. Your customers are no longer searching only
-                    on Google. We optimize your website for traditional search,
-                    AI-powered search, answer engines, local search and the next
-                    generation of discovery platforms.
+
+                    Search has changed. Your customers are no longer searching
+                    only on Google. We optimize your website for traditional
+                    search, AI-powered search, answer engines, local search
+                    and the next generation of discovery platforms.
+
                 </p>
+
 
                 <div class="vbs-seo-hero-buttons">
 
-                    <a href="#seo-dashboard" class="vbs-seo-btn vbs-seo-btn-primary">
+                    <a href="#seo-dashboard"
+                       class="vbs-seo-btn vbs-seo-btn-primary">
+
                         Explore SEO Results
+
                         <i class="fa-solid fa-arrow-right"></i>
+
                     </a>
 
-                    <a href="#seo-services" class="vbs-seo-btn vbs-seo-btn-outline">
+
+                    <a href="#seo-services"
+                       class="vbs-seo-btn vbs-seo-btn-outline">
+
                         Our SEO Services
+
                     </a>
 
                 </div>
@@ -1791,52 +1949,93 @@
             </div>
 
 
-            <!-- COMMAND CENTER -->
+            <!-- =================================================
+                 SEO COMMAND CENTER
+            ================================================= -->
 
             <div class="vbs-seo-command">
+
 
                 <div class="vbs-command-top">
 
                     <div class="vbs-command-title">
+
                         SEO Performance Center
+
                     </div>
 
+
                     <div class="vbs-command-live">
+
                         <i></i>
+
                         Monitoring Search Visibility
+
                     </div>
 
                 </div>
 
+
                 <div class="vbs-command-screen">
 
+
                     <div class="vbs-command-search">
+
                         <i class="fa-solid fa-magnifying-glass"></i>
+
                         interior design companies in Dubai
+
                     </div>
+
 
                     <div class="vbs-command-stats">
 
-                        <div class="vbs-command-stat">
-                            <small>Organic Clicks</small>
-                            <strong>12.8K</strong>
-                        </div>
 
                         <div class="vbs-command-stat">
-                            <small>Visibility</small>
-                            <strong>78%</strong>
+
+                            <small>
+                                Organic Clicks
+                            </small>
+
+                            <strong>
+                                12.8K
+                            </strong>
+
                         </div>
 
+
                         <div class="vbs-command-stat">
-                            <small>Keywords</small>
-                            <strong>1,284</strong>
+
+                            <small>
+                                Visibility
+                            </small>
+
+                            <strong>
+                                78%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="vbs-command-stat">
+
+                            <small>
+                                Keywords
+                            </small>
+
+                            <strong>
+                                1,284
+                            </strong>
+
                         </div>
 
                     </div>
+
 
                     <div class="vbs-command-chart">
 
                         <div class="vbs-chart-grid"></div>
+
 
                         <div class="vbs-chart-line">
 
@@ -1860,19 +2059,43 @@
 
                     <div class="vbs-command-keywords">
 
-                        <div class="vbs-keyword-mini">
-                            <span>interior design companies in Dubai</span>
-                            <b class="vbs-rank-up">↑ #1</b>
-                        </div>
 
                         <div class="vbs-keyword-mini">
-                            <span>luxury villa property in Dubai</span>
-                            <b class="vbs-rank-up">↑ #2</b>
+
+                            <span>
+                                interior design companies in Dubai
+                            </span>
+
+                            <b class="vbs-rank-up">
+                                ↑ #1
+                            </b>
+
                         </div>
 
+
                         <div class="vbs-keyword-mini">
-                            <span>rental properties in UAE</span>
-                            <b class="vbs-rank-up">↑ #3</b>
+
+                            <span>
+                                luxury villa property in Dubai
+                            </span>
+
+                            <b class="vbs-rank-up">
+                                ↑ #2
+                            </b>
+
+                        </div>
+
+
+                        <div class="vbs-keyword-mini">
+
+                            <span>
+                                rental properties in UAE
+                            </span>
+
+                            <b class="vbs-rank-up">
+                                ↑ #3
+                            </b>
+
                         </div>
 
                     </div>
@@ -1888,8 +2111,9 @@
 </section>
 
 
+
 <!-- =========================================================
-     TRUST
+     SEARCH ECOSYSTEM
 ========================================================= -->
 
 <section class="vbs-seo-trust">
@@ -1898,9 +2122,13 @@
 
         <div class="vbs-trust-inner">
 
+
             <div class="vbs-trust-label">
+
                 Search ecosystem optimization
+
             </div>
+
 
             <div class="vbs-trust-items">
 
@@ -1933,6 +2161,7 @@
 </section>
 
 
+
 <!-- =========================================================
      SEO SERVICES
 ========================================================= -->
@@ -1941,42 +2170,62 @@
 
     <div class="vbs-seo-container">
 
+
         <div class="vbs-seo-intro">
 
             <div class="vbs-seo-eyebrow">
+
                 <span></span>
+
                 Complete Search Optimization
+
             </div>
+
 
             <h2>
                 More Than Traditional SEO
             </h2>
 
+
             <p>
+
                 We build search visibility across Google, Maps, answer engines,
                 AI platforms and organic search — turning your website into a
                 consistent source of qualified enquiries.
+
             </p>
 
         </div>
 
 
+
         <div class="vbs-seo-service-grid">
 
+
+            <!-- TECHNICAL SEO -->
 
             <div class="vbs-seo-service-card">
 
                 <div class="vbs-service-icon">
+
                     <i class="fa-solid fa-chart-line"></i>
+
                 </div>
 
-                <h3>Technical SEO</h3>
+
+                <h3>
+                    Technical SEO
+                </h3>
+
 
                 <p>
+
                     Technical audits, crawling, indexing, site architecture,
                     Core Web Vitals, structured data, internal linking,
                     redirects and technical performance.
+
                 </p>
+
 
                 <span class="vbs-service-tag">
                     Foundation
@@ -1985,19 +2234,31 @@
             </div>
 
 
+
+            <!-- KEYWORD -->
+
             <div class="vbs-seo-service-card">
 
                 <div class="vbs-service-icon">
+
                     <i class="fa-solid fa-key"></i>
+
                 </div>
 
-                <h3>Keyword Strategy</h3>
+
+                <h3>
+                    Keyword Strategy
+                </h3>
+
 
                 <p>
+
                     Commercial, transactional, informational and local keyword
                     research designed around search intent, competition,
                     conversion potential and business revenue.
+
                 </p>
+
 
                 <span class="vbs-service-tag">
                     Search Intent
@@ -2006,19 +2267,31 @@
             </div>
 
 
+
+            <!-- LOCAL -->
+
             <div class="vbs-seo-service-card">
 
                 <div class="vbs-service-icon">
+
                     <i class="fa-solid fa-location-dot"></i>
+
                 </div>
 
-                <h3>Local SEO</h3>
+
+                <h3>
+                    Local SEO
+                </h3>
+
 
                 <p>
+
                     Google Business Profile optimization, Maps visibility,
                     local landing pages, citations, reviews and location-based
                     keyword strategies.
+
                 </p>
+
 
                 <span class="vbs-service-tag">
                     Google Maps
@@ -2027,19 +2300,31 @@
             </div>
 
 
+
+            <!-- AEO -->
+
             <div class="vbs-seo-service-card">
 
                 <div class="vbs-service-icon">
+
                     <i class="fa-solid fa-robot"></i>
+
                 </div>
 
-                <h3>AEO & AI Search</h3>
+
+                <h3>
+                    AEO & AI Search
+                </h3>
+
 
                 <p>
+
                     Optimize content for answer engines and AI discovery using
                     entity signals, structured content, FAQs, topical authority
                     and question-based search intent.
+
                 </p>
+
 
                 <span class="vbs-service-tag">
                     AI Visibility
@@ -2048,19 +2333,31 @@
             </div>
 
 
+
+            <!-- GEO -->
+
             <div class="vbs-seo-service-card">
 
                 <div class="vbs-service-icon">
+
                     <i class="fa-solid fa-globe"></i>
+
                 </div>
 
-                <h3>GEO Optimization</h3>
+
+                <h3>
+                    GEO Optimization
+                </h3>
+
 
                 <p>
+
                     Generative Engine Optimization designed to improve how your
                     brand, services and expertise are understood across
                     AI-generated search experiences.
+
                 </p>
+
 
                 <span class="vbs-service-tag">
                     Generative Search
@@ -2069,19 +2366,31 @@
             </div>
 
 
+
+            <!-- CONVERSION -->
+
             <div class="vbs-seo-service-card">
 
                 <div class="vbs-service-icon">
+
                     <i class="fa-solid fa-bullseye"></i>
+
                 </div>
 
-                <h3>Conversion SEO</h3>
+
+                <h3>
+                    Conversion SEO
+                </h3>
+
 
                 <p>
+
                     SEO focused on enquiries and revenue — not vanity traffic.
                     We connect search visibility with landing pages,
                     calls, forms and qualified leads.
+
                 </p>
+
 
                 <span class="vbs-service-tag">
                     Lead Generation
@@ -2096,8 +2405,9 @@
 </section>
 
 
+
 <!-- =========================================================
-     AEO / GEO / AI
+     AEO / GEO / AI SEARCH
 ========================================================= -->
 
 <section class="vbs-seo-section vbs-seo-ai-section">
@@ -2106,80 +2416,119 @@
 
         <div class="vbs-ai-grid">
 
+
             <div class="vbs-ai-copy">
 
+
                 <div class="vbs-seo-eyebrow">
+
                     <span></span>
+
                     The New Search
+
                 </div>
 
+
                 <h2>
+
                     Optimize For Google.
                     Optimize For AI.
+
                 </h2>
 
+
                 <p>
-                    Search behavior is moving beyond ten blue links. Your website
-                    needs content and structured information that search engines,
-                    answer engines and AI systems can understand, connect and
-                    surface.
+
+                    Search behavior is moving beyond ten blue links. Your
+                    website needs content and structured information that
+                    search engines, answer engines and AI systems can
+                    understand, connect and surface.
+
                 </p>
 
 
                 <div class="vbs-ai-list">
 
+
                     <div class="vbs-ai-list-item">
 
                         <div class="vbs-ai-check">
+
                             <i class="fa-solid fa-check"></i>
+
                         </div>
 
+
                         <div>
-                            <strong>AEO — Answer Engine Optimization</strong>
+
+                            <strong>
+                                AEO — Answer Engine Optimization
+                            </strong>
+
                             Build pages around questions, answers, FAQs and
                             information architecture.
+
                         </div>
 
                     </div>
 
 
+
                     <div class="vbs-ai-list-item">
 
                         <div class="vbs-ai-check">
+
                             <i class="fa-solid fa-check"></i>
+
                         </div>
 
+
                         <div>
-                            <strong>GEO — Generative Engine Optimization</strong>
+
+                            <strong>
+                                GEO — Generative Engine Optimization
+                            </strong>
+
                             Strengthen entities, expertise, context and
                             machine-readable signals.
+
                         </div>
 
                     </div>
+
 
 
                     <div class="vbs-ai-list-item">
 
                         <div class="vbs-ai-check">
+
                             <i class="fa-solid fa-check"></i>
+
                         </div>
 
+
                         <div>
-                            <strong>AI Search Visibility</strong>
+
+                            <strong>
+                                AI Search Visibility
+                            </strong>
+
                             Prepare content for emerging AI-powered discovery
                             experiences.
+
                         </div>
 
                     </div>
+
 
                 </div>
 
             </div>
 
 
-            <!-- AI PANEL -->
 
             <div class="vbs-ai-panel">
+
 
                 <div class="vbs-ai-panel-header">
 
@@ -2187,11 +2536,20 @@
                         AI Search Visibility Monitor
                     </strong>
 
+
                     <div class="vbs-ai-platforms">
 
-                        <span class="vbs-platform">AI SEARCH</span>
-                        <span class="vbs-platform">ANSWER</span>
-                        <span class="vbs-platform">GEO</span>
+                        <span class="vbs-platform">
+                            AI SEARCH
+                        </span>
+
+                        <span class="vbs-platform">
+                            ANSWER
+                        </span>
+
+                        <span class="vbs-platform">
+                            GEO
+                        </span>
 
                     </div>
 
@@ -2222,8 +2580,10 @@
                     </div>
 
                     <p>
+
                         Example monitored entity result showing brand
                         association with interior design services in Dubai.
+
                     </p>
 
                 </div>
@@ -2244,8 +2604,10 @@
                     </div>
 
                     <p>
+
                         Structured content, topical authority and entity
                         relationships designed to improve AI discovery.
+
                     </p>
 
                 </div>
@@ -2266,8 +2628,10 @@
                     </div>
 
                     <p>
+
                         Location, services, reviews, business information and
                         supporting content connected across the search ecosystem.
+
                     </p>
 
                 </div>
@@ -2281,50 +2645,79 @@
 </section>
 
 
+
 <!-- =========================================================
-     DUBAI KEYWORDS
+     DUBAI SEARCH RESULTS
 ========================================================= -->
 
 <section class="vbs-seo-section">
 
     <div class="vbs-seo-container">
 
+
         <div class="vbs-results-header">
+
 
             <div>
 
                 <div class="vbs-seo-eyebrow">
+
                     <span></span>
+
                     Dubai Search Intelligence
+
                 </div>
 
+
                 <h2>
+
                     Search Results<br>
                     That Matter
+
                 </h2>
 
             </div>
 
+
             <p>
+
                 We monitor commercial keywords, competitors, search positions,
                 visibility and opportunities — then turn the data into an
                 actionable SEO growth plan.
+
             </p>
 
         </div>
 
 
+
         <div class="vbs-keyword-table">
+
 
             <div class="vbs-keyword-head">
 
-                <div>Keyword / Market</div>
-                <div>Example Result</div>
-                <div>Position</div>
-                <div>Change</div>
-                <div>Intent</div>
+                <div>
+                    Keyword / Market
+                </div>
+
+                <div>
+                    Example Result
+                </div>
+
+                <div>
+                    Position
+                </div>
+
+                <div>
+                    Change
+                </div>
+
+                <div>
+                    Intent
+                </div>
 
             </div>
+
 
 
             <!-- MOTIF -->
@@ -2332,32 +2725,53 @@
             <div class="vbs-keyword-row">
 
                 <div>
+
                     <div class="vbs-keyword">
+
                         interior design companies in Dubai
+
                     </div>
 
                     <div class="vbs-keyword-company">
+
                         Example market result: Motif Interiors
+
                     </div>
+
                 </div>
 
-                <div>
-                    <span class="vbs-position">01</span>
-                </div>
 
                 <div>
-                    <span class="vbs-change">↑ 4</span>
+                    <span class="vbs-position">
+                        01
+                    </span>
                 </div>
 
+
                 <div>
-                    <span class="vbs-intent">Commercial</span>
+
+                    <span class="vbs-change">
+                        ↑ 4
+                    </span>
+
                 </div>
+
+
+                <div>
+
+                    <span class="vbs-intent">
+                        Commercial
+                    </span>
+
+                </div>
+
 
                 <div class="vbs-visibility">
                     High
                 </div>
 
             </div>
+
 
 
             <!-- HAUS & HAUS -->
@@ -2367,32 +2781,53 @@
                 <div>
 
                     <div class="vbs-keyword">
+
                         luxury villa property in Dubai
+
                     </div>
 
                     <div class="vbs-keyword-company">
+
                         Example market result: haus & haus
+
                     </div>
 
                 </div>
 
-                <div>
-                    <span class="vbs-position">02</span>
-                </div>
 
                 <div>
-                    <span class="vbs-change">↑ 3</span>
+
+                    <span class="vbs-position">
+                        02
+                    </span>
+
                 </div>
 
+
                 <div>
-                    <span class="vbs-intent">Transactional</span>
+
+                    <span class="vbs-change">
+                        ↑ 3
+                    </span>
+
                 </div>
+
+
+                <div>
+
+                    <span class="vbs-intent">
+                        Transactional
+                    </span>
+
+                </div>
+
 
                 <div class="vbs-visibility">
                     High
                 </div>
 
             </div>
+
 
 
             <!-- FAM -->
@@ -2402,26 +2837,46 @@
                 <div>
 
                     <div class="vbs-keyword">
+
                         rental properties in UAE
+
                     </div>
 
                     <div class="vbs-keyword-company">
+
                         Example market result: Fam Properties
+
                     </div>
 
                 </div>
 
-                <div>
-                    <span class="vbs-position">03</span>
-                </div>
 
                 <div>
-                    <span class="vbs-change">↑ 5</span>
+
+                    <span class="vbs-position">
+                        03
+                    </span>
+
                 </div>
 
+
                 <div>
-                    <span class="vbs-intent">Transactional</span>
+
+                    <span class="vbs-change">
+                        ↑ 5
+                    </span>
+
                 </div>
+
+
+                <div>
+
+                    <span class="vbs-intent">
+                        Transactional
+                    </span>
+
+                </div>
+
 
                 <div class="vbs-visibility">
                     High
@@ -2430,39 +2885,61 @@
             </div>
 
 
-            <!-- TIME HOTEL -->
+
+            <!-- TIME HOTELS -->
 
             <div class="vbs-keyword-row">
 
                 <div>
 
                     <div class="vbs-keyword">
+
                         cheap hotel rooms in Dubai
+
                     </div>
 
                     <div class="vbs-keyword-company">
+
                         Example market result: TIME Hotels
+
                     </div>
 
                 </div>
 
-                <div>
-                    <span class="vbs-position">04</span>
-                </div>
 
                 <div>
-                    <span class="vbs-change">↑ 2</span>
+
+                    <span class="vbs-position">
+                        04
+                    </span>
+
                 </div>
 
+
                 <div>
-                    <span class="vbs-intent">Transactional</span>
+
+                    <span class="vbs-change">
+                        ↑ 2
+                    </span>
+
                 </div>
+
+
+                <div>
+
+                    <span class="vbs-intent">
+                        Transactional
+                    </span>
+
+                </div>
+
 
                 <div class="vbs-visibility">
                     Medium
                 </div>
 
             </div>
+
 
 
             <!-- CHINESE RESTAURANT -->
@@ -2472,32 +2949,53 @@
                 <div>
 
                     <div class="vbs-keyword">
+
                         chinese restaurant in Dubai
+
                     </div>
 
                     <div class="vbs-keyword-company">
+
                         Example results: Ming Dynasty / Tang Town
+
                     </div>
 
                 </div>
 
-                <div>
-                    <span class="vbs-position">05</span>
-                </div>
 
                 <div>
-                    <span class="vbs-change">↑ 6</span>
+
+                    <span class="vbs-position">
+                        05
+                    </span>
+
                 </div>
 
+
                 <div>
-                    <span class="vbs-intent">Local</span>
+
+                    <span class="vbs-change">
+                        ↑ 6
+                    </span>
+
                 </div>
+
+
+                <div>
+
+                    <span class="vbs-intent">
+                        Local
+                    </span>
+
+                </div>
+
 
                 <div class="vbs-visibility">
                     High
                 </div>
 
             </div>
+
 
 
             <!-- HASHTAG FASHION -->
@@ -2507,26 +3005,46 @@
                 <div>
 
                     <div class="vbs-keyword">
+
                         beautiful abayas in UAE
+
                     </div>
 
                     <div class="vbs-keyword-company">
+
                         Example market result: Hashtag Fashion
+
                     </div>
 
                 </div>
 
-                <div>
-                    <span class="vbs-position">06</span>
-                </div>
 
                 <div>
-                    <span class="vbs-change">↑ 4</span>
+
+                    <span class="vbs-position">
+                        06
+                    </span>
+
                 </div>
 
+
                 <div>
-                    <span class="vbs-intent">Shopping</span>
+
+                    <span class="vbs-change">
+                        ↑ 4
+                    </span>
+
                 </div>
+
+
+                <div>
+
+                    <span class="vbs-intent">
+                        Shopping
+                    </span>
+
+                </div>
+
 
                 <div class="vbs-visibility">
                     Medium
@@ -2534,10 +3052,12 @@
 
             </div>
 
+
         </div>
 
 
-        <!-- BUSINESS CARDS -->
+
+        <!-- BUSINESS RESULT CARDS -->
 
         <div class="vbs-business-grid">
 
@@ -2556,13 +3076,16 @@
 
                 </div>
 
+
                 <h3>
                     Motif Interiors
                 </h3>
 
+
                 <div class="vbs-business-keyword">
                     interior design companies in Dubai
                 </div>
+
 
                 <div class="vbs-business-ranking">
 
@@ -2579,6 +3102,7 @@
             </div>
 
 
+
             <div class="vbs-business-card">
 
                 <div class="vbs-business-top">
@@ -2593,13 +3117,16 @@
 
                 </div>
 
+
                 <h3>
-                    haus & haus
+                    haus &amp; haus
                 </h3>
+
 
                 <div class="vbs-business-keyword">
                     luxury villa property in Dubai
                 </div>
+
 
                 <div class="vbs-business-ranking">
 
@@ -2616,6 +3143,7 @@
             </div>
 
 
+
             <div class="vbs-business-card">
 
                 <div class="vbs-business-top">
@@ -2630,13 +3158,16 @@
 
                 </div>
 
+
                 <h3>
                     Fam Properties
                 </h3>
 
+
                 <div class="vbs-business-keyword">
                     rental properties in UAE
                 </div>
+
 
                 <div class="vbs-business-ranking">
 
@@ -2660,6 +3191,7 @@
 </section>
 
 
+
 <!-- =========================================================
      INDUSTRIES
 ========================================================= -->
@@ -2668,20 +3200,30 @@
 
     <div class="vbs-seo-container">
 
+
         <div class="vbs-seo-eyebrow">
+
             <span></span>
+
             Industry SEO
+
         </div>
 
+
         <h2>
+
             We Turn Search Intent<br>
             Into Business Opportunities.
+
         </h2>
 
+
         <p class="vbs-industries-intro">
+
             From real estate and construction to hospitality, restaurants,
             fashion and professional services, we build SEO strategies around
             the way your customers actually search.
+
         </p>
 
 
@@ -2692,11 +3234,15 @@
 
                 <i class="fa-solid fa-building"></i>
 
-                <h3>Real Estate</h3>
+                <h3>
+                    Real Estate
+                </h3>
 
                 <p>
+
                     Villas, apartments, property investment, rentals,
                     communities and real estate services.
+
                 </p>
 
             </div>
@@ -2706,11 +3252,15 @@
 
                 <i class="fa-solid fa-helmet-safety"></i>
 
-                <h3>Construction</h3>
+                <h3>
+                    Construction
+                </h3>
 
                 <p>
+
                     Contractors, fit-out companies, MEP, civil works,
                     technical services and construction solutions.
+
                 </p>
 
             </div>
@@ -2720,11 +3270,15 @@
 
                 <i class="fa-solid fa-couch"></i>
 
-                <h3>Interior Design</h3>
+                <h3>
+                    Interior Design
+                </h3>
 
                 <p>
+
                     Interior designers, architects, fit-out companies,
                     luxury interiors and commercial design.
+
                 </p>
 
             </div>
@@ -2734,11 +3288,15 @@
 
                 <i class="fa-solid fa-hotel"></i>
 
-                <h3>Hospitality</h3>
+                <h3>
+                    Hospitality
+                </h3>
 
                 <p>
+
                     Hotels, rooms, restaurants, travel services and
                     hospitality experiences.
+
                 </p>
 
             </div>
@@ -2748,11 +3306,15 @@
 
                 <i class="fa-solid fa-utensils"></i>
 
-                <h3>Restaurants</h3>
+                <h3>
+                    Restaurants
+                </h3>
 
                 <p>
+
                     Local discovery, food searches, Maps visibility,
                     reviews and restaurant keywords.
+
                 </p>
 
             </div>
@@ -2762,14 +3324,19 @@
 
                 <i class="fa-solid fa-shirt"></i>
 
-                <h3>Fashion & Retail</h3>
+                <h3>
+                    Fashion &amp; Retail
+                </h3>
 
                 <p>
+
                     Fashion brands, boutiques, abayas, products,
                     shopping searches and ecommerce SEO.
+
                 </p>
 
             </div>
+
 
         </div>
 
@@ -2778,32 +3345,47 @@
 </section>
 
 
+
 <!-- =========================================================
      SEO ANALYTICS DASHBOARD
 ========================================================= -->
 
-<section class="vbs-seo-section vbs-dashboard-section" id="seo-dashboard">
+<section class="vbs-seo-section vbs-dashboard-section"
+         id="seo-dashboard">
+
 
     <div class="vbs-seo-container">
 
+
         <div class="vbs-seo-intro">
 
+
             <div class="vbs-seo-eyebrow">
+
                 <span></span>
-                SEO Reporting & Intelligence
+
+                SEO Reporting &amp; Intelligence
+
             </div>
 
+
             <h2>
+
                 See Exactly What Your SEO Is Doing.
+
             </h2>
 
+
             <p>
+
                 Transparent reporting covering organic traffic, keyword
                 positions, clicks, impressions, indexing, search visibility,
                 engagement and lead-generation opportunities.
+
             </p>
 
         </div>
+
 
 
         <div class="vbs-dashboard">
@@ -2813,13 +3395,16 @@
 
             <div class="vbs-dashboard-top">
 
+
                 <div class="vbs-dashboard-brand">
 
                     <div class="vbs-dashboard-logo">
                         V
                     </div>
 
+
                     <div>
+
                         <strong>
                             SEO Growth Dashboard
                         </strong>
@@ -2827,6 +3412,7 @@
                         <small>
                             Search performance intelligence
                         </small>
+
                     </div>
 
                 </div>
@@ -2839,12 +3425,14 @@
             </div>
 
 
+
             <div class="vbs-dashboard-body">
 
 
                 <!-- METRICS -->
 
                 <div class="vbs-dashboard-metrics">
+
 
                     <div class="vbs-metric">
 
@@ -2930,15 +3518,17 @@
 
                     </div>
 
+
                 </div>
 
 
-                <!-- MAIN DASHBOARD -->
+
+                <!-- DASHBOARD MAIN -->
 
                 <div class="vbs-dashboard-main">
 
 
-                    <!-- TRAFFIC CHART -->
+                    <!-- TRAFFIC -->
 
                     <div class="vbs-dashboard-box">
 
@@ -2946,30 +3536,17 @@
                             Organic Search Traffic
                         </h4>
 
+
                         <div class="vbs-big-chart">
 
                             <div class="vbs-big-chart-grid"></div>
+
 
                             <svg viewBox="0 0 800 240"
                                  preserveAspectRatio="none">
 
                                 <polyline
-                                    points="
-                                    0,200
-                                    65,193
-                                    120,182
-                                    170,188
-                                    225,164
-                                    280,170
-                                    335,144
-                                    390,151
-                                    445,119
-                                    505,126
-                                    565,95
-                                    620,102
-                                    680,65
-                                    735,74
-                                    800,25"
+                                    points="0,200 65,193 120,182 170,188 225,164 280,170 335,144 390,151 445,119 505,126 565,95 620,102 680,65 735,74 800,25"
                                     fill="none"
                                     stroke="#1646c8"
                                     stroke-width="4"
@@ -2983,6 +3560,7 @@
                     </div>
 
 
+
                     <!-- SOURCES -->
 
                     <div class="vbs-dashboard-box">
@@ -2993,6 +3571,7 @@
 
 
                         <div class="vbs-source-list">
+
 
                             <div class="vbs-source">
 
@@ -3005,7 +3584,9 @@
                                 </div>
 
                                 <div class="vbs-progress">
+
                                     <span style="width:68%;"></span>
+
                                 </div>
 
                             </div>
@@ -3022,7 +3603,9 @@
                                 </div>
 
                                 <div class="vbs-progress">
+
                                     <span style="width:17%;"></span>
+
                                 </div>
 
                             </div>
@@ -3039,7 +3622,9 @@
                                 </div>
 
                                 <div class="vbs-progress">
+
                                     <span style="width:9%;"></span>
+
                                 </div>
 
                             </div>
@@ -3056,16 +3641,21 @@
                                 </div>
 
                                 <div class="vbs-progress">
+
                                     <span style="width:6%;"></span>
+
                                 </div>
 
                             </div>
+
 
                         </div>
 
                     </div>
 
+
                 </div>
+
 
 
                 <!-- SEARCH CONSOLE -->
@@ -3082,11 +3672,15 @@
 
                         <div class="vbs-index-status">
 
+
                             <div class="vbs-index-status-left">
 
                                 <div class="vbs-index-icon">
+
                                     <i class="fa-solid fa-check"></i>
+
                                 </div>
+
 
                                 <div>
 
@@ -3102,6 +3696,7 @@
 
                             </div>
 
+
                             <div class="vbs-index-number">
                                 248
                             </div>
@@ -3111,11 +3706,15 @@
 
                         <div class="vbs-index-status">
 
+
                             <div class="vbs-index-status-left">
 
                                 <div class="vbs-index-icon">
+
                                     <i class="fa-solid fa-link"></i>
+
                                 </div>
+
 
                                 <div>
 
@@ -3131,6 +3730,7 @@
 
                             </div>
 
+
                             <div class="vbs-index-number">
                                 263
                             </div>
@@ -3140,11 +3740,15 @@
 
                         <div class="vbs-index-status">
 
+
                             <div class="vbs-index-status-left">
 
                                 <div class="vbs-index-icon">
+
                                     <i class="fa-solid fa-circle-check"></i>
+
                                 </div>
+
 
                                 <div>
 
@@ -3160,16 +3764,19 @@
 
                             </div>
 
+
                             <div class="vbs-index-number">
                                 94%
                             </div>
 
                         </div>
 
+
                     </div>
 
 
-                    <!-- KEYWORD PERFORMANCE -->
+
+                    <!-- KEYWORDS -->
 
                     <div class="vbs-dashboard-box">
 
@@ -3242,10 +3849,11 @@
 
                         </div>
 
+
                     </div>
 
-                </div>
 
+                </div>
 
             </div>
 
@@ -3256,8 +3864,9 @@
 </section>
 
 
+
 <!-- =========================================================
-     LOCAL SEO
+     LOCAL SEO / GOOGLE MAPS
 ========================================================= -->
 
 <section class="vbs-seo-section vbs-local-section">
@@ -3269,23 +3878,34 @@
 
             <div class="vbs-local-copy">
 
+
                 <div class="vbs-seo-eyebrow">
+
                     <span></span>
-                    Local SEO & Google Maps
+
+                    Local SEO &amp; Google Maps
+
                 </div>
 
+
                 <h2>
+
                     Own Your Local Search Area.
+
                 </h2>
 
+
                 <p>
-                    When customers search for a business near them, your Google
-                    Business Profile and Maps presence can become one of your
-                    strongest sources of enquiries.
+
+                    When customers search for a business near them, your
+                    Google Business Profile and Maps presence can become
+                    one of your strongest sources of enquiries.
+
                 </p>
 
 
                 <div class="vbs-local-features">
+
 
                     <div class="vbs-local-feature">
 
@@ -3300,7 +3920,7 @@
 
                         <i class="fa-solid fa-star"></i>
 
-                        Reviews & reputation signals
+                        Reviews &amp; reputation signals
 
                     </div>
 
@@ -3331,9 +3951,11 @@
 
                     </div>
 
+
                 </div>
 
             </div>
+
 
 
             <!-- MAP -->
@@ -3343,15 +3965,20 @@
                 <div class="vbs-map-grid"></div>
 
                 <div class="vbs-map-road"></div>
+
                 <div class="vbs-map-road two"></div>
+
                 <div class="vbs-map-road three"></div>
 
 
                 <div class="vbs-map-business main">
 
                     <div class="vbs-map-pin">
+
                         <i class="fa-solid fa-location-dot"></i>
+
                     </div>
+
 
                     <strong>
                         Your Business
@@ -3397,6 +4024,7 @@
 
                 </div>
 
+
             </div>
 
         </div>
@@ -3404,6 +4032,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -3414,24 +4043,36 @@
 
     <div class="vbs-seo-container">
 
+
         <div class="vbs-seo-intro">
 
+
             <div class="vbs-seo-eyebrow">
+
                 <span></span>
+
                 Data • Insights • Action
+
             </div>
 
+
             <h2>
+
                 Your SEO Report Should Explain Growth.
+
             </h2>
 
+
             <p>
+
                 Instead of sending spreadsheets full of meaningless numbers,
                 we translate search data into clear business insights and
                 actions.
+
             </p>
 
         </div>
+
 
 
         <div class="vbs-report-grid">
@@ -3446,8 +4087,10 @@
                 </h3>
 
                 <p>
+
                     Keyword positions, ranking movement, SERP visibility,
                     competitors and opportunities.
+
                 </p>
 
             </div>
@@ -3462,8 +4105,10 @@
                 </h3>
 
                 <p>
+
                     Users, sessions, landing pages, engagement and traffic
                     sources from organic search.
+
                 </p>
 
             </div>
@@ -3478,8 +4123,10 @@
                 </h3>
 
                 <p>
+
                     Clicks, impressions, CTR, indexing, queries and page
                     performance.
+
                 </p>
 
             </div>
@@ -3494,11 +4141,14 @@
                 </h3>
 
                 <p>
+
                     Clear recommendations showing what to fix, what to improve
                     and where new growth can come from.
+
                 </p>
 
             </div>
+
 
         </div>
 
@@ -3507,31 +4157,42 @@
 </section>
 
 
+
 <!-- =========================================================
-     PROCESS
+     SEO PROCESS
 ========================================================= -->
 
 <section class="vbs-seo-section">
 
     <div class="vbs-seo-container">
 
+
         <div class="vbs-seo-intro">
 
+
             <div class="vbs-seo-eyebrow">
+
                 <span></span>
+
                 Our SEO Process
+
             </div>
+
 
             <h2>
                 From Audit To Organic Growth.
             </h2>
 
+
             <p>
+
                 A structured process designed to build sustainable search
                 visibility rather than chasing temporary ranking tricks.
+
             </p>
 
         </div>
+
 
 
         <div class="vbs-process-grid">
@@ -3621,11 +4282,13 @@
 
             </div>
 
+
         </div>
 
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -3636,65 +4299,118 @@
 
     <div class="vbs-seo-container">
 
+
         <div class="vbs-keyword-cloud">
+
 
             <h2>
                 Search Terms We Can Build Around
             </h2>
 
+
             <p>
-                Commercial and local search opportunities can be mapped to your
-                products, services, locations and customer intent.
+
+                Commercial and local search opportunities can be mapped to
+                your products, services, locations and customer intent.
+
             </p>
 
 
             <div class="vbs-cloud">
 
-                <span>real estate Dubai</span>
 
-                <span>property for sale Dubai</span>
+                <span>
+                    real estate Dubai
+                </span>
 
-                <span>luxury villas Dubai</span>
+                <span>
+                    property for sale Dubai
+                </span>
 
-                <span>rental properties UAE</span>
+                <span>
+                    luxury villas Dubai
+                </span>
 
-                <span>construction company Dubai</span>
+                <span>
+                    rental properties UAE
+                </span>
 
-                <span>fit out company Dubai</span>
+                <span>
+                    construction company Dubai
+                </span>
 
-                <span>interior design Dubai</span>
+                <span>
+                    fit out company Dubai
+                </span>
 
-                <span>interior design companies in Dubai</span>
+                <span>
+                    interior design Dubai
+                </span>
 
-                <span>MEP contractors Dubai</span>
+                <span>
+                    interior design companies in Dubai
+                </span>
 
-                <span>technical services Dubai</span>
+                <span>
+                    MEP contractors Dubai
+                </span>
 
-                <span>cheap hotel rooms in Dubai</span>
+                <span>
+                    technical services Dubai
+                </span>
 
-                <span>hotels in UAE</span>
+                <span>
+                    cheap hotel rooms in Dubai
+                </span>
 
-                <span>Chinese restaurant Dubai</span>
+                <span>
+                    hotels in UAE
+                </span>
 
-                <span>best restaurant Dubai</span>
+                <span>
+                    Chinese restaurant Dubai
+                </span>
 
-                <span>beautiful abayas in UAE</span>
+                <span>
+                    best restaurant Dubai
+                </span>
 
-                <span>fashion store Dubai</span>
+                <span>
+                    beautiful abayas in UAE
+                </span>
 
-                <span>digital marketing Dubai</span>
+                <span>
+                    fashion store Dubai
+                </span>
 
-                <span>SEO company Dubai</span>
+                <span>
+                    digital marketing Dubai
+                </span>
 
-                <span>local SEO UAE</span>
+                <span>
+                    SEO company Dubai
+                </span>
 
-                <span>Google Maps SEO</span>
+                <span>
+                    local SEO UAE
+                </span>
 
-                <span>AI search optimization</span>
+                <span>
+                    Google Maps SEO
+                </span>
 
-                <span>AEO services</span>
+                <span>
+                    AI search optimization
+                </span>
 
-                <span>GEO services</span>
+                <span>
+                    AEO services
+                </span>
+
+                <span>
+                    GEO services
+                </span>
+
 
             </div>
 
@@ -3705,6 +4421,7 @@
 </section>
 
 
+
 <!-- =========================================================
      CTA
 ========================================================= -->
@@ -3713,23 +4430,36 @@
 
     <div class="vbs-seo-container">
 
+
         <div class="vbs-cta-box">
 
+
             <h2>
+
                 Your Competitors Are Already<br>
                 Competing For Your Customers.
+
             </h2>
 
+
             <p>
+
                 Let’s identify the keywords, search opportunities and technical
                 improvements that can move your website closer to the top —
                 and turn search visibility into measurable business growth.
+
             </p>
 
-            <a href="#contact" class="vbs-seo-btn">
+
+            <a href="contact.html"
+               class="vbs-seo-btn">
+
                 Request SEO Analysis
+
                 <i class="fa-solid fa-arrow-right"></i>
+
             </a>
+
 
         </div>
 
@@ -3743,5 +4473,319 @@
 <!-- =========================================================
      SEO PAGE END
 ========================================================= -->
-     <body/>
-<html/>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer-section footer-section-main fix">
+
+    <div class="container">
+
+        <div class="row g-lg-0 g-4 justify-content-between">
+
+
+            <div class="col-lg-7">
+
+                <div class="left-side-footer">
+
+                    <div class="left-area">
+
+                        <div class="serial text-nowrap wow fadeInLeft"
+                             data-wow-delay="0.3s">
+
+                            Creative
+
+                        </div>
+
+
+                        <h2 class="visible-from-bottom">
+                            360 Degree Marketing
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="location-area-wrap">
+
+
+                    <div class="location-area-item">
+
+                        <div class="text-location">
+                            Location
+                        </div>
+
+
+                        <div class="text-name visible-from-bottom">
+
+                            Dubai <br>
+                            UAE
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="location-area-item">
+
+                        <div class="text-location">
+                            CONTACT US
+                        </div>
+
+
+                        <div class="text-name">
+
+                            +971 54 317 5867 <br>
+
+                            fahadanwarhassan@gmail.com
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-5">
+
+
+                <div class="right-side-footer">
+
+
+                    <h3 class="wow fadeInUp"
+                        data-wow-delay="0.3s">
+
+                        Quick Links
+
+                    </h3>
+
+
+                    <ul class="r-link wow fadeInUp"
+                        data-wow-delay="0.4s">
+
+
+                        <li>
+
+                            <a href="blog.html">
+                                News &amp; Articles
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="service.html">
+                                Services
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="contact.html">
+                                Contact Us
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="project.html">
+                                Recent Work
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="about.html">
+                                About Us
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+
+
+                    <a href="index.html"
+                       class="footer-logo-big wow fadeInUp"
+                       data-wow-delay="0.5s">
+
+                        <img src="assets/img/logo/logo-big.png"
+                             alt="Vector Business Solutions">
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom py-4">
+
+        <div class="container">
+
+            <div class="justify-content-md-between justify-content-center d-flex flex-md-nowrap flex-wrap gap-3">
+
+
+                <p class="text-white opacity-75 wow fadeInLeft body-font"
+                   data-wow-delay=".3s">
+
+                    &copy; 2026
+
+                    <a href="index.html"
+                       class="text-p1">
+
+                        Fahad Anwar.
+
+                    </a>
+
+                    All Rights Reserved.
+
+                </p>
+
+
+                <div class="footer-bottom-link">
+
+                    <a href="contact.html">
+                        Terms &amp; Conditions
+                    </a>
+
+                    <a href="contact.html">
+                        //
+                    </a>
+
+                    <a href="contact.html">
+                        Privacy Policy
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     SEARCH OVERLAY
+========================================================= -->
+
+<div class="search-wrap">
+
+    <div class="search-inner">
+
+        <i class="fas fa-times search-close"
+           id="search-close">
+        </i>
+
+
+        <div class="search-cell">
+
+            <form method="get">
+
+                <div class="search-field-holder">
+
+                    <input type="search"
+                           class="main-search-input"
+                           placeholder="Search...">
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<!-- jQuery -->
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+
+<!-- Viewport -->
+<script src="assets/js/viewport.jquery.js"></script>
+
+<!-- Bootstrap -->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+<!-- Nice Select -->
+<script src="assets/js/jquery.nice-select.min.js"></script>
+
+<!-- Swiper -->
+<script src="assets/js/swiper-bundle.min.js"></script>
+
+<!-- Waypoints -->
+<script src="assets/js/jquery.waypoints.js"></script>
+
+<!-- Counter -->
+<script src="assets/js/jquery.counterup.min.js"></script>
+
+<!-- MeanMenu -->
+<script src="assets/js/jquery.meanmenu.min.js"></script>
+
+<!-- Magnific Popup -->
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+<!-- WOW -->
+<script src="assets/js/wow.min.js"></script>
+
+<!-- GSAP -->
+<script src="assets/js/gsap.min.js"></script>
+
+<!-- Lenis -->
+<script src="assets/js/lenis.min.js"></script>
+
+<!-- ScrollSmoother -->
+<script src="assets/js/scrollSmoother.js"></script>
+
+<!-- ScrollTrigger -->
+<script src="assets/js/ScrollTrigger.min.js"></script>
+
+<!-- Split Text -->
+<script src="assets/js/spilitext-gsap.js"></script>
+
+<!-- Vanilla Tilt -->
+<script src="assets/js/vanilla-tilt.min.js"></script>
+
+<!-- Arigo Main JS -->
+<script src="assets/js/main.js"></script>
+
+
+</body>
+
+</html>
