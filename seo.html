@@ -177,14 +177,27 @@
         }
 
         .vbs-hero-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(48px, 6vw, 82px);
-            line-height: .98;
-            letter-spacing: -4px;
-            font-weight: 700;
-            margin: 22px 0;
-            color: #111827 !important;
-        }
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(48px, 6vw, 82px);
+    line-height: 1.02;
+    letter-spacing: -3.5px;
+    font-weight: 700;
+    margin: 22px 0 25px;
+    color: #111827 !important;
+}
+
+.vbs-hero-title .vbs-gradient-text {
+    display: inline;
+    background: linear-gradient(
+        90deg,
+        #2563eb 0%,
+        #4f46e5 50%,
+        #7c3aed 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
         .vbs-hero-description {
             max-width: 700px;
@@ -1220,18 +1233,10 @@
                             SEO • AEO • GEO • AI SEARCH
                         </div>
 
-                        <h1 class="vbs-hero-title">
-
-                            Get Found.<br>
-
-                            <span class="vbs-gradient-text">
-                                Get Ranked.<br>
-                            </span>
-
-                            <br>
-
-                            Get Chosen.
-
+                          <h1 class="vbs-hero-title">
+                        Get Found.<br>
+                        <span class="vbs-gradient-text">Get Ranked.</span><br>
+                        Get Chosen.
                         </h1>
 
                         <p class="vbs-hero-description">
