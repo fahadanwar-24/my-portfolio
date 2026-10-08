@@ -378,295 +378,779 @@
     </section>
 
    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-        
-        <!-- Welcome Banner & Quick Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-5 backdrop-blur-sm shadow-xl flex flex-col justify-between">
-                <div>
-                    <div class="flex items-center justify-between text-slate-400 mb-2">
-                        <span class="text-xs font-semibold uppercase tracking-wider">Top Growth Driver</span>
-                        <i class="fa-solid fa-fire text-amber-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white">Views & Reach</h3>
-                    <p class="text-xs text-slate-400 mt-1">Accelerated by 34% this quarter</p>
+
+    <!-- Welcome Banner & Quick Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Growth Driver -->
+        <div class="bg-gradient-to-br from-blue-950 via-blue-900 to-[#5b1028]
+                    border border-blue-400/30 rounded-2xl p-5
+                    shadow-xl shadow-blue-950/30 flex flex-col justify-between">
+
+            <div>
+                <div class="flex items-center justify-between text-white mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider">
+                        Top Growth Driver
+                    </span>
+                    <i class="fa-solid fa-fire text-white"></i>
                 </div>
-                <div class="mt-4 pt-4 border-t border-slate-700/40 flex items-center justify-between text-xs">
-                    <span class="text-slate-400">Peak Month 6:</span>
-                    <span class="text-cyan-400 font-semibold">48,000 Impressions</span>
-                </div>
+
+                <h3 class="text-2xl font-bold text-white">
+                    Views & Reach
+                </h3>
+
+                <p class="text-xs text-white/80 mt-1">
+                    Accelerated by 34% this quarter
+                </p>
             </div>
 
-            <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-5 backdrop-blur-sm shadow-xl flex flex-col justify-between">
-                <div>
-                    <div class="flex items-center justify-between text-slate-400 mb-2">
-                        <span class="text-xs font-semibold uppercase tracking-wider">Follower Milestone</span>
-                        <i class="fa-solid fa-users text-indigo-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white">50,000 Reached</h3>
-                    <p class="text-xs text-slate-400 mt-1">Consistent upward trajectory</p>
-                </div>
-                <div class="mt-4 pt-4 border-t border-slate-700/40 flex items-center justify-between text-xs">
-                    <span class="text-slate-400">Starting Point:</span>
-                    <span class="text-indigo-400 font-semibold">1,000 Followers</span>
-                </div>
-            </div>
+            <div class="mt-4 pt-4 border-t border-white/20
+                        flex items-center justify-between text-xs">
+                <span class="text-white/80">
+                    Peak Month 6:
+                </span>
 
-            <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-5 backdrop-blur-sm shadow-xl flex flex-col justify-between">
-                <div>
-                    <div class="flex items-center justify-between text-slate-400 mb-2">
-                        <span class="text-xs font-semibold uppercase tracking-wider">Engagement Rate</span>
-                        <i class="fa-solid fa-bolt text-emerald-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white">92.4% Average</h3>
-                    <p class="text-xs text-slate-400 mt-1">Healthy likes & comment ratios</p>
-                </div>
-                <div class="mt-4 pt-4 border-t border-slate-700/40 flex items-center justify-between text-xs">
-                    <span class="text-slate-400">Total Interactions:</span>
-                    <span class="text-emerald-400 font-semibold">145k+ Events</span>
-                </div>
+                <span class="text-white font-bold">
+                    48,000 Impressions
+                </span>
             </div>
         </div>
 
-        <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-6 backdrop-blur-sm shadow-xl">
-            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">
-                <div>
-                    <h2 class="text-lg font-bold text-white flex items-center">
-                        <i class="fa-solid fa-chart-area text-indigo-400 mr-2"></i> Social Growth Trajectory (1K to 50K Scale)
-                    </h2>
-                    <p class="text-xs text-slate-400 mt-1">Non-overlapping, parallel growth pathways across 6 core metrics from Month 1 to Month 6.</p>
+
+        <!-- Follower Milestone -->
+        <div class="bg-gradient-to-br from-[#071f49] via-blue-900 to-[#731633]
+                    border border-blue-400/30 rounded-2xl p-5
+                    shadow-xl shadow-blue-950/30 flex flex-col justify-between">
+
+            <div>
+                <div class="flex items-center justify-between text-white mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider">
+                        Follower Milestone
+                    </span>
+
+                    <i class="fa-solid fa-users text-white"></i>
                 </div>
-                <!-- Metric Toggles -->
-                <div id="metricToggles" class="flex flex-wrap gap-2">
-                    <!-- Dynamic toggle buttons injected by script -->
-                </div>
+
+                <h3 class="text-2xl font-bold text-white">
+                    50,000 Reached
+                </h3>
+
+                <p class="text-xs text-white/80 mt-1">
+                    Consistent upward trajectory
+                </p>
             </div>
 
-            <!-- Chart Canvas Container -->
-            <div class="relative w-full h-[420px]">
-                <canvas id="growthChart"></canvas>
+            <div class="mt-4 pt-4 border-t border-white/20
+                        flex items-center justify-between text-xs">
+
+                <span class="text-white/80">
+                    Starting Point:
+                </span>
+
+                <span class="text-white font-bold">
+                    1,000 Followers
+                </span>
             </div>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4" id="statCardsContainer">
-            <!-- Populated via script -->
+
+        <!-- Engagement -->
+        <div class="bg-gradient-to-br from-blue-950 via-[#172b68] to-[#71142f]
+                    border border-blue-400/30 rounded-2xl p-5
+                    shadow-xl shadow-blue-950/30 flex flex-col justify-between">
+
+            <div>
+                <div class="flex items-center justify-between text-white mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider">
+                        Engagement Rate
+                    </span>
+
+                    <i class="fa-solid fa-bolt text-white"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white">
+                    92.4% Average
+                </h3>
+
+                <p class="text-xs text-white/80 mt-1">
+                    Healthy likes & comment ratios
+                </p>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-white/20
+                        flex items-center justify-between text-xs">
+
+                <span class="text-white/80">
+                    Total Interactions:
+                </span>
+
+                <span class="text-white font-bold">
+                    145k+ Events
+                </span>
+            </div>
         </div>
 
-    </main>
+    </div>
 
-    <script>
-        // Define datasets with well-separated growth lines from 1K to 50K
-        const months = ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'];
 
-        const metricsData = [
-            {
-                label: 'Followers',
-                data: [1000, 8000, 20000, 30000, 40000, 50000],
-                color: '#6366f1', // Indigo
-                bg: 'rgba(99, 102, 241, 0.1)',
-                icon: 'fa-users',
-                description: 'Audience base expansion'
-            },
-            {
-                label: 'Views',
-                data: [2000, 12000, 22000, 35000, 42000, 48000],
-                color: '#06b6d4', // Cyan
-                bg: 'rgba(6, 182, 212, 0.1)',
-                icon: 'fa-eye',
-                description: 'Total content impressions'
-            },
-            {
-                label: 'Subscribers',
-                data: [1500, 9500, 18000, 28000, 38000, 46000],
-                color: '#a855f7', // Purple
-                bg: 'rgba(168, 85, 247, 0.1)',
-                icon: 'fa-bell',
-                description: 'Loyal subscriber count'
-            },
-            {
-                label: 'Likes',
-                data: [1200, 7000, 15000, 25000, 34000, 42000],
-                color: '#ec4899', // Pink
-                bg: 'rgba(236, 72, 153, 0.1)',
-                icon: 'fa-heart',
-                description: 'Positive reactions received'
-            },
-            {
-                label: 'Shares',
-                data: [900, 5500, 12000, 21000, 30000, 38000],
-                color: '#f97316', // Orange
-                bg: 'rgba(249, 115, 22, 0.1)',
-                icon: 'fa-share-nodes',
-                description: 'Content reposts & forwards'
-            },
-            {
-                label: 'Comments',
-                data: [500, 3500, 8000, 15000, 22000, 28000],
-                color: '#10b981', // Emerald
-                bg: 'rgba(16, 185, 129, 0.1)',
-                icon: 'fa-comment',
-                description: 'Community interactions'
-            }
-        ];
+    <!-- Main Chart -->
+    <div class="bg-gradient-to-br from-[#061a3a] via-[#0b2d63] to-[#581328]
+                border border-blue-300/25 rounded-2xl p-6
+                shadow-2xl shadow-blue-950/40">
 
-        let growthChart = null;
+        <div class="flex flex-col lg:flex-row lg:items-center
+                    justify-between gap-4 mb-6">
 
-        // Initialize Chart
-        function initChart() {
-            const ctx = document.getElementById('growthChart').getContext('2d');
-            
-            const datasets = metricsData.map((metric) => ({
-                label: metric.label,
-                data: metric.data,
-                borderColor: metric.color,
-                backgroundColor: metric.bg,
-                borderWidth: 3,
-                pointBackgroundColor: metric.color,
-                pointBorderColor: '#1e293b',
-                pointBorderWidth: 2,
-                pointRadius: 5,
-                pointHoverRadius: 8,
-                tension: 0.35,
-                fill: false
-            }));
+            <div>
+                <h2 class="text-lg font-bold text-white flex items-center">
 
-            growthChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: months,
-                    datasets: datasets
+                    <i class="fa-solid fa-chart-area text-white mr-2"></i>
+
+                    Social Growth Trajectory
+                    <span class="ml-2 text-white/80">
+                        (1K to 50K Scale)
+                    </span>
+
+                </h2>
+
+                <p class="text-xs text-white/75 mt-1">
+                    Non-overlapping, parallel growth pathways across
+                    6 core metrics from Month 1 to Month 6.
+                </p>
+            </div>
+
+            <!-- Metric Toggles -->
+            <div id="metricToggles"
+                 class="flex flex-wrap gap-2">
+            </div>
+
+        </div>
+
+
+        <!-- Chart -->
+        <div class="relative w-full h-[420px]">
+            <canvas id="growthChart"></canvas>
+        </div>
+
+    </div>
+
+
+    <!-- Bottom Statistic Cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4"
+         id="statCardsContainer">
+    </div>
+
+</main>
+
+
+<script>
+
+    // ============================================================
+    // SOCIAL GROWTH DATA
+    // ============================================================
+
+    const months = [
+        'Month 1',
+        'Month 2',
+        'Month 3',
+        'Month 4',
+        'Month 5',
+        'Month 6'
+    ];
+
+
+    const metricsData = [
+
+        {
+            label: 'Followers',
+            data: [1000, 8000, 20000, 30000, 40000, 50000],
+            color: '#60a5fa',
+            bg: 'rgba(96, 165, 250, 0.16)',
+            icon: 'fa-users',
+            description: 'Audience base expansion'
+        },
+
+        {
+            label: 'Views',
+            data: [2000, 12000, 22000, 35000, 42000, 48000],
+            color: '#22d3ee',
+            bg: 'rgba(34, 211, 238, 0.16)',
+            icon: 'fa-eye',
+            description: 'Total content impressions'
+        },
+
+        {
+            label: 'Subscribers',
+            data: [1500, 9500, 18000, 28000, 38000, 46000],
+            color: '#c084fc',
+            bg: 'rgba(192, 132, 252, 0.16)',
+            icon: 'fa-bell',
+            description: 'Loyal subscriber count'
+        },
+
+        {
+            label: 'Likes',
+            data: [1200, 7000, 15000, 25000, 34000, 42000],
+            color: '#f472b6',
+            bg: 'rgba(244, 114, 182, 0.16)',
+            icon: 'fa-heart',
+            description: 'Positive reactions received'
+        },
+
+        {
+            label: 'Shares',
+            data: [900, 5500, 12000, 21000, 30000, 38000],
+            color: '#fb923c',
+            bg: 'rgba(251, 146, 60, 0.16)',
+            icon: 'fa-share-nodes',
+            description: 'Content reposts & forwards'
+        },
+
+        {
+            label: 'Comments',
+            data: [500, 3500, 8000, 15000, 22000, 28000],
+            color: '#34d399',
+            bg: 'rgba(52, 211, 153, 0.16)',
+            icon: 'fa-comment',
+            description: 'Community interactions'
+        }
+
+    ];
+
+
+    let growthChart = null;
+
+
+    // ============================================================
+    // INITIALIZE CHART
+    // ============================================================
+
+    function initChart() {
+
+        const ctx =
+            document.getElementById('growthChart').getContext('2d');
+
+
+        const datasets = metricsData.map((metric) => ({
+
+            label: metric.label,
+
+            data: metric.data,
+
+            borderColor: metric.color,
+
+            backgroundColor: metric.bg,
+
+            borderWidth: 3,
+
+            pointBackgroundColor: metric.color,
+
+            pointBorderColor: '#ffffff',
+
+            pointBorderWidth: 2,
+
+            pointRadius: 5,
+
+            pointHoverRadius: 8,
+
+            tension: 0.35,
+
+            fill: false
+
+        }));
+
+
+        growthChart = new Chart(ctx, {
+
+            type: 'line',
+
+            data: {
+
+                labels: months,
+
+                datasets: datasets
+
+            },
+
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: false,
+
+
+                interaction: {
+
+                    mode: 'index',
+
+                    intersect: false
+
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    interaction: {
-                        mode: 'index',
-                        intersect: false,
+
+
+                plugins: {
+
+                    legend: {
+
+                        display: false
+
                     },
-                    plugins: {
-                        legend: {
-                            display: false // We use custom toggles
+
+
+                    tooltip: {
+
+                        backgroundColor: 'rgba(3, 10, 28, 0.97)',
+
+                        titleColor: '#ffffff',
+
+                        bodyColor: '#ffffff',
+
+                        titleFont: {
+
+                            size: 13,
+
+                            family: 'Inter',
+
+                            weight: 'bold'
+
                         },
-                        tooltip: {
-                            backgroundColor: 'rgba(15, 23, 42, 0.95)',
-                            titleFont: { size: 13, family: 'Inter', weight: 'bold' },
-                            bodyFont: { size: 12, family: 'Inter' },
-                            padding: 12,
-                            borderColor: 'rgba(51, 65, 85, 0.8)',
-                            borderWidth: 1,
-                            cornerRadius: 10,
-                            callbacks: {
-                                label: function(context) {
-                                    let value = context.parsed.y;
-                                    let formattedVal = value >= 1000 ? (value / 1000).toFixed(1) + 'k' : value;
-                                    return ` ${context.dataset.label}: ${formattedVal} (${value.toLocaleString()})`;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            grid: {
-                                color: 'rgba(51, 65, 85, 0.2)',
-                                drawBorder: false
-                            },
-                            ticks: {
-                                color: '#94a3b8',
-                                font: { family: 'Inter', size: 12 }
-                            }
+
+                        bodyFont: {
+
+                            size: 12,
+
+                            family: 'Inter'
+
                         },
-                        y: {
-                            min: 0,
-                            max: 55000,
-                            grid: {
-                                color: 'rgba(51, 65, 85, 0.2)',
-                                drawBorder: false
-                            },
-                            ticks: {
-                                color: '#94a3b8',
-                                font: { family: 'Inter', size: 12 },
-                                callback: function(value) {
-                                    return (value / 1000) + 'k';
-                                }
+
+                        padding: 12,
+
+                        borderColor: 'rgba(96, 165, 250, 0.5)',
+
+                        borderWidth: 1,
+
+                        cornerRadius: 10,
+
+
+                        callbacks: {
+
+                            label: function(context) {
+
+                                let value = context.parsed.y;
+
+                                let formattedVal =
+                                    value >= 1000
+                                    ? (value / 1000).toFixed(1) + 'k'
+                                    : value;
+
+                                return ` ${context.dataset.label}: ${formattedVal} (${value.toLocaleString()})`;
+
                             }
+
                         }
+
                     }
+
+                },
+
+
+                scales: {
+
+                    x: {
+
+                        grid: {
+
+                            color: 'rgba(255,255,255,0.10)',
+
+                            drawBorder: false
+
+                        },
+
+                        ticks: {
+
+                            color: '#ffffff',
+
+                            font: {
+
+                                family: 'Inter',
+
+                                size: 12,
+
+                                weight: '600'
+
+                            }
+
+                        }
+
+                    },
+
+
+                    y: {
+
+                        min: 0,
+
+                        max: 55000,
+
+
+                        grid: {
+
+                            color: 'rgba(255,255,255,0.10)',
+
+                            drawBorder: false
+
+                        },
+
+
+                        ticks: {
+
+                            color: '#ffffff',
+
+                            font: {
+
+                                family: 'Inter',
+
+                                size: 12,
+
+                                weight: '600'
+
+                            },
+
+
+                            callback: function(value) {
+
+                                return (value / 1000) + 'k';
+
+                            }
+
+                        }
+
+                    }
+
                 }
-            });
 
-            buildToggles();
-            buildStatCards();
-        }
+            }
 
-        // Build interactive metric toggle buttons
-        function buildToggles() {
-            const container = document.getElementById('metricToggles');
-            container.innerHTML = '';
+        });
 
-            metricsData.forEach((metric, index) => {
-                const isVisible = growthChart.isDatasetVisible(index);
-                const btn = document.createElement('button');
-                btn.className = `px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center space-x-2 transition border ${
-                    isVisible 
-                        ? 'bg-slate-700/80 text-white border-slate-600 shadow-md' 
-                        : 'bg-slate-900/40 text-slate-500 border-slate-800 opacity-60'
-                }`;
-                btn.innerHTML = `
-                    <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${metric.color};"></span>
-                    <span>${metric.label}</span>
-                `;
-                btn.onclick = () => {
-                    const meta = growthChart.getDatasetMeta(index);
-                    meta.hidden = meta.hidden === null ? !growthChart.data.datasets[index].hidden : null;
-                    growthChart.update();
-                    buildToggles();
-                    buildStatCards();
-                };
-                container.appendChild(btn);
-            });
-        }
 
-        // Build summary stat cards at bottom
-        function buildStatCards() {
-            const container = document.getElementById('statCardsContainer');
-            container.innerHTML = '';
+        buildToggles();
 
-            metricsData.forEach((metric, index) => {
-                const isVisible = growthChart.isDatasetVisible(index);
-                const latestValue = metric.data[metric.data.length - 1];
-                const startValue = metric.data[0];
-                const growthFactor = ((latestValue - startValue) / startValue * 100).toFixed(0);
+        buildStatCards();
 
-                const card = document.createElement('div');
-                card.className = `bg-slate-800/60 border rounded-2xl p-4 backdrop-blur-sm transition duration-200 ${
-                    isVisible ? 'border-slate-700/80 shadow-lg' : 'border-slate-800/40 opacity-40'
-                }`;
-                card.innerHTML = `
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background-color: ${metric.bg}; color: ${metric.color};">
-                            <i class="fa-solid ${metric.icon} text-sm"></i>
-                        </div>
-                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400">+${growthFactor}%</span>
+    }
+
+
+    // ============================================================
+    // METRIC TOGGLES
+    // ============================================================
+
+    function buildToggles() {
+
+        const container =
+            document.getElementById('metricToggles');
+
+        container.innerHTML = '';
+
+
+        metricsData.forEach((metric, index) => {
+
+            const isVisible =
+                growthChart.isDatasetVisible(index);
+
+
+            const btn =
+                document.createElement('button');
+
+
+            btn.className = `
+
+                px-3 py-1.5
+
+                rounded-xl
+
+                text-xs
+
+                font-semibold
+
+                flex
+
+                items-center
+
+                space-x-2
+
+                transition
+
+                border
+
+                ${
+
+                    isVisible
+
+                    ? 'bg-white text-black border-white shadow-lg'
+
+                    : 'bg-black/30 text-white border-white/20 opacity-60'
+
+                }
+
+            `;
+
+
+            btn.innerHTML = `
+
+                <span
+
+                    class="w-2.5 h-2.5 rounded-full"
+
+                    style="background-color: ${metric.color};">
+
+                </span>
+
+                <span>${metric.label}</span>
+
+            `;
+
+
+            btn.onclick = () => {
+
+                const meta =
+                    growthChart.getDatasetMeta(index);
+
+
+                meta.hidden =
+                    meta.hidden === null
+                    ? !growthChart.data.datasets[index].hidden
+                    : null;
+
+
+                growthChart.update();
+
+                buildToggles();
+
+                buildStatCards();
+
+            };
+
+
+            container.appendChild(btn);
+
+        });
+
+    }
+
+
+    // ============================================================
+    // STAT CARDS
+    // ============================================================
+
+    function buildStatCards() {
+
+        const container =
+            document.getElementById('statCardsContainer');
+
+        container.innerHTML = '';
+
+
+        metricsData.forEach((metric, index) => {
+
+            const isVisible =
+                growthChart.isDatasetVisible(index);
+
+
+            const latestValue =
+                metric.data[metric.data.length - 1];
+
+
+            const startValue =
+                metric.data[0];
+
+
+            const growthFactor =
+                ((latestValue - startValue) /
+                startValue * 100).toFixed(0);
+
+
+            const card =
+                document.createElement('div');
+
+
+            card.className = `
+
+                bg-gradient-to-br
+
+                from-blue-950
+
+                via-[#0d315f]
+
+                to-[#58152d]
+
+                border
+
+                rounded-2xl
+
+                p-4
+
+                transition
+
+                duration-200
+
+                shadow-lg
+
+                ${
+
+                    isVisible
+
+                    ? 'border-white/20 shadow-blue-950/40'
+
+                    : 'border-white/10 opacity-40'
+
+                }
+
+            `;
+
+
+            card.innerHTML = `
+
+                <div class="flex items-center justify-between mb-2">
+
+                    <div
+
+                        class="w-8 h-8 rounded-lg
+
+                        flex items-center justify-center"
+
+                        style="
+
+                            background-color: ${metric.bg};
+
+                            color: ${metric.color};
+
+                        ">
+
+                        <i
+
+                            class="fa-solid ${metric.icon} text-sm">
+
+                        </i>
+
                     </div>
-                    <h4 class="text-xs font-medium text-slate-400">${metric.label}</h4>
-                    <div class="text-xl font-bold text-white mt-1">${(latestValue / 1000).toFixed(1)}k</div>
-                    <p class="text-[10px] text-slate-500 mt-0.5">Start: ${(startValue >= 1000 ? (startValue/1000).toFixed(1) + 'k' : startValue)}</p>
-                `;
-                container.appendChild(card);
-            });
-        }
 
-        function resetZoom() {
-            metricsData.forEach((_, index) => {
-                const meta = growthChart.getDatasetMeta(index);
-                meta.hidden = null;
-            });
-            growthChart.update();
-            buildToggles();
-            buildStatCards();
-        }
 
-        window.onload = initChart;
-    </script>
+                    <span
+
+                        class="text-[10px]
+
+                        font-bold
+
+                        px-2
+
+                        py-0.5
+
+                        rounded-full
+
+                        bg-white
+
+                        text-black">
+
+                        +${growthFactor}%
+
+                    </span>
+
+                </div>
+
+
+                <h4
+
+                    class="text-xs
+
+                    font-semibold
+
+                    text-white">
+
+                    ${metric.label}
+
+                </h4>
+
+
+                <div
+
+                    class="text-xl
+
+                    font-bold
+
+                    text-white
+
+                    mt-1">
+
+                    ${(latestValue / 1000).toFixed(1)}k
+
+                </div>
+
+
+                <p
+
+                    class="text-[10px]
+
+                    text-white/70
+
+                    mt-0.5">
+
+                    Start:
+
+                    ${
+
+                        startValue >= 1000
+
+                        ? (startValue / 1000).toFixed(1) + 'k'
+
+                        : startValue
+
+                    }
+
+                </p>
+
+            `;
+
+
+            container.appendChild(card);
+
+        });
+
+    }
+
+
+    // ============================================================
+    // RESET
+    // ============================================================
+
+    function resetZoom() {
+
+        metricsData.forEach((_, index) => {
+
+            const meta =
+                growthChart.getDatasetMeta(index);
+
+            meta.hidden = null;
+
+        });
+
+
+        growthChart.update();
+
+        buildToggles();
+
+        buildStatCards();
+
+    }
+
+
+    // ============================================================
+    // START
+    // ============================================================
+
+    window.onload = initChart;
+
+</script>
 
     <!--<< Footer Section Start >>-->
     <footer class="footer-section footer-section-main fix">
