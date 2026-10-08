@@ -4151,21 +4151,248 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
      <script>
-const K=[
-["interior design companies in Dubai","Motif Interiors","Interior Design Companies in Dubai | Motif Interiors","Award-winning residential and commercial interior design studio in Dubai.","1","+212%","9.4K","Local pack #1"],
-["luxury villa property in Dubai","haus & haus","Luxury Villas for Sale in Dubai | haus & haus","Browse exclusive villas in Palm Jumeirah, Emirates Hills and Dubai Hills.","2","+168%","12.1K","Featured snippet"],
-["rental properties in UAE","Fam Properties","Rental Properties in UAE | Fam Properties","Apartments, villas and townhouses for rent across Dubai and Abu Dhabi.","1","+245%","15.7K","Top of page"],
-["cheap hotel rooms in Dubai","Times Hotel","Cheap Hotel Rooms in Dubai | Times Hotel","Comfortable, affordable stays near metro and city attractions.","3","+139%","18.3K","Hotel pack"],
-["chinese restaurant in Dubai","Ming Dynasty / Tang Town","Chinese Restaurant in Dubai | Ming Dynasty &amp; Tang Town","Authentic Chinese dining, dim sum and Cantonese specials in Dubai.","1","+190%","7.8K","Local pack #1"],
-["beautiful abayas in UAE","Hashtag Fashion Store (Dubai Mall)","Beautiful Abayas in UAE | Hashtag Fashion, Dubai Mall","Elegant, modern abayas for every occasion at Dubai Mall.","2","+174%","6.2K","Shopping + AI cited"]];
-document.getElementById('kwGrid').innerHTML=K.map(k=>`<div class="col-md-6 col-lg-4"><div class="card-x">
-<div class="d-flex justify-content-between align-items-start"><span class="kw">Keyword<br><b>${k[0]}</b></span><span class="rank">▲ #${k[4]}</span></div>
-<div class="serp"><small>www.${k[1].split(/[ /&]/)[0].toLowerCase()}.com › ${k[7]}</small><a>${k[2]}</a><p>${k[3]}</p></div>
-<div class="mini"><div><b>${k[1]}</b>Business</div><div><b>${k[5]}</b>Traffic</div><div><b>${k[6]}</b>Monthly searches</div></div></div></div>`).join('');
-document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.querySelectorAll('.pane').forEach(p=>p.style.display='none');document.getElementById(b.dataset.t).style.display='block'});
-setInterval(()=>{document.getElementById('rt').textContent=70+Math.floor(Math.random()*40)},3000);
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    /* =====================================================
+       KEYWORD RESULTS
+    ====================================================== */
+
+    const K = [
+
+        [
+            "interior design companies in Dubai",
+            "Motif Interiors",
+            "Interior Design Companies in Dubai | Motif Interiors",
+            "Award-winning residential and commercial interior design studio in Dubai.",
+            "1",
+            "+212%",
+            "9.4K",
+            "Local pack #1"
+        ],
+
+        [
+            "luxury villa property in Dubai",
+            "haus & haus",
+            "Luxury Villas for Sale in Dubai | haus & haus",
+            "Browse exclusive villas in Palm Jumeirah, Emirates Hills and Dubai Hills.",
+            "2",
+            "+168%",
+            "12.1K",
+            "Featured snippet"
+        ],
+
+        [
+            "rental properties in UAE",
+            "Fam Properties",
+            "Rental Properties in UAE | Fam Properties",
+            "Apartments, villas and townhouses for rent across Dubai and Abu Dhabi.",
+            "1",
+            "+245%",
+            "15.7K",
+            "Top of page"
+        ],
+
+        [
+            "cheap hotel rooms in Dubai",
+            "Times Hotel",
+            "Cheap Hotel Rooms in Dubai | Times Hotel",
+            "Comfortable, affordable stays near metro and city attractions.",
+            "3",
+            "+139%",
+            "18.3K",
+            "Hotel pack"
+        ],
+
+        [
+            "chinese restaurant in Dubai",
+            "Ming Dynasty / Tang Town",
+            "Chinese Restaurant in Dubai | Ming Dynasty &amp; Tang Town",
+            "Authentic Chinese dining, dim sum and Cantonese specials in Dubai.",
+            "1",
+            "+190%",
+            "7.8K",
+            "Local pack #1"
+        ],
+
+        [
+            "beautiful abayas in UAE",
+            "Hashtag Fashion Store (Dubai Mall)",
+            "Beautiful Abayas in UAE | Hashtag Fashion, Dubai Mall",
+            "Elegant, modern abayas for every occasion at Dubai Mall.",
+            "2",
+            "+174%",
+            "6.2K",
+            "Shopping + AI cited"
+        ]
+
+    ];
+
+
+    const kwGrid = document.getElementById("kwGrid");
+
+
+    if(kwGrid){
+
+        kwGrid.innerHTML = K.map(function(k){
+
+            const domainName =
+                k[1]
+                .split(/[ /&]/)[0]
+                .toLowerCase();
+
+            return `
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="card-x">
+
+                        <div class="d-flex justify-content-between align-items-start">
+
+                            <span class="kw">
+                                Keyword<br>
+                                <b>${k[0]}</b>
+                            </span>
+
+                            <span class="rank">
+                                ▲ #${k[4]}
+                            </span>
+
+                        </div>
+
+
+                        <div class="serp">
+
+                            <small>
+                                www.${domainName}.com
+                                › ${k[7]}
+                            </small>
+
+                            <a href="javascript:void(0)">
+                                ${k[2]}
+                            </a>
+
+                            <p>
+                                ${k[3]}
+                            </p>
+
+                        </div>
+
+
+                        <div class="mini">
+
+                            <div>
+                                <b>${k[1]}</b>
+                                Business
+                            </div>
+
+                            <div>
+                                <b>${k[5]}</b>
+                                Traffic
+                            </div>
+
+                            <div>
+                                <b>${k[6]}</b>
+                                Monthly searches
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+    }
+
+
+    /* =====================================================
+       DASHBOARD TABS
+    ====================================================== */
+
+    const tabButtons =
+        document.querySelectorAll("#tabs button");
+
+    const panes =
+        document.querySelectorAll(".pane");
+
+
+    tabButtons.forEach(function(button){
+
+        button.addEventListener("click", function(){
+
+            tabButtons.forEach(function(btn){
+                btn.classList.remove("on");
+            });
+
+            button.classList.add("on");
+
+
+            panes.forEach(function(pane){
+                pane.style.display = "none";
+            });
+
+
+            const target =
+                document.getElementById(
+                    button.getAttribute("data-t")
+                );
+
+
+            if(target){
+                target.style.display = "block";
+            }
+
+        });
+
+    });
+
+
+    /* =====================================================
+       SIMULATED LIVE USER COUNTER
+    ====================================================== */
+
+    const liveCounter =
+        document.getElementById("rt");
+
+
+    if(liveCounter){
+
+        setInterval(function(){
+
+            liveCounter.textContent =
+                70 + Math.floor(Math.random() * 40);
+
+        },3000);
+
+    }
+
+});
+
+
+/* =========================================================
+   FORM DEMO
+========================================================= */
+
+function submitSEOForm(){
+
+    alert(
+        "Thank you! We will contact you shortly."
+    );
+
+}
+
 </script>
-<script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+
+
+<!-- =========================================================
+     ARIGO / BOOTSTRAP JAVASCRIPT
+========================================================= -->
+
+<script src="assets/js/jquery-3.7.1.min.js"></script>
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 
 
