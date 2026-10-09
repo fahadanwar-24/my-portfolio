@@ -421,6 +421,259 @@
     scroll-behavior:auto!important;transition-duration:.01ms!important
   }
 }
+
+    ```css
+/* ========================================
+   VECTORBS PHOTOGRAPHY & VIDEOGRAPHY
+   WHITE BACKGROUND THEME OVERRIDES
+======================================== */
+
+#vb-media {
+  --blue: #326bff;
+  --ink: #111827;
+  --muted: #626b7b;
+  --white: #ffffff;
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+/* All major section backgrounds */
+#vb-media .vm-hero,
+#vb-media .vm-section,
+#vb-media .vm-services,
+#vb-media .vm-process,
+#vb-media .vm-motion,
+#vb-media .vm-cta {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+}
+
+/* Hero: keep cinematic video with a light overlay */
+#vb-media .vm-hero:after {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.94),
+      rgba(255,255,255,.77) 55%,
+      rgba(255,255,255,.18)
+    ),
+    linear-gradient(
+      0deg,
+      #ffffff,
+      transparent 25%
+    ) !important;
+}
+
+#vb-media .vm-hero h1,
+#vb-media .vm-heading,
+#vb-media .vm-cta h2 {
+  color: #111827 !important;
+}
+
+#vb-media .vm-hero h1 span,
+#vb-media .vm-heading span {
+  color: #326bff !important;
+}
+
+#vb-media .vm-hero p,
+#vb-media .vm-intro,
+#vb-media .vm-process-card p,
+#vb-media .vm-edit-list span,
+#vb-media .vm-cta p {
+  color: #626b7b !important;
+}
+
+#vb-media .vm-hero-bottom {
+  color: #374151 !important;
+}
+
+#vb-media .vm-eyebrow {
+  color: #326bff !important;
+}
+
+/* Services: white cards with light borders and image overlays */
+#vb-media .vm-service {
+  background: #f5f7fb !important;
+  border: 1px solid #e5e9f2 !important;
+}
+
+#vb-media .vm-service:after {
+  background: linear-gradient(
+    0deg,
+    rgba(5,7,12,.88),
+    rgba(5,7,12,.04)
+  ) !important;
+}
+
+#vb-media .vm-service h3 {
+  color: #ffffff !important;
+}
+
+#vb-media .vm-service p {
+  color: #f0f2f7 !important;
+}
+
+/* Statistics */
+#vb-media .vm-stats {
+  border-color: #e5e7eb !important;
+}
+
+#vb-media .vm-stat strong {
+  color: #111827 !important;
+}
+
+#vb-media .vm-stat span {
+  color: #626b7b !important;
+}
+
+/* Video player: retain a dark cinematic player */
+#vb-media .vm-player-layout,
+#vb-media .vm-video-stage {
+  background: #0b0d12 !important;
+  color: #ffffff !important;
+}
+
+#vb-media .vm-player-layout {
+  border-color: #e1e5ed !important;
+}
+
+#vb-media .vm-playlist {
+  background: #ffffff !important;
+  border-color: #e1e5ed !important;
+}
+
+#vb-media .vm-playlist-title {
+  color: #4b5563 !important;
+  border-color: #e5e7eb !important;
+}
+
+#vb-media .vm-clip {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: #e5e7eb !important;
+}
+
+#vb-media .vm-clip:hover,
+#vb-media .vm-clip.active {
+  background: #edf2ff !important;
+}
+
+#vb-media .vm-clip-text strong {
+  color: #111827 !important;
+}
+
+#vb-media .vm-clip-text span,
+#vb-media .vm-player-note {
+  color: #626b7b !important;
+}
+
+#vb-media .vm-player-caption {
+  background: #0b0d12 !important;
+  color: #ffffff !important;
+}
+
+#vb-media .vm-player-caption h3 {
+  color: #ffffff !important;
+}
+
+#vb-media .vm-player-caption p {
+  color: #c2c8d3 !important;
+}
+
+/* Production process */
+#vb-media .vm-process-card h3 {
+  color: #111827 !important;
+}
+
+#vb-media .vm-process-image {
+  background: #f3f5f9 !important;
+}
+
+/* Editing section */
+#vb-media .vm-edit-list li {
+  border-color: #e5e7eb !important;
+}
+
+#vb-media .vm-edit-list strong {
+  color: #111827 !important;
+}
+
+#vb-media .vm-edit-icon {
+  background: #edf2ff !important;
+  color: #326bff !important;
+}
+
+/* Motion graphics showcase */
+#vb-media .vm-motion-stage {
+  background: radial-gradient(
+    ellipse at center,
+    #e4ebff 0%,
+    #f4f6fc 60%,
+    #ffffff 100%
+  ) !important;
+  border-color: #dce4f5 !important;
+}
+
+#vb-media .vm-motion-label {
+  color: #374151 !important;
+}
+
+#vb-media .vm-motion-tags span {
+  color: #374151 !important;
+  border-color: #d8dfeb !important;
+  background: #ffffff !important;
+}
+
+/* Call to action: light blue and white */
+#vb-media .vm-cta {
+  background: linear-gradient(
+    120deg,
+    #edf2ff,
+    #ffffff 70%
+  ) !important;
+}
+
+#vb-media .vm-cta:before {
+  border-color: #326bff22 !important;
+  box-shadow:
+    0 0 0 45px #326bff08,
+    0 0 0 90px #326bff05 !important;
+}
+
+/* Borders and controls */
+#vb-media .vm-btn-outline {
+  color: #111827 !important;
+  border-color: #cbd2df !important;
+  background: transparent !important;
+}
+
+#vb-media .vm-btn-outline:hover {
+  color: #ffffff !important;
+  background: #326bff !important;
+  border-color: #326bff !important;
+}
+
+#vb-media .vm-filter {
+  color: #374151 !important;
+  border-color: #d5dbe6 !important;
+  background: #ffffff !important;
+}
+
+#vb-media .vm-filter.active,
+#vb-media .vm-filter:hover {
+  color: #ffffff !important;
+  border-color: #326bff !important;
+  background: #326bff !important;
+}
+
+/* Mobile responsiveness remains unchanged */
+@media (max-width: 650px) {
+  #vb-media .vm-hero-bottom {
+    color: #374151 !important;
+  }
+}
+```
+
 </style>
 
   
