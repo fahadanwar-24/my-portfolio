@@ -1129,7 +1129,15 @@
                 refreshSel();
                 if (opts.onChange) opts.onChange();
             }
-            function open() { if (opts.beforeOpen) opts.beforeOpen(); root.classList.add('is-open'); list.classList.add('show'); box.classList.add('open'); renderList(); }
+            function open() {
+    if (opts.beforeOpen) opts.beforeOpen();
+
+    root.classList.add('is-open');
+    list.classList.add('show');
+    box.classList.add('open');
+
+    renderList();
+}
             function close() { root.classList.remove('is-open'); list.classList.remove('show'); box.classList.remove('open'); input.value = ''; }
 
             box.addEventListener('click', () => { input.focus(); open(); });
