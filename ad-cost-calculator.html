@@ -445,7 +445,8 @@
 #adCampaignCalculator .table td:nth-child(3) { background: #f3f8fc; font-weight: 700; color: #123b63; }
 
 /* ===== Multi-select, hints ===== */
-#adCampaignCalculator .ms { position: relative; }
+#adCampaignCalculator .ms { position: relative; z-index: 1; }
+#adCampaignCalculator .ms.is-open { z-index: 500; }
 #adCampaignCalculator .ms-box {
     min-height: 43px; border: 1px solid #c8d6e2; border-radius: 9px; padding: 5px 8px;
     background: #fff; display: flex; flex-wrap: wrap; gap: 5px; align-items: center; cursor: text;
@@ -467,7 +468,7 @@
     padding: 0 4px; box-shadow: none; background: transparent; outline: none;
 }
 #adCampaignCalculator .ms-list {
-    display: none; position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 60;
+    display: none; position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 9999; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
     background: #fff; border: 1px solid #c8d6e2; border-radius: 10px; max-height: 260px; overflow: auto;
     box-shadow: 0 10px 30px #123b6325; padding: 4px;
 }
@@ -689,7 +690,7 @@
                         <label>Targeted Locations (select one or more countries) <span>*</span></label>
                         <div class="ms" id="locationMs">
                             <div class="ms-box"><span class="ms-chips"></span><input type="text" autocomplete="off" placeholder="Search and select countries"></div>
-                            <div class="ms-list"></div>
+                            <div class="ms-list" data-lenis-prevent></div>
                             <div class="ms-count"></div>
                         </div>
                     </div>
@@ -697,7 +698,7 @@
                         <label>Placement / Network (select one or more) <span>*</span></label>
                         <div class="ms" id="placementMs">
                             <div class="ms-box"><span class="ms-chips"></span><input type="text" autocomplete="off" placeholder="Select platform first"></div>
-                            <div class="ms-list"></div>
+                            <div class="ms-list" data-lenis-prevent></div>
                             <div class="ms-count"></div>
                         </div>
                     </div>
@@ -781,6 +782,7 @@
     </div></div>
 
     <script>
+(function () {
         const $ = id => document.getElementById(id);
         const val = id => $(id).value.trim();
         const num = id => parseFloat($(id).value) || 0;
@@ -1127,8 +1129,8 @@
                 refreshSel();
                 if (opts.onChange) opts.onChange();
             }
-            function open() { list.classList.add('show'); box.classList.add('open'); renderList(); }
-            function close() { list.classList.remove('show'); box.classList.remove('open'); input.value = ''; }
+            function open() { if (opts.beforeOpen) opts.beforeOpen(); root.classList.add('is-open'); list.classList.add('show'); box.classList.add('open'); renderList(); }
+            function close() { root.classList.remove('is-open'); list.classList.remove('show'); box.classList.remove('open'); input.value = ''; }
 
             box.addEventListener('click', () => { input.focus(); open(); });
             input.addEventListener('focus', open);
@@ -1143,6 +1145,7 @@
                 }
             });
             document.addEventListener('click', e => { if (!root.contains(e.target)) close(); });
+            ['wheel', 'touchmove'].forEach(ev => list.addEventListener(ev, e => e.stopPropagation(), { passive: true }));
 
             renderChips();
             return {
@@ -1165,6 +1168,7 @@
         const placementMs = createMultiSelect('placementMs', {
             placeholder: 'Select platform first',
             emptyText: 'Select a platform first',
+            beforeOpen: () => syncPlatform(),
             conflict: (a, b) =>
                 a.value === 'auto' || b.value === 'auto' ||
                 (a.value === 'both-meta' && (b.ch === 'facebook' || b.ch === 'instagram')) ||
@@ -1262,8 +1266,14 @@
             el.innerHTML = parts.join(' · ');
         }
 
+        let syncedPlatform = '';
+        function syncPlatform() {
+            if (val('platform') !== syncedPlatform) platformChange();
+        }
+
         function platformChange() {
             const platform = val('platform');
+            syncedPlatform = platform;
             const typeSelect = $('type');
             const goalSelect = $('goal');
 
@@ -1413,6 +1423,7 @@
            CALCULATE
            ===================================================== */
         function calculateCampaign() {
+            syncPlatform();
             const requiredFields = [
                 ['product', 'Product / Service Name'],
                 ['industry', 'Industry / Business Type'],
@@ -1690,6 +1701,7 @@
             $('industryOtherWrap').style.display = 'none';
             $('productHint').textContent = '';
             industryAutoSet = false;
+            syncedPlatform = '';
             locationMs.clear();
             setPlacementOptions('');
             $('errorBox').style.display = 'none';
@@ -1708,6 +1720,18 @@
             setTimeout(destroyNice, 300);
             setTimeout(destroyNice, 1200);
         });
+
+        // Keep Platform -> Type / Goal / Placement in sync even if the theme swallows the change event
+        setInterval(syncPlatform, 300);
+
+        // Expose only what the inline onclick / onchange attributes need
+        window.platformChange = platformChange;
+        window.industryChange = industryChange;
+        window.updateProductHint = updateProductHint;
+        window.calculateCampaign = calculateCampaign;
+        window.resetForm = resetForm;
+        window.AdCalc = { platformChange: platformChange, setPlacementOptions: setPlacementOptions, locationMs: locationMs, placementMs: placementMs, updateProductHint: updateProductHint, calculateCampaign: calculateCampaign };
+})();
     </script>
 
     <!--<< Footer Section Start >>-->
