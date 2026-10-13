@@ -443,76 +443,6 @@
 #adCampaignCalculator .table td:first-child { text-align: left; font-weight: 600; }
 #adCampaignCalculator .table td:last-child { text-align: left; color: #72859a; font-size: 11px; }
 #adCampaignCalculator .table td:nth-child(3) { background: #f3f8fc; font-weight: 700; color: #123b63; }
-
-/* ===== Multi-select, hints ===== */
-#adCampaignCalculator .ms { position: relative; z-index: 1; }
-#adCampaignCalculator .ms.is-open { z-index: 500; }
-#adCampaignCalculator .ms-box {
-    min-height: 43px; border: 1px solid #c8d6e2; border-radius: 9px; padding: 5px 8px;
-    background: #fff; display: flex; flex-wrap: wrap; gap: 5px; align-items: center; cursor: text;
-}
-#adCampaignCalculator .ms-box.open { border-color: #2778ad; box-shadow: 0 0 0 3px #2778ad18; }
-#adCampaignCalculator .ms-chips { display: contents; }
-#adCampaignCalculator .ms-chip {
-    background: #e8f1f8; color: #123b63; border-radius: 20px; padding: 3px 6px 3px 10px;
-    font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; line-height: 1.3;
-}
-#adCampaignCalculator .ms-chip.more { padding-right: 10px; background: #d3e1ed; }
-#adCampaignCalculator .ms-chip button {
-    border: 0; background: #c3d8e8; color: #123b63; width: 16px; height: 16px; border-radius: 50%;
-    font-size: 11px; line-height: 14px; cursor: pointer; padding: 0; min-height: 0;
-}
-#adCampaignCalculator .ms-box input,
-#adCampaignCalculator .ms-box input:focus {
-    flex: 1; min-width: 140px; width: auto; border: 0; height: 30px; min-height: 30px; line-height: 30px;
-    padding: 0 4px; box-shadow: none; background: transparent; outline: none;
-}
-#adCampaignCalculator .ms-list {
-    display: none; position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 9999; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
-    background: #fff; border: 1px solid #c8d6e2; border-radius: 10px; max-height: 260px; overflow: auto;
-    box-shadow: 0 10px 30px #123b6325; padding: 4px;
-}
-#adCampaignCalculator .ms-list.show { display: block; }
-#adCampaignCalculator .ms-item {
-    display: flex; align-items: center; gap: 9px; padding: 8px 10px; border-radius: 7px;
-    cursor: pointer; font-size: 13px; color: #17283a;
-}
-#adCampaignCalculator .ms-item:hover { background: #eef5fa; }
-#adCampaignCalculator .ms-item.sel { background: #e3eff8; font-weight: 700; }
-#adCampaignCalculator .ms-check {
-    width: 16px; height: 16px; flex: 0 0 16px; border: 1.5px solid #9db3c5; border-radius: 4px;
-    display: inline-flex; align-items: center; justify-content: center; font-size: 11px; color: transparent;
-}
-#adCampaignCalculator .ms-item.sel .ms-check { background: #123b63; border-color: #123b63; color: #fff; }
-#adCampaignCalculator .ms-empty { padding: 10px; font-size: 12px; color: #72859a; }
-#adCampaignCalculator .ms-count { font-size: 11px; color: #72859a; margin-top: 4px; min-height: 14px; }
-#adCampaignCalculator .hint {
-    margin-top: 6px; font-size: 11.5px; line-height: 1.45; color: #2a5f86;
-    background: #eef6fc; border-radius: 8px; padding: 6px 9px;
-}
-#adCampaignCalculator .hint:empty { display: none; }
-
-        border-radius: 10px !important;
-    box-shadow: 0 10px 30px rgba(18, 59, 99, 0.2) !important;
-    z-index: 999999 !important;
-}
-
-#adCampaignCalculator .ms-list.show {
-    display: block !important;
-}
-
-#adCampaignCalculator .ms-item {
-    display: flex !important;
-    align-items: center;
-    padding: 10px !important;
-    cursor: pointer !important;
-    color: #17283a !important;
-    background: #fff;
-}
-
-#adCampaignCalculator .ms-item:hover {
-    background: #eef5fa !important;
-}
 </style>
 </head>
 <body>
@@ -648,26 +578,105 @@
                 <div class="grid">
                     <div class="field">
                         <label for="product">Product / Service Name <span>*</span></label>
-                        <input id="product" placeholder="e.g. T-shirt, Luxury villa, Dental implants" oninput="updateProductHint()">
-                        <div class="hint" id="productHint"></div>
+                        <input id="product" placeholder="e.g. Luxury Villa, Cotton T-Shirt, SaaS Subscription">
+                    </div>
+                    <div class="field">
+                        <label for="productPrice">Product / Service Price <span>*</span></label>
+                        <input id="productPrice" type="number" min="0" step="0.01" placeholder="e.g. 25 for T-shirt, 500000 for property">
                     </div>
                     <div class="field">
                         <label for="industry">Industry / Business Type <span>*</span></label>
-                        <select id="industry" onchange="industryChange(true)">
+                        <select id="industry" onchange="industryChange()">
                             <option value="">Select industry</option>
+                            <option value="Accounting">Accounting</option>
+                            <option value="Advertising">Advertising</option>
+                            <option value="Airline">Airline</option>
+                            <option value="Architect">Architect</option>
+                            <option value="Automobiles">Automobiles</option>
+                            <option value="Bank">Bank</option>
+                            <option value="Blockchain">Blockchain</option>
+                            <option value="Branding">Branding</option>
+                            <option value="Building Material">Building Material</option>
+                            <option value="Business Setup">Business Setup</option>
+                            <option value="Cargo">Cargo</option>
+                            <option value="Construction">Construction</option>
+                            <option value="Content Creator">Content Creator</option>
+                            <option value="Corporate Office">Corporate Office</option>
+                            <option value="Courier Services">Courier Services</option>
+                            <option value="Crypto">Crypto</option>
+                            <option value="Customer Service">Customer Service</option>
+                            <option value="Digital Marketing Agency">Digital Marketing Agency</option>
+                            <option value="E-commerce">E-commerce</option>
+                            <option value="Education">Education</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Embassy/Consulate">Embassy/Consulate</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="Event">Event</option>
+                            <option value="Exhibitions">Exhibitions</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Fintech">Fintech</option>
+                            <option value="Fitness and Gym">Fitness and Gym</option>
+                            <option value="FMCG">FMCG</option>
+                            <option value="Food and Beverages">Food and Beverages</option>
+                            <option value="Furniture">Furniture</option>
+                            <option value="Gaming">Gaming</option>
+                            <option value="Government Sector">Government Sector</option>
+                            <option value="Health">Health</option>
+                            <option value="Home Decor">Home Decor</option>
+                            <option value="Home Owners">Home Owners</option>
+                            <option value="Hospitality">Hospitality</option>
+                            <option value="Hotels">Hotels</option>
+                            <option value="HR Consultant">HR Consultant</option>
+                            <option value="Import Export">Import Export</option>
+                            <option value="Interior Design">Interior Design</option>
+                            <option value="Investment Firm">Investment Firm</option>
+                            <option value="IT Industry">IT Industry</option>
+                            <option value="Law">Law</option>
+                            <option value="Local Business">Local Business</option>
+                            <option value="Logistics">Logistics</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Maritime">Maritime</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Media">Media</option>
+                            <option value="Medical">Medical</option>
+                            <option value="News">News</option>
+                            <option value="NGO">NGO</option>
+                            <option value="Online Services">Online Services</option>
+                            <option value="Personal Branding">Personal Branding</option>
+                            <option value="Politics">Politics</option>
+                            <option value="Real Estate">Real Estate</option>
+                            <option value="Research and Development">Research and Development</option>
+                            <option value="Restaurants">Restaurants</option>
+                            <option value="Retail">Retail</option>
+                            <option value="Salon">Salon</option>
+                            <option value="Shipping Company">Shipping Company</option>
+                            <option value="Showbiz">Showbiz</option>
+                            <option value="Social Media Influencer">Social Media Influencer</option>
+                            <option value="Software Engineering">Software Engineering</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Tech Companies">Tech Companies</option>
+                            <option value="Technical Services">Technical Services</option>
+                            <option value="Telecommunication">Telecommunication</option>
+                            <option value="Textile">Textile</option>
+                            <option value="Training and Development">Training and Development</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Travel and Tourism">Travel and Tourism</option>
+                            <option value="Visa Services">Visa Services</option>
+                            <option value="Others">Others</option>
                         </select>
                     </div>
-                    <div class="field" id="industryOtherWrap" style="display:none;">
-                        <label for="industryOther">Write Your Industry <span>*</span></label>
-                        <input id="industryOther" placeholder="e.g. Pet care" oninput="updateProductHint()">
+                    <div class="field" id="otherIndustryField" style="display:none;">
+                        <label for="otherIndustry">Specify Industry <span>*</span></label>
+                        <input id="otherIndustry" placeholder="Type your industry">
                     </div>
                     <div class="field">
                         <label for="platform">Platform <span>*</span></label>
                         <select id="platform" onchange="platformChange()">
                             <option value="">Select platform</option>
                             <option value="Google">Google</option>
-                            <option value="Meta">Meta (Facebook + Instagram)</option>
-                            <option value="Google and meta">Google and Meta</option>
+                            <option value="Meta">Meta</option>
+                            <option value="Google and meta">Google and meta</option>
                             <option value="Facebook">Facebook</option>
                             <option value="Instagram">Instagram</option>
                         </select>
@@ -696,6 +705,98 @@
                         <label for="days">Duration (Days) <span>*</span></label>
                         <input id="days" type="number" min="1" placeholder="30">
                     </div>
+                    <div class="field field-full">
+                        <label for="location">Targeted Location(s) <span>*</span> <small style="font-weight:400;color:#72859a;">(Hold Ctrl/Cmd to select multiple)</small></label>
+                        <select id="location" multiple size="6" style="height:auto;min-height:120px;line-height:1.4;padding:8px;">
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Iran">Iran</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Palestine">Palestine</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Philippines">Philippines</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Serbia">Serbia</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="South Korea">South Korea</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Taiwan">Taiwan</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="Uzbekistan">Uzbekistan</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Yemen">Yemen</option>
+                        </select>
+                    </div>
                     <div class="field">
                         <label for="audience">Audience Type <span>*</span></label>
                         <select id="audience">
@@ -709,32 +810,57 @@
                         </select>
                     </div>
                     <div class="field field-full">
-                        <label>Targeted Locations (select one or more countries) <span>*</span></label>
-                        <div class="ms" id="locationMs">
-                            <div class="ms-box"><span class="ms-chips"></span><input type="text" autocomplete="off" placeholder="Search and select countries"></div>
-                            <div class="ms-list" data-lenis-prevent></div>
-                            <div class="ms-count"></div>
-                        </div>
-                    </div>
-                    <div class="field field-full">
-                        <label>Placement / Network (select one or more) <span>*</span></label>
-                        <div class="ms" id="placementMs">
-                            <div class="ms-box"><span class="ms-chips"></span><input type="text" autocomplete="off" placeholder="Select platform first"></div>
-                            <div class="ms-list" data-lenis-prevent></div>
-                            <div class="ms-count"></div>
-                        </div>
+                        <label for="placement">Placement / Network <span>*</span> <small style="font-weight:400;color:#72859a;">(Hold Ctrl/Cmd for multiple when Meta selected)</small></label>
+                        <select id="placement" multiple size="5" style="height:auto;min-height:100px;line-height:1.4;padding:8px;">
+                            <option value="">Select platform first</option>
+                        </select>
                     </div>
                 </div>
             </section>
 
             <!-- SECTION 2: BUDGET & CURRENCY -->
             <section>
-                <h2>2. Budget, Currency & Price</h2>
+                <h2>2. Budget & Currency Allocation</h2>
                 <div class="grid">
                     <div class="field">
                         <label for="currency">Currency <span>*</span></label>
-                        <select id="currency" onchange="updateProductHint()">
+                        <select id="currency">
                             <option value="">Select currency</option>
+                            <option value="$">USD ($)</option>
+                            <option value="EUR">Euro (€)</option>
+                            <option value="GBP">Pound Sterling (£)</option>
+                            <option value="AED">UAE Dirham (AED)</option>
+                            <option value="SAR">Saudi Riyal (SAR)</option>
+                            <option value="INR">Indian Rupee (₹)</option>
+                            <option value="PKR">Pakistani Rupee (₨)</option>
+                            <option value="CNY">Chinese Yuan (¥)</option>
+                            <option value="JPY">Japanese Yen (¥)</option>
+                            <option value="AUD">Australian Dollar (A$)</option>
+                            <option value="CAD">Canadian Dollar (C$)</option>
+                            <option value="CHF">Swiss Franc (CHF)</option>
+                            <option value="SGD">Singapore Dollar (S$)</option>
+                            <option value="HKD">Hong Kong Dollar (HK$)</option>
+                            <option value="NZD">New Zealand Dollar (NZ$)</option>
+                            <option value="KRW">South Korean Won (₩)</option>
+                            <option value="TRY">Turkish Lira (₺)</option>
+                            <option value="RUB">Russian Ruble (₽)</option>
+                            <option value="BRL">Brazilian Real (R$)</option>
+                            <option value="MXN">Mexican Peso (MX$)</option>
+                            <option value="ZAR">South African Rand (R)</option>
+                            <option value="EGP">Egyptian Pound (E£)</option>
+                            <option value="NGN">Nigerian Naira (₦)</option>
+                            <option value="KES">Kenyan Shilling (KSh)</option>
+                            <option value="THB">Thai Baht (฿)</option>
+                            <option value="MYR">Malaysian Ringgit (RM)</option>
+                            <option value="IDR">Indonesian Rupiah (Rp)</option>
+                            <option value="PHP">Philippine Peso (₱)</option>
+                            <option value="VND">Vietnamese Dong (₫)</option>
+                            <option value="BDT">Bangladeshi Taka (৳)</option>
+                            <option value="QAR">Qatari Riyal (QR)</option>
+                            <option value="KWD">Kuwaiti Dinar (KD)</option>
+                            <option value="BHD">Bahraini Dinar (BD)</option>
+                            <option value="OMR">Omani Rial (OMR)</option>
+                            <option value="OTHER">Other Currency</option>
                         </select>
                     </div>
                     <div class="field">
@@ -742,9 +868,8 @@
                         <input id="totalBudget" type="number" min="0" step="0.01" placeholder="10000">
                     </div>
                     <div class="field">
-                        <label for="productPrice">Product / Service Price (per sale)</label>
-                        <input id="productPrice" type="number" min="0" step="0.01" placeholder="e.g. 25 for a T-shirt" oninput="updateProductHint()">
-                        <p class="note">Optional. In the selected currency. Leave blank to auto-estimate from the product name.</p>
+                        <label style="visibility:hidden;">spacer</label>
+                        <div style="height:43px;"></div>
                     </div>
                 </div>
 
@@ -762,7 +887,7 @@
                         <input id="instagramBudget" type="number" min="0" step="0.01" placeholder="0">
                     </div>
                 </div>
-                <p class="note">Note: Leave platform budgets blank to distribute the Total Budget automatically (Meta = 60% Facebook / 40% Instagram; Google + Meta = 50% / 50%). If you enter platform budgets, their total must equal the Total Budget.</p>
+                <p class="note">Note: Leave platform budgets blank to distribute Total Budget automatically. If entered, their sum must equal Total Budget. Auto-split: Meta = 60% Facebook / 40% Instagram; Google + Meta = 50% Google / 30% Facebook / 20% Instagram. Product price drives expected revenue per conversion and conversion difficulty (high-ticket = fewer sales, low-ticket = higher volume).</p>
             </section>
 
             <div class="error" id="errorBox"></div>
@@ -797,234 +922,16 @@
                         <tbody id="detailedTableBody"></tbody>
                     </table>
                 </div>
-                <p class="note">Disclaimer: Estimates use modelled platform benchmarks adjusted for your industry, product price, locations, audience, objective and duration. Real results vary with creative quality, offer, landing page, competition and market conditions. Money values are modelled in USD and converted at approximate exchange rates.</p>
+                <p class="note">Disclaimer: Estimates are calibrated to 2026 Google Ads (WordStream/LocaliQ Search) and Meta Ads industry benchmarks for CPC, CPM, CTR, CVR and CPL, then adjusted for your industry, location, audience, objective and duration. Real results vary with creative quality, offer, landing page, competition and market conditions. Money values are modelled in USD and converted at approximate rates.</p>
             </div>
 
         </div>
     </div></div>
 
     <script>
-(function () {
         const $ = id => document.getElementById(id);
         const val = id => $(id).value.trim();
         const num = id => parseFloat($(id).value) || 0;
-        const esc = t => String(t).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-
-        /* =====================================================
-           DATA
-           ===================================================== */
-
-        // [code, name, symbol, approx. units per 1 USD]  (approximate, edit when needed)
-        const CURRENCIES = [
-            ['USD','US Dollar','$',1],['AED','UAE Dirham','AED',3.6725],['SAR','Saudi Riyal','SAR',3.75],
-            ['EUR','Euro','€',0.86],['GBP','British Pound','£',0.75],['INR','Indian Rupee','₹',88],['PKR','Pakistani Rupee','PKR',282],
-            ['AFN','Afghan Afghani','AFN',68],['ALL','Albanian Lek','ALL',83],['AMD','Armenian Dram','AMD',385],['ARS','Argentine Peso','ARS',1300],
-            ['AUD','Australian Dollar','AUD',1.52],['AZN','Azerbaijani Manat','AZN',1.7],['BDT','Bangladeshi Taka','BDT',122],['BGN','Bulgarian Lev','BGN',1.68],
-            ['BHD','Bahraini Dinar','BHD',0.376],['BRL','Brazilian Real','BRL',5.4],['CAD','Canadian Dollar','CAD',1.38],['CHF','Swiss Franc','CHF',0.8],
-            ['CLP','Chilean Peso','CLP',950],['CNY','Chinese Yuan','CNY',7.1],['COP','Colombian Peso','COP',4000],['CZK','Czech Koruna','CZK',21],
-            ['DKK','Danish Krone','DKK',6.4],['DZD','Algerian Dinar','DZD',130],['EGP','Egyptian Pound','EGP',49],['ETB','Ethiopian Birr','ETB',135],
-            ['GEL','Georgian Lari','GEL',2.7],['GHS','Ghanaian Cedi','GHS',11],['HKD','Hong Kong Dollar','HKD',7.8],['HUF','Hungarian Forint','HUF',345],
-            ['IDR','Indonesian Rupiah','IDR',16500],['ILS','Israeli Shekel','ILS',3.4],['IQD','Iraqi Dinar','IQD',1310],['JOD','Jordanian Dinar','JOD',0.709],
-            ['JPY','Japanese Yen','JPY',148],['KES','Kenyan Shilling','KES',129],['KRW','South Korean Won','KRW',1400],['KWD','Kuwaiti Dinar','KWD',0.307],
-            ['KZT','Kazakhstani Tenge','KZT',520],['LBP','Lebanese Pound','LBP',89500],['LKR','Sri Lankan Rupee','LKR',300],['MAD','Moroccan Dirham','MAD',9.2],
-            ['MXN','Mexican Peso','MXN',18.5],['MYR','Malaysian Ringgit','MYR',4.2],['NGN','Nigerian Naira','NGN',1530],['NOK','Norwegian Krone','NOK',10.2],
-            ['NPR','Nepalese Rupee','NPR',140],['NZD','New Zealand Dollar','NZD',1.68],['OMR','Omani Rial','OMR',0.385],['PEN','Peruvian Sol','PEN',3.6],
-            ['PHP','Philippine Peso','PHP',57],['PLN','Polish Zloty','PLN',3.65],['QAR','Qatari Riyal','QAR',3.64],['RON','Romanian Leu','RON',4.3],
-            ['RSD','Serbian Dinar','RSD',100],['RUB','Russian Ruble','RUB',85],['SEK','Swedish Krona','SEK',9.5],['SGD','Singapore Dollar','SGD',1.29],
-            ['THB','Thai Baht','THB',33],['TND','Tunisian Dinar','TND',2.9],['TRY','Turkish Lira','TRY',45],['TWD','Taiwan Dollar','TWD',30],
-            ['TZS','Tanzanian Shilling','TZS',2500],['UAH','Ukrainian Hryvnia','UAH',41],['UGX','Ugandan Shilling','UGX',3600],['UZS','Uzbekistani Som','UZS',12500],
-            ['VND','Vietnamese Dong','VND',26000],['ZAR','South African Rand','ZAR',17.7],['ZMW','Zambian Kwacha','ZMW',24]
-        ];
-        const FX_PER_USD = {}, CUR_SYMBOL = {};
-        CURRENCIES.forEach(c => { FX_PER_USD[c[0]] = c[3]; CUR_SYMBOL[c[0]] = c[2]; });
-
-        const COUNTRIES = ["Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo (Republic)","Congo (DR)","Costa Rica","Côte d'Ivoire","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","São Tomé and Príncipe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"];
-        COUNTRIES.sort((x, y) => x.localeCompare(y));
-
-        // Relative ad-cost tier per country (affects CPM / CPC). Unlisted countries use 0.6
-        const COUNTRY_TIERS = [
-            [1.45, ["United States","United Kingdom","Canada","Australia","Germany","Switzerland","Singapore","Norway","Sweden","Netherlands","Ireland","Denmark","Luxembourg","New Zealand","Iceland","Austria","Belgium","Finland","France"]],
-            [1.2,  ["United Arab Emirates","Saudi Arabia","Qatar","Kuwait","Bahrain","Oman","Israel","Italy","Spain","South Korea","Japan","Hong Kong","Taiwan","Cyprus","Malta","Slovenia","Macau","Brunei","Monaco","Liechtenstein","Andorra","San Marino","Puerto Rico"]],
-            [0.9,  ["Portugal","Greece","Czech Republic","Hungary","Croatia","Estonia","Latvia","Lithuania","Poland","Romania","Bulgaria","Serbia","Turkey","Mexico","Brazil","Argentina","Chile","Uruguay","Costa Rica","Panama","Malaysia","Thailand","South Africa","Russia","Kazakhstan","Jordan","Lebanon","Morocco","Tunisia","China","Colombia","Peru","Ukraine","Georgia","Armenia","Azerbaijan","Mauritius","Bahamas","Barbados","Trinidad and Tobago","Montenegro","North Macedonia","Albania","Bosnia and Herzegovina","Kosovo","Belarus","Moldova","Mongolia"]],
-            [0.35, ["Pakistan","India","Bangladesh","Sri Lanka","Nepal","Egypt","Nigeria","Indonesia","Philippines","Vietnam","Kenya","Ghana","Ethiopia","Tanzania","Uganda","Algeria","Iraq","Afghanistan","Myanmar","Cambodia","Laos","Zimbabwe","Zambia","Malawi","Mozambique","Cameroon","Senegal","Sudan","Yemen","Syria","Libya","Somalia","Congo (DR)","Rwanda","Burundi"]]
-        ];
-        function countryMult(name) {
-            for (const t of COUNTRY_TIERS) { if (t[1].indexOf(name) !== -1) return t[0]; }
-            return 0.6;
-        }
-
-        const INDUSTRY_CLUSTER = {
-            "Accounting":"services","Advertising":"media","Airline":"travel","Architect":"services","Automobiles":"auto","Bank":"finance",
-            "Blockchain":"finance","Branding":"services","Building Material":"b2b","Business Setup":"services","Cargo":"logistics",
-            "Construction":"construction","Content Creator":"media","Corporate Office":"b2b","Courier Services":"logistics","Crypto":"finance",
-            "Customer Service":"b2b","Digital Marketing Agency":"b2b","E-commerce":"ecom","Education":"education","Electronics":"ecom",
-            "Embassy / Consulate":"public","Engineering":"b2b","Events":"events","Exhibitions":"events","Fashion":"ecom","Finance":"finance",
-            "Fintech":"finance","Fitness & Gym":"health","FMCG":"ecom","Food & Beverages":"ecom","Furniture":"ecom","Gaming":"media",
-            "Government Sector":"public","Health":"health","Home Decor":"ecom","Home Owners":"owner","Hospitality":"hospitality","Hotels":"hospitality",
-            "HR Consultant":"b2b","Import Export":"logistics","Interior Design":"services","Investment Firm":"finance","IT Industry":"b2b","Law":"services",
-            "Local Business":"services","Logistics":"logistics","Manufacturing":"b2b","Marketing":"b2b","Maritime":"logistics","Media":"media",
-            "Medical":"health","NGO":"public","News":"media","Online Services":"services","Personal Branding":"media","Politics":"media",
-            "Real Estate":"property","Research & Development":"b2b","Restaurants":"hospitality","Retail":"ecom","Salon":"services",
-            "Shipping Company":"logistics","Showbiz":"media","Social Media Influencer":"media","Software Engineering":"b2b","Sports":"media",
-            "Tech Companies":"b2b","Technical Services":"services","Telecommunication":"services","Textile":"b2b","Training & Development":"education",
-            "Transport":"logistics","Travel & Tourism":"travel","Visa Services":"services"
-        };
-        const INDUSTRIES = Object.keys(INDUSTRY_CLUSTER).sort((x, y) => x.localeCompare(y));
-        INDUSTRIES.push('Others');
-
-        // price/ctr/cvr = cost & response multipliers; qualify = share of leads that are sales-ready;
-        // closeMult scales the price-based lead-to-sale rate; revShare = share of sale value kept as revenue (e.g. commission)
-        const CLUSTERS = {
-            property:     { price: 1.1,  ctr: 0.95, cvr: 1.0,  qualify: 0.25, closeMult: 1.0, revShare: 0.02, defaultPrice: 600000, keys: ['real estate','property','realty','villa','apartment'] },
-            owner:        { price: 1.1,  ctr: 0.95, cvr: 1.0,  qualify: 0.25, closeMult: 1.0, revShare: 1,    defaultPrice: 600000, fixedRev: true, keys: [] },
-            ecom:         { price: 0.95, ctr: 1.1,  cvr: 1.1,  qualify: 0.7,  closeMult: 1.2, revShare: 1,    defaultPrice: 45,     keys: ['shop','store','retail','fashion','beauty','cloth','grocery','product'] },
-            finance:      { price: 1.45, ctr: 0.9,  cvr: 0.8,  qualify: 0.3,  closeMult: 0.8, revShare: 1,    defaultPrice: 800,    keys: ['finance','insurance','loan','bank','invest','mortgage','crypto','trading'] },
-            education:    { price: 1.0,  ctr: 1.0,  cvr: 1.0,  qualify: 0.35, closeMult: 1.1, revShare: 1,    defaultPrice: 400,    keys: ['education','school','course','university','training','academy','tutor'] },
-            health:       { price: 1.2,  ctr: 0.95, cvr: 1.0,  qualify: 0.4,  closeMult: 1.2, revShare: 1,    defaultPrice: 300,    keys: ['health','clinic','dental','medical','hospital','wellness','fitness','gym'] },
-            auto:         { price: 1.05, ctr: 1.0,  cvr: 0.85, qualify: 0.25, closeMult: 0.9, revShare: 0.07, defaultPrice: 25000,  keys: ['automotive','car dealer','cars','vehicle','motors'] },
-            hospitality:  { price: 0.9,  ctr: 1.1,  cvr: 1.0,  qualify: 0.5,  closeMult: 1.2, revShare: 1,    defaultPrice: 120,    keys: ['hotel','restaurant','cafe','food','resort','hospitality'] },
-            b2b:          { price: 1.35, ctr: 0.9,  cvr: 0.85, qualify: 0.3,  closeMult: 0.8, revShare: 1,    defaultPrice: 2500,   keys: ['software','saas','b2b','agency','consult','it services','tech','manufactur','engineer'] },
-            services:     { price: 1.1,  ctr: 1.0,  cvr: 1.0,  qualify: 0.4,  closeMult: 1.0, revShare: 1,    defaultPrice: 600,    keys: ['service','salon','law','legal','visa','repair','cleaning','design','local'] },
-            construction: { price: 1.2,  ctr: 0.9,  cvr: 0.85, qualify: 0.25, closeMult: 0.9, revShare: 0.1,  defaultPrice: 80000,  keys: ['construction','contracting','building','fit-out'] },
-            media:        { price: 0.85, ctr: 1.1,  cvr: 0.7,  qualify: 0.3,  closeMult: 0.7, revShare: 1,    defaultPrice: 100,    keys: ['media','news','influencer','creator','sport','game','entertain','politic','advertis'] },
-            public:       { price: 0.8,  ctr: 1.0,  cvr: 0.8,  qualify: 0.3,  closeMult: 0.6, revShare: 1,    defaultPrice: 50,     keys: ['government','ngo','embassy','charity','public'] },
-            logistics:    { price: 1.15, ctr: 0.95, cvr: 0.9,  qualify: 0.35, closeMult: 0.9, revShare: 1,    defaultPrice: 400,    keys: ['logistic','shipping','cargo','courier','freight','transport','maritime'] },
-            events:       { price: 1.0,  ctr: 1.1,  cvr: 0.95, qualify: 0.4,  closeMult: 1.0, revShare: 1,    defaultPrice: 1500,   keys: ['event','exhibition','wedding','conference'] },
-            travel:       { price: 1.0,  ctr: 1.1,  cvr: 1.0,  qualify: 0.45, closeMult: 1.0, revShare: 1,    defaultPrice: 1500,   keys: ['travel','tour','airline','flight','holiday'] },
-            other:        { price: 1.0,  ctr: 1.0,  cvr: 1.0,  qualify: 0.4,  closeMult: 1.0, revShare: 1,    defaultPrice: 250,    keys: [] }
-        };
-
-        // Product knowledge base: typical price (USD), suggested industry, rs = share of sale value kept as revenue
-        const PRODUCT_KB = [
-            { keys: ['car rental','rent a car','rent-a-car'], label: 'Car rental', price: 60, industry: 'Automobiles' },
-            { keys: ['penthouse','mansion','villa'], label: 'Villa / luxury home', price: 1500000, industry: 'Real Estate', rs: 0.02 },
-            { keys: ['townhouse'], label: 'Townhouse', price: 700000, industry: 'Real Estate', rs: 0.02 },
-            { keys: ['apartment','flat','condo'], label: 'Apartment', price: 450000, industry: 'Real Estate', rs: 0.02 },
-            { keys: ['off-plan','off plan'], label: 'Off-plan property', price: 500000, industry: 'Real Estate', rs: 0.02 },
-            { keys: ['plot','land'], label: 'Land / plot', price: 300000, industry: 'Real Estate', rs: 0.02 },
-            { keys: ['warehouse','commercial space','office space'], label: 'Commercial property', price: 800000, industry: 'Real Estate', rs: 0.02 },
-            { keys: ['property','real estate'], label: 'Property', price: 600000, industry: 'Real Estate', rs: 0.02 },
-            { keys: ['rent','rental','lease'], label: 'Property rental', price: 25000, industry: 'Real Estate', rs: 0.05 },
-            { keys: ['suv','sedan','pickup','truck','motorcycle','car','vehicle'], label: 'Vehicle', price: 30000, industry: 'Automobiles', rs: 0.07 },
-            { keys: ['t shirt','tshirt','tee','shirt','polo','hoodie','sweatshirt','jacket'], label: 'Apparel (tops)', price: 30, industry: 'Fashion' },
-            { keys: ['dress','abaya','kurta','jeans','trousers','clothing','clothes','apparel','garment','thobe','kaftan','saree'], label: 'Apparel', price: 45, industry: 'Fashion' },
-            { keys: ['shoe','sneaker','boots','sandals','heels'], label: 'Footwear', price: 85, industry: 'Fashion' },
-            { keys: ['bag','handbag','wallet','backpack','purse'], label: 'Bags & accessories', price: 70, industry: 'Fashion' },
-            { keys: ['jewellery','jewelry','necklace','diamond','gold'], label: 'Jewellery', price: 600, industry: 'Fashion' },
-            { keys: ['watch'], label: 'Watches', price: 180, industry: 'Fashion' },
-            { keys: ['perfume','fragrance','oud','attar'], label: 'Fragrance', price: 70, industry: 'Fashion' },
-            { keys: ['makeup','cosmetic','skincare','skin care','lipstick','serum'], label: 'Beauty products', price: 35, industry: 'Fashion' },
-            { keys: ['phone','mobile','iphone','smartphone'], label: 'Smartphone', price: 700, industry: 'Electronics' },
-            { keys: ['laptop','macbook','computer'], label: 'Computers', price: 900, industry: 'Electronics' },
-            { keys: ['tv','television','headphone','earbuds','speaker','camera','gadget','charger','smartwatch'], label: 'Consumer electronics', price: 120, industry: 'Electronics' },
-            { keys: ['sofa','couch','bed','mattress','wardrobe','dining table','furniture','chair','table'], label: 'Furniture', price: 550, industry: 'Furniture' },
-            { keys: ['curtain','rug','carpet','lamp','decor','wallpaper','vase','cushion'], label: 'Home décor', price: 80, industry: 'Home Decor' },
-            { keys: ['tile','cement','paint','marble','flooring','plywood','steel','pipe','bricks','building material'], label: 'Building materials (order)', price: 1500, industry: 'Building Material' },
-            { keys: ['catering'], label: 'Catering', price: 3000, industry: 'Events' },
-            { keys: ['coffee','tea','snack','chocolate','juice','biscuit','sauce','grocery','groceries','spices'], label: 'Food & beverage product', price: 12, industry: 'FMCG' },
-            { keys: ['burger','pizza','meal','lunch','dinner','brunch','shawarma','biryani','restaurant','cafe'], label: 'Restaurant / meal', price: 25, industry: 'Restaurants' },
-            { keys: ['toy','baby','kids','diaper'], label: 'Kids & baby products', price: 30, industry: 'Retail' },
-            { keys: ['supplement','protein','vitamin'], label: 'Supplements', price: 45, industry: 'Health' },
-            { keys: ['grooming','pet care','veterinary','pet food'], label: 'Pet services / products', price: 60, industry: 'Local Business' },
-            { keys: ['haircut','hair salon','salon','spa','massage','facial','manicure','barber'], label: 'Salon / spa service', price: 60, industry: 'Salon' },
-            { keys: ['dental','dentist','implant','braces','teeth whitening'], label: 'Dental treatment', price: 350, industry: 'Medical' },
-            { keys: ['clinic','doctor','surgery','physiotherapy','checkup','therapy','hair transplant','lasik'], label: 'Medical treatment', price: 500, industry: 'Medical' },
-            { keys: ['gym','fitness','personal training','yoga','crossfit','membership'], label: 'Fitness membership', price: 80, industry: 'Fitness & Gym' },
-            { keys: ['university','degree','mba','admission','study abroad','masters'], label: 'Admissions / degree', price: 5000, industry: 'Education' },
-            { keys: ['course','training','bootcamp','class','tutoring','ielts','certification','diploma','workshop','coaching','masterclass'], label: 'Course / training', price: 350, industry: 'Education' },
-            { keys: ['visa','immigration','golden visa','residency'], label: 'Visa services', price: 900, industry: 'Visa Services' },
-            { keys: ['business setup','company formation','trade license','company registration','free zone','freezone'], label: 'Business setup', price: 3500, industry: 'Business Setup' },
-            { keys: ['website','web design','web development','seo','landing page'], label: 'Web / digital service', price: 1800, industry: 'Digital Marketing Agency' },
-            { keys: ['social media management','digital marketing','ppc','ads management','marketing service'], label: 'Marketing service', price: 900, industry: 'Digital Marketing Agency' },
-            { keys: ['software','saas','crm','erp','app development','mobile app'], label: 'Software / app', price: 4000, industry: 'Software Engineering' },
-            { keys: ['logo','graphic design','branding','photography','videography','video production','content creation'], label: 'Creative service', price: 450, industry: 'Branding' },
-            { keys: ['interior design','fit-out','fitout','renovation','home makeover'], label: 'Interior design / fit-out', price: 15000, industry: 'Interior Design' },
-            { keys: ['construction','contracting','contractor'], label: 'Construction contract', price: 80000, industry: 'Construction', rs: 0.1 },
-            { keys: ['architect','architectural','architecture'], label: 'Architectural service', price: 5000, industry: 'Architect' },
-            { keys: ['insurance','takaful'], label: 'Insurance policy', price: 650, industry: 'Finance' },
-            { keys: ['loan','mortgage','credit card','financing'], label: 'Loan / finance product', price: 800, industry: 'Finance' },
-            { keys: ['crypto','bitcoin','forex','nft','trading account'], label: 'Trading / crypto account', price: 600, industry: 'Crypto' },
-            { keys: ['investment','portfolio','fund','wealth'], label: 'Investment product', price: 5000, industry: 'Investment Firm' },
-            { keys: ['accounting','bookkeeping','vat','tax','audit'], label: 'Accounting service', price: 500, industry: 'Accounting' },
-            { keys: ['legal','lawyer','attorney','law firm','litigation'], label: 'Legal service', price: 1500, industry: 'Law' },
-            { keys: ['flight','airline','air ticket','ticket'], label: 'Air ticket', price: 450, industry: 'Airline' },
-            { keys: ['tour','holiday','umrah','hajj','package','honeymoon','travel','vacation','safari'], label: 'Travel package', price: 1800, industry: 'Travel & Tourism' },
-            { keys: ['hotel','resort','stay','suite','booking'], label: 'Hotel stay', price: 220, industry: 'Hotels' },
-            { keys: ['wedding','event','exhibition','conference','expo','booth','party'], label: 'Event / exhibition', price: 4000, industry: 'Events' },
-            { keys: ['shipping','freight','cargo','courier','delivery','logistics','moving'], label: 'Logistics service', price: 250, industry: 'Logistics' },
-            { keys: ['gaming','game','esports','console'], label: 'Gaming', price: 40, industry: 'Gaming' },
-            { keys: ['solar','air conditioner','ac installation','maintenance','plumbing','cleaning','pest control','handyman'], label: 'Home / technical service', price: 120, industry: 'Technical Services' },
-            { keys: ['recruitment','hiring','staffing','hr consulting','manpower'], label: 'HR / recruitment service', price: 1500, industry: 'HR Consultant' }
-        ];
-        function keyRegex(k) {
-            const e = k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '[\\s-]*');
-            return new RegExp('(^|[^a-z0-9])' + e + '(s|es)?($|[^a-z0-9])', 'i');
-        }
-        PRODUCT_KB.forEach(kb => { kb.re = kb.keys.map(keyRegex); });
-
-        function analyzeProduct(text) {
-            const t = (text || '').toLowerCase();
-            return {
-                kb: t.trim() ? (PRODUCT_KB.find(kb => kb.re.some(r => r.test(t))) || null) : null,
-                lux: /luxury|premium|high[- ]?end|exclusive|prestige|designer|elite/.test(t),
-                cheap: /cheap|budget|affordable|low[- ]?cost|discount|economy/.test(t)
-            };
-        }
-
-        const channelProfiles = {
-            facebook:  { label: 'Facebook Ads',           model: 'cpm', cpm: 9,    ctr: 0.010,  cvr: 0.085, dailyCap: 600 },
-            instagram: { label: 'Instagram Ads',          model: 'cpm', cpm: 10.5, ctr: 0.008,  cvr: 0.065, dailyCap: 450 },
-            gSearch:   { label: 'Google Search Ads',      model: 'cpc', cpc: 2.2,  ctr: 0.055,  cvr: 0.06,  dailyCap: 400 },
-            gDisplay:  { label: 'Google Display Ads',     model: 'cpm', cpm: 3.5,  ctr: 0.0055, cvr: 0.015, dailyCap: 500 },
-            gYouTube:  { label: 'YouTube Ads',            model: 'cpm', cpm: 7,    ctr: 0.005,  cvr: 0.012, dailyCap: 500 },
-            gPmax:     { label: 'Google Performance Max', model: 'cpc', cpc: 1.4,  ctr: 0.022,  cvr: 0.04,  dailyCap: 600 },
-            gShopping: { label: 'Google Shopping Ads',    model: 'cpc', cpc: 0.9,  ctr: 0.01,   cvr: 0.025, dailyCap: 400 }
-        };
-
-        const objectiveProfiles = {
-            lead:       { price: 1.0,  ctr: 1.0,  cvr: 1.0,  closeMult: 1.0 },
-            sales:      { price: 1.1,  ctr: 0.95, cvr: 0.5,  closeMult: 1.6 },
-            traffic:    { price: 0.85, ctr: 1.15, cvr: 0.3,  closeMult: 0.8 },
-            engagement: { price: 0.8,  ctr: 0.8,  cvr: 0.12, closeMult: 0.5 },
-            awareness:  { price: 0.7,  ctr: 0.55, cvr: 0.1,  closeMult: 0.4 },
-            app:        { price: 1.05, ctr: 1.0,  cvr: 0.35, closeMult: 0.6 }
-        };
-
-        const audienceProfiles = {
-            "Broad":           { price: 1.0,  ctr: 0.95, cvr: 0.9, freq: 1.3 },
-            "Interest Based":  { price: 1.0,  ctr: 1.0,  cvr: 1.0, freq: 1.6 },
-            "Lookalike":       { price: 1.05, ctr: 1.1,  cvr: 1.2, freq: 1.5 },
-            "Remarketing":     { price: 1.4,  ctr: 1.9,  cvr: 2.3, freq: 3.5 },
-            "Custom Audience": { price: 1.2,  ctr: 1.5,  cvr: 1.7, freq: 2.5 },
-            "High Intent":     { price: 1.3,  ctr: 1.35, cvr: 1.5, freq: 1.4 }
-        };
-
-        const scenarios = {
-            conservative: { price: 1.2,  ctr: 0.85, cvr: 0.8, qualify: 0.85, close: 0.7 },
-            expected:     { price: 1.0,  ctr: 1.0,  cvr: 1.0, qualify: 1.0,  close: 1.0 },
-            optimistic:   { price: 0.88, ctr: 1.15, cvr: 1.2, qualify: 1.1,  close: 1.3 }
-        };
-
-        // Lead-to-sale rate by price (USD): cheap products close far more often than high-ticket ones
-        const CLOSE_CURVE = [[5,0.35],[25,0.26],[100,0.15],[500,0.07],[2000,0.035],[10000,0.018],[50000,0.01],[250000,0.006],[1000000,0.0035],[5000000,0.002]];
-        function closeFromLead(p) {
-            const c = CLOSE_CURVE;
-            if (p <= c[0][0]) return c[0][1];
-            for (let i = 1; i < c.length; i++) {
-                if (p <= c[i][0]) {
-                    const f = (Math.log(p) - Math.log(c[i-1][0])) / (Math.log(c[i][0]) - Math.log(c[i-1][0]));
-                    return c[i-1][1] + (c[i][1] - c[i-1][1]) * f;
-                }
-            }
-            return c[c.length - 1][1];
-        }
-        function priceTier(usd) {
-            if (usd < 60) return { label: 'low-ticket, impulse buy', cycle: '' };
-            if (usd < 500) return { label: 'low-to-mid ticket', cycle: '' };
-            if (usd < 5000) return { label: 'mid-ticket', cycle: '3–21 days' };
-            if (usd < 50000) return { label: 'high-ticket', cycle: '14–60 days' };
-            return { label: 'very high-ticket, long decision cycle', cycle: '30–90+ days' };
-        }
 
         const campaignTypesMap = {
             "Google": ["Search", "Display", "YouTube Video", "Performance Max", "Shopping"],
@@ -1042,292 +949,275 @@
             "Instagram": ["Brand Awareness", "Sales", "Engagement", "Profile Visits", "Reels Views"]
         };
 
-        const META_PLACEMENTS = [
-            { value: 'both-meta', label: 'Facebook + Instagram (both)', ch: 'both' },
-            { value: 'fb-feed', label: 'Facebook Feed', ch: 'facebook' },
-            { value: 'fb-stories', label: 'Facebook Stories', ch: 'facebook' },
-            { value: 'fb-reels', label: 'Facebook Reels', ch: 'facebook' },
-            { value: 'fb-marketplace', label: 'Facebook Marketplace', ch: 'facebook' },
-            { value: 'fb-messenger', label: 'Messenger', ch: 'facebook' },
-            { value: 'audience-network', label: 'Audience Network (partner apps)', ch: 'facebook' },
-            { value: 'ig-feed', label: 'Instagram Feed', ch: 'instagram' },
-            { value: 'ig-stories', label: 'Instagram Stories', ch: 'instagram' },
-            { value: 'ig-reels', label: 'Instagram Reels', ch: 'instagram' },
-            { value: 'ig-explore', label: 'Instagram Explore', ch: 'instagram' }
+        // Approximate currency units per 1 USD (model runs in USD, results are converted back).
+        const FX_PER_USD = {
+            "$":1, "EUR":0.92, "GBP":0.78, "AED":3.6725, "SAR":3.75, "INR":84, "PKR":278, "CNY":7.2,
+            "JPY":150, "AUD":1.52, "CAD":1.38, "CHF":0.86, "SGD":1.32, "HKD":7.8, "NZD":1.65,
+            "KRW":1350, "TRY":34, "RUB":90, "BRL":5.5, "MXN":18, "ZAR":18, "EGP":49, "NGN":1600,
+            "KES":130, "THB":35, "MYR":4.5, "IDR":16000, "PHP":58, "VND":25000, "BDT":120,
+            "QAR":3.64, "KWD":0.31, "BHD":0.38, "OMR":0.38, "OTHER":1
+        };
+
+        // 2026 real-world baselines (USD). Sources: WordStream/LocaliQ 2026 Google Search benchmarks + Meta/WordStream/Triple Whale 2025-2026 Meta data.
+        // model "cpm" = impressions from CPM; "cpc" = clicks from CPC.
+        // Google Search: avg CPC ~$5.42, CTR ~6.6%, CVR ~8.2%, CPL ~$67
+        // Meta lead campaigns: avg CPC ~$1.70-1.90, CTR ~1.5-2.6%, CVR ~7-9%, CPL ~$22-28
+        // Meta traffic: CPC ~$0.70-1.70, CTR ~1.5%
+        const channelProfiles = {
+            facebook:  { label: 'Facebook Ads',           model: 'cpm', cpm: 12.5,  ctr: 0.015,  cvr: 0.078, dailyCap: 800 },
+            instagram: { label: 'Instagram Ads',          model: 'cpm', cpm: 11.0,  ctr: 0.018,  cvr: 0.065, dailyCap: 700 },
+            gSearch:   { label: 'Google Search Ads',      model: 'cpc', cpc: 5.42,  ctr: 0.066,  cvr: 0.082, dailyCap: 500 },
+            gDisplay:  { label: 'Google Display Ads',     model: 'cpm', cpm: 3.20,  ctr: 0.0046, cvr: 0.012, dailyCap: 900 },
+            gYouTube:  { label: 'YouTube Ads',            model: 'cpm', cpm: 9.50,  ctr: 0.0065, cvr: 0.015, dailyCap: 700 },
+            gPmax:     { label: 'Google Performance Max', model: 'cpc', cpc: 2.80,  ctr: 0.028,  cvr: 0.055, dailyCap: 800 },
+            gShopping: { label: 'Google Shopping Ads',    model: 'cpc', cpc: 1.35,  ctr: 0.014,  cvr: 0.032, dailyCap: 600 }
+        };
+
+        // Objective adjusts price (higher competition for sales), CTR and conversion rate.
+        // Sales/purchase objectives have lower lead-style CVR because the tracked conversion is a purchase, not a form fill.
+        const objectiveProfiles = {
+            lead:       { price: 1.00, ctr: 1.00, cvr: 1.00 },
+            sales:      { price: 1.15, ctr: 0.92, cvr: 0.38 },
+            traffic:    { price: 0.75, ctr: 1.25, cvr: 0.18 },
+            engagement: { price: 0.70, ctr: 1.10, cvr: 0.08 },
+            awareness:  { price: 0.60, ctr: 0.70, cvr: 0.05 },
+            app:        { price: 1.05, ctr: 0.95, cvr: 0.28 }
+        };
+
+        // Industry multipliers vs cross-industry baseline (2026 calibrated).
+        // price: multiplies CPC/CPM | ctr / cvr | qualify | close | rev (default revenue/commission per sale USD)
+        const industryProfiles = [
+            { keys: ['real estate','property','properties','realty','villa','apartment','realtor','home owners'],
+              price: 0.65, ctr: 1.15, cvr: 0.45, qualify: 0.22, close: 0.04,  rev: 12000, cycle: '30–90+ days' },
+            { keys: ['e-commerce','ecommerce','online store','retail','fashion','beauty','apparel','fmcg','textile'],
+              price: 0.55, ctr: 1.20, cvr: 0.55, qualify: 0.85, close: 0.55,  rev: 85,    cycle: '' },
+            { keys: ['finance','insurance','loan','bank','invest','mortgage','crypto','forex','fintech','investment firm','accounting','blockchain'],
+              price: 1.35, ctr: 0.95, cvr: 0.35, qualify: 0.28, close: 0.10,  rev: 1200,  cycle: '14–60 days' },
+            { keys: ['education','school','course','university','training','academy','coaching','training and development'],
+              price: 0.90, ctr: 1.10, cvr: 1.20, qualify: 0.40, close: 0.15,  rev: 1500,  cycle: '14–45 days' },
+            { keys: ['health','clinic','dental','medical','hospital','wellness','fitness','gym','fitness and gym','salon'],
+              price: 1.10, ctr: 0.95, cvr: 0.90, qualify: 0.45, close: 0.22,  rev: 550,   cycle: '3–21 days' },
+            { keys: ['automotive','cars','vehicle','car dealer','motors','auto','automobiles'],
+              price: 0.70, ctr: 1.05, cvr: 0.80, qualify: 0.30, close: 0.08,  rev: 1800,  cycle: '14–60 days' },
+            { keys: ['hotel','hotels','travel','tourism','hospitality','restaurant','restaurants','cafe','food','food and beverages','airline','travel and tourism'],
+              price: 0.50, ctr: 1.25, cvr: 0.85, qualify: 0.60, close: 0.35,  rev: 280,   cycle: '' },
+            { keys: ['saas','software','b2b','agency','consult','it services','tech','it industry','tech companies','software engineering','digital marketing agency'],
+              price: 1.40, ctr: 0.85, cvr: 0.55, qualify: 0.32, close: 0.12,  rev: 4500,  cycle: '30–90 days' },
+            { keys: ['legal','attorney','lawyer','law firm','law'],
+              price: 1.80, ctr: 0.90, cvr: 0.70, qualify: 0.35, close: 0.18,  rev: 8000,  cycle: '14–60 days' },
+            { keys: ['home improvement','hvac','plumbing','roofing','contractor','construction','building material','technical services','architect','interior design','furniture','home decor'],
+              price: 1.30, ctr: 1.00, cvr: 1.00, qualify: 0.40, close: 0.25,  rev: 2200,  cycle: '7–30 days' },
+            { keys: ['logistics','shipping','cargo','courier','transport','import export','maritime','shipping company'],
+              price: 1.05, ctr: 1.00, cvr: 0.70, qualify: 0.35, close: 0.18,  rev: 800,   cycle: '7–30 days' },
+            { keys: ['marketing','branding','advertising','media','news','showbiz','content creator','social media influencer','personal branding'],
+              price: 0.95, ctr: 1.10, cvr: 0.80, qualify: 0.45, close: 0.20,  rev: 600,   cycle: '7–30 days' },
+            { keys: ['manufacturing','electronics','engineering','research and development'],
+              price: 1.20, ctr: 0.90, cvr: 0.60, qualify: 0.35, close: 0.15,  rev: 2500,  cycle: '30–90 days' },
+            { keys: ['gaming','sports','event','exhibitions'],
+              price: 0.80, ctr: 1.15, cvr: 0.90, qualify: 0.50, close: 0.30,  rev: 150,   cycle: '' },
+            { keys: ['government','embassy','ngo','politics','local business','corporate office','customer service','hr consultant','business setup','visa services','online services','telecommunication'],
+              price: 1.15, ctr: 0.95, cvr: 0.75, qualify: 0.40, close: 0.20,  rev: 900,   cycle: '14–45 days' }
         ];
-        const GOOGLE_PLACEMENTS = [
-            { value: 'g-search', label: 'Google Search Network', ch: 'gSearch' },
-            { value: 'g-partners', label: 'Search Partners', ch: 'gSearch' },
-            { value: 'g-display', label: 'Google Display Network', ch: 'gDisplay' },
-            { value: 'g-youtube', label: 'YouTube', ch: 'gYouTube' },
-            { value: 'g-discover', label: 'Discover & Gmail', ch: 'gDisplay' },
-            { value: 'g-shopping', label: 'Google Shopping', ch: 'gShopping' },
-            { value: 'g-maps', label: 'Google Maps', ch: 'gSearch' }
-        ];
+        const defaultIndustry = { price: 1.0, ctr: 1.0, cvr: 1.0, qualify: 0.40, close: 0.15, rev: 350, cycle: '' };
 
-        /* =====================================================
-           MULTI-SELECT COMPONENT
-           ===================================================== */
-        function createMultiSelect(rootId, opts) {
-            const root = $(rootId);
-            const box = root.querySelector('.ms-box');
-            const chips = root.querySelector('.ms-chips');
-            const input = root.querySelector('input');
-            const list = root.querySelector('.ms-list');
-            const info = root.querySelector('.ms-count');
-            const conflict = opts.conflict || function () { return false; };
-            let options = [];
-            let selected = [];
-            let placeholder = opts.placeholder || '';
-            const find = v => options.find(o => o.value === v);
+        // Audience quality multipliers (Meta-style audiences especially strong for remarketing)
+        const audienceProfiles = {
+            "Broad":           { price: 0.90, ctr: 0.90, cvr: 0.80, freq: 1.4 },
+            "Interest Based":  { price: 1.00, ctr: 1.00, cvr: 1.00, freq: 1.7 },
+            "Lookalike":       { price: 1.08, ctr: 1.15, cvr: 1.35, freq: 1.6 },
+            "Remarketing":     { price: 1.45, ctr: 2.10, cvr: 2.60, freq: 3.8 },
+            "Custom Audience": { price: 1.25, ctr: 1.55, cvr: 1.90, freq: 2.6 },
+            "High Intent":     { price: 1.35, ctr: 1.40, cvr: 1.70, freq: 1.5 }
+        };
 
-            function renderChips() {
-                chips.innerHTML = '';
-                selected.slice(0, 8).forEach(v => {
-                    const o = find(v);
-                    if (!o) return;
-                    const chip = document.createElement('span');
-                    chip.className = 'ms-chip';
-                    chip.textContent = o.label;
-                    const x = document.createElement('button');
-                    x.type = 'button';
-                    x.textContent = '×';
-                    x.addEventListener('click', e => { e.stopPropagation(); toggle(v); });
-                    chip.appendChild(x);
-                    chips.appendChild(chip);
-                });
-                if (selected.length > 8) {
-                    const more = document.createElement('span');
-                    more.className = 'ms-chip more';
-                    more.textContent = '+' + (selected.length - 8) + ' more';
-                    chips.appendChild(more);
-                }
-                input.placeholder = selected.length ? '' : placeholder;
-                info.textContent = selected.length ? selected.length + ' selected' : '';
-            }
-            function refreshSel() {
-                Array.prototype.forEach.call(list.children, el => {
-                    el.classList.toggle('sel', selected.indexOf(el.getAttribute('data-value')) !== -1);
-                });
-            }
-            function renderList() {
-                const q = input.value.trim().toLowerCase();
-                list.innerHTML = '';
-                const shown = options.filter(o => !q || o.label.toLowerCase().indexOf(q) !== -1);
-                if (!shown.length) {
-                    const empty = document.createElement('div');
-                    empty.className = 'ms-empty';
-                    empty.textContent = options.length ? 'No matches' : (opts.emptyText || 'No options');
-                    list.appendChild(empty);
-                    return;
-                }
-                shown.forEach(o => {
-                    const el = document.createElement('div');
-                    el.className = 'ms-item' + (selected.indexOf(o.value) !== -1 ? ' sel' : '');
-                    el.setAttribute('data-value', o.value);
-                    const ck = document.createElement('span');
-                    ck.className = 'ms-check';
-                    ck.textContent = '✓';
-                    const lb = document.createElement('span');
-                    lb.textContent = o.label;
-                    el.appendChild(ck);
-                    el.appendChild(lb);
-                    el.addEventListener('mousedown', e => e.preventDefault());
-                    el.addEventListener('click', () => toggle(o.value));
-                    list.appendChild(el);
-                });
-            }
-            function toggle(v) {
-                const o = find(v);
-                if (!o) return;
-                const i = selected.indexOf(v);
-                if (i !== -1) {
-                    selected.splice(i, 1);
-                } else {
-                    selected = selected.filter(s => !conflict(o, find(s)));
-                    selected.push(v);
-                }
-                renderChips();
-                refreshSel();
-                if (opts.onChange) opts.onChange();
-            }
-            function open() {
-    if (opts.beforeOpen) opts.beforeOpen();
+        // Conservative / Expected / Optimistic scenario spreads (realistic ranges, not extreme)
+        const scenarios = {
+            conservative: { price: 1.22, ctr: 0.82, cvr: 0.75, qualify: 0.85, close: 0.70 },
+            expected:     { price: 1.00, ctr: 1.00, cvr: 1.00, qualify: 1.00, close: 1.00 },
+            optimistic:   { price: 0.82, ctr: 1.18, cvr: 1.25, qualify: 1.10, close: 1.25 }
+        };
 
-    root.classList.add('is-open');
-    list.classList.add('show');
-    box.classList.add('open');
+        function detectObjective(goal) {
+            const g = (goal || '').toLowerCase();
+            if (g.includes('lead')) return 'lead';
+            if (g.includes('sale') || g.includes('purchase')) return 'sales';
+            if (g.includes('traffic') || g.includes('visit')) return 'traffic';
+            if (g.includes('engage')) return 'engagement';
+            if (g.includes('aware') || g.includes('reel') || g.includes('community') || g.includes('brand')) return 'awareness';
+            if (g.includes('app')) return 'app';
+            return 'lead';
+        }
 
-    renderList();
-}
-            function close() { root.classList.remove('is-open'); list.classList.remove('show'); box.classList.remove('open'); input.value = ''; }
-
-            box.addEventListener('click', () => { input.focus(); open(); });
-            input.addEventListener('focus', open);
-            input.addEventListener('input', renderList);
-            input.addEventListener('keydown', e => {
-                if (e.key === 'Escape') { close(); input.blur(); }
-                else if (e.key === 'Backspace' && !input.value && selected.length) { toggle(selected[selected.length - 1]); }
-                else if (e.key === 'Enter') {
-                    e.preventDefault();
-                    const first = list.querySelector('.ms-item');
-                    if (first) toggle(first.getAttribute('data-value'));
-                }
-            });
-            document.addEventListener('click', e => { if (!root.contains(e.target)) close(); });
-            ['wheel', 'touchmove'].forEach(ev => list.addEventListener(ev, e => e.stopPropagation(), { passive: true }));
-
-            renderChips();
-            return {
-                setOptions: o => { options = o; selected = selected.filter(v => find(v)); renderChips(); renderList(); },
-                getOptions: () => options.slice(),
-                setPlaceholder: t => { placeholder = t; renderChips(); },
-                getValues: () => selected.slice(),
-                setValues: arr => { selected = arr.filter(v => find(v)); renderChips(); refreshSel(); },
-                clear: () => { selected = []; input.value = ''; renderChips(); refreshSel(); },
-                focus: () => input.focus()
+        function findIndustry(industryText, productText) {
+            const test = text => {
+                const t = ' ' + (text || '').toLowerCase() + ' ';
+                return industryProfiles.find(p => p.keys.some(k => t.includes(k)));
             };
+            return test(industryText) || test(productText) || defaultIndustry;
         }
 
-        const locationMs = createMultiSelect('locationMs', {
-            placeholder: 'Search and select countries',
-            conflict: (a, b) => a.value === '*' || b.value === '*'
-        });
-        locationMs.setOptions([{ value: '*', label: 'Worldwide (all countries)' }].concat(COUNTRIES.map(c => ({ value: c, label: c }))));
+        function countryMultiplier(name) {
+            const t = (name || '').toLowerCase();
+            if (/pakistan|india|bangladesh|egypt|nigeria|indonesia|philippines|vietnam|kenya|ghana|sri lanka|uzbekistan|yemen|morocco|algeria|iran|iraq|palestine/.test(t)) return 0.30;
+            if (/united states|united kingdom|canada|australia|germany|switzerland|singapore|norway|sweden|netherlands|ireland|denmark|luxembourg|hong kong|new zealand|japan|south korea|israel/.test(t)) return 1.10;
+            if (/united arab emirates|saudi arabia|qatar|kuwait|bahrain|oman/.test(t)) return 0.95;
+            if (/france|spain|italy|portugal|belgium|austria|poland|czech|finland|greece|croatia|hungary|romania|slovakia|slovenia|estonia|latvia|lithuania|cyprus|turkey|taiwan|china|malaysia|thailand/.test(t)) return 0.85;
+            return 0.70;
+        }
 
-        const placementMs = createMultiSelect('placementMs', {
-            placeholder: 'Select platform first',
-            emptyText: 'Select a platform first',
-            beforeOpen: () => syncPlatform(),
-            conflict: (a, b) =>
-                a.value === 'auto' || b.value === 'auto' ||
-                (a.value === 'both-meta' && (b.ch === 'facebook' || b.ch === 'instagram')) ||
-                (b.value === 'both-meta' && (a.ch === 'facebook' || a.ch === 'instagram'))
-        });
+        function locationMultiplierFromSelect() {
+            const sel = $('location');
+            const selected = Array.from(sel.selectedOptions).map(o => o.value).filter(Boolean);
+            if (selected.length === 0) return 1.0;
+            return selected.reduce((a, c) => a + countryMultiplier(c), 0) / selected.length;
+        }
 
-        function setPlacementOptions(platform) {
-            placementMs.clear();
-            if (!platform) {
-                placementMs.setOptions([]);
-                placementMs.setPlaceholder('Select platform first');
-                return;
+        function getSelectedLocationsText() {
+            const sel = $('location');
+            return Array.from(sel.selectedOptions).map(o => o.value).filter(Boolean).join(', ') || 'selected markets';
+        }
+
+        function getSelectedPlacements() {
+            const sel = $('placement');
+            return Array.from(sel.selectedOptions).map(o => o.value).filter(Boolean);
+        }
+
+        function industryChange() {
+            const v = val('industry');
+            const other = $('otherIndustryField');
+            if (v === 'Others') other.style.display = 'flex';
+            else { other.style.display = 'none'; $('otherIndustry').value = ''; }
+        }
+
+        function getIndustryText() {
+            const v = val('industry');
+            return v === 'Others' ? (val('otherIndustry') || 'Others') : v;
+        }
+
+        function googleChannelKey(type, placements) {
+            const plist = Array.isArray(placements) ? placements : [placements];
+            if (plist.includes('Google Display Network')) return 'gDisplay';
+            if (plist.includes('YouTube')) return 'gYouTube';
+            if (plist.includes('Google Search Network')) return 'gSearch';
+            const map = {
+                'Search': 'gSearch', 'Display': 'gDisplay', 'YouTube Video': 'gYouTube',
+                'Performance Max': 'gPmax', 'Shopping': 'gShopping',
+                'Omnichannel Search & Social': 'gSearch', 'Lead Generation Mix': 'gSearch',
+                'E-commerce Catalog Growth': 'gShopping'
+            };
+            return map[type] || 'gSearch';
+        }
+
+        function derive(o) {
+            o.ctr  = o.imps > 0 ? (o.clicks / o.imps) * 100 : 0;
+            o.cpc  = o.clicks > 0 ? o.spend / o.clicks : 0;
+            o.cpm  = o.imps > 0 ? (o.spend / o.imps) * 1000 : 0;
+            o.cpl  = o.leads > 0 ? o.spend / o.leads : 0;
+            o.cpql = o.qualified > 0 ? o.spend / o.qualified : 0;
+            o.cpa  = o.sales > 0.01 ? o.spend / o.sales : 0;
+            o.roas = o.spend > 0 ? o.revenue / o.spend : 0;
+            return o;
+        }
+
+        function runChannel(key, budgetUSD, ctx, sc) {
+            const p = channelProfiles[key];
+            const daily = budgetUSD / ctx.days;
+            // Diminishing returns / saturation when daily spend exceeds efficient capacity
+            const sat = 1 + Math.min(1.2, 0.30 * Math.max(0, daily / p.dailyCap - 1));
+            const priceMult = ctx.obj.price * ctx.ind.price * ctx.loc * ctx.luxPrice * ctx.aud.price * ctx.placementMult * sc.price * sat / ctx.durationEff;
+            const ctrMult = ctx.obj.ctr * ctx.ind.ctr * ctx.aud.ctr * sc.ctr;
+            // Meta lead forms convert higher than landing-page clicks; Google Search already high-intent
+            let metaLeadBoost = 1.0;
+            if ((key === 'facebook' || key === 'instagram') && ctx.objKey === 'lead') metaLeadBoost = 1.35;
+            if ((key === 'facebook' || key === 'instagram') && ctx.objKey === 'sales') metaLeadBoost = 0.85;
+            const cvrMult = ctx.obj.cvr * ctx.ind.cvr * ctx.luxCvr * ctx.aud.cvr * sc.cvr * ctx.durationEff * metaLeadBoost / sat;
+
+            // Realistic CTR caps: Search can hit ~12-15%, social usually stays under ~4-5%
+            const ctrCap = (key === 'gSearch' || key === 'gPmax' || key === 'gShopping') ? 0.14 : 0.045;
+            const ctr = Math.min(Math.max(p.ctr * ctrMult, 0.001), ctrCap);
+            let imps, clicks;
+            if (p.model === 'cpm') {
+                const effectiveCpm = Math.max(p.cpm * priceMult, 0.5);
+                imps = (budgetUSD / effectiveCpm) * 1000;
+                clicks = imps * ctr;
+            } else {
+                const effectiveCpc = Math.max(p.cpc * priceMult, 0.15);
+                clicks = budgetUSD / effectiveCpc;
+                imps = clicks / Math.max(ctr, 0.001);
             }
-            const auto = { value: 'auto', label: 'Automatic / Recommended', ch: 'auto' };
-            let opts = [auto];
-            if (platform === 'Google') opts = opts.concat(GOOGLE_PLACEMENTS);
-            else if (platform === 'Meta') opts = opts.concat(META_PLACEMENTS);
-            else if (platform === 'Facebook') opts = opts.concat(META_PLACEMENTS.filter(o => o.ch === 'facebook'));
-            else if (platform === 'Instagram') opts = opts.concat(META_PLACEMENTS.filter(o => o.ch === 'instagram'));
-            else opts = opts.concat(META_PLACEMENTS.slice(0, 1), GOOGLE_PLACEMENTS, META_PLACEMENTS.slice(1));
-            placementMs.setOptions(opts);
-            placementMs.setPlaceholder('Select one or more placements');
-        }
+            // CVR caps: form fills can be high on Meta; purchases stay lower
+            const cvrCap = ctx.objKey === 'sales' ? 0.08 : 0.22;
+            const cvr = Math.min(Math.max(p.cvr * cvrMult, 0.002), cvrCap);
+            const leads = clicks * cvr;
+            const qualified = leads * Math.min(ctx.ind.qualify * ctx.luxQual * sc.qualify, 0.90);
+            const sales = qualified * Math.min(ctx.ind.close * sc.close, 0.85);
 
-        /* =====================================================
-           FORM HELPERS
-           ===================================================== */
-        let industryAutoSet = false;
-
-        function populateStaticSelects() {
-            const ind = $('industry');
-            INDUSTRIES.forEach(n => {
-                const o = document.createElement('option');
-                o.value = n; o.textContent = n;
-                ind.appendChild(o);
+            return derive({
+                key: key, name: p.label, spend: budgetUSD, imps: imps, reach: imps / ctx.freq,
+                clicks: clicks, leads: leads, qualified: qualified, sales: sales, revenue: sales * ctx.revUSD
             });
-            const cur = $('currency');
-            CURRENCIES.forEach(c => {
-                const o = document.createElement('option');
-                o.value = c[0]; o.textContent = c[0] + ' – ' + c[1];
-                cur.appendChild(o);
-            });
-        }
-        populateStaticSelects();
-
-        function formatMoney(amount, currency) {
-            const sym = CUR_SYMBOL[currency] || currency || '$';
-            return sym + ' ' + amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
 
-        function getFx() { return FX_PER_USD[val('currency')] || 1; }
-        function moneyLocal(usd) { const c = val('currency') || 'USD'; return formatMoney(usd * (FX_PER_USD[c] || 1), c); }
-
-        function clusterFor(industry, otherText) {
-            if (!industry || industry === 'Others') {
-                const t = (otherText || '').toLowerCase();
-                const hit = Object.keys(CLUSTERS).find(k => CLUSTERS[k].keys.some(w => new RegExp('\\b' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(t)));
-                return CLUSTERS[hit || 'other'];
-            }
-            return CLUSTERS[INDUSTRY_CLUSTER[industry] || 'other'];
-        }
-
-        function resolvePrice(pa, cl, userUSD) {
-            if (userUSD > 0) return { usd: userUSD, source: 'your price' };
-            let base = pa.kb ? pa.kb.price : cl.defaultPrice;
-            if (pa.lux) base *= base > 100000 ? 1.8 : 2.5;
-            if (pa.cheap) base *= 0.6;
-            return { usd: base, source: pa.kb ? 'typical price for this product' : 'industry average price' };
-        }
-
-        function industryChange(byUser) {
-            if (byUser) industryAutoSet = false;
-            $('industryOtherWrap').style.display = val('industry') === 'Others' ? 'flex' : 'none';
-            updateProductHint();
-        }
-
-        function updateProductHint() {
-            const el = $('productHint');
-            const text = val('product');
-            if (!text) { el.textContent = ''; return; }
-            const pa = analyzeProduct(text);
-            if (pa.kb && pa.kb.industry && (industryAutoSet || !val('industry'))) {
-                $('industry').value = pa.kb.industry;
-                industryAutoSet = true;
-                $('industryOtherWrap').style.display = 'none';
-            }
-            const cl = clusterFor(val('industry'), val('industryOther'));
-            const pr = resolvePrice(pa, cl, num('productPrice') / getFx());
-            const tier = priceTier(pr.usd);
-            const parts = [];
-            parts.push(pa.kb ? 'Detected: <strong>' + pa.kb.label + '</strong>' : 'Product type not recognised, using industry averages');
-            parts.push((pr.source === 'your price' ? 'price ' : 'assumed price ≈ ') + moneyLocal(pr.usd) + ' (' + tier.label + ')');
-            if (pa.lux) parts.push('premium positioning');
-            if (industryAutoSet && pa.kb) parts.push('industry auto-selected, you can change it');
-            el.innerHTML = parts.join(' · ');
-        }
-
-        let syncedPlatform = '';
-        function syncPlatform() {
-            if (val('platform') !== syncedPlatform) platformChange();
+        function runScenario(budgets, ctx, sc) {
+            const rows = budgets.map(b => runChannel(b.key, b.budgetUSD, ctx, sc));
+            const total = { spend: 0, imps: 0, reach: 0, clicks: 0, leads: 0, qualified: 0, sales: 0, revenue: 0 };
+            rows.forEach(r => { for (const k in total) total[k] += r[k]; });
+            derive(total);
+            return { rows: rows, total: total };
         }
 
         function platformChange() {
             const platform = val('platform');
-            syncedPlatform = platform;
             const typeSelect = $('type');
             const goalSelect = $('goal');
+            const placementSelect = $('placement');
 
             typeSelect.innerHTML = '<option value="">Select campaign type</option>';
             goalSelect.innerHTML = '<option value="">Select goal</option>';
-            setPlacementOptions(platform);
+            placementSelect.innerHTML = '';
 
             if (!platform) {
                 $('googleBudget').disabled = false;
                 $('facebookBudget').disabled = false;
                 $('instagramBudget').disabled = false;
+                placementSelect.innerHTML = '<option value="">Select platform first</option>';
                 return;
             }
 
-            (campaignTypesMap[platform] || []).forEach(t => {
+            const types = campaignTypesMap[platform] || [];
+            types.forEach(t => {
                 const opt = document.createElement('option');
                 opt.value = t; opt.textContent = t;
                 typeSelect.appendChild(opt);
             });
-            (goalsMap[platform] || []).forEach(g => {
+
+            const goals = goalsMap[platform] || [];
+            goals.forEach(g => {
                 const opt = document.createElement('option');
                 opt.value = g; opt.textContent = g;
                 goalSelect.appendChild(opt);
             });
+
+            // Placement options by platform (multi-select friendly)
+            let placements = [];
+            if (platform === 'Google') {
+                placements = ['Automatic / Recommended', 'Google Search Network', 'Google Display Network', 'YouTube'];
+            } else if (platform === 'Meta' || platform === 'Facebook' || platform === 'Instagram') {
+                placements = ['Automatic / Recommended', 'Facebook Feed & Stories', 'Instagram Feed & Reels'];
+            } else if (platform === 'Google and meta') {
+                placements = [
+                    'Automatic / Recommended',
+                    'Google Search Network', 'Google Display Network', 'YouTube',
+                    'Facebook Feed & Stories', 'Instagram Feed & Reels'
+                ];
+            }
+            placements.forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = p; opt.textContent = p;
+                placementSelect.appendChild(opt);
+            });
+            // Pre-select Automatic
+            if (placementSelect.options.length) placementSelect.options[0].selected = true;
 
             const gInput = $('googleBudget');
             const fInput = $('facebookBudget');
@@ -1349,219 +1239,102 @@
             box.style.display = 'block';
             box.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-        function hideError() { $('errorBox').style.display = 'none'; }
 
-        /* =====================================================
-           MODEL
-           ===================================================== */
-        function detectObjective(goal) {
-            const g = (goal || '').toLowerCase();
-            if (g.includes('lead')) return 'lead';
-            if (g.includes('sale') || g.includes('purchase')) return 'sales';
-            if (g.includes('traffic') || g.includes('visit')) return 'traffic';
-            if (g.includes('engage')) return 'engagement';
-            if (g.includes('aware') || g.includes('reel') || g.includes('community') || g.includes('brand')) return 'awareness';
-            if (g.includes('app')) return 'app';
-            return 'lead';
+        function hideError() {
+            $('errorBox').style.display = 'none';
         }
 
-        function googleChannelKey(type) {
-            const map = {
-                'Search': 'gSearch', 'Display': 'gDisplay', 'YouTube Video': 'gYouTube',
-                'Performance Max': 'gPmax', 'Shopping': 'gShopping',
-                'Omnichannel Search & Social': 'gSearch', 'Lead Generation Mix': 'gSearch',
-                'E-commerce Catalog Growth': 'gShopping'
-            };
-            return map[type] || 'gSearch';
+        function formatMoney(amount, currency) {
+            const sym = currency === 'OTHER' ? '$' : currency;
+            return `${sym} ${amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         }
 
-        function resolveChannels(platform, gKey, vals, opts) {
-            const byVal = {};
-            opts.forEach(o => { byVal[o.value] = o; });
-            const google = new Set(), meta = new Set();
-            const addMeta = () => {
-                if (platform === 'Facebook') meta.add('facebook');
-                else if (platform === 'Instagram') meta.add('instagram');
-                else if (platform !== 'Google') { meta.add('facebook'); meta.add('instagram'); }
-            };
-            vals.forEach(v => {
-                if (v === 'auto') {
-                    if (platform === 'Google' || platform === 'Google and meta') google.add(gKey);
-                    addMeta();
-                } else if (v === 'both-meta') {
-                    meta.add('facebook'); meta.add('instagram');
-                } else {
-                    const o = byVal[v];
-                    if (!o) return;
-                    if (o.ch === 'facebook' || o.ch === 'instagram') meta.add(o.ch);
-                    else google.add(o.ch);
-                }
-            });
-            return { google: Array.from(google), meta: Array.from(meta) };
+        function formatNumber(num) {
+            return num.toLocaleString(undefined, { maximumFractionDigits: 2 });
         }
 
-        function derive(o) {
-            o.ctr  = o.imps > 0 ? (o.clicks / o.imps) * 100 : 0;
-            o.cpc  = o.clicks > 0 ? o.spend / o.clicks : 0;
-            o.cpm  = o.imps > 0 ? (o.spend / o.imps) * 1000 : 0;
-            o.cpl  = o.leads > 0 ? o.spend / o.leads : 0;
-            o.cpql = o.qualified > 0 ? o.spend / o.qualified : 0;
-            o.cpa  = o.sales > 0.01 ? o.spend / o.sales : 0;
-            o.roas = o.spend > 0 ? o.revenue / o.spend : 0;
-            return o;
-        }
-
-        function runChannel(key, budgetUSD, ctx, sc) {
-            const p = channelProfiles[key];
-            const daily = budgetUSD / ctx.days;
-            const cap = p.dailyCap * ctx.capScale;
-            const sat = 1 + Math.min(1, 0.25 * Math.max(0, daily / cap - 1));
-            const priceMult = ctx.obj.price * ctx.cl.price * ctx.loc * ctx.luxPrice * ctx.aud.price * ctx.placementMult * ctx.priceCpm * sc.price * sat / ctx.durationEff;
-            const ctrMult = ctx.obj.ctr * ctx.cl.ctr * ctx.aud.ctr * ctx.priceCtr * sc.ctr;
-            const cvrMult = ctx.obj.cvr * ctx.cl.cvr * ctx.luxCvr * ctx.aud.cvr * ctx.priceCvr * sc.cvr * ctx.durationEff / sat;
-
-            const ctr = Math.min(p.ctr * ctrMult, 0.15);
-            let imps, clicks;
-            if (p.model === 'cpm') {
-                imps = (budgetUSD / (p.cpm * priceMult)) * 1000;
-                clicks = imps * ctr;
-            } else {
-                clicks = budgetUSD / (p.cpc * priceMult);
-                imps = clicks / ctr;
-            }
-            const leads = clicks * Math.min(p.cvr * cvrMult, 0.5);
-            const close = Math.min(ctx.closeBase * ctx.cl.closeMult * ctx.obj.closeMult * sc.close, 0.9);
-            const sales = leads * close;
-            const qualified = Math.min(leads, Math.max(leads * Math.min(ctx.cl.qualify * ctx.luxQual * sc.qualify, 0.95), sales));
-
-            return derive({
-                key: key, name: p.label, spend: budgetUSD, imps: imps, reach: imps / ctx.freq,
-                clicks: clicks, leads: leads, qualified: qualified, sales: sales,
-                revenue: sales * ctx.priceUSD * ctx.revShare, salesValue: sales * ctx.priceUSD
-            });
-        }
-
-        function runScenario(budgets, ctx, sc) {
-            const rows = budgets.map(b => runChannel(b.key, b.budgetUSD, ctx, sc));
-            const total = { spend: 0, imps: 0, reach: 0, clicks: 0, leads: 0, qualified: 0, sales: 0, revenue: 0, salesValue: 0 };
-            rows.forEach(r => { for (const k in total) total[k] += r[k]; });
-            derive(total);
-            return { rows: rows, total: total };
-        }
-
-        /* =====================================================
-           CALCULATE
-           ===================================================== */
         function calculateCampaign() {
-            syncPlatform();
-            const requiredFields = [
-                ['product', 'Product / Service Name'],
-                ['industry', 'Industry / Business Type'],
-                ['platform', 'Platform'],
-                ['type', 'Ad Campaign Type'],
-                ['goal', 'Goal & Objective'],
-                ['level', 'Budget Level'],
-                ['days', 'Duration'],
-                ['audience', 'Audience Type'],
-                ['currency', 'Currency'],
-                ['totalBudget', 'Total Budget']
-            ];
-            for (let field of requiredFields) {
-                if (!val(field[0])) {
-                    showError(`Please fill in the required field: ${field[1]}`);
-                    $(field[0]).focus();
-                    return;
-                }
-            }
-            if (val('industry') === 'Others' && !val('industryOther')) {
-                showError('Please write your industry in the "Write Your Industry" box.');
-                $('industryOther').focus();
-                return;
-            }
-            const locValues = locationMs.getValues();
-            if (!locValues.length) {
-                showError('Please select at least one targeted country.');
-                locationMs.focus();
-                return;
-            }
-            const placementValues = placementMs.getValues();
-            if (!placementValues.length) {
-                showError('Please select at least one placement / network.');
-                placementMs.focus();
-                return;
-            }
+            // Validate required fields
+            if (!val('product')) { showError('Please fill in Product / Service Name'); $('product').focus(); return; }
+            if (!val('productPrice') || num('productPrice') <= 0) { showError('Please enter Product / Service Price (greater than zero)'); $('productPrice').focus(); return; }
+            if (!val('industry')) { showError('Please select Industry / Business Type'); $('industry').focus(); return; }
+            if (val('industry') === 'Others' && !val('otherIndustry')) { showError('Please specify your industry'); $('otherIndustry').focus(); return; }
+            if (!val('platform')) { showError('Please select Platform'); $('platform').focus(); return; }
+            if (!val('type')) { showError('Please select Ad Campaign Type'); $('type').focus(); return; }
+            if (!val('goal')) { showError('Please select Goal & Objective'); $('goal').focus(); return; }
+            if (!val('level')) { showError('Please select Budget Level'); $('level').focus(); return; }
+            if (!val('days')) { showError('Please enter Duration'); $('days').focus(); return; }
+            if (getSelectedLocationsText() === 'selected markets') { showError('Please select at least one Targeted Location'); $('location').focus(); return; }
+            if (!val('audience')) { showError('Please select Audience Type'); $('audience').focus(); return; }
+            if (getSelectedPlacements().length === 0) { showError('Please select at least one Placement / Network'); $('placement').focus(); return; }
+            if (!val('currency')) { showError('Please select Currency'); $('currency').focus(); return; }
+            if (!val('totalBudget') || num('totalBudget') <= 0) { showError('Total Budget must be greater than zero'); $('totalBudget').focus(); return; }
 
             const platform = val('platform');
             const currency = val('currency');
             const fx = FX_PER_USD[currency] || 1;
             const total = num('totalBudget');
             const days = Math.max(1, parseInt(val('days')) || 30);
-            const gB = num('googleBudget'), fB = num('facebookBudget'), iB = num('instagramBudget');
+            const gB = num('googleBudget');
+            const fB = num('facebookBudget');
+            const iB = num('instagramBudget');
+            const placements = getSelectedPlacements();
+            const gKey = googleChannelKey(val('type'), placements);
 
-            if (total <= 0) {
-                showError('Total Budget must be greater than zero.');
-                $('totalBudget').focus();
-                return;
-            }
-
-            // Channels from placement selection
-            const gKey = googleChannelKey(val('type'));
-            const ch = resolveChannels(platform, gKey, placementValues, placementMs.getOptions());
-
-            // Budgets (local currency)
+            // Collect budgets (local currency)
             let budgets = [];
-            const manual = (!$('googleBudget').disabled && gB > 0) || (!$('facebookBudget').disabled && fB > 0) || (!$('instagramBudget').disabled && iB > 0);
-            if (manual) {
-                if (!$('googleBudget').disabled && gB > 0) {
-                    const gch = ch.google.length ? ch.google : [gKey];
-                    gch.forEach(k => budgets.push({ key: k, budget: gB / gch.length }));
-                }
-                if (!$('facebookBudget').disabled && fB > 0) budgets.push({ key: 'facebook', budget: fB });
-                if (!$('instagramBudget').disabled && iB > 0) budgets.push({ key: 'instagram', budget: iB });
-                const sum = budgets.reduce((a, c) => a + c.budget, 0);
-                if (Math.abs(sum - total) > 0.01) {
-                    showError(`Platform budgets sum (${sum.toFixed(2)}) must equal Total Budget (${total.toFixed(2)}).`);
-                    return;
+            if (!$('googleBudget').disabled && gB > 0) budgets.push({ key: gKey, budget: gB });
+            if (!$('facebookBudget').disabled && fB > 0) budgets.push({ key: 'facebook', budget: fB });
+            if (!$('instagramBudget').disabled && iB > 0) budgets.push({ key: 'instagram', budget: iB });
+
+            if (budgets.length === 0) {
+                if (platform === 'Google and meta') {
+                    budgets = [
+                        { key: gKey, budget: total * 0.5 },
+                        { key: 'facebook', budget: total * 0.3 },
+                        { key: 'instagram', budget: total * 0.2 }
+                    ];
+                } else if (platform === 'Meta') {
+                    budgets = [
+                        { key: 'facebook', budget: total * 0.6 },
+                        { key: 'instagram', budget: total * 0.4 }
+                    ];
+                } else if (platform === 'Google') {
+                    budgets = [{ key: gKey, budget: total }];
+                } else if (platform === 'Facebook') {
+                    budgets = [{ key: 'facebook', budget: total }];
+                } else {
+                    budgets = [{ key: 'instagram', budget: total }];
                 }
             } else {
-                const hasG = ch.google.length > 0, hasM = ch.meta.length > 0;
-                const gShare = hasG && hasM ? 0.5 : (hasG ? 1 : 0);
-                ch.google.forEach(k => budgets.push({ key: k, budget: total * gShare / ch.google.length }));
-                const mTotal = total * (1 - gShare);
-                if (ch.meta.length === 2) {
-                    budgets.push({ key: 'facebook', budget: mTotal * 0.6 });
-                    budgets.push({ key: 'instagram', budget: mTotal * 0.4 });
-                } else if (ch.meta.length === 1) {
-                    budgets.push({ key: ch.meta[0], budget: mTotal });
+                const sumBudgets = budgets.reduce((acc, curr) => acc + curr.budget, 0);
+                if (Math.abs(sumBudgets - total) > 0.01) {
+                    showError(`Platform budgets sum (${sumBudgets.toFixed(2)}) must equal Total Budget (${total.toFixed(2)}).`);
+                    return;
                 }
-            }
-            if (!budgets.length) {
-                showError('Could not match your placements to a channel. Please review the platform and placement selections.');
-                return;
             }
 
             hideError();
             budgets.forEach(b => { b.budgetUSD = b.budget / fx; });
 
-            // Context
-            const industryName = val('industry') === 'Others' ? val('industryOther') : val('industry');
-            const cl = clusterFor(val('industry'), val('industryOther'));
+            // Build model context
+            const industryText = getIndustryText();
             const productText = val('product');
-            const pa = analyzeProduct(productText);
-            const pr = resolvePrice(pa, cl, num('productPrice') / fx);
-            const priceUSD = pr.usd;
-            const tier = priceTier(priceUSD);
-            const objKey = detectObjective(val('goal'));
-            const aud = audienceProfiles[val('audience')] || audienceProfiles['Broad'];
+            const ind = findIndustry(industryText, productText);
+            const isLux = /luxury|premium|high[- ]?end|exclusive|prestige/i.test(productText + ' ' + industryText);
+            const productPriceLocal = num('productPrice');
+            const productPriceUSD = productPriceLocal / fx;
+            // High-ticket items convert less often; low-ticket convert more often
+            let priceCloseMult = 1.0;
+            let priceCvrMult = 1.0;
+            if (productPriceUSD >= 10000) { priceCloseMult = 0.35; priceCvrMult = 0.55; }
+            else if (productPriceUSD >= 2000) { priceCloseMult = 0.55; priceCvrMult = 0.70; }
+            else if (productPriceUSD >= 500) { priceCloseMult = 0.75; priceCvrMult = 0.85; }
+            else if (productPriceUSD >= 100) { priceCloseMult = 0.95; priceCvrMult = 0.95; }
+            else if (productPriceUSD >= 20) { priceCloseMult = 1.15; priceCvrMult = 1.10; }
+            else { priceCloseMult = 1.35; priceCvrMult = 1.25; } // very cheap items sell more often
 
-            let revShare = cl.revShare;
-            if (!cl.fixedRev && pa.kb) revShare = pa.kb.rs != null ? pa.kb.rs : 1;
-
-            // Locations
-            const worldwide = locValues.indexOf('*') !== -1;
-            const locMults = worldwide ? [0.8] : locValues.map(countryMult);
-            const locAvg = locMults.reduce((a, c) => a + c, 0) / locMults.length;
-            const locCount = worldwide ? 6 : locValues.length;
+            const freqBase = (audienceProfiles[val('audience')] || audienceProfiles['Broad']).freq;
 
             let durationEff = 1;
             if (days < 4) durationEff = 0.88;
@@ -1569,26 +1342,28 @@
             else if (days < 14) durationEff = 0.96;
             else if (days > 60) durationEff = 0.95;
 
-            const isLux = pa.lux;
+            const objKey = detectObjective(val('goal'));
+            const placementMult = placements.includes('Automatic / Recommended') || placements.length === 0 ? 1 : 1.06;
+
+            // Clone industry profile and apply product-price effects to close rate
+            const indAdj = Object.assign({}, ind);
+            indAdj.close = Math.min(0.9, ind.close * priceCloseMult);
+            indAdj.cvr = ind.cvr * priceCvrMult;
+
             const ctx = {
                 days: days,
+                objKey: objKey,
                 obj: objectiveProfiles[objKey],
-                cl: cl,
-                aud: aud,
-                loc: locAvg,
-                capScale: Math.min(2.5, 1 + 0.15 * (locCount - 1)),
-                luxPrice: isLux ? 1.15 : 1,
-                luxCvr: isLux ? 0.75 : 1,
-                luxQual: isLux ? 0.85 : 1,
-                placementMult: (placementValues.indexOf('auto') !== -1 || placementValues.indexOf('both-meta') !== -1) ? 1 : 1.06,
+                ind: indAdj,
+                aud: audienceProfiles[val('audience')] || audienceProfiles['Broad'],
+                loc: locationMultiplierFromSelect(),
+                luxPrice: isLux ? 1.20 : 1,
+                luxCvr: isLux ? 0.70 : 1,
+                luxQual: isLux ? 0.80 : 1,
+                placementMult: placementMult,
                 durationEff: durationEff,
-                freq: Math.max(1, aud.freq * (1 + Math.min(days, 60) / 45)),
-                priceUSD: priceUSD,
-                revShare: revShare,
-                closeBase: closeFromLead(priceUSD),
-                priceCpm: priceUSD >= 250000 ? 1.2 : priceUSD >= 50000 ? 1.1 : priceUSD >= 5000 ? 1.05 : 1,
-                priceCtr: priceUSD < 60 ? 1.3 : priceUSD < 500 ? 1.1 : priceUSD < 5000 ? 1.0 : priceUSD < 50000 ? 0.95 : 0.9,
-                priceCvr: priceUSD < 60 ? 1.1 : priceUSD >= 250000 ? 0.85 : priceUSD >= 50000 ? 0.9 : 1
+                freq: Math.max(1, freqBase * (1 + Math.min(days, 60) / 45)),
+                revUSD: productPriceUSD // always use the price the user entered
             };
 
             const res = {
@@ -1597,7 +1372,6 @@
                 optimistic: runScenario(budgets, ctx, scenarios.optimistic)
             };
             const exp = res.expected;
-            const t = exp.total;
 
             // Formatters
             const m  = usd => formatMoney(usd * fx, currency);
@@ -1607,16 +1381,30 @@
             const pc = v => v.toFixed(2) + '%';
             const rx = v => v.toFixed(2) + '×';
 
-            // Cards
+            // Summary cards (expected case)
+            const t = exp.total;
             const cardsData = [
-                ["Total Spend", m(t.spend)], ["Impressions", n0(t.imps)], ["Reach", n0(t.reach)], ["Clicks", n0(t.clicks)],
-                ["CTR", pc(t.ctr)], ["CPC", m(t.cpc)], ["Leads", n0(t.leads)], ["CPL", mm(t.cpl)],
-                ["Qualified Leads", n0(t.qualified)], ["Cost / Qualified Lead", mm(t.cpql)], ["Expected Sales", fs(t.sales)], ["ROAS", rx(t.roas)]
+                ["Total Spend", m(t.spend)],
+                ["Impressions", n0(t.imps)],
+                ["Reach", n0(t.reach)],
+                ["Clicks", n0(t.clicks)],
+                ["CTR", pc(t.ctr)],
+                ["CPC", m(t.cpc)],
+                ["Leads", n0(t.leads)],
+                ["CPL", mm(t.cpl)],
+                ["Qualified Leads", n0(t.qualified)],
+                ["Cost / Qualified Lead", mm(t.cpql)],
+                ["Expected Sales", fs(t.sales)],
+                ["ROAS", rx(t.roas)]
             ];
             $('metricsCards').innerHTML = cardsData.map(c => `
-                <div class="card"><div class="label">${c[0]}</div><div class="value">${c[1]}</div></div>
+                <div class="card">
+                    <div class="label">${c[0]}</div>
+                    <div class="value">${c[1]}</div>
+                </div>
             `).join('');
 
+            // Platform breakdown (expected case)
             $('platformsBreakdown').innerHTML = exp.rows.map(r => `
                 <div class="pcard">
                     <h3>${r.name}</h3>
@@ -1635,38 +1423,20 @@
                 </div>
             `).join('');
 
-            // Reality check
+            // Insights / reality check
             const tips = [];
-            const locLabel = worldwide ? 'worldwide targeting' : (locValues.length <= 3 ? locValues.join(', ') : locValues.slice(0, 3).join(', ') + ' +' + (locValues.length - 3) + ' more');
-            tips.push(`Modelled for <strong>${esc(industryName)}</strong>, <strong>${esc(locLabel)}</strong>, <strong>${esc(val('audience'))}</strong> audience and a <strong>${esc(val('goal'))}</strong> objective. Conservative and optimistic columns show a realistic range, not a guarantee.`);
-            tips.push(`Product analysed as <strong>${pa.kb ? pa.kb.label : 'general product / service'}</strong> at a price of <strong>${m(priceUSD)}</strong> (${pr.source}, ${tier.label}). Cheaper products convert far more often than expensive ones, so the same budget produces many more sales for a low-ticket item.`);
-            if (revShare < 1) {
-                tips.push(`Revenue is counted as <strong>${Math.round(revShare * 100)}%</strong> of the sale value (commission / margin). Total sale value generated is shown in the table.`);
-            }
-            if (!cl.fixedRev && pa.kb && pa.kb.industry && INDUSTRY_CLUSTER[pa.kb.industry] !== INDUSTRY_CLUSTER[val('industry')] && val('industry') !== 'Others') {
-                tips.push(`Your product looks like <strong>${pa.kb.label}</strong> but the selected industry is <strong>${esc(industryName)}</strong>. Ad costs follow your industry while sales follow the product price, so check both are correct.`);
-            }
-            if (priceUSD < 60 && t.roas < 1) {
-                tips.push('For a single low-priced item, ROAS below 1× on cold traffic is common. Bundles, upsells, free-shipping thresholds and repeat purchases are what usually push it above break-even.');
-            }
-            if (tier.cycle) {
-                tips.push(`At this price point sales usually close <strong>${tier.cycle}</strong> after the lead arrives. For a ${days}-day campaign, judge performance mainly on lead volume, cost per lead and lead quality.`);
+            tips.push(`Estimates are modelled for <strong>${industryText}</strong> in <strong>${getSelectedLocationsText()}</strong> using a <strong>${val('audience')}</strong> audience and a <strong>${val('goal')}</strong> objective. Product price of <strong>${formatMoney(productPriceLocal, currency)}</strong> drives expected revenue per sale and conversion difficulty. Conservative and optimistic columns show a realistic range, not a guarantee.`);
+            if (ind.cycle) {
+                tips.push(`Sales in this industry usually close <strong>${ind.cycle}</strong> after the lead arrives. For a ${days}-day campaign, judge performance mainly on lead volume, cost per lead and lead quality.`);
             }
             if (t.sales < 1) {
-                tips.push(`Expected sales is below 1 at this budget. The range is roughly <strong>${Math.floor(res.conservative.total.sales)}–${Math.ceil(res.optimistic.total.sales)}</strong> sale(s), so a single deal can swing the ROAS a lot.`);
+                tips.push(`At this budget the expected sales is below 1. That is normal for a small spend. The range is roughly <strong>${Math.floor(res.conservative.total.sales)}–${Math.ceil(res.optimistic.total.sales)}</strong> sale(s), so a single deal can swing the ROAS a lot.`);
             }
-            if (objectiveProfiles[objKey].cvr < 0.5) {
-                tips.push('Your objective is not lead or sales focused, so very few leads are expected. Choose a Leads or Sales objective if conversions are the goal.');
+            if (objKey === 'traffic' || objKey === 'engagement' || objKey === 'awareness') {
+                tips.push('Your objective is not lead or sales focused, so conversion volume will be low. Choose a Leads or Sales / Conversions objective if CPL, sales or ROAS is the main goal.');
             }
-            if (budgets.some(b => b.key === 'facebook' || b.key === 'instagram') && objKey === 'lead') {
-                tips.push(`Meta instant-form leads are lower intent than website leads. Only about <strong>${Math.round(cl.qualify * ctx.luxQual * 100)}%</strong> are expected to be genuine, sales-ready enquiries.`);
-            }
-            if (!worldwide && locValues.length > 5 && (total / fx) / locValues.length < 300) {
-                tips.push(`Your budget is spread across ${locValues.length} countries (about ${m((total / fx) / locValues.length)} each). Fewer countries usually give better results.`);
-            }
-            if (!worldwide && locValues.length > 1) {
-                const mx = Math.max.apply(null, locMults), mn = Math.min.apply(null, locMults);
-                if (mx / mn > 3) tips.push('Your selected countries have very different ad costs (for example a high-cost and a low-cost market). Splitting them into separate campaigns gives more accurate results and better control.');
+            if (budgets.some(b => b.key === 'facebook' || b.key === 'instagram') && detectObjective(val('goal')) === 'lead') {
+                tips.push(`Meta instant-form leads are lower intent than website leads. Only about <strong>${Math.round(ind.qualify * ctx.luxQual * 100)}%</strong> are expected to be genuine, sales-ready enquiries.`);
             }
             if (days < 7) {
                 tips.push('Campaigns under 7 days spend a large share of budget in the platform learning phase, so costs run higher. 14+ days gives more stable results.');
@@ -1676,16 +1446,16 @@
                 const p = channelProfiles[b.key];
                 if (daily < 10) {
                     tips.push(`${p.label}: daily spend is only about ${m(daily)}. Most platforms need roughly $10–20 per day per campaign to optimise properly.`);
-                } else if (daily > p.dailyCap * ctx.capScale * 2) {
-                    tips.push(`${p.label}: daily spend of about ${m(daily)} is high for one campaign. Expect rising costs from audience saturation.`);
+                } else if (daily > p.dailyCap * 2) {
+                    tips.push(`${p.label}: daily spend of about ${m(daily)} is high for one campaign. Expect rising costs from audience saturation, so consider splitting across more audiences or longer duration.`);
                 }
             });
-            if (currency !== 'USD') {
+            if (currency !== '$' && currency !== 'OTHER') {
                 tips.push('Benchmarks are modelled in USD and converted at approximate exchange rates.');
             }
             $('insightsBox').innerHTML = '<h3>Reality check</h3><ul>' + tips.map(x => `<li>${x}</li>`).join('') + '</ul>';
 
-            // Table
+            // Detailed table: conservative / expected / optimistic
             const rowsDef = [
                 ["Total Budget", r => m(r.spend), "Total ad spend allocated"],
                 ["Daily Budget", r => m(r.spend / days), "Total budget ÷ campaign days"],
@@ -1699,13 +1469,11 @@
                 ["Cost Per Lead (CPL)", r => mm(r.cpl), "Spend ÷ leads"],
                 ["Qualified Leads", r => n0(r.qualified), "Leads × share that are genuine, sales-ready enquiries"],
                 ["Cost Per Qualified Lead", r => mm(r.cpql), "Spend ÷ qualified leads"],
-                ["Sales / Conversions", r => fs(r.sales), "Leads × lead-to-sale rate for your price point"],
-                ["Cost Per Acquisition (CPA)", r => mm(r.cpa), "Spend ÷ sales"]
+                ["Sales / Conversions", r => fs(r.sales), "Qualified leads × close rate (average over the sales cycle)"],
+                ["Cost Per Acquisition (CPA)", r => mm(r.cpa), "Spend ÷ sales"],
+                ["Projected Revenue", r => mm(r.revenue), "Sales × average revenue per sale"],
+                ["Return on Ad Spend (ROAS)", r => rx(r.roas), "Revenue ÷ ad spend"]
             ];
-            if (revShare < 1) rowsDef.push(["Sales Value Generated", r => mm(r.salesValue), "Sales × product / service price"]);
-            rowsDef.push(["Projected Revenue", r => mm(r.revenue), revShare < 1 ? "Sales value × commission / margin share" : "Sales × product / service price"]);
-            rowsDef.push(["Return on Ad Spend (ROAS)", r => rx(r.roas), "Revenue ÷ ad spend"]);
-
             $('detailedTableBody').innerHTML = rowsDef.map(d => `
                 <tr>
                     <td>${d[0]}</td>
@@ -1722,18 +1490,17 @@
 
         function resetForm() {
             document.querySelectorAll('#adCampaignCalculator input').forEach(i => i.value = '');
-            document.querySelectorAll('#adCampaignCalculator select').forEach(s => s.selectedIndex = 0);
+            document.querySelectorAll('#adCampaignCalculator select').forEach(s => {
+                if (s.multiple) Array.from(s.options).forEach(o => o.selected = false);
+                else s.selectedIndex = 0;
+            });
             $('type').innerHTML = '<option value="">Select platform first</option>';
             $('goal').innerHTML = '<option value="">Select goal first</option>';
+            $('placement').innerHTML = '<option value="">Select platform first</option>';
+            $('otherIndustryField').style.display = 'none';
             $('googleBudget').disabled = false;
             $('facebookBudget').disabled = false;
             $('instagramBudget').disabled = false;
-            $('industryOtherWrap').style.display = 'none';
-            $('productHint').textContent = '';
-            industryAutoSet = false;
-            syncedPlatform = '';
-            locationMs.clear();
-            setPlacementOptions('');
             $('errorBox').style.display = 'none';
             $('resultsSection').classList.remove('show');
         }
@@ -1750,18 +1517,6 @@
             setTimeout(destroyNice, 300);
             setTimeout(destroyNice, 1200);
         });
-
-        // Keep Platform -> Type / Goal / Placement in sync even if the theme swallows the change event
-        setInterval(syncPlatform, 300);
-
-        // Expose only what the inline onclick / onchange attributes need
-        window.platformChange = platformChange;
-        window.industryChange = industryChange;
-        window.updateProductHint = updateProductHint;
-        window.calculateCampaign = calculateCampaign;
-        window.resetForm = resetForm;
-        window.AdCalc = { platformChange: platformChange, setPlacementOptions: setPlacementOptions, locationMs: locationMs, placementMs: placementMs, updateProductHint: updateProductHint, calculateCampaign: calculateCampaign };
-})();
     </script>
 
     <!--<< Footer Section Start >>-->
