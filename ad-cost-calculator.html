@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--<< Header Area >>-->
-    
+
 <head>
     <!-- ========== Meta Tags ========== -->
     <meta charset="UTF-8">
@@ -34,7 +34,7 @@
 
 /* =============================
    Scoped calculator styles only
-   Nothing here styles the WordPress/theme page outside this calculator.
+   Nothing here styles the theme page outside this calculator.
    ============================= */
 #adCampaignCalculator,
 #adCampaignCalculator * { box-sizing: border-box; }
@@ -365,6 +365,62 @@
     #adCampaignCalculator .buttons { flex-direction: column; }
     #adCampaignCalculator .btn { width: 100%; }
 }
+
+/* =====================================================
+   FIXES: stop theme / Bootstrap / Nice Select from
+   scattering the calculator elements
+   ===================================================== */
+
+/* Remove Nice Select inside calculator, use native selects */
+#adCampaignCalculator .nice-select { display: none !important; }
+#adCampaignCalculator select {
+    display: block !important;
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: 100% !important;
+    height: 43px !important;
+    float: none !important;
+    appearance: auto;
+}
+
+/* Safe column spans (replace the old inline styles) */
+#adCampaignCalculator .field-full { grid-column: 1 / -1; }
+#adCampaignCalculator .field-wide { grid-column: span 2; }
+@media (max-width: 600px) {
+    #adCampaignCalculator .field-wide { grid-column: auto; }
+}
+
+/* Neutralize theme resets */
+#adCampaignCalculator section {
+    padding: 0 !important;
+    margin: 0 0 25px !important;
+    position: static !important;
+}
+#adCampaignCalculator h1,
+#adCampaignCalculator h2,
+#adCampaignCalculator h3 {
+    font-family: inherit !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+#adCampaignCalculator .head h1 { color: #fff !important; font-size: 30px !important; }
+#adCampaignCalculator .head h1,
+#adCampaignCalculator .head p { text-align: left; }
+#adCampaignCalculator label { text-transform: none !important; letter-spacing: normal !important; }
+#adCampaignCalculator input,
+#adCampaignCalculator select { max-width: 100%; float: none !important; margin: 0 !important; }
+
+/* Bootstrap .card / .table / .btn clashes */
+#adCampaignCalculator .card { display: block; height: auto; }
+#adCampaignCalculator .table > :not(caption) > * > * { box-shadow: none !important; }
+#adCampaignCalculator .table th { background: #123b63 !important; color: #fff !important; }
+#adCampaignCalculator .table tr:last-child td { background: #edf5fb !important; }
+#adCampaignCalculator .btn { display: inline-block; }
+
+@media (max-width: 600px) {
+    #adCampaignCalculator .head h1 { font-size: 22px !important; }
+}
 </style>
 </head>
 <body>
@@ -401,40 +457,40 @@
                         <div class="main-menu">
                             <nav id="mobile-menu">
                                 <ul>
-                                        <li>
-                                            <a href="index.html">
-                                                Home
-                                            </a>
-                                        </li>   
-                                       
-                                        <li>
-                                            <a href="about.html">About Us</a>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="javascript:void(0)">
-                                                Services
-                                                <i class="fas fa-angle-down"></i>
-                                            </a>
-                                            <ul class="submenu">
-                                                <li><a href="website-design-and-development.html">Web Design & Development</a></li>
-                                                <li><a href="google-and-meta-ads.html">Google and Meta Ads</a></li>
-                                                <li><a href="ad-cost-calculator.html">Ad Cost Calculator</a></li>
-                                                <li><a href="social-media-management.html">Social Media Management</a></li>
-                                                <li><a href="photography-videoshooting.html">Photography & Videoshooting</a></li>
-                                                <li><a href="graphics-designing.html">Graphics Designing</a></li>
-                                                <li><a href="seo.html">SEO</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="team.html">Team</a>
-                                        </li>
-                                        <li>
-                                            <a href="testimonial.html">Testimonial</a>
-                                        </li>
-                                        <li>
-                                            <a href="contact.html">Contact Us</a>
-                                        </li>
-                                    </ul>
+                                    <li>
+                                        <a href="index.html">
+                                            Home
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="about.html">About Us</a>
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a href="javascript:void(0)">
+                                            Services
+                                            <i class="fas fa-angle-down"></i>
+                                        </a>
+                                        <ul class="submenu">
+                                            <li><a href="website-design-and-development.html">Web Design & Development</a></li>
+                                            <li><a href="google-and-meta-ads.html">Google and Meta Ads</a></li>
+                                            <li><a href="ad-cost-calculator.html">Ad Cost Calculator</a></li>
+                                            <li><a href="social-media-management.html">Social Media Management</a></li>
+                                            <li><a href="photography-videoshooting.html">Photography & Videoshooting</a></li>
+                                            <li><a href="graphics-designing.html">Graphics Designing</a></li>
+                                            <li><a href="seo.html">SEO</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="team.html">Team</a>
+                                    </li>
+                                    <li>
+                                        <a href="testimonial.html">Testimonial</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">Contact Us</a>
+                                    </li>
+                                </ul>
                             </nav>
                         </div>
                     </div>
@@ -485,29 +541,29 @@
         </div>
         <img src="assets/img/element/circle-opacity.png" alt="img" class="breadcrumb-cirlce cir36">
     </section>
-    <!-- Banner Section Start -->
-    
+    <!-- Banner Section End -->
+
     <div id="adCampaignCalculator"><div class="wrap">
         <div class="head">
             <h1>Ad Campaign Calculator</h1>
             <p>Plan and estimate professional Google, Meta, Facebook, and Instagram advertising performance.</p>
         </div>
         <div class="box">
-            
+
             <!-- SECTION 1: CAMPAIGN INFORMATION -->
             <section>
                 <h2>1. Campaign Information</h2>
                 <div class="grid">
                     <div class="field">
-                        <label>Product / Service Name <span>*</span></label>
+                        <label for="product">Product / Service Name <span>*</span></label>
                         <input id="product" placeholder="e.g. Luxury Real Estate">
                     </div>
                     <div class="field">
-                        <label>Industry / Business Type <span>*</span></label>
+                        <label for="industry">Industry / Business Type <span>*</span></label>
                         <input id="industry" placeholder="e.g. Real Estate, E-commerce">
                     </div>
                     <div class="field">
-                        <label>Platform <span>*</span></label>
+                        <label for="platform">Platform <span>*</span></label>
                         <select id="platform" onchange="platformChange()">
                             <option value="">Select platform</option>
                             <option value="Google">Google</option>
@@ -518,19 +574,19 @@
                         </select>
                     </div>
                     <div class="field">
-                        <label>Ad Campaign Type <span>*</span></label>
+                        <label for="type">Ad Campaign Type <span>*</span></label>
                         <select id="type">
                             <option value="">Select platform first</option>
                         </select>
                     </div>
                     <div class="field">
-                        <label>Goal & Objective <span>*</span></label>
+                        <label for="goal">Goal & Objective <span>*</span></label>
                         <select id="goal">
                             <option value="">Select goal first</option>
                         </select>
                     </div>
                     <div class="field">
-                        <label>Budget Level <span>*</span></label>
+                        <label for="level">Budget Level <span>*</span></label>
                         <select id="level">
                             <option value="">Select level</option>
                             <option value="Campaign Level">Campaign Level</option>
@@ -538,15 +594,15 @@
                         </select>
                     </div>
                     <div class="field">
-                        <label>Duration (Days) <span>*</span></label>
+                        <label for="days">Duration (Days) <span>*</span></label>
                         <input id="days" type="number" min="1" placeholder="30">
                     </div>
                     <div class="field">
-                        <label>Targeted Location <span>*</span></label>
+                        <label for="location">Targeted Location <span>*</span></label>
                         <input id="location" placeholder="e.g. Dubai, UAE">
                     </div>
                     <div class="field">
-                        <label>Audience Type <span>*</span></label>
+                        <label for="audience">Audience Type <span>*</span></label>
                         <select id="audience">
                             <option value="">Select audience</option>
                             <option value="Broad">Broad</option>
@@ -557,8 +613,8 @@
                             <option value="High Intent">High Intent</option>
                         </select>
                     </div>
-                    <div class="field" style="grid-column: span 3;">
-                        <label>Placement / Network <span>*</span></label>
+                    <div class="field field-full">
+                        <label for="placement">Placement / Network <span>*</span></label>
                         <select id="placement">
                             <option value="">Select placement</option>
                             <option value="Automatic / Recommended">Automatic / Recommended</option>
@@ -577,7 +633,7 @@
                 <h2>2. Budget & Currency Allocation</h2>
                 <div class="grid">
                     <div class="field">
-                        <label>Currency <span>*</span></label>
+                        <label for="currency">Currency <span>*</span></label>
                         <select id="currency">
                             <option value="">Select currency</option>
                             <option value="$">USD ($)</option>
@@ -593,23 +649,23 @@
                             <option value="OTHER">Other Currency</option>
                         </select>
                     </div>
-                    <div class="field" style="grid-column: span 2;">
-                        <label>Total Budget <span>*</span></label>
+                    <div class="field field-wide">
+                        <label for="totalBudget">Total Budget <span>*</span></label>
                         <input id="totalBudget" type="number" min="0" step="0.01" placeholder="10000">
                     </div>
                 </div>
 
                 <div class="budget">
                     <div class="field">
-                        <label>Google Budget</label>
+                        <label for="googleBudget">Google Budget</label>
                         <input id="googleBudget" type="number" min="0" step="0.01" placeholder="0">
                     </div>
                     <div class="field">
-                        <label>Facebook Budget</label>
+                        <label for="facebookBudget">Facebook Budget</label>
                         <input id="facebookBudget" type="number" min="0" step="0.01" placeholder="0">
                     </div>
                     <div class="field">
-                        <label>Instagram Budget</label>
+                        <label for="instagramBudget">Instagram Budget</label>
                         <input id="instagramBudget" type="number" min="0" step="0.01" placeholder="0">
                     </div>
                 </div>
@@ -629,7 +685,7 @@
                     <h2>Campaign Results & Analytics Dashboard</h2>
                 </div>
                 <div class="cards" id="metricsCards"></div>
-                
+
                 <div class="platforms" id="platformsBreakdown"></div>
 
                 <div class="tablewrap">
@@ -683,10 +739,10 @@
             const platform = val('platform');
             const typeSelect = $('type');
             const goalSelect = $('goal');
-            
+
             typeSelect.innerHTML = '<option value="">Select campaign type</option>';
             goalSelect.innerHTML = '<option value="">Select goal</option>';
-            
+
             if (!platform) {
                 $('googleBudget').disabled = false;
                 $('facebookBudget').disabled = false;
@@ -783,9 +839,9 @@
 
             // Collect active platform budgets
             let activeBudgets = [];
-            if (! $('googleBudget').disabled && gB > 0) activeBudgets.push({ name: 'Google Ads', budget: gB });
-            if (! $('facebookBudget').disabled && fB > 0) activeBudgets.push({ name: 'Facebook Ads', budget: fB });
-            if (! $('instagramBudget').disabled && iB > 0) activeBudgets.push({ name: 'Instagram Ads', budget: iB });
+            if (!$('googleBudget').disabled && gB > 0) activeBudgets.push({ name: 'Google Ads', budget: gB });
+            if (!$('facebookBudget').disabled && fB > 0) activeBudgets.push({ name: 'Facebook Ads', budget: fB });
+            if (!$('instagramBudget').disabled && iB > 0) activeBudgets.push({ name: 'Instagram Ads', budget: iB });
 
             // If user left platform budgets empty, distribute total budget evenly among active channels
             if (activeBudgets.length === 0) {
@@ -866,8 +922,6 @@
             const overallCtr = (totalClicks / totalImpressions) * 100;
             const overallCpc = totalSpend / totalClicks;
             const overallCpm = (totalSpend / totalImpressions) * 1000;
-            const overallLeadRate = (totalLeads / totalClicks) * 100;
-            const overallSalesRate = (totalConversions / totalLeads) * 100;
             const overallCpl = totalLeads > 0 ? totalSpend / totalLeads : 0;
             const overallCpa = totalConversions > 0 ? totalSpend / totalConversions : 0;
             const overallRoas = totalSpend > 0 ? totalRevenue / totalSpend : 0;
@@ -937,8 +991,22 @@
             $('errorBox').style.display = 'none';
             $('resultsSection').classList.remove('show');
         }
+
+        // Remove any Nice Select instance the theme creates on the calculator's dropdowns
+        window.addEventListener('load', function () {
+            function destroyNice() {
+                if (window.jQuery && jQuery.fn.niceSelect) {
+                    jQuery('#adCampaignCalculator select').niceSelect('destroy');
+                }
+                document.querySelectorAll('#adCampaignCalculator .nice-select').forEach(function (el) { el.remove(); });
+                document.querySelectorAll('#adCampaignCalculator select').forEach(function (s) { s.style.display = 'block'; });
+            }
+            setTimeout(destroyNice, 300);
+            setTimeout(destroyNice, 1200);
+        });
     </script>
-  <!--<< Footer Section Start >>-->
+
+    <!--<< Footer Section Start >>-->
     <footer class="footer-section footer-section-main fix">
         <div class="container">
             <div class="row g-lg-0 g-4 justify-content-between">
@@ -1072,6 +1140,6 @@
     <script src="assets/js/vanilla-tilt.min.js"></script>
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
-    
+
 </body>
 </html>
