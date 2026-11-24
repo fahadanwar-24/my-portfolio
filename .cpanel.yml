@@ -1,5 +1,6 @@
+
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/znu688r4am6h/public_html/
+    - export DEPLOYPATH=/home/znu688r4am6h/public_html/fahadanwer.com/
     - /bin/cp -R * $DEPLOYPATH
